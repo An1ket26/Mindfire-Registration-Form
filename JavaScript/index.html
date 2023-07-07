@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tinos:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <form class="register">
+        <div class="form-header">
+          <h1><ins>Registration Form </ins></h1>
+          <img src="dummy_profile_2.png" alt="profile photo" class="profileImage" id="profileImage">
+        </div>
+        <div class="form-body">
+          <div class="pcol-25">
+            <label for="fname">First Name :<br><span style="color: red;display: none;">*required</span> </label>
+          </div>
+          <div class="pcol-75">
+            <input
+              type="text"
+              name="fname"
+              id="fname"
+              autofocus
+              placeholder="First Name"
+            />
+          </div>
+
+          <div class="pcol-25">
+            <label for="lname">Last Name :<br><span style="color: red; display: none;">*required</span> </label>
+          </div>
+          <div class="pcol-75">
+            <input
+              type="text"
+              name="fname"
+              id="lname"
+              placeholder="Last Name"
+            />
+          </div>
+          <div class="pcol-25">
+            <!-- <i class="fa fa-envelope icon"></i> -->
+            <label for="email">Personal email : <br><span style="color: red; display: none;">*Please enter valid mail</span> </label>
+          </div>
+
+          <div class="pcol-75">
+            <input
+              type="email"
+              name="dob"
+              id="email"
+              size="30"
+              placeholder="something@xyz.com"
+            />
+          </div>
+          <div class="pcol-25">
+            <label for="dob">Date of Birth : <br><span style="color: red;display: none;">*Must be 18 year older</span> </label>
+          </div>
+
+          <div class="pcol-75">
+            <input type="date" name="dob" id="dob" />
+          </div>
+
+          <div class="pcol-25">
+            <label for="gender">Select your Gender<br><span style="color: red; display: none;">*required</span></label>
+            
+          </div>
+          <div class="pcol-75">
+            <select id="gender" name="gender">
+              <option value="none" selected disabled hidden>Select an Option</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="pcol-25">
+            <label for="profilePic">Profile Picture :</label>
+          </div>
+          <div class="pcol-75">
+            <input
+              type="file"
+              name="profilePic"
+              id="profilePic"
+              accept=".jpg, .png, .jpeg, .gif"
+              
+            />
+          </div>
+          <fieldset>
+            <legend>Present Address :</legend>
+            <div class="pcol-25">
+              <label for="paddress1">Address line 1 : <br><span style="color: red; display: none;">*required</span></label>
+            </div>
+            <div class="pcol-75">
+              <input
+                id="paddress1"
+                type="text"
+                placeholder="Address line 1"
+              />
+            </div>
+
+            <div class="pcol-25">
+              <label for="paddress2">Address line 2 : </label>
+            </div>
+            <div class="pcol-75">
+              <input
+                id="paddress2"
+                type="text"
+                placeholder="Address line 2"
+              />
+            </div>
+            <div class="pcol-25">
+              <label for="ppcode">Postal Code :<br><span style="color: red; display: none;">*required</span> </label>
+            </div>
+            <div class="pcol-75">
+              <input id="ppcode" type="number" placeholder="Postal Code" />
+            </div>
+
+            <div class="pcol-25">
+              <label for="pcountry">Country :<br><span style="color: red; display: none;">*required</span> </label>
+            </div>
+            <div class="pcol-75">
+              
+              <select id="pcountry" value="">
+                <option value="none" selected disabled hidden>Select an Option</option>
+            </select>
+            </div>
+            <div class="pcol-25">
+              <label for="pstate">State : <br><span style="color: red; display: none;">*Please select country first</span></label>
+            </div>
+            <div class="pcol-75">
+              
+              <select id="pstate">
+                <option value="none" selected disabled hidden>Select an Option</option>
+            </select>
+            </div>
+            <div class="pcol-25">
+              <label for="pcity">City : <br><span style="color: red; display: none;">*Please select state first</span></label>
+            </div>
+
+            <div class="pcol-75">
+              <select id="pcity">
+                <option value="none" selected disabled hidden>Select an Option</option>
+            </select>
+            </div>
+          </fieldset>
+          
+            <fieldset>
+              <legend>Permanent Address :</legend>
+              <input type="checkbox" name="same" id="same" onclick=presentToPermanent() class="checkWidth" />
+              <label for="same">Same as present address</label><br><br>
+              <div class="pcol-25">
+                <label for="address1">Address line 1 :<br><span style="color: red; display: none;">*required</span> </label>
+              </div>
+              <div class="pcol-75">
+                <input
+                  id="address1"
+                  type="text"
+                  placeholder="Address line 1"
+                />
+              </div>
+
+              <div class="pcol-25">
+                <label for="address2">Address line 2 : </label>
+              </div>
+              <div class="pcol-75">
+                <input
+                  id="address2"
+                  type="text"
+                  placeholder="Address line 2"
+                />
+              </div>
+              <div class="pcol-25">
+                <label for="pcode">Postal Code :<br><span style="color: red; display: none;">*required</span> </label>
+              </div>
+              <div class="pcol-75">
+                <input id="pcode" type="number" placeholder="Postal Code" />
+              </div>
+              
+              <div class="pcol-25">
+                <label for="country">Country :<br><span style="color: red; display: none;">*required</span> </label>
+              </div>
+              <div class="pcol-75">
+                <select id="country">
+                  <option value="none" selected disabled hidden>Select an Option</option>
+              </select>
+              </div>
+              <div class="pcol-25">
+                <label for="state">State :<br><span style="color: red; display: none;">*Please select country first</span> </label>
+              </div>
+              <div class="pcol-75">
+                <select id="state">
+                  <option value="none" selected disabled hidden>Select an Option</option>
+              </select>
+              </div>
+              <div class="pcol-25">
+                <label for="city">City :<br><span style="color: red; display: none;">*Please select state first</span> </label>
+              </div>
+
+              <div class="pcol-75">
+                <select id="city">
+                  <option value="none" selected disabled hidden>Select an Option</option>
+              </select>
+              </div>
+            </fieldset>
+          
+          <br />
+          <div class="pcol-25">
+            <label for="hobby">Enter your Hobbies :<br><span style="color: red; display: none;">*Please enter 3 hobbies</span></label>
+          </div>
+          <div class="col-75">
+            <input
+              id="hobby"
+              type="text"
+              placeholder="Enter Hobby separated by comma"
+              list="hobbies"
+              style="width: 210px;"
+              multiple
+            />
+            <datalist id="hobbies">
+              <option value="Playing games">
+              <option value="Gardening">
+              <option value="Chess">
+              <option value="Watching Movies">
+              <option value="Reading Books">
+            </datalist>
+            <br /><br />
+          </div>
+
+          <input type="checkbox" name="subscribe" id="subscribe" class="checkWidth"/>
+          <label for="subscribe">Subscribe to Newsletter</label><br /><br />
+        </div>
+        <div class="form-footer">
+          <input type="submit" value="Submit" class="btn-submit" id="submit"/>
+        </div>
+      </form>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
