@@ -384,6 +384,14 @@ const countryChange = async () => {
   option.text = "Select an Option";
   option.setAttribute("selected", "selected");
   state.add(option);
+  city.innerHTML="";
+  let option3 = document.createElement("option");
+  option3.setAttribute("hidden", "hidden");
+  option3.setAttribute("disabled", "disabled");
+  option3.value = "none";
+  option3.text = "Select an Option";
+  option3.setAttribute("selected", "selected");
+  city.add(option3);
   errors[13] = true;
   for (const st of states) {
     var option2 = document.createElement("option");
@@ -408,6 +416,14 @@ pcountry.addEventListener("change", async () => {
   option.text = "Select an Option";
   option.setAttribute("selected", "selected");
   pstate.add(option);
+  pcity.innerHTML="";
+  let option3 = document.createElement("option");
+  option3.setAttribute("hidden", "hidden");
+  option3.setAttribute("disabled", "disabled");
+  option3.value = "none";
+  option3.text = "Select an Option";
+  option3.setAttribute("selected", "selected");
+  pcity.add(option3);
   errors[8] = true;
   for (const st of states) {
     var option2 = document.createElement("option");
