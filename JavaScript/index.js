@@ -205,8 +205,7 @@ city.addEventListener("click", () => {
 //--------------------------------------------Profilepic------------------------------
 
 profilePic.addEventListener("change", (e) => {
-  // console.log(e.target.files);
-  const imgSrc = e.target.files[0].name;
+  const imgSrc = URL.createObjectURL(e.target.files[0]);
   profileImage.setAttribute("src", imgSrc);
 });
 
@@ -238,15 +237,15 @@ const presentToPermanent = async () => {
     state.value = pstate.value;
     await fetchCity();
     city.value = pcity.value;
-    errors[14] = false;
-    errorTag[14].style.display = "none";
+    for (let i = 10; i <= 14; i++) {
+      errors[i] = false;
+      errorTag[i].style.display = "none";
+    }
   } else {
     addr1.value = "";
     addr2.value = "";
     pcode.value = "";
     country.value = country.options[0].value;
-    errors[12] = true;
-    errorTag[12].style.display = "";
     state.innerHTML = "";
     var option2 = document.createElement("option");
     option2.value = "none";
@@ -255,8 +254,6 @@ const presentToPermanent = async () => {
     option2.setAttribute("hidden", "hidden");
     option2.setAttribute("disabled", "disabled");
     state.add(option2);
-    errors[13] = true;
-    errorTag[13].style.display = "";
     city.innerHTML = "";
     var option = document.createElement("option");
     option.setAttribute("hidden", "hidden");
@@ -265,8 +262,10 @@ const presentToPermanent = async () => {
     option.text = "Select an Option";
     option.setAttribute("selected", "selected");
     city.add(option);
-    errors[14] = true;
-    errorTag[14].style.display = "";
+    for (let i = 10; i <= 14; i++) {
+      errors[i] = true;
+      errorTag[i].style.display = "";
+    }
   }
 };
 
