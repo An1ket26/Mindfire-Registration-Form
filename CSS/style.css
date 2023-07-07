@@ -53,7 +53,7 @@ select {
   width: 200px;
 }
 .checkWidth {
-  width: 20px !important;
+  width: 20px ;
 }
 .pcol-25 {
   float: left;
@@ -109,6 +109,9 @@ legend {
 input:focus {
   background-color: #f8f8ff;
 }
+input[type="file"]{
+    border: 0px;
+}
 
 .form-footer {
   background-color: #eff0f1;
@@ -123,19 +126,30 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-@media (max-width: 487px) {
+@media (max-width: 486px) {
+  * {
+    box-sizing: content-box;
+  }
+  .container {
+    margin: 0;
+    width: 100%;
+  }
+  .register {
+    width: 100%;
+    padding: 0;
+  }
   .pcol-25 {
-    width: 100% !important;
+    width: 100% ;
   }
   .pcol-75 {
-    width: 100% !important;
+    width: 100%;
   }
   .col-75 {
-    width: 100% !important;
+    width: 100%;
   }
 }
 
-@media (max-width: 912px) {
+@media (max-width: 912px) and (min-width:487px) {
   * {
     box-sizing: content-box;
   }

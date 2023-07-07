@@ -11,10 +11,6 @@
       href="https://fonts.googleapis.com/css2?family=Tinos:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
     <title>Registration Form</title>
   </head>
   <body>
@@ -64,7 +60,7 @@
             />
           </div>
           <div class="pcol-25">
-            <label for="dob">Date of Birth : <br><span style="color: red;display: none;">*Please select dob</span> </label>
+            <label for="dob">Date of Birth : <br><span style="color: red;display: none;">*Must be 18 year older</span> </label>
           </div>
 
           <div class="pcol-75">
@@ -93,6 +89,7 @@
               name="profilePic"
               id="profilePic"
               accept=".jpg, .png, .jpeg, .gif"
+              
             />
           </div>
           <fieldset>
@@ -126,7 +123,7 @@
             </div>
 
             <div class="pcol-25">
-              <label for="pcountry">Country : </label>
+              <label for="pcountry">Country :<br><span style="color: red; display: none;">*required</span> </label>
             </div>
             <div class="pcol-75">
               
@@ -150,9 +147,6 @@
             <div class="pcol-75">
               <select id="pcity">
                 <option value="none" selected disabled hidden>Select an Option</option>
-                <option value="Bhubaneswar">Bhubaneswar</option>
-                <option value="Rourkela">Rourkela</option>
-                <option value="Patna">Patna</option>
             </select>
             </div>
           </fieldset>
@@ -183,14 +177,14 @@
                 />
               </div>
               <div class="pcol-25">
-                <label for="pcode">Postal Code :<br><span style="color: red; display: none;">*required</span </label>
+                <label for="pcode">Postal Code :<br><span style="color: red; display: none;">*required</span> </label>
               </div>
               <div class="pcol-75">
                 <input id="pcode" type="number" placeholder="Postal Code" />
               </div>
               
               <div class="pcol-25">
-                <label for="country">Country : </label>
+                <label for="country">Country :<br><span style="color: red; display: none;">*required</span> </label>
               </div>
               <div class="pcol-75">
                 <select id="country">
@@ -212,9 +206,6 @@
               <div class="pcol-75">
                 <select id="city">
                   <option value="none" selected disabled hidden>Select an Option</option>
-                  <option value="Bhubaneswar">Bhubaneswar</option>
-                  <option value="Rourkela">Rourkela</option>
-                  <option value="Patna">Patna</option>
               </select>
               </div>
             </fieldset>
@@ -246,7 +237,7 @@
           <label for="subscribe">Subscribe to Newsletter</label><br /><br />
         </div>
         <div class="form-footer">
-          <input type="submit" value="Submit" class="btn-submit" />
+          <input type="submit" value="Submit" class="btn-submit" id="submit"/>
         </div>
       </form>
     </div>
