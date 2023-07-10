@@ -19,7 +19,7 @@ const permanentPostalCode = document.getElementById("permanentPostalCode");
 const permanentCountry = document.getElementById("permanentCountry");
 const permanentState = document.getElementById("permanentState");
 const permanentCity = document.getElementById("permanentCity");
-
+const enteredHobbies=document.getElementById("enteredHobbies");
 const resultDiv = document.getElementById("resultDiv");
 
 const copyFromPresentToPermanentCheckbox = document.getElementById(
