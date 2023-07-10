@@ -20,12 +20,16 @@ const permanentCountry = document.getElementById("permanentCountry");
 const permanentState = document.getElementById("permanentState");
 const permanentCity = document.getElementById("permanentCity");
 
+const resultDiv = document.getElementById("resultDiv");
+
 const copyFromPresentToPermanentCheckbox = document.getElementById(
   "copyFromPresentToPermanentCheckbox"
 );
 const hobbyInput = document.getElementById("hobbyInput");
 
-const spanErrorArray = document.getElementsByTagName("span");
+const spanErrorArray = document
+  .getElementById("formMain")
+  .getElementsByTagName("span");
 
 const submitButton = document.getElementById("submit");
 const errorSize = spanErrorArray.length;
@@ -37,31 +41,34 @@ for (let i = 0; i < errorSize; i++) {
   errors[i] = true;
 }
 
-//-------------------------------------------Validations-------------------------------
+//-----------------------------------------------Validations-------------------------------------------------
+
+const inputChangeValidationWrong = (elementId, index) => {
+  elementId.style.borderColor = "red";
+  spanErrorArray[index].style.display = "block";
+  errors[index] = true;
+};
+const inputChangeValidationCorrect = (elementId, index) => {
+  elementId.style.borderColor = "black";
+  spanErrorArray[index].style.display = "none";
+  errors[index] = false;
+};
 
 firstNameInput.addEventListener("input", () => {
   const firstNameData = firstNameInput.value.trim();
   if (firstNameData.length === 0) {
-    firstNameInput.style.borderColor = "red";
-    spanErrorArray[0].style.display = "";
-    errors[0] = true;
+    inputChangeValidationWrong(firstNameInput, 0);
   } else {
-    firstNameInput.style.borderColor = "black";
-    spanErrorArray[0].style.display = "none";
-    errors[0] = false;
+    inputChangeValidationCorrect(firstNameInput, 0);
   }
 });
 
 lastNameInput.addEventListener("input", () => {
   const lastNameData = lastNameInput.value.trim();
   if (lastNameData.length === 0) {
-    lastNameInput.style.borderColor = "red";
-    spanErrorArray[1].style.display = "";
-    errors[1] = true;
+    inputChangeValidationWrong(lastNameInput, 1);
   } else {
-    lastNameInput.style.borderColor = "black";
-    spanErrorArray[1].style.display = "none";
-    errors[1] = false;
+    inputChangeValidationCorrect(lastNameInput, 1);
   }
 });
 
@@ -69,13 +76,9 @@ emailInput.addEventListener("input", () => {
   const emailData = emailInput.value.trim();
   const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   if (emailData.length === 0 || regex.test(emailData) === false) {
-    emailInput.style.borderColor = "red";
-    spanErrorArray[2].style.display = "";
-    errors[2] = true;
+    inputChangeValidationWrong(emailInput, 2);
   } else {
-    emailInput.style.borderColor = "black";
-    spanErrorArray[2].style.display = "none";
-    errors[2] = false;
+    inputChangeValidationCorrect(emailInput, 2);
   }
 });
 
@@ -84,11 +87,9 @@ dateofBirthInput.addEventListener("change", () => {
   let inputDate = new Date(dateofBirthInput.value);
   const differenceYear = (todayDate - inputDate) / (1000 * 60 * 60 * 24 * 365);
   if (differenceYear < 18) {
-    spanErrorArray[3].style.display = "";
-    errors[3] = true;
+    inputChangeValidationWrong(dateofBirthInput, 3);
   } else {
-    errors[3] = false;
-    spanErrorArray[3].style.display = "none";
+    inputChangeValidationCorrect(dateofBirthInput, 3);
   }
 });
 
@@ -98,105 +99,79 @@ genderInput.addEventListener("change", () => {
     genderInput.value === "Female" ||
     genderInput.value === "other"
   ) {
-    // console.log(genderInput.value);
-    errors[4] = false;
-    spanErrorArray[4].style.display = "none";
+    inputChangeValidationCorrect(genderInput, 4);
   }
 });
 
-//-----------------------------------------Present address-------------------------------
+//--------------------------------------------Present address---------------------------------------------
 
 presentAddressLine1.addEventListener("input", () => {
-  const addr1Data = presentAddressLine1.value.trim();
-  if (addr1Data.length === 0) {
-    presentAddressLine1.style.borderColor = "red";
-    spanErrorArray[5].style.display = "";
-    errors[5] = true;
+  const presentAddressLine1Data = presentAddressLine1.value.trim();
+  if (presentAddressLine1Data.length === 0) {
+    inputChangeValidationWrong(presentAddressLine1, 5);
   } else {
-    presentAddressLine1.style.borderColor = "black";
-    spanErrorArray[5].style.display = "none";
-    errors[5] = false;
+    inputChangeValidationCorrect(presentAddressLine1, 5);
   }
 });
 
 presentPostalCode.addEventListener("input", () => {
   const postalCode = presentPostalCode.value.trim();
   if (postalCode.length === 0) {
-    presentPostalCode.style.borderColor = "red";
-    spanErrorArray[6].style.display = "";
-    errors[6] = true;
+    inputChangeValidationWrong(presentPostalCode, 6);
   } else {
-    presentPostalCode.style.borderColor = "black";
-    spanErrorArray[6].style.display = "none";
-    errors[6] = false;
+    inputChangeValidationCorrect(presentAddressLine1, 6);
   }
 });
 
 presentState.addEventListener("click", () => {
   if (presentCountry.value === "none") {
-    spanErrorArray[8].style.display = "";
-    errors[8] = true;
+    inputChangeValidationWrong(presentState, 8);
   } else {
-    spanErrorArray[8].style.display = "none";
-    errors[8] = false;
+    inputChangeValidationCorrect(presentState, 8);
   }
 });
 
 presentCity.addEventListener("click", () => {
   if (presentState.value === "none") {
-    spanErrorArray[9].style.display = "";
-    errors[9] = true;
+    inputChangeValidationWrong(presentCity, 9);
   } else {
-    spanErrorArray[9].style.display = "none";
-    errors[9] = false;
+    inputChangeValidationCorrect(presentCity, 9);
   }
 });
 
 //---------------------------------------------Permanent address-------------------------------------
 
 permanentAddressLine1.addEventListener("input", () => {
-  const addr1Data = permanentAddressLine1.value.trim();
-  if (addr1Data.length === 0) {
-    permanentAddressLine1.style.borderColor = "red";
-    spanErrorArray[10].style.display = "";
-    errors[10] = true;
+  const permanentAddressLine1Data = permanentAddressLine1.value.trim();
+  if (permanentAddressLine1Data.length === 0) {
+    inputChangeValidationWrong(permanentAddressLine1, 10);
   } else {
-    permanentAddressLine1.style.borderColor = "black";
-    spanErrorArray[10].style.display = "none";
-    errors[10] = false;
+    inputChangeValidationCorrect(permanentAddressLine1, 10);
   }
 });
 
 permanentPostalCode.addEventListener("input", () => {
   const postalCode = permanentPostalCode.value.trim();
   if (postalCode.length === 0) {
-    permanentPostalCode.style.borderColor = "red";
-    spanErrorArray[11].style.display = "";
-    errors[11] = true;
+    inputChangeValidationWrong(permanentPostalCode, 11);
   } else {
-    permanentPostalCode.style.borderColor = "black";
-    spanErrorArray[11].style.display = "none";
-    errors[11] = false;
+    inputChangeValidationCorrect(permanentAddressLine1, 11);
   }
 });
 
 permanentState.addEventListener("click", () => {
   if (permanentCountry.value === "none") {
-    spanErrorArray[13].style.display = "";
-    errors[13] = true;
+    inputChangeValidationWrong(permanentState, 13);
   } else {
-    spanErrorArray[13].style.display = "none";
-    errors[13] = false;
+    inputChangeValidationCorrect(permanentState, 13);
   }
 });
 
 permanentCity.addEventListener("click", () => {
   if (permanentState.value === "none") {
-    spanErrorArray[14].style.display = "";
-    errors[14] = true;
+    inputChangeValidationWrong(permanentCity, 14);
   } else {
-    spanErrorArray[14].style.display = "none";
-    errors[14] = false;
+    inputChangeValidationCorrect(permanentCity, 14);
   }
 });
 
@@ -213,13 +188,23 @@ const checkPresentAddressData = () => {
   let isError = false;
   for (let i = 5; i <= 9; i++) {
     if (errors[i] == true) {
-      spanErrorArray[i].style.display = "";
+      spanErrorArray[i].style.display = "block";
     } else {
       spanErrorArray[i].style.display = "none";
     }
     isError = isError || errors[i];
   }
   return isError;
+};
+
+const createOptionSelect = () => {
+  var option = document.createElement("option");
+  option.value = "none";
+  option.text = "Select an Option";
+  option.setAttribute("selected", "selected");
+  option.setAttribute("hidden", "hidden");
+  option.setAttribute("disabled", "disabled");
+  return option;
 };
 
 const presentToPermanent = async () => {
@@ -231,9 +216,15 @@ const presentToPermanent = async () => {
     permanentAddressLine2.value = presentAddressLine2.value;
     permanentPostalCode.value = presentPostalCode.value;
     permanentCountry.value = presentCountry.value;
-    await countryChange();
+    await countryChange(
+      12,
+      permanentCountry,
+      permanentState,
+      permanentCity,
+      13
+    );
     permanentState.value = presentState.value;
-    await permanentFetchCity();
+    await fetchCity(13, permanentState, permanentCity, 14);
     permanentCity.value = presentCity.value;
     for (let i = 10; i <= 14; i++) {
       errors[i] = false;
@@ -245,24 +236,12 @@ const presentToPermanent = async () => {
     permanentPostalCode.value = "";
     permanentCountry.value = permanentCountry.options[0].value;
     permanentState.innerHTML = "";
-    var option2 = document.createElement("option");
-    option2.value = "none";
-    option2.text = "Select an Option";
-    option2.setAttribute("selected", "selected");
-    option2.setAttribute("hidden", "hidden");
-    option2.setAttribute("disabled", "disabled");
-    permanentState.add(option2);
+    permanentState.add(createOptionSelect());
     permanentCity.innerHTML = "";
-    var option = document.createElement("option");
-    option.setAttribute("hidden", "hidden");
-    option.setAttribute("disabled", "disabled");
-    option.value = "none";
-    option.text = "Select an Option";
-    option.setAttribute("selected", "selected");
-    permanentCity.add(option);
+    permanentCity.add(createOptionSelect());
     for (let i = 10; i <= 14; i++) {
       errors[i] = true;
-      spanErrorArray[i].style.display = "";
+      spanErrorArray[i].style.display = "block";
     }
   }
 };
@@ -284,8 +263,8 @@ hobbyInput.addEventListener("input", () => {
   const validateHobbyOptions = hobbyInput.value
     .split(",")
     .map((value) => value.trim());
-  if (validateHobbyOptions.length < 3 || validateHobbyOptions[2] === "") {
-    spanErrorArray[15].style.display = "";
+  if (validateHobbyOptions.length < 1 || validateHobbyOptions[0] === "") {
+    spanErrorArray[15].style.display = "block";
     errors[15] = true;
   } else {
     spanErrorArray[15].style.display = "none";
@@ -304,6 +283,13 @@ hobbyInput.addEventListener("input", () => {
 });
 
 //------------------------------------Fetch Country-----------------------------------
+
+const createOption = (value, text) => {
+  var option = document.createElement("option");
+  option.value = value;
+  option.text = text;
+  return option;
+};
 
 const fetchCountries = async () => {
   const res = await fetch(
@@ -332,14 +318,12 @@ const fetchCountries = async () => {
 
   const countryData = await response.json();
   for (const countries of countryData) {
-    var option = document.createElement("option");
-    option.value = countries.country_name;
-    option.text = countries.country_name;
-    permanentCountry.add(option);
-    var option2 = document.createElement("option");
-    option2.value = countries.country_name;
-    option2.innerHTML = countries.country_name;
-    presentCountry.add(option2);
+    permanentCountry.add(
+      createOption(countries.country_name, countries.country_name)
+    );
+    presentCountry.add(
+      createOption(countries.country_name, countries.country_name)
+    );
   }
 };
 
@@ -359,94 +343,40 @@ const fetchState = async (countryInputValue) => {
   return stateApiData;
 };
 
-const countryChange = async () => {
-  errors[12] = false;
-  spanErrorArray[12].style.display = "none";
+const countryChange = async (index, countryId, stateId, cityId, stateIndex) => {
+  errors[index] = false;
+  spanErrorArray[index].style.display = "none";
 
-  const countryInputValue = permanentCountry.value;
+  const countryInputValue = countryId.value;
   const stateApiData = await fetchState(countryInputValue);
 
-  permanentState.innerHTML = "";
-  let option = document.createElement("option");
-  option.setAttribute("hidden", "hidden");
-  option.setAttribute("disabled", "disabled");
-  option.value = "none";
-  option.text = "Select an Option";
-  option.setAttribute("selected", "selected");
-  permanentState.add(option);
+  stateId.innerHTML = "";
+  stateId.add(createOptionSelect());
+  cityId.innerHTML = "";
+  cityId.add(createOptionSelect());
 
-  permanentCity.innerHTML = "";
-  let option3 = document.createElement("option");
-  option3.setAttribute("hidden", "hidden");
-  option3.setAttribute("disabled", "disabled");
-  option3.value = "none";
-  option3.text = "Select an Option";
-  option3.setAttribute("selected", "selected");
-  permanentCity.add(option3);
-
-  errors[13] = true;
+  errors[stateIndex] = true;
 
   for (const stateData of stateApiData) {
-    var option2 = document.createElement("option");
-    option2.value = stateData.state_name;
-    option2.text = stateData.state_name;
-    permanentState.add(option2);
+    stateId.add(createOption(stateData.state_name, stateData.state_name));
   }
 };
 
-permanentCountry.addEventListener("change", countryChange);
+permanentCountry.addEventListener("change", () => {
+  countryChange(12, permanentCountry, permanentState, permanentCity, 13);
+});
 
-presentCountry.addEventListener("change", async () => {
-  errors[7] = false;
-  spanErrorArray[7].style.display = "none";
-
-  const countryInputValue = presentCountry.value;
-  const stateApiData = await fetchState(countryInputValue);
-
-  presentState.innerHTML = "";
-  let option = document.createElement("option");
-  option.setAttribute("hidden", "hidden");
-  option.setAttribute("disabled", "disabled");
-  option.value = "none";
-  option.text = "Select an Option";
-  option.setAttribute("selected", "selected");
-  presentState.add(option);
-
-  presentCity.innerHTML = "";
-  let option3 = document.createElement("option");
-  option3.setAttribute("hidden", "hidden");
-  option3.setAttribute("disabled", "disabled");
-  option3.value = "none";
-  option3.text = "Select an Option";
-  option3.setAttribute("selected", "selected");
-  presentCity.add(option3);
-
-  errors[8] = true;
-
-  for (const stateData of stateApiData) {
-    var option2 = document.createElement("option");
-    option2.value = stateData.state_name;
-    option2.text = stateData.state_name;
-    presentState.add(option2);
-  }
+presentCountry.addEventListener("change", () => {
+  countryChange(7, presentCountry, presentState, presentCity, 8);
 });
 
 //----------------------------------Fetch City----------------------------------------------
 
-const permanentCityChange = async () => {
-  permanentFetchCity();
-};
-const presentCityChange = async () => {
-  presentFetchCity();
-};
-permanentState.addEventListener("change", permanentCityChange);
-presentState.addEventListener("change", presentCityChange);
+const fetchCity = async (index, stateId, cityId, cityIndex) => {
+  errors[index] = false;
+  spanErrorArray[index].style.display = "none";
 
-const permanentFetchCity = async () => {
-  errors[13] = false;
-  spanErrorArray[13].style.display = "none";
-
-  const stateName = permanentState.value;
+  const stateName = stateId.value;
   const response = await fetch(
     `https://www.universal-tutorial.com/api/cities/${stateName}`,
     {
@@ -458,110 +388,98 @@ const permanentFetchCity = async () => {
   );
   const cityData = await response.json();
 
-  permanentCity.innerHTML = "";
-  let option = document.createElement("option");
-  option.setAttribute("hidden", "hidden");
-  option.setAttribute("disabled", "disabled");
-  option.value = "none";
-  option.text = "Select an Option";
-  option.setAttribute("selected", "selected");
-  permanentCity.add(option);
+  cityId.innerHTML = "";
+  cityId.add(createOptionSelect());
 
-  errors[14] = true;
+  errors[cityIndex] = true;
 
   if (cityData.length === 0) {
-    let option2 = document.createElement("option");
-    option2.value = stateName;
-    option2.text = stateName;
-    permanentCity.add(option2);
+    cityId.add(createOption(stateName, stateName));
   } else {
     for (const cit of cityData) {
-      let option2 = document.createElement("option");
-      option2.value = cit.city_name;
-      option2.text = cit.city_name;
-      permanentCity.add(option2);
+      cityId.add(createOption(cit.city_name, cit.city_name));
     }
   }
 };
 
-const presentFetchCity = async () => {
-  const stateName = presentState.value;
-  const response = await fetch(
-    `https://www.universal-tutorial.com/api/cities/${stateName}`,
-    {
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-        Accept: "application/json",
-      },
-    }
-  );
-  const cityData = await response.json();
-
-  presentCity.innerHTML = "";
-  let option = document.createElement("option");
-  option.setAttribute("hidden", "hidden");
-  option.setAttribute("disabled", "disabled");
-  option.value = "none";
-  option.text = "Select an Option";
-  option.setAttribute("selected", "selected");
-  presentCity.add(option);
-  errors[9] = true;
-
-  if (cityData.length === 0) {
-    let option2 = document.createElement("option");
-    option2.value = stateName;
-    option2.text = stateName;
-    presentCity.add(option2);
-  } else {
-    for (const cit of cityData) {
-      var option2 = document.createElement("option");
-      option2.value = cit.city_name;
-      option2.text = cit.city_name;
-      presentCity.add(option2);
-    }
-  }
-};
+permanentState.addEventListener("change", () => {
+  fetchCity(13, permanentState, permanentCity, 14);
+});
+presentState.addEventListener("change", () => {
+  fetchCity(8, presentState, presentCity, 9);
+});
 
 //------------------------------------------Form submit actions-------------------------------------------
 
+const dispalyResultDiv = (formData) => {
+  resultDiv.style.display = "block";
+  const inputTags = document
+    .getElementById("container")
+    .getElementsByTagName("input");
+  for (let i = 0; i < inputTags.length; i++) {
+    if (inputTags[i].attributes.displayId) {
+      document.getElementById(
+        inputTags[i].attributes.displayId.value
+      ).innerHTML = inputTags[i].value===""?"NA":inputTags[i].value;
+    }
+  }
+  const selectTags = document
+    .getElementById("container")
+    .getElementsByTagName("select");
+  for (let i = 0; i < selectTags.length; i++) {
+    if (selectTags[i].attributes.displayId) {
+      document.getElementById(
+        selectTags[i].attributes.displayId.value
+      ).innerHTML = selectTags[i].value;
+    }
+  }
+  for (hobbyData of formData["Hobbies"]) {
+    enteredHobbies.innerHTML =
+      enteredHobbies.innerHTML === ""
+        ? hobbyData
+        : enteredHobbies.innerHTML + "," + hobbyData;
+  }
+};
+
 const onSubmit = (e) => {
   e.preventDefault();
-  let isError=false;
+  // console.log(errorSize);
+  let isError = false;
   for (let i = 0; i < errorSize; i++) {
     if (errors[i]) {
-      spanErrorArray[i].style.display = "";
+      spanErrorArray[i].style.display = "block";
     }
-    isError=isError||errors[i];
+    // console.log(errors[i]);
+    isError = isError || errors[i];
   }
-  if(!isError){
+  // console.log(isError);
+  if (!isError) {
     const formData = {
-      "First Name":firstNameInput.value,
-      "Last Name":lastNameInput.value,
-      "Email ":emailInput.value,
-      "Date of Birth":dateofBirthInput.value,
-      "Gender":genderInput.value,
-      "Present Address":{
-        "Address line 1":presentAddressLine1.value,
-        "Address line 2":presentAddressLine2.value,
-        "Postal Code":presentPostalCode.value,
-        "Country":presentCountry.value,
-        "State":presentState.value,
-        "City":presentCity.value,
+      FirstName: firstNameInput.value,
+      LastName: lastNameInput.value,
+      Email: emailInput.value,
+      DateofBirth: dateofBirthInput.value,
+      Gender: genderInput.value,
+      PresentAddress: {
+        Addressline1: presentAddressLine1.value,
+        Addressline2: presentAddressLine2.value,
+        PostalCode: presentPostalCode.value,
+        Country: presentCountry.value,
+        State: presentState.value,
+        City: presentCity.value,
       },
-      "Permanent Address":{
-        "Address line 1":permanentAddressLine1.value,
-        "Address line 2":permanentAddressLine2.value,
-        "Postal Code":permanentPostalCode.value,
-        "Country":permanentCountry.value,
-        "State":permanentState.value,
-        "City":permanentCity.value,
+      PermanentAddress: {
+        Addressline1: permanentAddressLine1.value,
+        Addressline2: permanentAddressLine2.value,
+        PostalCode: permanentPostalCode.value,
+        Country: permanentCountry.value,
+        State: permanentState.value,
+        City: permanentCity.value,
       },
-      "Hobbies":hobbyInput.value.split(','),
+      Hobbies: hobbyInput.value.split(","),
     };
-  console.log(formData);
-  }
-  else{
-  return false;
+    console.log(formData);
+    dispalyResultDiv(formData);
   }
 };
 
@@ -569,4 +487,6 @@ submitButton.addEventListener("click", onSubmit);
 
 //----------------------------------------Initial Function Calls-------------------------------------------
 
-fetchCountries();
+document.addEventListener("DOMContentLoaded", () => {
+  fetchCountries();
+});

@@ -14,8 +14,8 @@
     <title>Registration Form</title>
   </head>
   <body>
-    <div class="container">
-      <form class="register">
+    <div class="container" id="container">
+      <form class="form-main" id="formMain">
         <div class="form-header">
           <h1><ins>Registration Form </ins></h1>
           <img
@@ -26,76 +26,70 @@
           />
         </div>
         <div class="form-body">
-          <div class="pcol-25">
+          <div class="div-col-20">
             <label for="firstNameInput"
-              >First Name :<br /><span style="color: red; display: none"
-                >*required</span
-              >
+              >First Name :<br /><span>*required</span>
             </label>
           </div>
-          <div class="pcol-75">
+          <div class="div-col-30">
             <input
               type="text"
               name="firstNameInput"
               id="firstNameInput"
               autofocus
               placeholder="First Name"
+              displayId="enteredFirstName"
             />
           </div>
 
-          <div class="pcol-25">
+          <div class="div-col-20">
             <label for="lastNameInput"
-              >Last Name :<br /><span style="color: red; display: none"
-                >*required</span
-              >
+              >Last Name :<br /><span>*required</span>
             </label>
           </div>
-          <div class="pcol-75">
+          <div class="div-col-30">
             <input
               type="text"
               name="lastNameInput"
               id="lastNameInput"
               placeholder="Last Name"
+              displayId="enteredLastName"
             />
           </div>
-          <div class="pcol-25">
+          <div class="div-col-20">
             <label for="emailInput"
-              >Personal Email : <br /><span style="color: red; display: none"
-                >*Please enter valid mail</span
-              >
+              >Personal Email : <br /><span>*Please enter valid mail</span>
             </label>
           </div>
 
-          <div class="pcol-75">
+          <div class="div-col-30">
             <input
               type="emailInput"
               name="dateofBirthInput"
               id="emailInput"
               size="30"
               placeholder="something@xyz.com"
+              displayId="enteredEmail"
+              
             />
           </div>
-          <div class="pcol-25">
+          <div class="div-col-20">
             <label for="dateofBirthInput"
-              >Date of Birth : <br /><span style="color: red; display: none"
-                >*Must be 18 year older</span
-              >
+              >Date of Birth : <br /><span>*Must be 18 year older</span>
             </label>
           </div>
 
-          <div class="pcol-75">
-            <input type="date" name="dateofBirthInput" id="dateofBirthInput" />
+          <div class="div-col-30">
+            <input type="date" name="dateofBirthInput" id="dateofBirthInput"  displayId="enteredDOB"/>
           </div>
 
-          <div class="pcol-25">
+          <div class="div-col-20">
             <label for="genderInput"
-              >Select your gender<br /><span style="color: red; display: none"
-                >*required</span
-              ></label
+              >Select your gender<br /><span>*required</span></label
             >
           </div>
-          <div class="pcol-75">
-            <select id="genderInput" name="genderInput">
+          <div class="div-col-30">
+            <select id="genderInput" name="genderInput" displayId="enteredGender">
               <option value="none" selected disabled hidden>
                 Select an Option
               </option>
@@ -105,10 +99,10 @@
             </select>
           </div>
 
-          <div class="pcol-25">
+          <div class="div-col-20">
             <label for="profileImageInput">Profile Picture :</label>
           </div>
-          <div class="pcol-75">
+          <div class="div-col-30">
             <input
               type="file"
               name="profileImageInput"
@@ -118,72 +112,77 @@
           </div>
           <fieldset>
             <legend>Present Address :</legend>
-            <div class="pcol-25">
+            <div class="div-col-20">
               <label for="presentAddressLine1"
-                >Address line 1 : <br /><span style="color: red; display: none"
-                  >*required</span
-                ></label
+                >Address line 1 : <br /><span>*required</span></label
               >
             </div>
-            <div class="pcol-75">
-              <input id="presentAddressLine1" type="text" placeholder="Address line 1" />
+            <div class="div-col-30">
+              <input
+                id="presentAddressLine1"
+                type="text"
+                placeholder="Address line 1"
+                displayId="enteredPresentAddressLine1"
+              />
             </div>
 
-            <div class="pcol-25">
+            <div class="div-col-20">
               <label for="presentAddressLine2">Address line 2 : </label>
             </div>
-            <div class="pcol-75">
-              <input id="presentAddressLine2" type="text" placeholder="Address line 2" />
+            <div class="div-col-30">
+              <input
+                id="presentAddressLine2"
+                type="text"
+                placeholder="Address line 2"
+                displayId="enteredPresentAddressLine2"
+              />
             </div>
-            <div class="pcol-25">
+            <div class="div-col-20">
               <label for="presentPostalCode"
-                >Postal Code :<br /><span style="color: red; display: none"
-                  >*required</span
-                >
+                >Postal Code :<br /><span>*required</span>
               </label>
             </div>
-            <div class="pcol-75">
-              <input id="presentPostalCode" type="number" placeholder="Postal Code" />
+            <div class="div-col-30">
+              <input
+                id="presentPostalCode"
+                type="number"
+                placeholder="Postal Code"
+                displayId="enteredPresentPostalCode"
+              />
             </div>
 
-            <div class="pcol-25">
+            <div class="div-col-20">
               <label for="presentCountry"
-                >Country :<br /><span style="color: red; display: none"
-                  >*required</span
-                >
+                >Country :<br /><span>*required</span>
               </label>
             </div>
-            <div class="pcol-75">
-              <select id="presentCountry" value="">
+            <div class="div-col-30">
+              <select id="presentCountry" value="" displayId="enteredPresentCountry">
                 <option value="none" selected disabled hidden>
                   Select an Option
                 </option>
               </select>
             </div>
-            <div class="pcol-25">
+            <div class="div-col-20">
               <label for="presentState"
-                >State : <br /><span style="color: red; display: none"
-                  >*Please select Country first</span
-                ></label
+                >State : <br /><span>*Please select Country first</span></label
               >
             </div>
-            <div class="pcol-75">
-              <select id="presentState">
+            <div class="div-col-30">
+              <select id="presentState" displayId="enteredPresentState">
                 <option value="none" selected disabled hidden>
                   Select an Option
                 </option>
               </select>
             </div>
-            <div class="pcol-25">
+            <div class="div-col-20">
               <label for="presentCity"
-                >City : <br /><span style="color: red; display: none"
-                  >*Please select state first</span
-                ></label
+                >City : <br /><span>*Please select state first</span></label
               >
             </div>
 
-            <div class="pcol-75">
-              <select id="presentCity">
+            <div class="div-col-30">
+              <select id="presentCity" displayId="enteredPresentCity">
                 <option value="none" selected disabled hidden>
                   Select an Option
                 </option>
@@ -198,75 +197,82 @@
               name="copyFromPresentToPermanentCheckbox"
               id="copyFromPresentToPermanentCheckbox"
               onclick="presentToPermanent()"
-              class="checkWidth"
+              class="checkbox-width"
             />
-            <label for="copyFromPresentToPermanentCheckbox">Same as present address</label><br /><br />
-            <div class="pcol-25">
+            <label for="copyFromPresentToPermanentCheckbox"
+              >Same as present address</label
+            ><br /><br />
+            <div class="div-col-20">
               <label for="permanentAddressLine1"
-                >Address line 1 :<br /><span style="color: red; display: none"
-                  >*required</span
-                >
+                >Address line 1 :<br /><span>*required</span>
               </label>
             </div>
-            <div class="pcol-75">
-              <input id="permanentAddressLine1" type="text" placeholder="Address line 1" />
+            <div class="div-col-30">
+              <input
+                id="permanentAddressLine1"
+                type="text"
+                placeholder="Address line 1"
+                displayId="enteredPermanentAddressLine1"
+              />
             </div>
 
-            <div class="pcol-25">
+            <div class="div-col-20">
               <label for="permanentAddressLine2">Address line 2 : </label>
             </div>
-            <div class="pcol-75">
-              <input id="permanentAddressLine2" type="text" placeholder="Address line 2" />
+            <div class="div-col-30">
+              <input
+                id="permanentAddressLine2"
+                type="text"
+                placeholder="Address line 2"
+                displayId="enteredPermanentAddressLine2"
+              />
             </div>
-            <div class="pcol-25">
+            <div class="div-col-20">
               <label for="permanentPostalCode"
-                >Postal Code :<br /><span style="color: red; display: none"
-                  >*required</span
-                >
+                >Postal Code :<br /><span>*required</span>
               </label>
             </div>
-            <div class="pcol-75">
-              <input id="permanentPostalCode" type="number" placeholder="Postal Code" />
+            <div class="div-col-30">
+              <input
+                id="permanentPostalCode"
+                type="number"
+                placeholder="Postal Code"
+                displayId="enteredPermanentPostalCode"
+              />
             </div>
 
-            <div class="pcol-25">
+            <div class="div-col-20">
               <label for="permanentCountry"
-                >Country :<br /><span style="color: red; display: none"
-                  >*required</span
-                >
+                >Country :<br /><span>*required</span>
               </label>
             </div>
-            <div class="pcol-75">
-              <select id="permanentCountry">
+            <div class="div-col-30">
+              <select id="permanentCountry" displayId="enteredPermanentCountry">
                 <option value="none" selected disabled hidden>
                   Select an Option
                 </option>
               </select>
             </div>
-            <div class="pcol-25">
+            <div class="div-col-20">
               <label for="permanentState"
-                >State :<br /><span style="color: red; display: none"
-                  >*Please select Country first</span
-                >
+                >State :<br /><span>*Please select Country first</span>
               </label>
             </div>
-            <div class="pcol-75">
-              <select id="permanentState">
+            <div class="div-col-30">
+              <select id="permanentState" displayId="enteredPermanentState">
                 <option value="none" selected disabled hidden>
                   Select an Option
                 </option>
               </select>
             </div>
-            <div class="pcol-25">
+            <div class="div-col-20">
               <label for="permanentCity"
-                >City :<br /><span style="color: red; display: none"
-                  >*Please select state first</span
-                >
+                >City :<br /><span>*Please select state first</span>
               </label>
             </div>
 
-            <div class="pcol-75">
-              <select id="permanentCity">
+            <div class="div-col-30">
+              <select id="permanentCity" displayId="enteredPermanentCity">
                 <option value="none" selected disabled hidden>
                   Select an Option
                 </option>
@@ -275,14 +281,14 @@
           </fieldset>
 
           <br />
-          <div class="pcol-25">
+          <div class="div-col-20">
             <label for="hobbyInput"
-              >Enter your Hobbies :<br /><span style="color: red; display: none"
-                >*Please enter 3 hobbies</span
+              >Enter your Hobbies :<br /><span
+                >*Please enter 1 hobbies</span
               ></label
             >
           </div>
-          <div class="col-75">
+          <div class="div-col-80">
             <input
               id="hobbyInput"
               type="text"
@@ -305,15 +311,110 @@
           <input
             type="checkbox"
             name="subscribe"
-            id="subscribe"
-            class="checkWidth"
+            id="subscribe-checkbox"
+            class="checkbox-width"
           />
-          <label for="subscribe">Subscribe to Newsletter</label><br /><br />
+          <label for="subscribe-checkbox">Subscribe to Newsletter</label
+          ><br /><br />
         </div>
         <div class="form-footer">
           <input type="submit" value="Submit" class="btn-submit" id="submit" />
         </div>
       </form>
+
+      <div id="resultDiv" class="result-div">
+        <div class="result-header">
+          <h1><ins>Form Details</ins></h1>
+        </div>
+        <div class="details">
+          <div class="personal-details-header">
+            <h2>Personal Details :</h2>
+          </div>
+          <div id="personalDetails" class="personal-details">
+            <div class="div-col-20">First Name :</div>
+            <div class="div-col-30">
+              <span id="enteredFirstName">Aniket</span>
+            </div>
+            <div class="div-col-20">Last Name :</div>
+            <div class="div-col-30"><span id="enteredLastName"></span></div>
+            <div class="div-col-20">Email :</div>
+            <div class="div-col-30"><span id="enteredEmail"></span></div>
+            <div class="div-col-20">Date of Birth :</div>
+            <div class="div-col-30"><span id="enteredDOB"></span></div>
+            <div class="div-col-50">Gender :</div>
+            <div class="div-col-50"><span id="enteredGender"></span></div>
+          </div>
+          <br />
+          <div class="present-address-header"><h2>Present Address :</h2></div>
+          <br />
+          <div id="presentAddress" class="present-address">
+            <div class="div-col-20">Address Line 1 :</div>
+            <div class="div-col-30">
+              <span id="enteredPresentAddressLine1"></span>
+            </div>
+
+            <div class="div-col-20">Address Line 2 :</div>
+            <div class="div-col-30">
+              <span id="enteredPresentAddressLine2"></span>
+            </div>
+
+            <div class="div-col-20">Postal Code :</div>
+            <div class="div-col-30">
+              <span id="enteredPresentPostalCode"></span>
+            </div>
+
+            <div class="div-col-20">Country :</div>
+            <div class="div-col-30">
+              <span id="enteredPresentCountry"></span>
+            </div>
+
+            <div class="div-col-20">State :</div>
+            <div class="div-col-30"><span id="enteredPresentState"></span></div>
+
+            <div class="div-col-20">City :</div>
+            <div class="div-col-30"><span id="enteredPresentCity"></span></div>
+          </div>
+
+          <div class="permanent-address-header">
+            <h2>Permanent Address :</h2>
+          </div>
+          <br />
+          <div id="permanentAddress" class="permanent-address">
+            <div class="div-col-20">Address Line 1 :</div>
+            <div class="div-col-30">
+              <span id="enteredPermanentAddressLine1"></span>
+            </div>
+
+            <div class="div-col-20">Address Line 2 :</div>
+            <div class="div-col-30">
+              <span id="enteredPermanentAddressLine2"></span>
+            </div>
+
+            <div class="div-col-20">Postal Code :</div>
+            <div class="div-col-30">
+              <span id="enteredPermanentPostalCode"></span>
+            </div>
+            <div class="div-col-20">Country :</div>
+            <div class="div-col-30">
+              <span id="enteredPermanentCountry"></span>
+            </div>
+            <div class="div-col-20">State :</div>
+            <div class="div-col-30">
+              <span id="enteredPermanentState"></span>
+            </div>
+            <div class="div-col-20">City :</div>
+            <div class="div-col-30">
+              <span id="enteredPermanentCity"></span>
+            </div>
+          </div>
+          <div class="div-col-20">
+            Hobbies : 
+          </div>
+          <div class="div-col-80">
+          <span id="enteredHobbies"></span>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="index.js"></script>
   </body>
