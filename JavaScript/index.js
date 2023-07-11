@@ -132,7 +132,11 @@ presentState.addEventListener("click", () => {
 });
 
 presentCity.addEventListener("click", () => {
-  if (presentState.value === "none" || presentCity.value==="none") {
+  if (presentState.value === "none") {
+    spanErrorArray[9].innerHTML = "*please select state first";
+    inputChangeValidationWrong(presentCity, 9);
+  } else if (presentCity.value === "none") {
+    spanErrorArray[9].innerHTML = "*required";
     inputChangeValidationWrong(presentCity, 9);
   } else {
     inputChangeValidationCorrect(presentCity, 9);
@@ -168,9 +172,14 @@ permanentState.addEventListener("click", () => {
 });
 
 permanentCity.addEventListener("click", () => {
-  if (permanentState.value === "none" || permanentCity.value === "none") {
+  if (permanentState.value === "none") {
+    spanErrorArray[9].innerHTML = "*please select state first";
     inputChangeValidationWrong(permanentCity, 14);
-  } else {
+  } else if(permanentCity.value === "none"){
+    spanErrorArray[9].innerHTML = "*required";
+    inputChangeValidationWrong(permanentCity,14);
+  }
+  else {
     inputChangeValidationCorrect(permanentCity, 14);
   }
 });
