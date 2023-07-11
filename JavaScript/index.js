@@ -413,6 +413,7 @@ presentState.addEventListener("change", () => {
 
 const dispalyResultDiv = (formData) => {
   resultDiv.style.display = "block";
+  resultDiv.scrollIntoView(false);
   const inputTags = document
     .getElementById("container")
     .getElementsByTagName("input");
