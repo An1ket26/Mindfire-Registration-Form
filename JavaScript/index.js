@@ -19,7 +19,7 @@ const permanentPostalCode = document.getElementById("permanentPostalCode");
 const permanentCountry = document.getElementById("permanentCountry");
 const permanentState = document.getElementById("permanentState");
 const permanentCity = document.getElementById("permanentCity");
-const enteredHobbies=document.getElementById("enteredHobbies");
+const enteredHobbies = document.getElementById("enteredHobbies");
 const resultDiv = document.getElementById("resultDiv");
 
 const copyFromPresentToPermanentCheckbox = document.getElementById(
@@ -119,7 +119,7 @@ presentPostalCode.addEventListener("input", () => {
   if (postalCode.length === 0) {
     inputChangeValidationWrong(presentPostalCode, 6);
   } else {
-    inputChangeValidationCorrect(presentAddressLine1, 6);
+    inputChangeValidationCorrect(presentPostalCode, 6);
   }
 });
 
@@ -132,7 +132,7 @@ presentState.addEventListener("click", () => {
 });
 
 presentCity.addEventListener("click", () => {
-  if (presentState.value === "none") {
+  if (presentState.value === "none" || presentCity.value==="none") {
     inputChangeValidationWrong(presentCity, 9);
   } else {
     inputChangeValidationCorrect(presentCity, 9);
@@ -168,7 +168,7 @@ permanentState.addEventListener("click", () => {
 });
 
 permanentCity.addEventListener("click", () => {
-  if (permanentState.value === "none") {
+  if (permanentState.value === "none" || permanentCity.value === "none") {
     inputChangeValidationWrong(permanentCity, 14);
   } else {
     inputChangeValidationCorrect(permanentCity, 14);
@@ -421,7 +421,7 @@ const dispalyResultDiv = (formData) => {
     if (inputTags[i].attributes.displayId) {
       document.getElementById(
         inputTags[i].attributes.displayId.value
-      ).innerHTML = inputTags[i].value===""?"NA":inputTags[i].value;
+      ).innerHTML = inputTags[i].value === "" ? "NA" : inputTags[i].value;
     }
   }
   const selectTags = document
