@@ -434,26 +434,17 @@ const dispalyResultDiv = (formData) => {
       ).innerHTML = selectTags[i].value;
     }
   }
-  for (hobbyData of formData["Hobbies"]) {
-    enteredHobbies.innerHTML =
-      enteredHobbies.innerHTML === ""
-        ? hobbyData
-        : enteredHobbies.innerHTML + "," + hobbyData;
-  }
 };
 
 const onSubmit = (e) => {
   e.preventDefault();
-  // console.log(errorSize);
   let isError = false;
   for (let i = 0; i < errorSize; i++) {
     if (errors[i]) {
       spanErrorArray[i].style.display = "block";
     }
-    // console.log(errors[i]);
     isError = isError || errors[i];
   }
-  // console.log(isError);
   if (!isError) {
     const formData = {
       FirstName: firstNameInput.value,
