@@ -12,11 +12,7 @@
       rel="stylesheet"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script>
-      $(document).ready(function(){
-        
-        })  
-    </script>
+    <script src="script.js"></script>
     <title>Registration Form</title>
   </head>
   <body>
@@ -34,7 +30,7 @@
         <div class="form-body">
           <div class="div-col-20">
             <label for="firstNameInput"
-              >First Name :<br /><span>*required</span>
+              >First Name :<br /><span id="firstNameError">*required</span>
             </label>
           </div>
           <div class="div-col-30">
@@ -45,12 +41,14 @@
               autofocus
               placeholder="First Name"
               displayId="enteredFirstName"
+              validation-data="notEmpty"
+              error-id="#firstNameError"
             />
           </div>
 
           <div class="div-col-20">
             <label for="lastNameInput"
-              >Last Name :<br /><span>*required</span>
+              >Last Name :<br /><span id="lastNameError">*required</span>
             </label>
           </div>
           <div class="div-col-30">
@@ -60,11 +58,15 @@
               id="lastNameInput"
               placeholder="Last Name"
               displayId="enteredLastName"
+              validation-data="notEmpty"
+              error-id="#lastNameError"
             />
           </div>
           <div class="div-col-20">
             <label for="emailInput"
-              >Personal Email : <br /><span>*Please enter valid mail</span>
+              >Personal Email : <br /><span id="emailError"
+                >*Please enter valid mail</span
+              >
             </label>
           </div>
 
@@ -76,26 +78,44 @@
               size="30"
               placeholder="something@xyz.com"
               displayId="enteredEmail"
-              
+              validation-data="email"
+              error-id="#emailError"
             />
           </div>
           <div class="div-col-20">
             <label for="dateofBirthInput"
-              >Date of Birth : <br /><span>*Must be 18 year older</span>
+              >Date of Birth : <br /><span id="dobError"
+                >*Must be 18 year older</span
+              >
             </label>
           </div>
 
           <div class="div-col-30">
-            <input type="date" name="dateofBirthInput" id="dateofBirthInput"  displayId="enteredDOB"/>
+            <input
+              type="date"
+              name="dateofBirthInput"
+              id="dateofBirthInput"
+              displayId="enteredDOB"
+              validation-data="dob>18"
+              error-id="#dobError"
+            />
           </div>
 
           <div class="div-col-20">
             <label for="genderInput"
-              >Select your gender<br /><span>*required</span></label
+              >Select your gender<br /><span id="genderError"
+                >*required</span
+              ></label
             >
           </div>
           <div class="div-col-30">
-            <select id="genderInput" name="genderInput" displayId="enteredGender">
+            <select
+              id="genderInput"
+              name="genderInput"
+              displayId="enteredGender"
+              validation-data="notEmpty"
+              error-id="#genderError"
+            >
               <option value="none" selected disabled hidden>
                 Select an Option
               </option>
@@ -116,11 +136,13 @@
               accept=".jpg, .png, .jpeg, .gif"
             />
           </div>
-          <fieldset>
+          <fieldset id="presentAddress">
             <legend>Present Address :</legend>
             <div class="div-col-20">
               <label for="presentAddressLine1"
-                >Address line 1 : <br /><span>*required</span></label
+                >Address line 1 : <br /><span id="presentAddressl1Error"
+                  >*required</span
+                ></label
               >
             </div>
             <div class="div-col-30">
@@ -129,6 +151,8 @@
                 type="text"
                 placeholder="Address line 1"
                 displayId="enteredPresentAddressLine1"
+                validation-data="notEmpty"
+                error-id="#presentAddressl1Error"
               />
             </div>
 
@@ -145,7 +169,9 @@
             </div>
             <div class="div-col-20">
               <label for="presentPostalCode"
-                >Postal Code :<br /><span>*required</span>
+                >Postal Code :<br /><span id="presentPostalCodeError"
+                  >*required</span
+                >
               </label>
             </div>
             <div class="div-col-30">
@@ -154,16 +180,24 @@
                 type="number"
                 placeholder="Postal Code"
                 displayId="enteredPresentPostalCode"
+                validation-data="notEmpty"
+                error-id="#presentPostalCodeError"
               />
             </div>
 
             <div class="div-col-20">
               <label for="presentCountry"
-                >Country :<br /><span>*required</span>
+                >Country :<br /><span id="presentCountryError">*required</span>
               </label>
             </div>
             <div class="div-col-30">
-              <select id="presentCountry" value="" displayId="enteredPresentCountry">
+              <select
+                id="presentCountry"
+                value=""
+                displayId="enteredPresentCountry"
+                validation-data="notEmpty"
+                error-id="#presentCountryError"
+              >
                 <option value="none" selected disabled hidden>
                   Select an Option
                 </option>
@@ -171,11 +205,19 @@
             </div>
             <div class="div-col-20">
               <label for="presentState"
-                >State : <br /><span>*Please select Country first</span></label
+                >State : <br /><span id="presentStateError"
+                  >*Please select Country first</span
+                ></label
               >
             </div>
             <div class="div-col-30">
-              <select id="presentState" displayId="enteredPresentState">
+              <select
+                id="presentState"
+                displayId="enteredPresentState"
+                validation-data="parentCheck notEmpty"
+                error-id="#presentStateError"
+                parent-id="#presentCountry"
+              >
                 <option value="none" selected disabled hidden>
                   Select an Option
                 </option>
@@ -183,12 +225,20 @@
             </div>
             <div class="div-col-20">
               <label for="presentCity"
-                >City : <br /><span>*Please select state first</span></label
+                >City : <br /><span id="presentCityError"
+                  >*Please select state first</span
+                ></label
               >
             </div>
 
             <div class="div-col-30">
-              <select id="presentCity" displayId="enteredPresentCity">
+              <select
+                id="presentCity"
+                displayId="enteredPresentCity"
+                validation-data="parentCheck notEmpty"
+                error-id="#presentCityError"
+                parent-id="#presentState"
+              >
                 <option value="none" selected disabled hidden>
                   Select an Option
                 </option>
@@ -196,13 +246,12 @@
             </div>
           </fieldset>
 
-          <fieldset>
+          <fieldset id="permanentAddress">
             <legend>Permanent Address :</legend>
             <input
               type="checkbox"
               name="copyFromPresentToPermanentCheckbox"
               id="copyFromPresentToPermanentCheckbox"
-              onclick="presentToPermanent()"
               class="checkbox-width"
             />
             <label for="copyFromPresentToPermanentCheckbox"
@@ -210,7 +259,9 @@
             ><br /><br />
             <div class="div-col-20">
               <label for="permanentAddressLine1"
-                >Address line 1 :<br /><span>*required</span>
+                >Address line 1 :<br /><span id="permanentAddressl1Error"
+                  >*required</span
+                >
               </label>
             </div>
             <div class="div-col-30">
@@ -219,6 +270,9 @@
                 type="text"
                 placeholder="Address line 1"
                 displayId="enteredPermanentAddressLine1"
+                validation-data="notEmpty"
+                error-id="#permanentAddressl1Error"
+                copy-val-id="#presentAddressLine1"
               />
             </div>
 
@@ -231,11 +285,14 @@
                 type="text"
                 placeholder="Address line 2"
                 displayId="enteredPermanentAddressLine2"
+                copy-val-id="#presentAddressLine2"
               />
             </div>
             <div class="div-col-20">
               <label for="permanentPostalCode"
-                >Postal Code :<br /><span>*required</span>
+                >Postal Code :<br /><span id="permanentPostalCodeError"
+                  >*required</span
+                >
               </label>
             </div>
             <div class="div-col-30">
@@ -244,16 +301,27 @@
                 type="number"
                 placeholder="Postal Code"
                 displayId="enteredPermanentPostalCode"
+                validation-data="notEmpty"
+                error-id="#permanentPostalCodeError"
+                copy-val-id="#presentPostalCode"
               />
             </div>
 
             <div class="div-col-20">
               <label for="permanentCountry"
-                >Country :<br /><span>*required</span>
+                >Country :<br /><span id="permanentCountryError"
+                  >*required</span
+                >
               </label>
             </div>
             <div class="div-col-30">
-              <select id="permanentCountry" displayId="enteredPermanentCountry">
+              <select
+                id="permanentCountry"
+                displayId="enteredPermanentCountry"
+                validation-data="notEmpty"
+                error-id="#permanentCountryError"
+                copy-val-id="#presentCountry"
+              >
                 <option value="none" selected disabled hidden>
                   Select an Option
                 </option>
@@ -261,11 +329,21 @@
             </div>
             <div class="div-col-20">
               <label for="permanentState"
-                >State :<br /><span>*Please select Country first</span>
+                >State :<br /><span id="permanentStateError"
+                  >*Please select Country first</span
+                >
               </label>
             </div>
             <div class="div-col-30">
-              <select id="permanentState" displayId="enteredPermanentState">
+              <select
+                id="permanentState"
+                displayId="enteredPermanentState"
+                validation-data="parentCheck notEmpty"
+                error-id="#permanentStateError"
+                parent-id="#permanentCountry"
+                copy-val-id="#presentState"
+                load-state-first="true"
+              >
                 <option value="none" selected disabled hidden>
                   Select an Option
                 </option>
@@ -273,12 +351,22 @@
             </div>
             <div class="div-col-20">
               <label for="permanentCity"
-                >City :<br /><span>*Please select state first</span>
+                >City :<br /><span id="permanentCityError"
+                  >*Please select state first</span
+                >
               </label>
             </div>
 
             <div class="div-col-30">
-              <select id="permanentCity" displayId="enteredPermanentCity">
+              <select
+                id="permanentCity"
+                displayId="enteredPermanentCity"
+                validation-data="parentCheck notEmpty"
+                error-id="#permanentCityError"
+                parent-id="#permanentState"
+                copy-val-id="#presentCity"
+                load-city-first="true"
+              >
                 <option value="none" selected disabled hidden>
                   Select an Option
                 </option>
@@ -289,7 +377,7 @@
           <br />
           <div class="div-col-20">
             <label for="hobbyInput"
-              >Enter your Hobbies :<br /><span
+              >Enter your Hobbies :<br /><span id="hobbyError"
                 >*Please enter 1 hobbies</span
               ></label
             >
@@ -300,9 +388,11 @@
               type="text"
               placeholder="Enter Hobby separated by comma"
               list="hobbies"
+              name="hobbies"
               style="width: 210px"
               multiple
               displayId="enteredHobbies"
+              error-id="#hobbyError"
             />
             <datalist id="hobbies">
               <option value="Playing games"></option>
@@ -311,21 +401,25 @@
               <option value="Watching Movies"></option>
               <option value="Reading Books"></option>
             </datalist>
-
             <br /><br />
           </div>
-
           <input
             type="checkbox"
             name="subscribe"
-            id="subscribe-checkbox"
+            id="subscribeCheckbox"
             class="checkbox-width"
+            displayId="isSubscribed"
           />
-          <label for="subscribe-checkbox">Subscribe to Newsletter</label
+          <label for="subscribeCheckbox">Subscribe to Newsletter</label
           ><br /><br />
         </div>
         <div class="form-footer">
-          <input type="submit" value="Submit" class="btn-submit" id="submit" />
+          <input
+            type="submit"
+            value="Submit"
+            class="btn-submit"
+            id="submitBtn"
+          />
         </div>
       </form>
 
@@ -340,16 +434,16 @@
           <div id="personalDetails" class="personal-details">
             <div class="div-col-20">First Name :</div>
             <div class="div-col-30">
-              <span id="enteredFirstName"></span>
+              <span id="enteredFirstName" objectName="FirstName"></span>
             </div>
             <div class="div-col-20">Last Name :</div>
-            <div class="div-col-30"><span id="enteredLastName"></span></div>
+            <div class="div-col-30"><span id="enteredLastName" objectName="LastName"></span></div>
             <div class="div-col-20">Email :</div>
-            <div class="div-col-30"><span id="enteredEmail"></span></div>
+            <div class="div-col-30"><span id="enteredEmail" objectName="Email"></span></div>
             <div class="div-col-20">Date of Birth :</div>
-            <div class="div-col-30"><span id="enteredDOB"></span></div>
+            <div class="div-col-30"><span id="enteredDOB" objectName="DateofBirth"></span></div>
             <div class="div-col-50">Gender :</div>
-            <div class="div-col-50"><span id="enteredGender"></span></div>
+            <div class="div-col-50"><span id="enteredGender" objectName="Gender"></span></div>
           </div>
           <br />
           <div class="present-address-header"><h2>Present Address :</h2></div>
@@ -357,29 +451,29 @@
           <div id="presentAddress" class="present-address">
             <div class="div-col-20">Address Line 1 :</div>
             <div class="div-col-30">
-              <span id="enteredPresentAddressLine1"></span>
+              <span id="enteredPresentAddressLine1" objectName="PresentAddressLine1"></span>
             </div>
 
             <div class="div-col-20">Address Line 2 :</div>
             <div class="div-col-30">
-              <span id="enteredPresentAddressLine2"></span>
+              <span id="enteredPresentAddressLine2" objectName="PresentAddressLine2"></span>
             </div>
 
             <div class="div-col-20">Postal Code :</div>
             <div class="div-col-30">
-              <span id="enteredPresentPostalCode"></span>
+              <span id="enteredPresentPostalCode" objectName="PresentPostalCode"></span>
             </div>
 
             <div class="div-col-20">Country :</div>
             <div class="div-col-30">
-              <span id="enteredPresentCountry"></span>
+              <span id="enteredPresentCountry" objectName="PresentCountry"></span>
             </div>
 
             <div class="div-col-20">State :</div>
-            <div class="div-col-30"><span id="enteredPresentState"></span></div>
+            <div class="div-col-30"><span id="enteredPresentState" objectName="PresentState"></span></div>
 
             <div class="div-col-20">City :</div>
-            <div class="div-col-30"><span id="enteredPresentCity"></span></div>
+            <div class="div-col-30"><span id="enteredPresentCity" objectName="PresentCity"></span></div>
           </div>
 
           <div class="permanent-address-header">
@@ -389,36 +483,38 @@
           <div id="permanentAddress" class="permanent-address">
             <div class="div-col-20">Address Line 1 :</div>
             <div class="div-col-30">
-              <span id="enteredPermanentAddressLine1"></span>
+              <span id="enteredPermanentAddressLine1" objectName="PermanentAddressLine1"></span>
             </div>
 
             <div class="div-col-20">Address Line 2 :</div>
             <div class="div-col-30">
-              <span id="enteredPermanentAddressLine2"></span>
+              <span id="enteredPermanentAddressLine2" objectName="PermanentAddressLine2"></span>
             </div>
 
             <div class="div-col-20">Postal Code :</div>
             <div class="div-col-30">
-              <span id="enteredPermanentPostalCode"></span>
+              <span id="enteredPermanentPostalCode" objectName="PermanentPostalCode"></span>
             </div>
             <div class="div-col-20">Country :</div>
             <div class="div-col-30">
-              <span id="enteredPermanentCountry"></span>
+              <span id="enteredPermanentCountry" objectName="PermanentCountry"></span>
             </div>
             <div class="div-col-20">State :</div>
             <div class="div-col-30">
-              <span id="enteredPermanentState"></span>
+              <span id="enteredPermanentState" objectName="PermanentState"></span>
             </div>
             <div class="div-col-20">City :</div>
             <div class="div-col-30">
-              <span id="enteredPermanentCity"></span>
+              <span id="enteredPermanentCity" objectName="PermanentCity"></span>
             </div>
           </div>
-          <div class="div-col-20">
-            Hobbies : 
-          </div>
+          <div class="div-col-20">Hobbies :</div>
           <div class="div-col-80">
-          <span id="enteredHobbies"></span>
+            <span id="enteredHobbies" objectName="Hobby"></span>
+          </div>
+          <div class="div-col-100">
+            Subscribed to Newsletter :
+            <span id="isSubscribed" objectName="Subscribe to Newsletter"></span>
           </div>
         </div>
       </div>
@@ -426,11 +522,3 @@
     <script src="index.js"></script>
   </body>
 </html>
-
-<!-- 
-  adj list 
-  two nodes ke bich mai kitna max common friends h
-  one way - traverse with every other node and match no of common friends
-  too much complexity
-  second way - 
- -->

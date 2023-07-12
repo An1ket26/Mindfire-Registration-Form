@@ -483,7 +483,6 @@ const onSubmit = (e) => {
     dispalyResultDiv(formData);
   }
 };
-
 submitButton.addEventListener("click", onSubmit);
 
 //----------------------------------------Initial Function Calls-------------------------------------------
