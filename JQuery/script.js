@@ -148,7 +148,7 @@ $(document).ready(function () {
       if (type === "parentCheck") {
         fl = checkSelectNotNone($(selectTag.attr("parent-id")).val());
         $(selectTag.attr("error-id"))
-          .text("please select some first")
+          .text(`please select ${selectTag.attr("id").includes("State")?"country":"state"} first`)
           .css("display", fl ? "none" : "block");
         if (!fl) {
           isError = true;
@@ -280,6 +280,13 @@ $(document).ready(function () {
     }
   });
 
+  // image
+
+  $("#profileImageInput").change(function(e){
+    const imgSrc = URL.createObjectURL(e.target.files[0]);
+    $("#profileImageDisplay").attr("src", imgSrc);
+  })
+
   //submit action
 
   const dispalyResultDiv = (formData) => {
@@ -296,9 +303,9 @@ $(document).ready(function () {
           ).is(":checked")
             ? "YES"
             : "NO";
-            $("#" + $(this).attr("displayId")).html(
-                formData[$("#" + $(this).attr("displayId")).attr("objectName")]
-              );
+          $("#" + $(this).attr("displayId")).html(
+            formData[$("#" + $(this).attr("displayId")).attr("objectName")]
+          );
         } else {
           formData[$("#" + $(this).attr("displayId")).attr("objectName")] = $(
             "#" + $(this).attr("displayId")
