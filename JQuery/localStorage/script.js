@@ -300,17 +300,14 @@ $(document).ready(function () {
           ).is(":checked")
             ? "YES"
             : "NO";
-          $("#" + $(this).attr("displayId")).html(
-            formData[$("#" + $(this).attr("displayId")).attr("objectName")]
-          );
         } else {
-          formData[$("#" + $(this).attr("displayId")).attr("objectName")] = $(this).val();
+          formData[$("#" + $(this).attr("displayId")).attr("objectName")] = $(this).val()===""?"NA":$(this).val();
         }
       }
     });
     $("#container select").each(function () {
       if ($(this).attr("displayId")) {
-        formData[$("#" + $(this).attr("displayId")).attr("objectName")] = $(this).val();
+        formData[$("#" + $(this).attr("displayId")).attr("objectName")] =$(this).val()===null?"NA":$(this).val();
       }
     });
   };
