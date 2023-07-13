@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Details</title>
+    <link rel="stylesheet" href="result.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="resultDiv" class="result-div">
+        <div class="result-header">
+          <h1><ins>Registration Form </ins></h1>
+          <img
+            src="dummy_profile_2.png"
+            alt="profile photo"
+            class="profile-image-display"
+            id="profileImageDisplay"
+          />
+        </div>
+        <div class="details">
+          <div class="personal-details-header">
+            <h2>Personal Details :</h2>
+          </div>
+          <div id="personalDetails" class="personal-details">
+            <div class="div-col-20">First Name :</div>
+            <div class="div-col-30">
+              <span id="enteredFirstName" objectName="FirstName"></span>
+            </div>
+            <div class="div-col-20">Last Name :</div>
+            <div class="div-col-30">
+              <span id="enteredLastName" objectName="LastName"></span>
+            </div>
+            <div class="div-col-20">Email :</div>
+            <div class="div-col-30">
+              <span id="enteredEmail" objectName="Email"></span>
+            </div>
+            <div class="div-col-20">Date of Birth :</div>
+            <div class="div-col-30">
+              <span id="enteredDOB" objectName="DateofBirth"></span>
+            </div>
+            <div class="div-col-50">Gender :</div>
+            <div class="div-col-50">
+              <span id="enteredGender" objectName="Gender"></span>
+            </div>
+          </div>
+          <br />
+          <div class="present-address-header"><h2>Present Address :</h2></div>
+          <!-- <br /> -->
+          <div id="presentAddress" class="present-address">
+            <div class="div-col-20">Address Line 1 :</div>
+            <div class="div-col-30">
+              <span
+                id="enteredPresentAddressLine1"
+                objectName="PresentAddressLine1"
+              ></span>
+            </div>
+
+            <div class="div-col-20">Address Line 2 :</div>
+            <div class="div-col-30">
+              <span
+                id="enteredPresentAddressLine2"
+                objectName="PresentAddressLine2"
+              ></span>
+            </div>
+
+            <div class="div-col-20">Postal Code :</div>
+            <div class="div-col-30">
+              <span
+                id="enteredPresentPostalCode"
+                objectName="PresentPostalCode"
+              ></span>
+            </div>
+
+            <div class="div-col-20">Country :</div>
+            <div class="div-col-30">
+              <span
+                id="enteredPresentCountry"
+                objectName="PresentCountry"
+              ></span>
+            </div>
+
+            <div class="div-col-20">State :</div>
+            <div class="div-col-30">
+              <span id="enteredPresentState" objectName="PresentState"></span>
+            </div>
+
+            <div class="div-col-20">City :</div>
+            <div class="div-col-30">
+              <span id="enteredPresentCity" objectName="PresentCity"></span>
+            </div>
+          </div>
+
+          <div class="permanent-address-header">
+            <h2>Permanent Address :</h2>
+          </div>
+          <!-- <br /> -->
+          <div id="permanentAddress" class="permanent-address">
+            <div class="div-col-20">Address Line 1 :</div>
+            <div class="div-col-30">
+              <span
+                id="enteredPermanentAddressLine1"
+                objectName="PermanentAddressLine1"
+              ></span>
+            </div>
+
+            <div class="div-col-20">Address Line 2 :</div>
+            <div class="div-col-30">
+              <span
+                id="enteredPermanentAddressLine2"
+                objectName="PermanentAddressLine2"
+              ></span>
+            </div>
+
+            <div class="div-col-20">Postal Code :</div>
+            <div class="div-col-30">
+              <span
+                id="enteredPermanentPostalCode"
+                objectName="PermanentPostalCode"
+              ></span>
+            </div>
+            <div class="div-col-20">Country :</div>
+            <div class="div-col-30">
+              <span
+                id="enteredPermanentCountry"
+                objectName="PermanentCountry"
+              ></span>
+            </div>
+            <div class="div-col-20">State :</div>
+            <div class="div-col-30">
+              <span
+                id="enteredPermanentState"
+                objectName="PermanentState"
+              ></span>
+            </div>
+            <div class="div-col-20">City :</div>
+            <div class="div-col-30">
+              <span id="enteredPermanentCity" objectName="PermanentCity"></span>
+            </div>
+          </div>
+          <div class="div-col-20">Hobbies :</div>
+          <div class="div-col-80">
+            <span id="enteredHobbies" objectName="Hobby"></span>
+          </div>
+          <div class="div-col-100">
+            Subscribed to Newsletter :
+            <span id="isSubscribed" objectName="Subscribe to Newsletter"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="result.js"></script>
+</html>

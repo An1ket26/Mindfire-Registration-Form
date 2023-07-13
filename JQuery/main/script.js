@@ -289,14 +289,9 @@ $(document).ready(function () {
 
   //submit action
 
-  const dispalyResultDiv = (formData) => {
-    $("#resultDiv").css("display", "block");
-    $("#resultDiv")[0].scrollIntoView(false);
+  const displayResultDiv = (formData) => {
     $("#container input").each(function () {
       if ($(this).attr("displayId")) {
-        $("#" + $(this).attr("displayId")).html(
-          $(this).val() === "" ? "NA" : $(this).val()
-        );
         if (this.id === "subscribeCheckbox") {
           formData[$("#" + $(this).attr("displayId")).attr("objectName")] = $(
             "#subscribeCheckbox"
@@ -307,21 +302,13 @@ $(document).ready(function () {
             formData[$("#" + $(this).attr("displayId")).attr("objectName")]
           );
         } else {
-          formData[$("#" + $(this).attr("displayId")).attr("objectName")] = $(
-            "#" + $(this).attr("displayId")
-          ).html();
+          formData[$("#" + $(this).attr("displayId")).attr("objectName")] = $(this).val();
         }
       }
     });
     $("#container select").each(function () {
       if ($(this).attr("displayId")) {
-        $("#" + $(this).attr("displayId")).html(
-          $(this).val() === null ? "NA" : $(this).val()
-        );
-
-        formData[$("#" + $(this).attr("displayId")).attr("objectName")] = $(
-          "#" + $(this).attr("displayId")
-        ).html();
+        formData[$("#" + $(this).attr("displayId")).attr("objectName")] = $(this).val();
       }
     });
   };
@@ -339,7 +326,16 @@ $(document).ready(function () {
       return false;
     }
     const formData = {};
-    dispalyResultDiv(formData);
+    displayResultDiv(formData);
+    formData.imageSrc=$("#profileImageDisplay").attr("src");
+    $.cookie("formData", null);
+    $.cookie("formData",JSON.stringify(formData),{ path: '/result.html' });
     console.log(formData);
+
+    location.href="/result.html"
   });
 });
+
+
+
+

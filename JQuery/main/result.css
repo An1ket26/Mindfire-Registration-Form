@@ -1,0 +1,149 @@
+.container {
+    background-color: white;
+    padding: 20px;
+  }
+
+.result-div {
+    width: 850px;
+    height:750px;
+    margin: auto;
+    background-color: #f8f8ff;
+    box-shadow: 5px 10px #888888;
+    border-radius: 20px;
+    color: #707070;
+  }
+  .result-header {
+    display: grid;
+  grid-template-columns: 65% 35%;
+  background-color: #eff0f1;
+  height: 100px;
+  padding: 5px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  align-items: center;
+  padding: 10px;
+  }
+  h1 {
+    justify-self: right;
+  }
+  .profile-image-display {
+    height: 80px;
+    width: 90px;
+    justify-self: right;
+    border-radius: 50%;
+  }
+  
+  .details {
+    padding: 15px;
+    font-size: medium;
+  }
+  .div-col-50 {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+    height: 20px;
+  }
+  .div-col-100 {
+    margin-top: 6px;
+  }
+  
+  .permanent-address-header {
+    margin-top: 90px;
+  }
+  .result-div span{
+    display: inline ;
+    color: black;
+  }
+  .div-col-20 {
+    float: left;
+    width: 20%;
+    margin-top: 6px;
+    height: 35px;
+  }
+  
+  .div-col-30 {
+    float: left;
+    width: 30%;
+    margin-top: 6px;
+    height: 35px;
+  }
+  
+  .div-col-80 {
+    float: left;
+    width: 80%;
+    margin-top: 6px;
+    height:35px;
+  }
+  .div-col-100 {
+    float: left;
+    width: 100%;
+    margin-top: 6px;
+    height:35px;
+  }
+
+  
+@media (max-width: 486px) {
+    * {
+      box-sizing: content-box;
+    }
+    .container {
+      margin: 0;
+      width: 100%;
+    }
+    .form-main {
+      width: 100%;
+      padding: 0;
+    }
+    .div-col-20 {
+      width: 100%;
+    }
+    .div-col-30 {
+      width: 100%;
+    }
+    .div-col-80 {
+      width: 100%;
+    }
+    .result-div {
+      width: 100%;
+      height:1330px;
+    }
+    .div-col-50 {
+      width: 100%;
+    }
+    .result-div .div-col-20{
+      height:20px;
+    }
+    .result-div .div-col-30{
+      height:20px;
+    }
+  }
+  
+  @media (max-width: 912px) and (min-width: 487px) {
+    * {
+      box-sizing: content-box;
+    }
+    .container {
+      margin: 0;
+      width: 100%;
+    }
+    .form-main {
+      width: 100%;
+      padding: 0;
+    }
+    .div-col-20 {
+      width: 50%;
+    }
+    .div-col-30 {
+      width: 50%;
+    }
+    .div-col-80 {
+      width: 50%;
+    }
+    .result-div {
+      width: 100%;
+      height:1100px;
+    }
+    .permanent-address-header{
+      margin-top: 170px;
+    }
+  }
