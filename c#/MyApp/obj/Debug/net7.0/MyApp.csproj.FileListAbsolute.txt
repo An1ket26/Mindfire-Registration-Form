@@ -1,0 +1,15 @@
+D:\Projects\Assignments\c#\MyApp\obj\Debug\net7.0\MyApp.csproj.AssemblyReference.cache
+D:\Projects\Assignments\c#\MyApp\obj\Debug\net7.0\MyApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Assignments\c#\MyApp\obj\Debug\net7.0\MyApp.AssemblyInfoInputs.cache
+D:\Projects\Assignments\c#\MyApp\obj\Debug\net7.0\MyApp.AssemblyInfo.cs
+D:\Projects\Assignments\c#\MyApp\obj\Debug\net7.0\MyApp.csproj.CoreCompileInputs.cache
+D:\Projects\Assignments\c#\MyApp\bin\Debug\net7.0\MyApp.exe
+D:\Projects\Assignments\c#\MyApp\bin\Debug\net7.0\MyApp.deps.json
+D:\Projects\Assignments\c#\MyApp\bin\Debug\net7.0\MyApp.runtimeconfig.json
+D:\Projects\Assignments\c#\MyApp\bin\Debug\net7.0\MyApp.dll
+D:\Projects\Assignments\c#\MyApp\bin\Debug\net7.0\MyApp.pdb
+D:\Projects\Assignments\c#\MyApp\obj\Debug\net7.0\MyApp.dll
+D:\Projects\Assignments\c#\MyApp\obj\Debug\net7.0\refint\MyApp.dll
+D:\Projects\Assignments\c#\MyApp\obj\Debug\net7.0\MyApp.pdb
+D:\Projects\Assignments\c#\MyApp\obj\Debug\net7.0\MyApp.genruntimeconfig.cache
+D:\Projects\Assignments\c#\MyApp\obj\Debug\net7.0\ref\MyApp.dll
