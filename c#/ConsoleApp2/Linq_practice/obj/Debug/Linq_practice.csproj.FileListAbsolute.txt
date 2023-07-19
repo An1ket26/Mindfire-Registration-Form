@@ -1,0 +1,8 @@
+D:\Projects\Assignments\c#\ConsoleApp2\Linq_practice\bin\Debug\Linq_practice.exe.config
+D:\Projects\Assignments\c#\ConsoleApp2\Linq_practice\bin\Debug\Linq_practice.exe
+D:\Projects\Assignments\c#\ConsoleApp2\Linq_practice\bin\Debug\Linq_practice.pdb
+D:\Projects\Assignments\c#\ConsoleApp2\Linq_practice\obj\Debug\Linq_practice.csproj.AssemblyReference.cache
+D:\Projects\Assignments\c#\ConsoleApp2\Linq_practice\obj\Debug\Linq_practice.csproj.SuggestedBindingRedirects.cache
+D:\Projects\Assignments\c#\ConsoleApp2\Linq_practice\obj\Debug\Linq_practice.csproj.CoreCompileInputs.cache
+D:\Projects\Assignments\c#\ConsoleApp2\Linq_practice\obj\Debug\Linq_practice.exe
+D:\Projects\Assignments\c#\ConsoleApp2\Linq_practice\obj\Debug\Linq_practice.pdb

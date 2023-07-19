@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -9,10 +9,16 @@
 
   <ItemGroup>
     <Compile Remove="Collection.cs" />
+    <Compile Remove="delegate.cs" />
     <Compile Remove="extension.cs" />
     <Compile Remove="partial.cs" />
     <Compile Remove="partial2.cs" />
     <Compile Remove="Program.cs" />
+    <Compile Remove="Reference.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
   </ItemGroup>
 
 </Project>
