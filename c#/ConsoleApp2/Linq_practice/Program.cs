@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using System.Data;
+using MySql.Data.MySqlClient;
 
 public class Student
 {
@@ -23,6 +23,17 @@ public class Practice
 {
     static void Main()
     {
+        DataSet ds = new DataSet();
+        var connectionString = "server=127.0.0.1;uid=root;pwd=mindfire;database=adventureworks";
+        //var mysqlConn = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
+        using (var con = new MySql.Data.MySqlClient.MySqlConnection(connectionString))
+        {
+            var sde = new MySqlDataAdapter("Select * from address", con);
+            sde.Fill(ds);
+        }
+
+
+
         IList<Student> studentList = new List<Student>() {
                 new Student() { Id = 1, Fname = "John", Lname = "Lewis", Age = 13} ,
                 new Student() { Id = 2, Fname = "Moin",Lname = "Lewis", Age = 21 } ,

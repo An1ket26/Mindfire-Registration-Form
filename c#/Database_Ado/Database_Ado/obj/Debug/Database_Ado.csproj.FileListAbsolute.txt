@@ -1,0 +1,15 @@
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\bin\Debug\Database_Ado.exe.config
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\bin\Debug\Database_Ado.exe
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\bin\Debug\Database_Ado.pdb
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\bin\Debug\MySql.Data.dll
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\bin\Debug\System.Memory.dll
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\bin\Debug\System.Numerics.Vectors.dll
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\bin\Debug\System.Buffers.dll
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\bin\Debug\MySql.Data.xml
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\obj\Debug\Database_Ado.csproj.AssemblyReference.cache
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\obj\Debug\Database_Ado.csproj.SuggestedBindingRedirects.cache
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\obj\Debug\Database_Ado.csproj.CoreCompileInputs.cache
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\obj\Debug\Database_Ado.csproj.CopyComplete
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\obj\Debug\Database_Ado.exe
+D:\Projects\Assignments\c#\Database_Ado\Database_Ado\obj\Debug\Database_Ado.pdb
