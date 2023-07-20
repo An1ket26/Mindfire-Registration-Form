@@ -1,0 +1,8 @@
+D:\Projects\Assignments\c#\ConsoleApp2\SendingMail\bin\Debug\SendingMail.exe.config
+D:\Projects\Assignments\c#\ConsoleApp2\SendingMail\bin\Debug\SendingMail.exe
+D:\Projects\Assignments\c#\ConsoleApp2\SendingMail\bin\Debug\SendingMail.pdb
+D:\Projects\Assignments\c#\ConsoleApp2\SendingMail\obj\Debug\SendingMail.csproj.AssemblyReference.cache
+D:\Projects\Assignments\c#\ConsoleApp2\SendingMail\obj\Debug\SendingMail.csproj.SuggestedBindingRedirects.cache
+D:\Projects\Assignments\c#\ConsoleApp2\SendingMail\obj\Debug\SendingMail.csproj.CoreCompileInputs.cache
+D:\Projects\Assignments\c#\ConsoleApp2\SendingMail\obj\Debug\SendingMail.exe
+D:\Projects\Assignments\c#\ConsoleApp2\SendingMail\obj\Debug\SendingMail.pdb
