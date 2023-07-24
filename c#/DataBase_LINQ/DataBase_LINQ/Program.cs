@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 
 class Process
 {
@@ -83,7 +84,7 @@ class Process
             }
 
         }*/
-
+        
 
         /*using(var dbContext = new WorldEntities())
         {
@@ -184,6 +185,25 @@ class Process
                 Console.WriteLine(item.FirstName);
             }
         }*/
+        using(var dbContext = new AdventureEntity())
+        {
+            /*dbContext.ContactTypes.Where(i => i.Name.EndsWith("Manager") );
+            dbContext.SalesOrderHeaders.Select(i => new
+            {
+                CustomerId = i.CustomerID,
+                Subtotal = i.SubTotal,
+                Tax_Percent = (i.TaxAmt / i.SubTotal) * 100
+            });
+            dbContext.Employees.OrderBy(i=>i.JobTitle).Select(i => i.JobTitle).Distinct();*/
+
+            //var items = dbContext.SalesOrderHeaders.GroupBy(x => x.CustomerID).Select(y => new { Cid = y.Key, SUm = y.Sum(i => i.Freight) }).OrderBy(i=>i.Cid);
+            //foreach (var item in items)
+            //{
+            //    Console.WriteLine(item.Cid+" "+item.SUm);
+            //}
+            //var str = from s in dbContext.SalesOrderHeaders group s by s.CustomerID into g orderby g.Key select new { Cid = g.Key, Sum = g.Sum(i => i.Freight) };
+            var str = dbContext.ProductInventories.Where(i=>i.Shelf=="A"|| i.Shelf == "C" || i.Shelf == "H").GroupBy(i => i.ProductID).Select(y => new { Pid = y.Key, Total = y.Sum(j => j.Quantity) }).Where(i=>i.Total>500);
+        }
 
 
         Console.ReadLine();
