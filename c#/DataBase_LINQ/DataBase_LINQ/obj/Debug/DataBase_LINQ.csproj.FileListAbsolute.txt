@@ -1,0 +1,13 @@
+D:\Projects\Assignments\c#\DataBase_LINQ\DataBase_LINQ\bin\Debug\DataBase_LINQ.exe.config
+D:\Projects\Assignments\c#\DataBase_LINQ\DataBase_LINQ\bin\Debug\DataBase_LINQ.exe
+D:\Projects\Assignments\c#\DataBase_LINQ\DataBase_LINQ\bin\Debug\DataBase_LINQ.pdb
+D:\Projects\Assignments\c#\DataBase_LINQ\DataBase_LINQ\bin\Debug\EntityFramework.dll
+D:\Projects\Assignments\c#\DataBase_LINQ\DataBase_LINQ\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Assignments\c#\DataBase_LINQ\DataBase_LINQ\bin\Debug\EntityFramework.xml
+D:\Projects\Assignments\c#\DataBase_LINQ\DataBase_LINQ\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Assignments\c#\DataBase_LINQ\DataBase_LINQ\obj\Debug\DataBase_LINQ.csproj.AssemblyReference.cache
+D:\Projects\Assignments\c#\DataBase_LINQ\DataBase_LINQ\obj\Debug\DataBase_LINQ.csproj.SuggestedBindingRedirects.cache
+D:\Projects\Assignments\c#\DataBase_LINQ\DataBase_LINQ\obj\Debug\DataBase_LINQ.csproj.CoreCompileInputs.cache
+D:\Projects\Assignments\c#\DataBase_LINQ\DataBase_LINQ\obj\Debug\DataBase_LINQ.csproj.CopyComplete
+D:\Projects\Assignments\c#\DataBase_LINQ\DataBase_LINQ\obj\Debug\DataBase_LINQ.exe
+D:\Projects\Assignments\c#\DataBase_LINQ\DataBase_LINQ\obj\Debug\DataBase_LINQ.pdb

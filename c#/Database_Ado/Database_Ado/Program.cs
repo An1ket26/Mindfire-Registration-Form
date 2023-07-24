@@ -187,11 +187,7 @@ public class Practice
 
         }*/
 
-        using (var dbContext = new TestDBEntities()) 
-        {
-            var users = dbContext.UserDetails.Where(r => r.FirstName == "test").;
-
-        }
+        
 
         using (var con = new MySql.Data.MySqlClient.MySqlConnection(connectionString))
         {

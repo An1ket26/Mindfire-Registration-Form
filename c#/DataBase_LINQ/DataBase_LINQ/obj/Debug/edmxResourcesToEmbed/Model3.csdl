@@ -1,0 +1,3026 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WideWorldImportersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="DetermineCustomerAccess_Result">
+    <Property Name="AccessResult" Type="Int32" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="Int32" Nullable="false" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StateProvinceID" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="Geography" />
+    <Property Name="LatestRecordedPopulation" Type="Int64" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Application_Cities_Application_People" FromRole="Cities" ToRole="People" />
+    <NavigationProperty Name="StateProvinces" Relationship="Self.FK_Application_Cities_StateProvinceID_Application_StateProvinces" FromRole="Cities" ToRole="StateProvinces" />
+    <NavigationProperty Name="SystemParameters" Relationship="Self.FK_Application_SystemParameters_DeliveryCityID_Application_Cities" FromRole="Cities" ToRole="SystemParameters" />
+    <NavigationProperty Name="SystemParameters1" Relationship="Self.FK_Application_SystemParameters_PostalCityID_Application_Cities" FromRole="Cities" ToRole="SystemParameters" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.FK_Purchasing_Suppliers_DeliveryCityID_Application_Cities" FromRole="Cities" ToRole="Suppliers" />
+    <NavigationProperty Name="Suppliers1" Relationship="Self.FK_Purchasing_Suppliers_PostalCityID_Application_Cities" FromRole="Cities" ToRole="Suppliers" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Sales_Customers_DeliveryCityID_Application_Cities" FromRole="Cities" ToRole="Customers" />
+    <NavigationProperty Name="Customers1" Relationship="Self.FK_Sales_Customers_PostalCityID_Application_Cities" FromRole="Cities" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FormalName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsoAlpha3Code" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="IsoNumericCode" Type="Int32" />
+    <Property Name="CountryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LatestRecordedPopulation" Type="Int64" />
+    <Property Name="Continent" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Subregion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Border" Type="Geography" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Application_Countries_Application_People" FromRole="Countries" ToRole="People" />
+    <NavigationProperty Name="StateProvinces" Relationship="Self.FK_Application_StateProvinces_CountryID_Application_Countries" FromRole="Countries" ToRole="StateProvinces" />
+  </EntityType>
+  <EntityType Name="DeliveryMethods">
+    <Key>
+      <PropertyRef Name="DeliveryMethodID" />
+    </Key>
+    <Property Name="DeliveryMethodID" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryMethodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Application_DeliveryMethods_Application_People" FromRole="DeliveryMethods" ToRole="People" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="Self.FK_Purchasing_PurchaseOrders_DeliveryMethodID_Application_DeliveryMethods" FromRole="DeliveryMethods" ToRole="PurchaseOrders" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.FK_Purchasing_Suppliers_DeliveryMethodID_Application_DeliveryMethods" FromRole="DeliveryMethods" ToRole="Suppliers" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Sales_Customers_DeliveryMethodID_Application_DeliveryMethods" FromRole="DeliveryMethods" ToRole="Customers" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_Sales_Invoices_DeliveryMethodID_Application_DeliveryMethods" FromRole="DeliveryMethods" ToRole="Invoices" />
+  </EntityType>
+  <EntityType Name="PaymentMethods">
+    <Key>
+      <PropertyRef Name="PaymentMethodID" />
+    </Key>
+    <Property Name="PaymentMethodID" Type="Int32" Nullable="false" />
+    <Property Name="PaymentMethodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Application_PaymentMethods_Application_People" FromRole="PaymentMethods" ToRole="People" />
+    <NavigationProperty Name="SupplierTransactions" Relationship="Self.FK_Purchasing_SupplierTransactions_PaymentMethodID_Application_PaymentMethods" FromRole="PaymentMethods" ToRole="SupplierTransactions" />
+    <NavigationProperty Name="CustomerTransactions" Relationship="Self.FK_Sales_CustomerTransactions_PaymentMethodID_Application_PaymentMethods" FromRole="PaymentMethods" ToRole="CustomerTransactions" />
+  </EntityType>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="PersonID" />
+    </Key>
+    <Property Name="PersonID" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PreferredName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SearchName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="IsPermittedToLogon" Type="Boolean" Nullable="false" />
+    <Property Name="LogonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsExternalLogonProvider" Type="Boolean" Nullable="false" />
+    <Property Name="HashedPassword" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IsSystemUser" Type="Boolean" Nullable="false" />
+    <Property Name="IsEmployee" Type="Boolean" Nullable="false" />
+    <Property Name="IsSalesperson" Type="Boolean" Nullable="false" />
+    <Property Name="UserPreferences" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FaxNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="CustomFields" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherLanguages" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_Application_Cities_Application_People" FromRole="People" ToRole="Cities" />
+    <NavigationProperty Name="Countries" Relationship="Self.FK_Application_Countries_Application_People" FromRole="People" ToRole="Countries" />
+    <NavigationProperty Name="DeliveryMethods" Relationship="Self.FK_Application_DeliveryMethods_Application_People" FromRole="People" ToRole="DeliveryMethods" />
+    <NavigationProperty Name="PaymentMethods" Relationship="Self.FK_Application_PaymentMethods_Application_People" FromRole="People" ToRole="PaymentMethods" />
+    <NavigationProperty Name="People1" Relationship="Self.FK_Application_People_Application_People" FromRole="People" ToRole="People1" />
+    <NavigationProperty Name="People2" Relationship="Self.FK_Application_People_Application_People" FromRole="People1" ToRole="People" />
+    <NavigationProperty Name="StateProvinces" Relationship="Self.FK_Application_StateProvinces_Application_People" FromRole="People" ToRole="StateProvinces" />
+    <NavigationProperty Name="SystemParameters" Relationship="Self.FK_Application_SystemParameters_Application_People" FromRole="People" ToRole="SystemParameters" />
+    <NavigationProperty Name="TransactionTypes" Relationship="Self.FK_Application_TransactionTypes_Application_People" FromRole="People" ToRole="TransactionTypes" />
+    <NavigationProperty Name="PurchaseOrderLines" Relationship="Self.FK_Purchasing_PurchaseOrderLines_Application_People" FromRole="People" ToRole="PurchaseOrderLines" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="Self.FK_Purchasing_PurchaseOrders_Application_People" FromRole="People" ToRole="PurchaseOrders" />
+    <NavigationProperty Name="PurchaseOrders1" Relationship="Self.FK_Purchasing_PurchaseOrders_ContactPersonID_Application_People" FromRole="People" ToRole="PurchaseOrders" />
+    <NavigationProperty Name="SupplierCategories" Relationship="Self.FK_Purchasing_SupplierCategories_Application_People" FromRole="People" ToRole="SupplierCategories" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.FK_Purchasing_Suppliers_AlternateContactPersonID_Application_People" FromRole="People" ToRole="Suppliers" />
+    <NavigationProperty Name="Suppliers1" Relationship="Self.FK_Purchasing_Suppliers_Application_People" FromRole="People" ToRole="Suppliers" />
+    <NavigationProperty Name="Suppliers2" Relationship="Self.FK_Purchasing_Suppliers_PrimaryContactPersonID_Application_People" FromRole="People" ToRole="Suppliers" />
+    <NavigationProperty Name="SupplierTransactions" Relationship="Self.FK_Purchasing_SupplierTransactions_Application_People" FromRole="People" ToRole="SupplierTransactions" />
+    <NavigationProperty Name="BuyingGroups" Relationship="Self.FK_Sales_BuyingGroups_Application_People" FromRole="People" ToRole="BuyingGroups" />
+    <NavigationProperty Name="CustomerCategories" Relationship="Self.FK_Sales_CustomerCategories_Application_People" FromRole="People" ToRole="CustomerCategories" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Sales_Customers_AlternateContactPersonID_Application_People" FromRole="People" ToRole="Customers" />
+    <NavigationProperty Name="Customers1" Relationship="Self.FK_Sales_Customers_Application_People" FromRole="People" ToRole="Customers" />
+    <NavigationProperty Name="Customers2" Relationship="Self.FK_Sales_Customers_PrimaryContactPersonID_Application_People" FromRole="People" ToRole="Customers" />
+    <NavigationProperty Name="CustomerTransactions" Relationship="Self.FK_Sales_CustomerTransactions_Application_People" FromRole="People" ToRole="CustomerTransactions" />
+    <NavigationProperty Name="InvoiceLines" Relationship="Self.FK_Sales_InvoiceLines_Application_People" FromRole="People" ToRole="InvoiceLines" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_Sales_Invoices_AccountsPersonID_Application_People" FromRole="People" ToRole="Invoices" />
+    <NavigationProperty Name="Invoices1" Relationship="Self.FK_Sales_Invoices_Application_People" FromRole="People" ToRole="Invoices" />
+    <NavigationProperty Name="Invoices2" Relationship="Self.FK_Sales_Invoices_ContactPersonID_Application_People" FromRole="People" ToRole="Invoices" />
+    <NavigationProperty Name="Invoices3" Relationship="Self.FK_Sales_Invoices_PackedByPersonID_Application_People" FromRole="People" ToRole="Invoices" />
+    <NavigationProperty Name="Invoices4" Relationship="Self.FK_Sales_Invoices_SalespersonPersonID_Application_People" FromRole="People" ToRole="Invoices" />
+    <NavigationProperty Name="OrderLines" Relationship="Self.FK_Sales_OrderLines_Application_People" FromRole="People" ToRole="OrderLines" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Sales_Orders_Application_People" FromRole="People" ToRole="Orders" />
+    <NavigationProperty Name="Orders1" Relationship="Self.FK_Sales_Orders_ContactPersonID_Application_People" FromRole="People" ToRole="Orders" />
+    <NavigationProperty Name="Orders2" Relationship="Self.FK_Sales_Orders_PickedByPersonID_Application_People" FromRole="People" ToRole="Orders" />
+    <NavigationProperty Name="Orders3" Relationship="Self.FK_Sales_Orders_SalespersonPersonID_Application_People" FromRole="People" ToRole="Orders" />
+    <NavigationProperty Name="SpecialDeals" Relationship="Self.FK_Sales_SpecialDeals_Application_People" FromRole="People" ToRole="SpecialDeals" />
+    <NavigationProperty Name="Colors" Relationship="Self.FK_Warehouse_Colors_Application_People" FromRole="People" ToRole="Colors" />
+    <NavigationProperty Name="PackageTypes" Relationship="Self.FK_Warehouse_PackageTypes_Application_People" FromRole="People" ToRole="PackageTypes" />
+    <NavigationProperty Name="StockGroups" Relationship="Self.FK_Warehouse_StockGroups_Application_People" FromRole="People" ToRole="StockGroups" />
+    <NavigationProperty Name="StockItemHoldings" Relationship="Self.FK_Warehouse_StockItemHoldings_Application_People" FromRole="People" ToRole="StockItemHoldings" />
+    <NavigationProperty Name="StockItems" Relationship="Self.FK_Warehouse_StockItems_Application_People" FromRole="People" ToRole="StockItems" />
+    <NavigationProperty Name="StockItemStockGroups" Relationship="Self.FK_Warehouse_StockItemStockGroups_Application_People" FromRole="People" ToRole="StockItemStockGroups" />
+    <NavigationProperty Name="StockItemTransactions" Relationship="Self.FK_Warehouse_StockItemTransactions_Application_People" FromRole="People" ToRole="StockItemTransactions" />
+  </EntityType>
+  <EntityType Name="StateProvinces">
+    <Key>
+      <PropertyRef Name="StateProvinceID" />
+    </Key>
+    <Property Name="StateProvinceID" Type="Int32" Nullable="false" />
+    <Property Name="StateProvinceCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StateProvinceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="SalesTerritory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Border" Type="Geography" />
+    <Property Name="LatestRecordedPopulation" Type="Int64" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_Application_Cities_StateProvinceID_Application_StateProvinces" FromRole="StateProvinces" ToRole="Cities" />
+    <NavigationProperty Name="Countries" Relationship="Self.FK_Application_StateProvinces_CountryID_Application_Countries" FromRole="StateProvinces" ToRole="Countries" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Application_StateProvinces_Application_People" FromRole="StateProvinces" ToRole="People" />
+  </EntityType>
+  <EntityType Name="SystemParameters">
+    <Key>
+      <PropertyRef Name="SystemParameterID" />
+    </Key>
+    <Property Name="SystemParameterID" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryAddressLine1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryAddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryCityID" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryLocation" Type="Geography" Nullable="false" />
+    <Property Name="PostalAddressLine1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostalAddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCityID" Type="Int32" Nullable="false" />
+    <Property Name="PostalPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ApplicationSettings" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_Application_SystemParameters_DeliveryCityID_Application_Cities" FromRole="SystemParameters" ToRole="Cities" />
+    <NavigationProperty Name="Cities1" Relationship="Self.FK_Application_SystemParameters_PostalCityID_Application_Cities" FromRole="SystemParameters" ToRole="Cities" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Application_SystemParameters_Application_People" FromRole="SystemParameters" ToRole="People" />
+  </EntityType>
+  <EntityType Name="TransactionTypes">
+    <Key>
+      <PropertyRef Name="TransactionTypeID" />
+    </Key>
+    <Property Name="TransactionTypeID" Type="Int32" Nullable="false" />
+    <Property Name="TransactionTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Application_TransactionTypes_Application_People" FromRole="TransactionTypes" ToRole="People" />
+    <NavigationProperty Name="SupplierTransactions" Relationship="Self.FK_Purchasing_SupplierTransactions_TransactionTypeID_Application_TransactionTypes" FromRole="TransactionTypes" ToRole="SupplierTransactions" />
+    <NavigationProperty Name="CustomerTransactions" Relationship="Self.FK_Sales_CustomerTransactions_TransactionTypeID_Application_TransactionTypes" FromRole="TransactionTypes" ToRole="CustomerTransactions" />
+    <NavigationProperty Name="StockItemTransactions" Relationship="Self.FK_Warehouse_StockItemTransactions_TransactionTypeID_Application_TransactionTypes" FromRole="TransactionTypes" ToRole="StockItemTransactions" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderLines">
+    <Key>
+      <PropertyRef Name="PurchaseOrderLineID" />
+    </Key>
+    <Property Name="PurchaseOrderLineID" Type="Int32" Nullable="false" />
+    <Property Name="PurchaseOrderID" Type="Int32" Nullable="false" />
+    <Property Name="StockItemID" Type="Int32" Nullable="false" />
+    <Property Name="OrderedOuters" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ReceivedOuters" Type="Int32" Nullable="false" />
+    <Property Name="PackageTypeID" Type="Int32" Nullable="false" />
+    <Property Name="ExpectedUnitPricePerOuter" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="LastReceiptDate" Type="DateTime" Precision="0" />
+    <Property Name="IsOrderLineFinalized" Type="Boolean" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Purchasing_PurchaseOrderLines_Application_People" FromRole="PurchaseOrderLines" ToRole="People" />
+    <NavigationProperty Name="PackageTypes" Relationship="Self.FK_Purchasing_PurchaseOrderLines_PackageTypeID_Warehouse_PackageTypes" FromRole="PurchaseOrderLines" ToRole="PackageTypes" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="Self.FK_Purchasing_PurchaseOrderLines_PurchaseOrderID_Purchasing_PurchaseOrders" FromRole="PurchaseOrderLines" ToRole="PurchaseOrders" />
+    <NavigationProperty Name="StockItems" Relationship="Self.FK_Purchasing_PurchaseOrderLines_StockItemID_Warehouse_StockItems" FromRole="PurchaseOrderLines" ToRole="StockItems" />
+  </EntityType>
+  <EntityType Name="PurchaseOrders">
+    <Key>
+      <PropertyRef Name="PurchaseOrderID" />
+    </Key>
+    <Property Name="PurchaseOrderID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DeliveryMethodID" Type="Int32" Nullable="false" />
+    <Property Name="ContactPersonID" Type="Int32" Nullable="false" />
+    <Property Name="ExpectedDeliveryDate" Type="DateTime" Precision="0" />
+    <Property Name="SupplierReference" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IsOrderFinalized" Type="Boolean" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InternalComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="DeliveryMethods" Relationship="Self.FK_Purchasing_PurchaseOrders_DeliveryMethodID_Application_DeliveryMethods" FromRole="PurchaseOrders" ToRole="DeliveryMethods" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Purchasing_PurchaseOrders_Application_People" FromRole="PurchaseOrders" ToRole="People" />
+    <NavigationProperty Name="People1" Relationship="Self.FK_Purchasing_PurchaseOrders_ContactPersonID_Application_People" FromRole="PurchaseOrders" ToRole="People" />
+    <NavigationProperty Name="PurchaseOrderLines" Relationship="Self.FK_Purchasing_PurchaseOrderLines_PurchaseOrderID_Purchasing_PurchaseOrders" FromRole="PurchaseOrders" ToRole="PurchaseOrderLines" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.FK_Purchasing_PurchaseOrders_SupplierID_Purchasing_Suppliers" FromRole="PurchaseOrders" ToRole="Suppliers" />
+    <NavigationProperty Name="SupplierTransactions" Relationship="Self.FK_Purchasing_SupplierTransactions_PurchaseOrderID_Purchasing_PurchaseOrders" FromRole="PurchaseOrders" ToRole="SupplierTransactions" />
+    <NavigationProperty Name="StockItemTransactions" Relationship="Self.FK_Warehouse_StockItemTransactions_PurchaseOrderID_Purchasing_PurchaseOrders" FromRole="PurchaseOrders" ToRole="StockItemTransactions" />
+  </EntityType>
+  <EntityType Name="SupplierCategories">
+    <Key>
+      <PropertyRef Name="SupplierCategoryID" />
+    </Key>
+    <Property Name="SupplierCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Purchasing_SupplierCategories_Application_People" FromRole="SupplierCategories" ToRole="People" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.FK_Purchasing_Suppliers_SupplierCategoryID_Purchasing_SupplierCategories" FromRole="SupplierCategories" ToRole="Suppliers" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupplierCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="PrimaryContactPersonID" Type="Int32" Nullable="false" />
+    <Property Name="AlternateContactPersonID" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryMethodID" Type="Int32" />
+    <Property Name="DeliveryCityID" Type="Int32" Nullable="false" />
+    <Property Name="PostalCityID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierReference" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BankAccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankAccountBranch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankAccountCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BankAccountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BankInternationalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentDays" Type="Int32" Nullable="false" />
+    <Property Name="InternalComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FaxNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WebsiteURL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryAddressLine1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryAddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryLocation" Type="Geography" />
+    <Property Name="PostalAddressLine1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostalAddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="PostalPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_Purchasing_Suppliers_DeliveryCityID_Application_Cities" FromRole="Suppliers" ToRole="Cities" />
+    <NavigationProperty Name="Cities1" Relationship="Self.FK_Purchasing_Suppliers_PostalCityID_Application_Cities" FromRole="Suppliers" ToRole="Cities" />
+    <NavigationProperty Name="DeliveryMethods" Relationship="Self.FK_Purchasing_Suppliers_DeliveryMethodID_Application_DeliveryMethods" FromRole="Suppliers" ToRole="DeliveryMethods" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Purchasing_Suppliers_AlternateContactPersonID_Application_People" FromRole="Suppliers" ToRole="People" />
+    <NavigationProperty Name="People1" Relationship="Self.FK_Purchasing_Suppliers_Application_People" FromRole="Suppliers" ToRole="People" />
+    <NavigationProperty Name="People2" Relationship="Self.FK_Purchasing_Suppliers_PrimaryContactPersonID_Application_People" FromRole="Suppliers" ToRole="People" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="Self.FK_Purchasing_PurchaseOrders_SupplierID_Purchasing_Suppliers" FromRole="Suppliers" ToRole="PurchaseOrders" />
+    <NavigationProperty Name="SupplierCategories" Relationship="Self.FK_Purchasing_Suppliers_SupplierCategoryID_Purchasing_SupplierCategories" FromRole="Suppliers" ToRole="SupplierCategories" />
+    <NavigationProperty Name="SupplierTransactions" Relationship="Self.FK_Purchasing_SupplierTransactions_SupplierID_Purchasing_Suppliers" FromRole="Suppliers" ToRole="SupplierTransactions" />
+    <NavigationProperty Name="StockItems" Relationship="Self.FK_Warehouse_StockItems_SupplierID_Purchasing_Suppliers" FromRole="Suppliers" ToRole="StockItems" />
+    <NavigationProperty Name="StockItemTransactions" Relationship="Self.FK_Warehouse_StockItemTransactions_SupplierID_Purchasing_Suppliers" FromRole="Suppliers" ToRole="StockItemTransactions" />
+  </EntityType>
+  <EntityType Name="SupplierTransactions">
+    <Key>
+      <PropertyRef Name="SupplierTransactionID" />
+    </Key>
+    <Property Name="SupplierTransactionID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="TransactionTypeID" Type="Int32" Nullable="false" />
+    <Property Name="PurchaseOrderID" Type="Int32" />
+    <Property Name="PaymentMethodID" Type="Int32" />
+    <Property Name="SupplierInvoiceNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AmountExcludingTax" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="TaxAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="TransactionAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OutstandingBalance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="FinalizationDate" Type="DateTime" Precision="0" />
+    <Property Name="IsFinalized" Type="Boolean" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="PaymentMethods" Relationship="Self.FK_Purchasing_SupplierTransactions_PaymentMethodID_Application_PaymentMethods" FromRole="SupplierTransactions" ToRole="PaymentMethods" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Purchasing_SupplierTransactions_Application_People" FromRole="SupplierTransactions" ToRole="People" />
+    <NavigationProperty Name="TransactionTypes" Relationship="Self.FK_Purchasing_SupplierTransactions_TransactionTypeID_Application_TransactionTypes" FromRole="SupplierTransactions" ToRole="TransactionTypes" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="Self.FK_Purchasing_SupplierTransactions_PurchaseOrderID_Purchasing_PurchaseOrders" FromRole="SupplierTransactions" ToRole="PurchaseOrders" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.FK_Purchasing_SupplierTransactions_SupplierID_Purchasing_Suppliers" FromRole="SupplierTransactions" ToRole="Suppliers" />
+  </EntityType>
+  <EntityType Name="BuyingGroups">
+    <Key>
+      <PropertyRef Name="BuyingGroupID" />
+    </Key>
+    <Property Name="BuyingGroupID" Type="Int32" Nullable="false" />
+    <Property Name="BuyingGroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Sales_BuyingGroups_Application_People" FromRole="BuyingGroups" ToRole="People" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Sales_Customers_BuyingGroupID_Sales_BuyingGroups" FromRole="BuyingGroups" ToRole="Customers" />
+    <NavigationProperty Name="SpecialDeals" Relationship="Self.FK_Sales_SpecialDeals_BuyingGroupID_Sales_BuyingGroups" FromRole="BuyingGroups" ToRole="SpecialDeals" />
+  </EntityType>
+  <EntityType Name="CustomerCategories">
+    <Key>
+      <PropertyRef Name="CustomerCategoryID" />
+    </Key>
+    <Property Name="CustomerCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Sales_CustomerCategories_Application_People" FromRole="CustomerCategories" ToRole="People" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Sales_Customers_CustomerCategoryID_Sales_CustomerCategories" FromRole="CustomerCategories" ToRole="Customers" />
+    <NavigationProperty Name="SpecialDeals" Relationship="Self.FK_Sales_SpecialDeals_CustomerCategoryID_Sales_CustomerCategories" FromRole="CustomerCategories" ToRole="SpecialDeals" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BillToCustomerID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="BuyingGroupID" Type="Int32" />
+    <Property Name="PrimaryContactPersonID" Type="Int32" Nullable="false" />
+    <Property Name="AlternateContactPersonID" Type="Int32" />
+    <Property Name="DeliveryMethodID" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryCityID" Type="Int32" Nullable="false" />
+    <Property Name="PostalCityID" Type="Int32" Nullable="false" />
+    <Property Name="CreditLimit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AccountOpenedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="StandardDiscountPercentage" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="IsStatementSent" Type="Boolean" Nullable="false" />
+    <Property Name="IsOnCreditHold" Type="Boolean" Nullable="false" />
+    <Property Name="PaymentDays" Type="Int32" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FaxNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryRun" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="RunPosition" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="WebsiteURL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryAddressLine1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryAddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryLocation" Type="Geography" />
+    <Property Name="PostalAddressLine1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostalAddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="PostalPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_Sales_Customers_DeliveryCityID_Application_Cities" FromRole="Customers" ToRole="Cities" />
+    <NavigationProperty Name="Cities1" Relationship="Self.FK_Sales_Customers_PostalCityID_Application_Cities" FromRole="Customers" ToRole="Cities" />
+    <NavigationProperty Name="DeliveryMethods" Relationship="Self.FK_Sales_Customers_DeliveryMethodID_Application_DeliveryMethods" FromRole="Customers" ToRole="DeliveryMethods" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Sales_Customers_AlternateContactPersonID_Application_People" FromRole="Customers" ToRole="People" />
+    <NavigationProperty Name="People1" Relationship="Self.FK_Sales_Customers_Application_People" FromRole="Customers" ToRole="People" />
+    <NavigationProperty Name="People2" Relationship="Self.FK_Sales_Customers_PrimaryContactPersonID_Application_People" FromRole="Customers" ToRole="People" />
+    <NavigationProperty Name="BuyingGroups" Relationship="Self.FK_Sales_Customers_BuyingGroupID_Sales_BuyingGroups" FromRole="Customers" ToRole="BuyingGroups" />
+    <NavigationProperty Name="CustomerCategories" Relationship="Self.FK_Sales_Customers_CustomerCategoryID_Sales_CustomerCategories" FromRole="Customers" ToRole="CustomerCategories" />
+    <NavigationProperty Name="Customers1" Relationship="Self.FK_Sales_Customers_BillToCustomerID_Sales_Customers" FromRole="Customers" ToRole="Customers1" />
+    <NavigationProperty Name="Customers2" Relationship="Self.FK_Sales_Customers_BillToCustomerID_Sales_Customers" FromRole="Customers1" ToRole="Customers" />
+    <NavigationProperty Name="CustomerTransactions" Relationship="Self.FK_Sales_CustomerTransactions_CustomerID_Sales_Customers" FromRole="Customers" ToRole="CustomerTransactions" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_Sales_Invoices_BillToCustomerID_Sales_Customers" FromRole="Customers" ToRole="Invoices" />
+    <NavigationProperty Name="Invoices1" Relationship="Self.FK_Sales_Invoices_CustomerID_Sales_Customers" FromRole="Customers" ToRole="Invoices" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Sales_Orders_CustomerID_Sales_Customers" FromRole="Customers" ToRole="Orders" />
+    <NavigationProperty Name="SpecialDeals" Relationship="Self.FK_Sales_SpecialDeals_CustomerID_Sales_Customers" FromRole="Customers" ToRole="SpecialDeals" />
+    <NavigationProperty Name="StockItemTransactions" Relationship="Self.FK_Warehouse_StockItemTransactions_CustomerID_Sales_Customers" FromRole="Customers" ToRole="StockItemTransactions" />
+  </EntityType>
+  <EntityType Name="CustomerTransactions">
+    <Key>
+      <PropertyRef Name="CustomerTransactionID" />
+    </Key>
+    <Property Name="CustomerTransactionID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="TransactionTypeID" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceID" Type="Int32" />
+    <Property Name="PaymentMethodID" Type="Int32" />
+    <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AmountExcludingTax" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="TaxAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="TransactionAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OutstandingBalance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="FinalizationDate" Type="DateTime" Precision="0" />
+    <Property Name="IsFinalized" Type="Boolean" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="PaymentMethods" Relationship="Self.FK_Sales_CustomerTransactions_PaymentMethodID_Application_PaymentMethods" FromRole="CustomerTransactions" ToRole="PaymentMethods" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Sales_CustomerTransactions_Application_People" FromRole="CustomerTransactions" ToRole="People" />
+    <NavigationProperty Name="TransactionTypes" Relationship="Self.FK_Sales_CustomerTransactions_TransactionTypeID_Application_TransactionTypes" FromRole="CustomerTransactions" ToRole="TransactionTypes" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Sales_CustomerTransactions_CustomerID_Sales_Customers" FromRole="CustomerTransactions" ToRole="Customers" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_Sales_CustomerTransactions_InvoiceID_Sales_Invoices" FromRole="CustomerTransactions" ToRole="Invoices" />
+  </EntityType>
+  <EntityType Name="InvoiceLines">
+    <Key>
+      <PropertyRef Name="InvoiceLineID" />
+    </Key>
+    <Property Name="InvoiceLineID" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+    <Property Name="StockItemID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PackageTypeID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TaxRate" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="TaxAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="LineProfit" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ExtendedPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Sales_InvoiceLines_Application_People" FromRole="InvoiceLines" ToRole="People" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_Sales_InvoiceLines_InvoiceID_Sales_Invoices" FromRole="InvoiceLines" ToRole="Invoices" />
+    <NavigationProperty Name="PackageTypes" Relationship="Self.FK_Sales_InvoiceLines_PackageTypeID_Warehouse_PackageTypes" FromRole="InvoiceLines" ToRole="PackageTypes" />
+    <NavigationProperty Name="StockItems" Relationship="Self.FK_Sales_InvoiceLines_StockItemID_Warehouse_StockItems" FromRole="InvoiceLines" ToRole="StockItems" />
+  </EntityType>
+  <EntityType Name="Invoices">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="BillToCustomerID" Type="Int32" Nullable="false" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="DeliveryMethodID" Type="Int32" Nullable="false" />
+    <Property Name="ContactPersonID" Type="Int32" Nullable="false" />
+    <Property Name="AccountsPersonID" Type="Int32" Nullable="false" />
+    <Property Name="SalespersonPersonID" Type="Int32" Nullable="false" />
+    <Property Name="PackedByPersonID" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CustomerPurchaseOrderNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IsCreditNote" Type="Boolean" Nullable="false" />
+    <Property Name="CreditNoteReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryInstructions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InternalComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalDryItems" Type="Int32" Nullable="false" />
+    <Property Name="TotalChillerItems" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryRun" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="RunPosition" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="ReturnedDeliveryData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmedDeliveryTime" Type="DateTime" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+    <Property Name="ConfirmedReceivedBy" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="DeliveryMethods" Relationship="Self.FK_Sales_Invoices_DeliveryMethodID_Application_DeliveryMethods" FromRole="Invoices" ToRole="DeliveryMethods" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Sales_Invoices_AccountsPersonID_Application_People" FromRole="Invoices" ToRole="People" />
+    <NavigationProperty Name="People1" Relationship="Self.FK_Sales_Invoices_Application_People" FromRole="Invoices" ToRole="People" />
+    <NavigationProperty Name="People2" Relationship="Self.FK_Sales_Invoices_ContactPersonID_Application_People" FromRole="Invoices" ToRole="People" />
+    <NavigationProperty Name="People3" Relationship="Self.FK_Sales_Invoices_PackedByPersonID_Application_People" FromRole="Invoices" ToRole="People" />
+    <NavigationProperty Name="People4" Relationship="Self.FK_Sales_Invoices_SalespersonPersonID_Application_People" FromRole="Invoices" ToRole="People" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Sales_Invoices_BillToCustomerID_Sales_Customers" FromRole="Invoices" ToRole="Customers" />
+    <NavigationProperty Name="Customers1" Relationship="Self.FK_Sales_Invoices_CustomerID_Sales_Customers" FromRole="Invoices" ToRole="Customers" />
+    <NavigationProperty Name="CustomerTransactions" Relationship="Self.FK_Sales_CustomerTransactions_InvoiceID_Sales_Invoices" FromRole="Invoices" ToRole="CustomerTransactions" />
+    <NavigationProperty Name="InvoiceLines" Relationship="Self.FK_Sales_InvoiceLines_InvoiceID_Sales_Invoices" FromRole="Invoices" ToRole="InvoiceLines" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Sales_Invoices_OrderID_Sales_Orders" FromRole="Invoices" ToRole="Orders" />
+    <NavigationProperty Name="StockItemTransactions" Relationship="Self.FK_Warehouse_StockItemTransactions_InvoiceID_Sales_Invoices" FromRole="Invoices" ToRole="StockItemTransactions" />
+  </EntityType>
+  <EntityType Name="OrderLines">
+    <Key>
+      <PropertyRef Name="OrderLineID" />
+    </Key>
+    <Property Name="OrderLineID" Type="Int32" Nullable="false" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="StockItemID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PackageTypeID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TaxRate" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="PickedQuantity" Type="Int32" Nullable="false" />
+    <Property Name="PickingCompletedWhen" Type="DateTime" Precision="7" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Sales_OrderLines_Application_People" FromRole="OrderLines" ToRole="People" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Sales_OrderLines_OrderID_Sales_Orders" FromRole="OrderLines" ToRole="Orders" />
+    <NavigationProperty Name="PackageTypes" Relationship="Self.FK_Sales_OrderLines_PackageTypeID_Warehouse_PackageTypes" FromRole="OrderLines" ToRole="PackageTypes" />
+    <NavigationProperty Name="StockItems" Relationship="Self.FK_Sales_OrderLines_StockItemID_Warehouse_StockItems" FromRole="OrderLines" ToRole="StockItems" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="SalespersonPersonID" Type="Int32" Nullable="false" />
+    <Property Name="PickedByPersonID" Type="Int32" />
+    <Property Name="ContactPersonID" Type="Int32" Nullable="false" />
+    <Property Name="BackorderOrderID" Type="Int32" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ExpectedDeliveryDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CustomerPurchaseOrderNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IsUndersupplyBackordered" Type="Boolean" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryInstructions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InternalComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PickingCompletedWhen" Type="DateTime" Precision="7" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Sales_Orders_Application_People" FromRole="Orders" ToRole="People" />
+    <NavigationProperty Name="People1" Relationship="Self.FK_Sales_Orders_ContactPersonID_Application_People" FromRole="Orders" ToRole="People" />
+    <NavigationProperty Name="People2" Relationship="Self.FK_Sales_Orders_PickedByPersonID_Application_People" FromRole="Orders" ToRole="People" />
+    <NavigationProperty Name="People3" Relationship="Self.FK_Sales_Orders_SalespersonPersonID_Application_People" FromRole="Orders" ToRole="People" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Sales_Orders_CustomerID_Sales_Customers" FromRole="Orders" ToRole="Customers" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_Sales_Invoices_OrderID_Sales_Orders" FromRole="Orders" ToRole="Invoices" />
+    <NavigationProperty Name="OrderLines" Relationship="Self.FK_Sales_OrderLines_OrderID_Sales_Orders" FromRole="Orders" ToRole="OrderLines" />
+    <NavigationProperty Name="Orders1" Relationship="Self.FK_Sales_Orders_BackorderOrderID_Sales_Orders" FromRole="Orders" ToRole="Orders1" />
+    <NavigationProperty Name="Orders2" Relationship="Self.FK_Sales_Orders_BackorderOrderID_Sales_Orders" FromRole="Orders1" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="SpecialDeals">
+    <Key>
+      <PropertyRef Name="SpecialDealID" />
+    </Key>
+    <Property Name="SpecialDealID" Type="Int32" Nullable="false" />
+    <Property Name="StockItemID" Type="Int32" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="BuyingGroupID" Type="Int32" />
+    <Property Name="CustomerCategoryID" Type="Int32" />
+    <Property Name="StockGroupID" Type="Int32" />
+    <Property Name="DealDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DiscountAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountPercentage" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Sales_SpecialDeals_Application_People" FromRole="SpecialDeals" ToRole="People" />
+    <NavigationProperty Name="BuyingGroups" Relationship="Self.FK_Sales_SpecialDeals_BuyingGroupID_Sales_BuyingGroups" FromRole="SpecialDeals" ToRole="BuyingGroups" />
+    <NavigationProperty Name="CustomerCategories" Relationship="Self.FK_Sales_SpecialDeals_CustomerCategoryID_Sales_CustomerCategories" FromRole="SpecialDeals" ToRole="CustomerCategories" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Sales_SpecialDeals_CustomerID_Sales_Customers" FromRole="SpecialDeals" ToRole="Customers" />
+    <NavigationProperty Name="StockGroups" Relationship="Self.FK_Sales_SpecialDeals_StockGroupID_Warehouse_StockGroups" FromRole="SpecialDeals" ToRole="StockGroups" />
+    <NavigationProperty Name="StockItems" Relationship="Self.FK_Sales_SpecialDeals_StockItemID_Warehouse_StockItems" FromRole="SpecialDeals" ToRole="StockItems" />
+  </EntityType>
+  <EntityType Name="ColdRoomTemperatures">
+    <Key>
+      <PropertyRef Name="ColdRoomTemperatureID" />
+    </Key>
+    <Property Name="ColdRoomTemperatureID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ColdRoomSensorNumber" Type="Int32" Nullable="false" />
+    <Property Name="RecordedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Temperature" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="Colors">
+    <Key>
+      <PropertyRef Name="ColorID" />
+    </Key>
+    <Property Name="ColorID" Type="Int32" Nullable="false" />
+    <Property Name="ColorName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Warehouse_Colors_Application_People" FromRole="Colors" ToRole="People" />
+    <NavigationProperty Name="StockItems" Relationship="Self.FK_Warehouse_StockItems_ColorID_Warehouse_Colors" FromRole="Colors" ToRole="StockItems" />
+  </EntityType>
+  <EntityType Name="PackageTypes">
+    <Key>
+      <PropertyRef Name="PackageTypeID" />
+    </Key>
+    <Property Name="PackageTypeID" Type="Int32" Nullable="false" />
+    <Property Name="PackageTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Warehouse_PackageTypes_Application_People" FromRole="PackageTypes" ToRole="People" />
+    <NavigationProperty Name="PurchaseOrderLines" Relationship="Self.FK_Purchasing_PurchaseOrderLines_PackageTypeID_Warehouse_PackageTypes" FromRole="PackageTypes" ToRole="PurchaseOrderLines" />
+    <NavigationProperty Name="InvoiceLines" Relationship="Self.FK_Sales_InvoiceLines_PackageTypeID_Warehouse_PackageTypes" FromRole="PackageTypes" ToRole="InvoiceLines" />
+    <NavigationProperty Name="OrderLines" Relationship="Self.FK_Sales_OrderLines_PackageTypeID_Warehouse_PackageTypes" FromRole="PackageTypes" ToRole="OrderLines" />
+    <NavigationProperty Name="StockItems" Relationship="Self.FK_Warehouse_StockItems_OuterPackageID_Warehouse_PackageTypes" FromRole="PackageTypes" ToRole="StockItems" />
+    <NavigationProperty Name="StockItems1" Relationship="Self.FK_Warehouse_StockItems_UnitPackageID_Warehouse_PackageTypes" FromRole="PackageTypes" ToRole="StockItems" />
+  </EntityType>
+  <EntityType Name="StockGroups">
+    <Key>
+      <PropertyRef Name="StockGroupID" />
+    </Key>
+    <Property Name="StockGroupID" Type="Int32" Nullable="false" />
+    <Property Name="StockGroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Warehouse_StockGroups_Application_People" FromRole="StockGroups" ToRole="People" />
+    <NavigationProperty Name="SpecialDeals" Relationship="Self.FK_Sales_SpecialDeals_StockGroupID_Warehouse_StockGroups" FromRole="StockGroups" ToRole="SpecialDeals" />
+    <NavigationProperty Name="StockItemStockGroups" Relationship="Self.FK_Warehouse_StockItemStockGroups_StockGroupID_Warehouse_StockGroups" FromRole="StockGroups" ToRole="StockItemStockGroups" />
+  </EntityType>
+  <EntityType Name="StockItemHoldings">
+    <Key>
+      <PropertyRef Name="StockItemID" />
+    </Key>
+    <Property Name="StockItemID" Type="Int32" Nullable="false" />
+    <Property Name="QuantityOnHand" Type="Int32" Nullable="false" />
+    <Property Name="BinLocation" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastStocktakeQuantity" Type="Int32" Nullable="false" />
+    <Property Name="LastCostPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ReorderLevel" Type="Int32" Nullable="false" />
+    <Property Name="TargetStockLevel" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Warehouse_StockItemHoldings_Application_People" FromRole="StockItemHoldings" ToRole="People" />
+    <NavigationProperty Name="StockItems" Relationship="Self.PKFK_Warehouse_StockItemHoldings_StockItemID_Warehouse_StockItems" FromRole="StockItemHoldings" ToRole="StockItems" />
+  </EntityType>
+  <EntityType Name="StockItems">
+    <Key>
+      <PropertyRef Name="StockItemID" />
+    </Key>
+    <Property Name="StockItemID" Type="Int32" Nullable="false" />
+    <Property Name="StockItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="ColorID" Type="Int32" />
+    <Property Name="UnitPackageID" Type="Int32" Nullable="false" />
+    <Property Name="OuterPackageID" Type="Int32" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Size" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LeadTimeDays" Type="Int32" Nullable="false" />
+    <Property Name="QuantityPerOuter" Type="Int32" Nullable="false" />
+    <Property Name="IsChillerStock" Type="Boolean" Nullable="false" />
+    <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaxRate" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="RecommendedRetailPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TypicalWeightPerUnit" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="MarketingComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InternalComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="CustomFields" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="SearchDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Warehouse_StockItems_Application_People" FromRole="StockItems" ToRole="People" />
+    <NavigationProperty Name="PurchaseOrderLines" Relationship="Self.FK_Purchasing_PurchaseOrderLines_StockItemID_Warehouse_StockItems" FromRole="StockItems" ToRole="PurchaseOrderLines" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.FK_Warehouse_StockItems_SupplierID_Purchasing_Suppliers" FromRole="StockItems" ToRole="Suppliers" />
+    <NavigationProperty Name="InvoiceLines" Relationship="Self.FK_Sales_InvoiceLines_StockItemID_Warehouse_StockItems" FromRole="StockItems" ToRole="InvoiceLines" />
+    <NavigationProperty Name="OrderLines" Relationship="Self.FK_Sales_OrderLines_StockItemID_Warehouse_StockItems" FromRole="StockItems" ToRole="OrderLines" />
+    <NavigationProperty Name="SpecialDeals" Relationship="Self.FK_Sales_SpecialDeals_StockItemID_Warehouse_StockItems" FromRole="StockItems" ToRole="SpecialDeals" />
+    <NavigationProperty Name="Colors" Relationship="Self.FK_Warehouse_StockItems_ColorID_Warehouse_Colors" FromRole="StockItems" ToRole="Colors" />
+    <NavigationProperty Name="PackageTypes" Relationship="Self.FK_Warehouse_StockItems_OuterPackageID_Warehouse_PackageTypes" FromRole="StockItems" ToRole="PackageTypes" />
+    <NavigationProperty Name="PackageTypes1" Relationship="Self.FK_Warehouse_StockItems_UnitPackageID_Warehouse_PackageTypes" FromRole="StockItems" ToRole="PackageTypes" />
+    <NavigationProperty Name="StockItemHoldings" Relationship="Self.PKFK_Warehouse_StockItemHoldings_StockItemID_Warehouse_StockItems" FromRole="StockItems" ToRole="StockItemHoldings" />
+    <NavigationProperty Name="StockItemStockGroups" Relationship="Self.FK_Warehouse_StockItemStockGroups_StockItemID_Warehouse_StockItems" FromRole="StockItems" ToRole="StockItemStockGroups" />
+    <NavigationProperty Name="StockItemTransactions" Relationship="Self.FK_Warehouse_StockItemTransactions_StockItemID_Warehouse_StockItems" FromRole="StockItems" ToRole="StockItemTransactions" />
+  </EntityType>
+  <EntityType Name="StockItemStockGroups">
+    <Key>
+      <PropertyRef Name="StockItemStockGroupID" />
+    </Key>
+    <Property Name="StockItemStockGroupID" Type="Int32" Nullable="false" />
+    <Property Name="StockItemID" Type="Int32" Nullable="false" />
+    <Property Name="StockGroupID" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Warehouse_StockItemStockGroups_Application_People" FromRole="StockItemStockGroups" ToRole="People" />
+    <NavigationProperty Name="StockGroups" Relationship="Self.FK_Warehouse_StockItemStockGroups_StockGroupID_Warehouse_StockGroups" FromRole="StockItemStockGroups" ToRole="StockGroups" />
+    <NavigationProperty Name="StockItems" Relationship="Self.FK_Warehouse_StockItemStockGroups_StockItemID_Warehouse_StockItems" FromRole="StockItemStockGroups" ToRole="StockItems" />
+  </EntityType>
+  <EntityType Name="StockItemTransactions">
+    <Key>
+      <PropertyRef Name="StockItemTransactionID" />
+    </Key>
+    <Property Name="StockItemTransactionID" Type="Int32" Nullable="false" />
+    <Property Name="StockItemID" Type="Int32" Nullable="false" />
+    <Property Name="TransactionTypeID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="InvoiceID" Type="Int32" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="PurchaseOrderID" Type="Int32" />
+    <Property Name="TransactionOccurredWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="LastEditedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Warehouse_StockItemTransactions_Application_People" FromRole="StockItemTransactions" ToRole="People" />
+    <NavigationProperty Name="TransactionTypes" Relationship="Self.FK_Warehouse_StockItemTransactions_TransactionTypeID_Application_TransactionTypes" FromRole="StockItemTransactions" ToRole="TransactionTypes" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="Self.FK_Warehouse_StockItemTransactions_PurchaseOrderID_Purchasing_PurchaseOrders" FromRole="StockItemTransactions" ToRole="PurchaseOrders" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.FK_Warehouse_StockItemTransactions_SupplierID_Purchasing_Suppliers" FromRole="StockItemTransactions" ToRole="Suppliers" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Warehouse_StockItemTransactions_CustomerID_Sales_Customers" FromRole="StockItemTransactions" ToRole="Customers" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_Warehouse_StockItemTransactions_InvoiceID_Sales_Invoices" FromRole="StockItemTransactions" ToRole="Invoices" />
+    <NavigationProperty Name="StockItems" Relationship="Self.FK_Warehouse_StockItemTransactions_StockItemID_Warehouse_StockItems" FromRole="StockItemTransactions" ToRole="StockItems" />
+  </EntityType>
+  <EntityType Name="VehicleTemperatures">
+    <Key>
+      <PropertyRef Name="VehicleTemperatureID" />
+    </Key>
+    <Property Name="VehicleTemperatureID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VehicleRegistration" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChillerSensorNumber" Type="Int32" Nullable="false" />
+    <Property Name="RecordedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Temperature" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="FullSensorData" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="IsCompressed" Type="Boolean" Nullable="false" />
+    <Property Name="CompressedSensorData" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Cities_Archive">
+    <Key>
+      <PropertyRef Name="CityID" />
+      <PropertyRef Name="CityName" />
+      <PropertyRef Name="StateProvinceID" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="CityID" Type="Int32" Nullable="false" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StateProvinceID" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="Geography" />
+    <Property Name="LatestRecordedPopulation" Type="Int64" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="Countries_Archive">
+    <Key>
+      <PropertyRef Name="CountryID" />
+      <PropertyRef Name="CountryName" />
+      <PropertyRef Name="FormalName" />
+      <PropertyRef Name="Continent" />
+      <PropertyRef Name="Region" />
+      <PropertyRef Name="Subregion" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FormalName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsoAlpha3Code" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="IsoNumericCode" Type="Int32" />
+    <Property Name="CountryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LatestRecordedPopulation" Type="Int64" />
+    <Property Name="Continent" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Subregion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Border" Type="Geography" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="DeliveryMethods_Archive">
+    <Key>
+      <PropertyRef Name="DeliveryMethodID" />
+      <PropertyRef Name="DeliveryMethodName" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="DeliveryMethodID" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryMethodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="PaymentMethods_Archive">
+    <Key>
+      <PropertyRef Name="PaymentMethodID" />
+      <PropertyRef Name="PaymentMethodName" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="PaymentMethodID" Type="Int32" Nullable="false" />
+    <Property Name="PaymentMethodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="People_Archive">
+    <Key>
+      <PropertyRef Name="PersonID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="PreferredName" />
+      <PropertyRef Name="SearchName" />
+      <PropertyRef Name="IsPermittedToLogon" />
+      <PropertyRef Name="IsExternalLogonProvider" />
+      <PropertyRef Name="IsSystemUser" />
+      <PropertyRef Name="IsEmployee" />
+      <PropertyRef Name="IsSalesperson" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="PersonID" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PreferredName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SearchName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsPermittedToLogon" Type="Boolean" Nullable="false" />
+    <Property Name="LogonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsExternalLogonProvider" Type="Boolean" Nullable="false" />
+    <Property Name="HashedPassword" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IsSystemUser" Type="Boolean" Nullable="false" />
+    <Property Name="IsEmployee" Type="Boolean" Nullable="false" />
+    <Property Name="IsSalesperson" Type="Boolean" Nullable="false" />
+    <Property Name="UserPreferences" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FaxNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="CustomFields" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherLanguages" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="StateProvinces_Archive">
+    <Key>
+      <PropertyRef Name="StateProvinceID" />
+      <PropertyRef Name="StateProvinceCode" />
+      <PropertyRef Name="StateProvinceName" />
+      <PropertyRef Name="CountryID" />
+      <PropertyRef Name="SalesTerritory" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="StateProvinceID" Type="Int32" Nullable="false" />
+    <Property Name="StateProvinceCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StateProvinceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="SalesTerritory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Border" Type="Geography" />
+    <Property Name="LatestRecordedPopulation" Type="Int64" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="TransactionTypes_Archive">
+    <Key>
+      <PropertyRef Name="TransactionTypeID" />
+      <PropertyRef Name="TransactionTypeName" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="TransactionTypeID" Type="Int32" Nullable="false" />
+    <Property Name="TransactionTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="SupplierCategories_Archive">
+    <Key>
+      <PropertyRef Name="SupplierCategoryID" />
+      <PropertyRef Name="SupplierCategoryName" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="SupplierCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="Suppliers_Archive">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+      <PropertyRef Name="SupplierName" />
+      <PropertyRef Name="SupplierCategoryID" />
+      <PropertyRef Name="PrimaryContactPersonID" />
+      <PropertyRef Name="AlternateContactPersonID" />
+      <PropertyRef Name="DeliveryCityID" />
+      <PropertyRef Name="PostalCityID" />
+      <PropertyRef Name="PaymentDays" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="FaxNumber" />
+      <PropertyRef Name="WebsiteURL" />
+      <PropertyRef Name="DeliveryAddressLine1" />
+      <PropertyRef Name="DeliveryPostalCode" />
+      <PropertyRef Name="PostalAddressLine1" />
+      <PropertyRef Name="PostalPostalCode" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupplierCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="PrimaryContactPersonID" Type="Int32" Nullable="false" />
+    <Property Name="AlternateContactPersonID" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryMethodID" Type="Int32" />
+    <Property Name="DeliveryCityID" Type="Int32" Nullable="false" />
+    <Property Name="PostalCityID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierReference" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BankAccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankAccountBranch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankAccountCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BankAccountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BankInternationalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentDays" Type="Int32" Nullable="false" />
+    <Property Name="InternalComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FaxNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WebsiteURL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryAddressLine1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryAddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryLocation" Type="Geography" />
+    <Property Name="PostalAddressLine1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostalAddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="PostalPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="BuyingGroups_Archive">
+    <Key>
+      <PropertyRef Name="BuyingGroupID" />
+      <PropertyRef Name="BuyingGroupName" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="BuyingGroupID" Type="Int32" Nullable="false" />
+    <Property Name="BuyingGroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="CustomerCategories_Archive">
+    <Key>
+      <PropertyRef Name="CustomerCategoryID" />
+      <PropertyRef Name="CustomerCategoryName" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="CustomerCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="Customers_Archive">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+      <PropertyRef Name="CustomerName" />
+      <PropertyRef Name="BillToCustomerID" />
+      <PropertyRef Name="CustomerCategoryID" />
+      <PropertyRef Name="PrimaryContactPersonID" />
+      <PropertyRef Name="DeliveryMethodID" />
+      <PropertyRef Name="DeliveryCityID" />
+      <PropertyRef Name="PostalCityID" />
+      <PropertyRef Name="AccountOpenedDate" />
+      <PropertyRef Name="StandardDiscountPercentage" />
+      <PropertyRef Name="IsStatementSent" />
+      <PropertyRef Name="IsOnCreditHold" />
+      <PropertyRef Name="PaymentDays" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="FaxNumber" />
+      <PropertyRef Name="WebsiteURL" />
+      <PropertyRef Name="DeliveryAddressLine1" />
+      <PropertyRef Name="DeliveryPostalCode" />
+      <PropertyRef Name="PostalAddressLine1" />
+      <PropertyRef Name="PostalPostalCode" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BillToCustomerID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="BuyingGroupID" Type="Int32" />
+    <Property Name="PrimaryContactPersonID" Type="Int32" Nullable="false" />
+    <Property Name="AlternateContactPersonID" Type="Int32" />
+    <Property Name="DeliveryMethodID" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryCityID" Type="Int32" Nullable="false" />
+    <Property Name="PostalCityID" Type="Int32" Nullable="false" />
+    <Property Name="CreditLimit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AccountOpenedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="StandardDiscountPercentage" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="IsStatementSent" Type="Boolean" Nullable="false" />
+    <Property Name="IsOnCreditHold" Type="Boolean" Nullable="false" />
+    <Property Name="PaymentDays" Type="Int32" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FaxNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryRun" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="RunPosition" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="WebsiteURL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryAddressLine1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryAddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryLocation" Type="Geography" />
+    <Property Name="PostalAddressLine1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostalAddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="PostalPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="ColdRoomTemperatures_Archive">
+    <Key>
+      <PropertyRef Name="ColdRoomTemperatureID" />
+      <PropertyRef Name="ColdRoomSensorNumber" />
+      <PropertyRef Name="RecordedWhen" />
+      <PropertyRef Name="Temperature" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="ColdRoomTemperatureID" Type="Int64" Nullable="false" />
+    <Property Name="ColdRoomSensorNumber" Type="Int32" Nullable="false" />
+    <Property Name="RecordedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Temperature" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="Colors_Archive">
+    <Key>
+      <PropertyRef Name="ColorID" />
+      <PropertyRef Name="ColorName" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="ColorID" Type="Int32" Nullable="false" />
+    <Property Name="ColorName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="PackageTypes_Archive">
+    <Key>
+      <PropertyRef Name="PackageTypeID" />
+      <PropertyRef Name="PackageTypeName" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="PackageTypeID" Type="Int32" Nullable="false" />
+    <Property Name="PackageTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="StockGroups_Archive">
+    <Key>
+      <PropertyRef Name="StockGroupID" />
+      <PropertyRef Name="StockGroupName" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="StockGroupID" Type="Int32" Nullable="false" />
+    <Property Name="StockGroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="StockItems_Archive">
+    <Key>
+      <PropertyRef Name="StockItemID" />
+      <PropertyRef Name="StockItemName" />
+      <PropertyRef Name="SupplierID" />
+      <PropertyRef Name="UnitPackageID" />
+      <PropertyRef Name="OuterPackageID" />
+      <PropertyRef Name="LeadTimeDays" />
+      <PropertyRef Name="QuantityPerOuter" />
+      <PropertyRef Name="IsChillerStock" />
+      <PropertyRef Name="TaxRate" />
+      <PropertyRef Name="UnitPrice" />
+      <PropertyRef Name="TypicalWeightPerUnit" />
+      <PropertyRef Name="SearchDetails" />
+      <PropertyRef Name="LastEditedBy" />
+      <PropertyRef Name="ValidFrom" />
+      <PropertyRef Name="ValidTo" />
+    </Key>
+    <Property Name="StockItemID" Type="Int32" Nullable="false" />
+    <Property Name="StockItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="ColorID" Type="Int32" />
+    <Property Name="UnitPackageID" Type="Int32" Nullable="false" />
+    <Property Name="OuterPackageID" Type="Int32" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Size" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LeadTimeDays" Type="Int32" Nullable="false" />
+    <Property Name="QuantityPerOuter" Type="Int32" Nullable="false" />
+    <Property Name="IsChillerStock" Type="Boolean" Nullable="false" />
+    <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaxRate" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="RecommendedRetailPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TypicalWeightPerUnit" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="MarketingComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InternalComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="CustomFields" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SearchDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastEditedBy" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="Customers1">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+      <PropertyRef Name="CustomerName" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="FaxNumber" />
+      <PropertyRef Name="WebsiteURL" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrimaryContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AlternateContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FaxNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BuyingGroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WebsiteURL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryLocation" Type="Geography" />
+    <Property Name="DeliveryRun" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="RunPosition" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Suppliers1">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+      <PropertyRef Name="SupplierName" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="FaxNumber" />
+      <PropertyRef Name="WebsiteURL" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupplierCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrimaryContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AlternateContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FaxNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WebsiteURL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryLocation" Type="Geography" />
+    <Property Name="SupplierReference" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VehicleTemperatures1">
+    <Key>
+      <PropertyRef Name="VehicleTemperatureID" />
+      <PropertyRef Name="VehicleRegistration" />
+      <PropertyRef Name="ChillerSensorNumber" />
+      <PropertyRef Name="RecordedWhen" />
+      <PropertyRef Name="Temperature" />
+    </Key>
+    <Property Name="VehicleTemperatureID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VehicleRegistration" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChillerSensorNumber" Type="Int32" Nullable="false" />
+    <Property Name="RecordedWhen" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Temperature" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="FullSensorData" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Application_Cities_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_Cities_StateProvinceID_Application_StateProvinces">
+    <End Role="StateProvinces" Type="Self.StateProvinces" Multiplicity="1" />
+    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateProvinces">
+        <PropertyRef Name="StateProvinceID" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="StateProvinceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_SystemParameters_DeliveryCityID_Application_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="SystemParameters" Type="Self.SystemParameters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="SystemParameters">
+        <PropertyRef Name="DeliveryCityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_SystemParameters_PostalCityID_Application_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="SystemParameters" Type="Self.SystemParameters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="SystemParameters">
+        <PropertyRef Name="PostalCityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_Suppliers_DeliveryCityID_Application_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="Suppliers">
+        <PropertyRef Name="DeliveryCityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_Suppliers_PostalCityID_Application_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="Suppliers">
+        <PropertyRef Name="PostalCityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Customers_DeliveryCityID_Application_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="DeliveryCityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Customers_PostalCityID_Application_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="PostalCityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_Countries_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Countries" Type="Self.Countries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Countries">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_StateProvinces_CountryID_Application_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="StateProvinces" Type="Self.StateProvinces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="StateProvinces">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_DeliveryMethods_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="DeliveryMethods" Type="Self.DeliveryMethods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="DeliveryMethods">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_PurchaseOrders_DeliveryMethodID_Application_DeliveryMethods">
+    <End Role="DeliveryMethods" Type="Self.DeliveryMethods" Multiplicity="1" />
+    <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryMethods">
+        <PropertyRef Name="DeliveryMethodID" />
+      </Principal>
+      <Dependent Role="PurchaseOrders">
+        <PropertyRef Name="DeliveryMethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_Suppliers_DeliveryMethodID_Application_DeliveryMethods">
+    <End Role="DeliveryMethods" Type="Self.DeliveryMethods" Multiplicity="0..1" />
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryMethods">
+        <PropertyRef Name="DeliveryMethodID" />
+      </Principal>
+      <Dependent Role="Suppliers">
+        <PropertyRef Name="DeliveryMethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Customers_DeliveryMethodID_Application_DeliveryMethods">
+    <End Role="DeliveryMethods" Type="Self.DeliveryMethods" Multiplicity="1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryMethods">
+        <PropertyRef Name="DeliveryMethodID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="DeliveryMethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Invoices_DeliveryMethodID_Application_DeliveryMethods">
+    <End Role="DeliveryMethods" Type="Self.DeliveryMethods" Multiplicity="1" />
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryMethods">
+        <PropertyRef Name="DeliveryMethodID" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="DeliveryMethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_PaymentMethods_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="PaymentMethods" Type="Self.PaymentMethods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="PaymentMethods">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_SupplierTransactions_PaymentMethodID_Application_PaymentMethods">
+    <End Role="PaymentMethods" Type="Self.PaymentMethods" Multiplicity="0..1" />
+    <End Role="SupplierTransactions" Type="Self.SupplierTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethods">
+        <PropertyRef Name="PaymentMethodID" />
+      </Principal>
+      <Dependent Role="SupplierTransactions">
+        <PropertyRef Name="PaymentMethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_CustomerTransactions_PaymentMethodID_Application_PaymentMethods">
+    <End Role="PaymentMethods" Type="Self.PaymentMethods" Multiplicity="0..1" />
+    <End Role="CustomerTransactions" Type="Self.CustomerTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethods">
+        <PropertyRef Name="PaymentMethodID" />
+      </Principal>
+      <Dependent Role="CustomerTransactions">
+        <PropertyRef Name="PaymentMethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_People_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="People1" Type="Self.People" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="People1">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_StateProvinces_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="StateProvinces" Type="Self.StateProvinces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="StateProvinces">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_SystemParameters_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="SystemParameters" Type="Self.SystemParameters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="SystemParameters">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_TransactionTypes_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="TransactionTypes" Type="Self.TransactionTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="TransactionTypes">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_PurchaseOrderLines_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="PurchaseOrderLines" Type="Self.PurchaseOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderLines">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_PurchaseOrders_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="PurchaseOrders">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_PurchaseOrders_ContactPersonID_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="PurchaseOrders">
+        <PropertyRef Name="ContactPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_SupplierCategories_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="SupplierCategories" Type="Self.SupplierCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="SupplierCategories">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_Suppliers_AlternateContactPersonID_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Suppliers">
+        <PropertyRef Name="AlternateContactPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_Suppliers_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Suppliers">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_Suppliers_PrimaryContactPersonID_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Suppliers">
+        <PropertyRef Name="PrimaryContactPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_SupplierTransactions_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="SupplierTransactions" Type="Self.SupplierTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="SupplierTransactions">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_BuyingGroups_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="BuyingGroups" Type="Self.BuyingGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="BuyingGroups">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_CustomerCategories_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="CustomerCategories" Type="Self.CustomerCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="CustomerCategories">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Customers_AlternateContactPersonID_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="AlternateContactPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Customers_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Customers_PrimaryContactPersonID_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="PrimaryContactPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_CustomerTransactions_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="CustomerTransactions" Type="Self.CustomerTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="CustomerTransactions">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_InvoiceLines_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="InvoiceLines" Type="Self.InvoiceLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="InvoiceLines">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Invoices_AccountsPersonID_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="AccountsPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Invoices_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Invoices_ContactPersonID_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="ContactPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Invoices_PackedByPersonID_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="PackedByPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Invoices_SalespersonPersonID_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="SalespersonPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_OrderLines_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="OrderLines" Type="Self.OrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="OrderLines">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Orders_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Orders_ContactPersonID_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="ContactPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Orders_PickedByPersonID_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="PickedByPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Orders_SalespersonPersonID_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="SalespersonPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_SpecialDeals_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="SpecialDeals" Type="Self.SpecialDeals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="SpecialDeals">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_Colors_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Colors" Type="Self.Colors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Colors">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_PackageTypes_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="PackageTypes" Type="Self.PackageTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="PackageTypes">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockGroups_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="StockGroups" Type="Self.StockGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="StockGroups">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItemHoldings_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="StockItemHoldings" Type="Self.StockItemHoldings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="StockItemHoldings">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItems_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="StockItems" Type="Self.StockItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="StockItems">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItemStockGroups_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="StockItemStockGroups" Type="Self.StockItemStockGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="StockItemStockGroups">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItemTransactions_Application_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="StockItemTransactions" Type="Self.StockItemTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="StockItemTransactions">
+        <PropertyRef Name="LastEditedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_SupplierTransactions_TransactionTypeID_Application_TransactionTypes">
+    <End Role="TransactionTypes" Type="Self.TransactionTypes" Multiplicity="1" />
+    <End Role="SupplierTransactions" Type="Self.SupplierTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionTypes">
+        <PropertyRef Name="TransactionTypeID" />
+      </Principal>
+      <Dependent Role="SupplierTransactions">
+        <PropertyRef Name="TransactionTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_CustomerTransactions_TransactionTypeID_Application_TransactionTypes">
+    <End Role="TransactionTypes" Type="Self.TransactionTypes" Multiplicity="1" />
+    <End Role="CustomerTransactions" Type="Self.CustomerTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionTypes">
+        <PropertyRef Name="TransactionTypeID" />
+      </Principal>
+      <Dependent Role="CustomerTransactions">
+        <PropertyRef Name="TransactionTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItemTransactions_TransactionTypeID_Application_TransactionTypes">
+    <End Role="TransactionTypes" Type="Self.TransactionTypes" Multiplicity="1" />
+    <End Role="StockItemTransactions" Type="Self.StockItemTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionTypes">
+        <PropertyRef Name="TransactionTypeID" />
+      </Principal>
+      <Dependent Role="StockItemTransactions">
+        <PropertyRef Name="TransactionTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_PurchaseOrderLines_PackageTypeID_Warehouse_PackageTypes">
+    <End Role="PackageTypes" Type="Self.PackageTypes" Multiplicity="1" />
+    <End Role="PurchaseOrderLines" Type="Self.PurchaseOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageTypes">
+        <PropertyRef Name="PackageTypeID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderLines">
+        <PropertyRef Name="PackageTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_PurchaseOrderLines_PurchaseOrderID_Purchasing_PurchaseOrders">
+    <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="1" />
+    <End Role="PurchaseOrderLines" Type="Self.PurchaseOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrders">
+        <PropertyRef Name="PurchaseOrderID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderLines">
+        <PropertyRef Name="PurchaseOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_PurchaseOrderLines_StockItemID_Warehouse_StockItems">
+    <End Role="StockItems" Type="Self.StockItems" Multiplicity="1" />
+    <End Role="PurchaseOrderLines" Type="Self.PurchaseOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockItems">
+        <PropertyRef Name="StockItemID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderLines">
+        <PropertyRef Name="StockItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_PurchaseOrders_SupplierID_Purchasing_Suppliers">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+    <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="PurchaseOrders">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_SupplierTransactions_PurchaseOrderID_Purchasing_PurchaseOrders">
+    <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="0..1" />
+    <End Role="SupplierTransactions" Type="Self.SupplierTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrders">
+        <PropertyRef Name="PurchaseOrderID" />
+      </Principal>
+      <Dependent Role="SupplierTransactions">
+        <PropertyRef Name="PurchaseOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItemTransactions_PurchaseOrderID_Purchasing_PurchaseOrders">
+    <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="0..1" />
+    <End Role="StockItemTransactions" Type="Self.StockItemTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrders">
+        <PropertyRef Name="PurchaseOrderID" />
+      </Principal>
+      <Dependent Role="StockItemTransactions">
+        <PropertyRef Name="PurchaseOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_Suppliers_SupplierCategoryID_Purchasing_SupplierCategories">
+    <End Role="SupplierCategories" Type="Self.SupplierCategories" Multiplicity="1" />
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupplierCategories">
+        <PropertyRef Name="SupplierCategoryID" />
+      </Principal>
+      <Dependent Role="Suppliers">
+        <PropertyRef Name="SupplierCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasing_SupplierTransactions_SupplierID_Purchasing_Suppliers">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+    <End Role="SupplierTransactions" Type="Self.SupplierTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="SupplierTransactions">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItems_SupplierID_Purchasing_Suppliers">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+    <End Role="StockItems" Type="Self.StockItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="StockItems">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItemTransactions_SupplierID_Purchasing_Suppliers">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
+    <End Role="StockItemTransactions" Type="Self.StockItemTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="StockItemTransactions">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Customers_BuyingGroupID_Sales_BuyingGroups">
+    <End Role="BuyingGroups" Type="Self.BuyingGroups" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BuyingGroups">
+        <PropertyRef Name="BuyingGroupID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="BuyingGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_SpecialDeals_BuyingGroupID_Sales_BuyingGroups">
+    <End Role="BuyingGroups" Type="Self.BuyingGroups" Multiplicity="0..1" />
+    <End Role="SpecialDeals" Type="Self.SpecialDeals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BuyingGroups">
+        <PropertyRef Name="BuyingGroupID" />
+      </Principal>
+      <Dependent Role="SpecialDeals">
+        <PropertyRef Name="BuyingGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Customers_CustomerCategoryID_Sales_CustomerCategories">
+    <End Role="CustomerCategories" Type="Self.CustomerCategories" Multiplicity="1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerCategories">
+        <PropertyRef Name="CustomerCategoryID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="CustomerCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_SpecialDeals_CustomerCategoryID_Sales_CustomerCategories">
+    <End Role="CustomerCategories" Type="Self.CustomerCategories" Multiplicity="0..1" />
+    <End Role="SpecialDeals" Type="Self.SpecialDeals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerCategories">
+        <PropertyRef Name="CustomerCategoryID" />
+      </Principal>
+      <Dependent Role="SpecialDeals">
+        <PropertyRef Name="CustomerCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Customers_BillToCustomerID_Sales_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Customers1" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Customers1">
+        <PropertyRef Name="BillToCustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_CustomerTransactions_CustomerID_Sales_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="CustomerTransactions" Type="Self.CustomerTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="CustomerTransactions">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Invoices_BillToCustomerID_Sales_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="BillToCustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Invoices_CustomerID_Sales_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Orders_CustomerID_Sales_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_SpecialDeals_CustomerID_Sales_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="SpecialDeals" Type="Self.SpecialDeals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="SpecialDeals">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItemTransactions_CustomerID_Sales_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="StockItemTransactions" Type="Self.StockItemTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="StockItemTransactions">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_CustomerTransactions_InvoiceID_Sales_Invoices">
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="0..1" />
+    <End Role="CustomerTransactions" Type="Self.CustomerTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoices">
+        <PropertyRef Name="InvoiceID" />
+      </Principal>
+      <Dependent Role="CustomerTransactions">
+        <PropertyRef Name="InvoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_InvoiceLines_InvoiceID_Sales_Invoices">
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="1" />
+    <End Role="InvoiceLines" Type="Self.InvoiceLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoices">
+        <PropertyRef Name="InvoiceID" />
+      </Principal>
+      <Dependent Role="InvoiceLines">
+        <PropertyRef Name="InvoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_InvoiceLines_PackageTypeID_Warehouse_PackageTypes">
+    <End Role="PackageTypes" Type="Self.PackageTypes" Multiplicity="1" />
+    <End Role="InvoiceLines" Type="Self.InvoiceLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageTypes">
+        <PropertyRef Name="PackageTypeID" />
+      </Principal>
+      <Dependent Role="InvoiceLines">
+        <PropertyRef Name="PackageTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_InvoiceLines_StockItemID_Warehouse_StockItems">
+    <End Role="StockItems" Type="Self.StockItems" Multiplicity="1" />
+    <End Role="InvoiceLines" Type="Self.InvoiceLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockItems">
+        <PropertyRef Name="StockItemID" />
+      </Principal>
+      <Dependent Role="InvoiceLines">
+        <PropertyRef Name="StockItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Invoices_OrderID_Sales_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItemTransactions_InvoiceID_Sales_Invoices">
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="0..1" />
+    <End Role="StockItemTransactions" Type="Self.StockItemTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoices">
+        <PropertyRef Name="InvoiceID" />
+      </Principal>
+      <Dependent Role="StockItemTransactions">
+        <PropertyRef Name="InvoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_OrderLines_OrderID_Sales_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="OrderLines" Type="Self.OrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderLines">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_OrderLines_PackageTypeID_Warehouse_PackageTypes">
+    <End Role="PackageTypes" Type="Self.PackageTypes" Multiplicity="1" />
+    <End Role="OrderLines" Type="Self.OrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageTypes">
+        <PropertyRef Name="PackageTypeID" />
+      </Principal>
+      <Dependent Role="OrderLines">
+        <PropertyRef Name="PackageTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_OrderLines_StockItemID_Warehouse_StockItems">
+    <End Role="StockItems" Type="Self.StockItems" Multiplicity="1" />
+    <End Role="OrderLines" Type="Self.OrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockItems">
+        <PropertyRef Name="StockItemID" />
+      </Principal>
+      <Dependent Role="OrderLines">
+        <PropertyRef Name="StockItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Orders_BackorderOrderID_Sales_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="Orders1" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="Orders1">
+        <PropertyRef Name="BackorderOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_SpecialDeals_StockGroupID_Warehouse_StockGroups">
+    <End Role="StockGroups" Type="Self.StockGroups" Multiplicity="0..1" />
+    <End Role="SpecialDeals" Type="Self.SpecialDeals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockGroups">
+        <PropertyRef Name="StockGroupID" />
+      </Principal>
+      <Dependent Role="SpecialDeals">
+        <PropertyRef Name="StockGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_SpecialDeals_StockItemID_Warehouse_StockItems">
+    <End Role="StockItems" Type="Self.StockItems" Multiplicity="0..1" />
+    <End Role="SpecialDeals" Type="Self.SpecialDeals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockItems">
+        <PropertyRef Name="StockItemID" />
+      </Principal>
+      <Dependent Role="SpecialDeals">
+        <PropertyRef Name="StockItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItems_ColorID_Warehouse_Colors">
+    <End Role="Colors" Type="Self.Colors" Multiplicity="0..1" />
+    <End Role="StockItems" Type="Self.StockItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colors">
+        <PropertyRef Name="ColorID" />
+      </Principal>
+      <Dependent Role="StockItems">
+        <PropertyRef Name="ColorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItems_OuterPackageID_Warehouse_PackageTypes">
+    <End Role="PackageTypes" Type="Self.PackageTypes" Multiplicity="1" />
+    <End Role="StockItems" Type="Self.StockItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageTypes">
+        <PropertyRef Name="PackageTypeID" />
+      </Principal>
+      <Dependent Role="StockItems">
+        <PropertyRef Name="OuterPackageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItems_UnitPackageID_Warehouse_PackageTypes">
+    <End Role="PackageTypes" Type="Self.PackageTypes" Multiplicity="1" />
+    <End Role="StockItems" Type="Self.StockItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageTypes">
+        <PropertyRef Name="PackageTypeID" />
+      </Principal>
+      <Dependent Role="StockItems">
+        <PropertyRef Name="UnitPackageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItemStockGroups_StockGroupID_Warehouse_StockGroups">
+    <End Role="StockGroups" Type="Self.StockGroups" Multiplicity="1" />
+    <End Role="StockItemStockGroups" Type="Self.StockItemStockGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockGroups">
+        <PropertyRef Name="StockGroupID" />
+      </Principal>
+      <Dependent Role="StockItemStockGroups">
+        <PropertyRef Name="StockGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PKFK_Warehouse_StockItemHoldings_StockItemID_Warehouse_StockItems">
+    <End Role="StockItems" Type="Self.StockItems" Multiplicity="1" />
+    <End Role="StockItemHoldings" Type="Self.StockItemHoldings" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="StockItems">
+        <PropertyRef Name="StockItemID" />
+      </Principal>
+      <Dependent Role="StockItemHoldings">
+        <PropertyRef Name="StockItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItemStockGroups_StockItemID_Warehouse_StockItems">
+    <End Role="StockItems" Type="Self.StockItems" Multiplicity="1" />
+    <End Role="StockItemStockGroups" Type="Self.StockItemStockGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockItems">
+        <PropertyRef Name="StockItemID" />
+      </Principal>
+      <Dependent Role="StockItemStockGroups">
+        <PropertyRef Name="StockItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_StockItemTransactions_StockItemID_Warehouse_StockItems">
+    <End Role="StockItems" Type="Self.StockItems" Multiplicity="1" />
+    <End Role="StockItemTransactions" Type="Self.StockItemTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockItems">
+        <PropertyRef Name="StockItemID" />
+      </Principal>
+      <Dependent Role="StockItemTransactions">
+        <PropertyRef Name="StockItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WorldEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cities" EntityType="Self.Cities" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" />
+    <EntitySet Name="DeliveryMethods" EntityType="Self.DeliveryMethods" />
+    <EntitySet Name="PaymentMethods" EntityType="Self.PaymentMethods" />
+    <EntitySet Name="People" EntityType="Self.People" />
+    <EntitySet Name="StateProvinces" EntityType="Self.StateProvinces" />
+    <EntitySet Name="SystemParameters" EntityType="Self.SystemParameters" />
+    <EntitySet Name="TransactionTypes" EntityType="Self.TransactionTypes" />
+    <EntitySet Name="PurchaseOrderLines" EntityType="Self.PurchaseOrderLines" />
+    <EntitySet Name="PurchaseOrders" EntityType="Self.PurchaseOrders" />
+    <EntitySet Name="SupplierCategories" EntityType="Self.SupplierCategories" />
+    <EntitySet Name="Suppliers" EntityType="Self.Suppliers" />
+    <EntitySet Name="SupplierTransactions" EntityType="Self.SupplierTransactions" />
+    <EntitySet Name="BuyingGroups" EntityType="Self.BuyingGroups" />
+    <EntitySet Name="CustomerCategories" EntityType="Self.CustomerCategories" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" />
+    <EntitySet Name="CustomerTransactions" EntityType="Self.CustomerTransactions" />
+    <EntitySet Name="InvoiceLines" EntityType="Self.InvoiceLines" />
+    <EntitySet Name="Invoices" EntityType="Self.Invoices" />
+    <EntitySet Name="OrderLines" EntityType="Self.OrderLines" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" />
+    <EntitySet Name="SpecialDeals" EntityType="Self.SpecialDeals" />
+    <EntitySet Name="ColdRoomTemperatures" EntityType="Self.ColdRoomTemperatures" />
+    <EntitySet Name="Colors" EntityType="Self.Colors" />
+    <EntitySet Name="PackageTypes" EntityType="Self.PackageTypes" />
+    <EntitySet Name="StockGroups" EntityType="Self.StockGroups" />
+    <EntitySet Name="StockItemHoldings" EntityType="Self.StockItemHoldings" />
+    <EntitySet Name="StockItems" EntityType="Self.StockItems" />
+    <EntitySet Name="StockItemStockGroups" EntityType="Self.StockItemStockGroups" />
+    <EntitySet Name="StockItemTransactions" EntityType="Self.StockItemTransactions" />
+    <EntitySet Name="VehicleTemperatures" EntityType="Self.VehicleTemperatures" />
+    <EntitySet Name="Cities_Archive" EntityType="Self.Cities_Archive" />
+    <EntitySet Name="Countries_Archive" EntityType="Self.Countries_Archive" />
+    <EntitySet Name="DeliveryMethods_Archive" EntityType="Self.DeliveryMethods_Archive" />
+    <EntitySet Name="PaymentMethods_Archive" EntityType="Self.PaymentMethods_Archive" />
+    <EntitySet Name="People_Archive" EntityType="Self.People_Archive" />
+    <EntitySet Name="StateProvinces_Archive" EntityType="Self.StateProvinces_Archive" />
+    <EntitySet Name="TransactionTypes_Archive" EntityType="Self.TransactionTypes_Archive" />
+    <EntitySet Name="SupplierCategories_Archive" EntityType="Self.SupplierCategories_Archive" />
+    <EntitySet Name="Suppliers_Archive" EntityType="Self.Suppliers_Archive" />
+    <EntitySet Name="BuyingGroups_Archive" EntityType="Self.BuyingGroups_Archive" />
+    <EntitySet Name="CustomerCategories_Archive" EntityType="Self.CustomerCategories_Archive" />
+    <EntitySet Name="Customers_Archive" EntityType="Self.Customers_Archive" />
+    <EntitySet Name="ColdRoomTemperatures_Archive" EntityType="Self.ColdRoomTemperatures_Archive" />
+    <EntitySet Name="Colors_Archive" EntityType="Self.Colors_Archive" />
+    <EntitySet Name="PackageTypes_Archive" EntityType="Self.PackageTypes_Archive" />
+    <EntitySet Name="StockGroups_Archive" EntityType="Self.StockGroups_Archive" />
+    <EntitySet Name="StockItems_Archive" EntityType="Self.StockItems_Archive" />
+    <EntitySet Name="Customers1" EntityType="Self.Customers1" />
+    <EntitySet Name="Suppliers1" EntityType="Self.Suppliers1" />
+    <EntitySet Name="VehicleTemperatures1" EntityType="Self.VehicleTemperatures1" />
+    <AssociationSet Name="FK_Application_Cities_Application_People" Association="Self.FK_Application_Cities_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_Cities_StateProvinceID_Application_StateProvinces" Association="Self.FK_Application_Cities_StateProvinceID_Application_StateProvinces">
+      <End Role="StateProvinces" EntitySet="StateProvinces" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_SystemParameters_DeliveryCityID_Application_Cities" Association="Self.FK_Application_SystemParameters_DeliveryCityID_Application_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="SystemParameters" EntitySet="SystemParameters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_SystemParameters_PostalCityID_Application_Cities" Association="Self.FK_Application_SystemParameters_PostalCityID_Application_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="SystemParameters" EntitySet="SystemParameters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_Suppliers_DeliveryCityID_Application_Cities" Association="Self.FK_Purchasing_Suppliers_DeliveryCityID_Application_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Suppliers" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_Suppliers_PostalCityID_Application_Cities" Association="Self.FK_Purchasing_Suppliers_PostalCityID_Application_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Suppliers" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Customers_DeliveryCityID_Application_Cities" Association="Self.FK_Sales_Customers_DeliveryCityID_Application_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Customers_PostalCityID_Application_Cities" Association="Self.FK_Sales_Customers_PostalCityID_Application_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_Countries_Application_People" Association="Self.FK_Application_Countries_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Countries" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_StateProvinces_CountryID_Application_Countries" Association="Self.FK_Application_StateProvinces_CountryID_Application_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="StateProvinces" EntitySet="StateProvinces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_DeliveryMethods_Application_People" Association="Self.FK_Application_DeliveryMethods_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="DeliveryMethods" EntitySet="DeliveryMethods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_PurchaseOrders_DeliveryMethodID_Application_DeliveryMethods" Association="Self.FK_Purchasing_PurchaseOrders_DeliveryMethodID_Application_DeliveryMethods">
+      <End Role="DeliveryMethods" EntitySet="DeliveryMethods" />
+      <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_Suppliers_DeliveryMethodID_Application_DeliveryMethods" Association="Self.FK_Purchasing_Suppliers_DeliveryMethodID_Application_DeliveryMethods">
+      <End Role="DeliveryMethods" EntitySet="DeliveryMethods" />
+      <End Role="Suppliers" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Customers_DeliveryMethodID_Application_DeliveryMethods" Association="Self.FK_Sales_Customers_DeliveryMethodID_Application_DeliveryMethods">
+      <End Role="DeliveryMethods" EntitySet="DeliveryMethods" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Invoices_DeliveryMethodID_Application_DeliveryMethods" Association="Self.FK_Sales_Invoices_DeliveryMethodID_Application_DeliveryMethods">
+      <End Role="DeliveryMethods" EntitySet="DeliveryMethods" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_PaymentMethods_Application_People" Association="Self.FK_Application_PaymentMethods_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="PaymentMethods" EntitySet="PaymentMethods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_SupplierTransactions_PaymentMethodID_Application_PaymentMethods" Association="Self.FK_Purchasing_SupplierTransactions_PaymentMethodID_Application_PaymentMethods">
+      <End Role="PaymentMethods" EntitySet="PaymentMethods" />
+      <End Role="SupplierTransactions" EntitySet="SupplierTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_CustomerTransactions_PaymentMethodID_Application_PaymentMethods" Association="Self.FK_Sales_CustomerTransactions_PaymentMethodID_Application_PaymentMethods">
+      <End Role="PaymentMethods" EntitySet="PaymentMethods" />
+      <End Role="CustomerTransactions" EntitySet="CustomerTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_People_Application_People" Association="Self.FK_Application_People_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="People1" EntitySet="People" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_StateProvinces_Application_People" Association="Self.FK_Application_StateProvinces_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="StateProvinces" EntitySet="StateProvinces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_SystemParameters_Application_People" Association="Self.FK_Application_SystemParameters_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="SystemParameters" EntitySet="SystemParameters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_TransactionTypes_Application_People" Association="Self.FK_Application_TransactionTypes_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="TransactionTypes" EntitySet="TransactionTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_PurchaseOrderLines_Application_People" Association="Self.FK_Purchasing_PurchaseOrderLines_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="PurchaseOrderLines" EntitySet="PurchaseOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_PurchaseOrders_Application_People" Association="Self.FK_Purchasing_PurchaseOrders_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_PurchaseOrders_ContactPersonID_Application_People" Association="Self.FK_Purchasing_PurchaseOrders_ContactPersonID_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_SupplierCategories_Application_People" Association="Self.FK_Purchasing_SupplierCategories_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="SupplierCategories" EntitySet="SupplierCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_Suppliers_AlternateContactPersonID_Application_People" Association="Self.FK_Purchasing_Suppliers_AlternateContactPersonID_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Suppliers" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_Suppliers_Application_People" Association="Self.FK_Purchasing_Suppliers_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Suppliers" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_Suppliers_PrimaryContactPersonID_Application_People" Association="Self.FK_Purchasing_Suppliers_PrimaryContactPersonID_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Suppliers" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_SupplierTransactions_Application_People" Association="Self.FK_Purchasing_SupplierTransactions_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="SupplierTransactions" EntitySet="SupplierTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_BuyingGroups_Application_People" Association="Self.FK_Sales_BuyingGroups_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="BuyingGroups" EntitySet="BuyingGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_CustomerCategories_Application_People" Association="Self.FK_Sales_CustomerCategories_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="CustomerCategories" EntitySet="CustomerCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Customers_AlternateContactPersonID_Application_People" Association="Self.FK_Sales_Customers_AlternateContactPersonID_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Customers_Application_People" Association="Self.FK_Sales_Customers_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Customers_PrimaryContactPersonID_Application_People" Association="Self.FK_Sales_Customers_PrimaryContactPersonID_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_CustomerTransactions_Application_People" Association="Self.FK_Sales_CustomerTransactions_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="CustomerTransactions" EntitySet="CustomerTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_InvoiceLines_Application_People" Association="Self.FK_Sales_InvoiceLines_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="InvoiceLines" EntitySet="InvoiceLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Invoices_AccountsPersonID_Application_People" Association="Self.FK_Sales_Invoices_AccountsPersonID_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Invoices_Application_People" Association="Self.FK_Sales_Invoices_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Invoices_ContactPersonID_Application_People" Association="Self.FK_Sales_Invoices_ContactPersonID_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Invoices_PackedByPersonID_Application_People" Association="Self.FK_Sales_Invoices_PackedByPersonID_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Invoices_SalespersonPersonID_Application_People" Association="Self.FK_Sales_Invoices_SalespersonPersonID_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_OrderLines_Application_People" Association="Self.FK_Sales_OrderLines_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="OrderLines" EntitySet="OrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Orders_Application_People" Association="Self.FK_Sales_Orders_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Orders_ContactPersonID_Application_People" Association="Self.FK_Sales_Orders_ContactPersonID_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Orders_PickedByPersonID_Application_People" Association="Self.FK_Sales_Orders_PickedByPersonID_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Orders_SalespersonPersonID_Application_People" Association="Self.FK_Sales_Orders_SalespersonPersonID_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_SpecialDeals_Application_People" Association="Self.FK_Sales_SpecialDeals_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="SpecialDeals" EntitySet="SpecialDeals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_Colors_Application_People" Association="Self.FK_Warehouse_Colors_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Colors" EntitySet="Colors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_PackageTypes_Application_People" Association="Self.FK_Warehouse_PackageTypes_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="PackageTypes" EntitySet="PackageTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockGroups_Application_People" Association="Self.FK_Warehouse_StockGroups_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="StockGroups" EntitySet="StockGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItemHoldings_Application_People" Association="Self.FK_Warehouse_StockItemHoldings_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="StockItemHoldings" EntitySet="StockItemHoldings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItems_Application_People" Association="Self.FK_Warehouse_StockItems_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="StockItems" EntitySet="StockItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItemStockGroups_Application_People" Association="Self.FK_Warehouse_StockItemStockGroups_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="StockItemStockGroups" EntitySet="StockItemStockGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItemTransactions_Application_People" Association="Self.FK_Warehouse_StockItemTransactions_Application_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="StockItemTransactions" EntitySet="StockItemTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_SupplierTransactions_TransactionTypeID_Application_TransactionTypes" Association="Self.FK_Purchasing_SupplierTransactions_TransactionTypeID_Application_TransactionTypes">
+      <End Role="TransactionTypes" EntitySet="TransactionTypes" />
+      <End Role="SupplierTransactions" EntitySet="SupplierTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_CustomerTransactions_TransactionTypeID_Application_TransactionTypes" Association="Self.FK_Sales_CustomerTransactions_TransactionTypeID_Application_TransactionTypes">
+      <End Role="TransactionTypes" EntitySet="TransactionTypes" />
+      <End Role="CustomerTransactions" EntitySet="CustomerTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItemTransactions_TransactionTypeID_Application_TransactionTypes" Association="Self.FK_Warehouse_StockItemTransactions_TransactionTypeID_Application_TransactionTypes">
+      <End Role="TransactionTypes" EntitySet="TransactionTypes" />
+      <End Role="StockItemTransactions" EntitySet="StockItemTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_PurchaseOrderLines_PackageTypeID_Warehouse_PackageTypes" Association="Self.FK_Purchasing_PurchaseOrderLines_PackageTypeID_Warehouse_PackageTypes">
+      <End Role="PackageTypes" EntitySet="PackageTypes" />
+      <End Role="PurchaseOrderLines" EntitySet="PurchaseOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_PurchaseOrderLines_PurchaseOrderID_Purchasing_PurchaseOrders" Association="Self.FK_Purchasing_PurchaseOrderLines_PurchaseOrderID_Purchasing_PurchaseOrders">
+      <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+      <End Role="PurchaseOrderLines" EntitySet="PurchaseOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_PurchaseOrderLines_StockItemID_Warehouse_StockItems" Association="Self.FK_Purchasing_PurchaseOrderLines_StockItemID_Warehouse_StockItems">
+      <End Role="StockItems" EntitySet="StockItems" />
+      <End Role="PurchaseOrderLines" EntitySet="PurchaseOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_PurchaseOrders_SupplierID_Purchasing_Suppliers" Association="Self.FK_Purchasing_PurchaseOrders_SupplierID_Purchasing_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_SupplierTransactions_PurchaseOrderID_Purchasing_PurchaseOrders" Association="Self.FK_Purchasing_SupplierTransactions_PurchaseOrderID_Purchasing_PurchaseOrders">
+      <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+      <End Role="SupplierTransactions" EntitySet="SupplierTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItemTransactions_PurchaseOrderID_Purchasing_PurchaseOrders" Association="Self.FK_Warehouse_StockItemTransactions_PurchaseOrderID_Purchasing_PurchaseOrders">
+      <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+      <End Role="StockItemTransactions" EntitySet="StockItemTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_Suppliers_SupplierCategoryID_Purchasing_SupplierCategories" Association="Self.FK_Purchasing_Suppliers_SupplierCategoryID_Purchasing_SupplierCategories">
+      <End Role="SupplierCategories" EntitySet="SupplierCategories" />
+      <End Role="Suppliers" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasing_SupplierTransactions_SupplierID_Purchasing_Suppliers" Association="Self.FK_Purchasing_SupplierTransactions_SupplierID_Purchasing_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="SupplierTransactions" EntitySet="SupplierTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItems_SupplierID_Purchasing_Suppliers" Association="Self.FK_Warehouse_StockItems_SupplierID_Purchasing_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="StockItems" EntitySet="StockItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItemTransactions_SupplierID_Purchasing_Suppliers" Association="Self.FK_Warehouse_StockItemTransactions_SupplierID_Purchasing_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="StockItemTransactions" EntitySet="StockItemTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Customers_BuyingGroupID_Sales_BuyingGroups" Association="Self.FK_Sales_Customers_BuyingGroupID_Sales_BuyingGroups">
+      <End Role="BuyingGroups" EntitySet="BuyingGroups" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_SpecialDeals_BuyingGroupID_Sales_BuyingGroups" Association="Self.FK_Sales_SpecialDeals_BuyingGroupID_Sales_BuyingGroups">
+      <End Role="BuyingGroups" EntitySet="BuyingGroups" />
+      <End Role="SpecialDeals" EntitySet="SpecialDeals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Customers_CustomerCategoryID_Sales_CustomerCategories" Association="Self.FK_Sales_Customers_CustomerCategoryID_Sales_CustomerCategories">
+      <End Role="CustomerCategories" EntitySet="CustomerCategories" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_SpecialDeals_CustomerCategoryID_Sales_CustomerCategories" Association="Self.FK_Sales_SpecialDeals_CustomerCategoryID_Sales_CustomerCategories">
+      <End Role="CustomerCategories" EntitySet="CustomerCategories" />
+      <End Role="SpecialDeals" EntitySet="SpecialDeals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Customers_BillToCustomerID_Sales_Customers" Association="Self.FK_Sales_Customers_BillToCustomerID_Sales_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Customers1" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_CustomerTransactions_CustomerID_Sales_Customers" Association="Self.FK_Sales_CustomerTransactions_CustomerID_Sales_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="CustomerTransactions" EntitySet="CustomerTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Invoices_BillToCustomerID_Sales_Customers" Association="Self.FK_Sales_Invoices_BillToCustomerID_Sales_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Invoices_CustomerID_Sales_Customers" Association="Self.FK_Sales_Invoices_CustomerID_Sales_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Orders_CustomerID_Sales_Customers" Association="Self.FK_Sales_Orders_CustomerID_Sales_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_SpecialDeals_CustomerID_Sales_Customers" Association="Self.FK_Sales_SpecialDeals_CustomerID_Sales_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="SpecialDeals" EntitySet="SpecialDeals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItemTransactions_CustomerID_Sales_Customers" Association="Self.FK_Warehouse_StockItemTransactions_CustomerID_Sales_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="StockItemTransactions" EntitySet="StockItemTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_CustomerTransactions_InvoiceID_Sales_Invoices" Association="Self.FK_Sales_CustomerTransactions_InvoiceID_Sales_Invoices">
+      <End Role="Invoices" EntitySet="Invoices" />
+      <End Role="CustomerTransactions" EntitySet="CustomerTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_InvoiceLines_InvoiceID_Sales_Invoices" Association="Self.FK_Sales_InvoiceLines_InvoiceID_Sales_Invoices">
+      <End Role="Invoices" EntitySet="Invoices" />
+      <End Role="InvoiceLines" EntitySet="InvoiceLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_InvoiceLines_PackageTypeID_Warehouse_PackageTypes" Association="Self.FK_Sales_InvoiceLines_PackageTypeID_Warehouse_PackageTypes">
+      <End Role="PackageTypes" EntitySet="PackageTypes" />
+      <End Role="InvoiceLines" EntitySet="InvoiceLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_InvoiceLines_StockItemID_Warehouse_StockItems" Association="Self.FK_Sales_InvoiceLines_StockItemID_Warehouse_StockItems">
+      <End Role="StockItems" EntitySet="StockItems" />
+      <End Role="InvoiceLines" EntitySet="InvoiceLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Invoices_OrderID_Sales_Orders" Association="Self.FK_Sales_Invoices_OrderID_Sales_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItemTransactions_InvoiceID_Sales_Invoices" Association="Self.FK_Warehouse_StockItemTransactions_InvoiceID_Sales_Invoices">
+      <End Role="Invoices" EntitySet="Invoices" />
+      <End Role="StockItemTransactions" EntitySet="StockItemTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_OrderLines_OrderID_Sales_Orders" Association="Self.FK_Sales_OrderLines_OrderID_Sales_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderLines" EntitySet="OrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_OrderLines_PackageTypeID_Warehouse_PackageTypes" Association="Self.FK_Sales_OrderLines_PackageTypeID_Warehouse_PackageTypes">
+      <End Role="PackageTypes" EntitySet="PackageTypes" />
+      <End Role="OrderLines" EntitySet="OrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_OrderLines_StockItemID_Warehouse_StockItems" Association="Self.FK_Sales_OrderLines_StockItemID_Warehouse_StockItems">
+      <End Role="StockItems" EntitySet="StockItems" />
+      <End Role="OrderLines" EntitySet="OrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Orders_BackorderOrderID_Sales_Orders" Association="Self.FK_Sales_Orders_BackorderOrderID_Sales_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Orders1" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_SpecialDeals_StockGroupID_Warehouse_StockGroups" Association="Self.FK_Sales_SpecialDeals_StockGroupID_Warehouse_StockGroups">
+      <End Role="StockGroups" EntitySet="StockGroups" />
+      <End Role="SpecialDeals" EntitySet="SpecialDeals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_SpecialDeals_StockItemID_Warehouse_StockItems" Association="Self.FK_Sales_SpecialDeals_StockItemID_Warehouse_StockItems">
+      <End Role="StockItems" EntitySet="StockItems" />
+      <End Role="SpecialDeals" EntitySet="SpecialDeals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItems_ColorID_Warehouse_Colors" Association="Self.FK_Warehouse_StockItems_ColorID_Warehouse_Colors">
+      <End Role="Colors" EntitySet="Colors" />
+      <End Role="StockItems" EntitySet="StockItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItems_OuterPackageID_Warehouse_PackageTypes" Association="Self.FK_Warehouse_StockItems_OuterPackageID_Warehouse_PackageTypes">
+      <End Role="PackageTypes" EntitySet="PackageTypes" />
+      <End Role="StockItems" EntitySet="StockItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItems_UnitPackageID_Warehouse_PackageTypes" Association="Self.FK_Warehouse_StockItems_UnitPackageID_Warehouse_PackageTypes">
+      <End Role="PackageTypes" EntitySet="PackageTypes" />
+      <End Role="StockItems" EntitySet="StockItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItemStockGroups_StockGroupID_Warehouse_StockGroups" Association="Self.FK_Warehouse_StockItemStockGroups_StockGroupID_Warehouse_StockGroups">
+      <End Role="StockGroups" EntitySet="StockGroups" />
+      <End Role="StockItemStockGroups" EntitySet="StockItemStockGroups" />
+    </AssociationSet>
+    <AssociationSet Name="PKFK_Warehouse_StockItemHoldings_StockItemID_Warehouse_StockItems" Association="Self.PKFK_Warehouse_StockItemHoldings_StockItemID_Warehouse_StockItems">
+      <End Role="StockItems" EntitySet="StockItems" />
+      <End Role="StockItemHoldings" EntitySet="StockItemHoldings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItemStockGroups_StockItemID_Warehouse_StockItems" Association="Self.FK_Warehouse_StockItemStockGroups_StockItemID_Warehouse_StockItems">
+      <End Role="StockItems" EntitySet="StockItems" />
+      <End Role="StockItemStockGroups" EntitySet="StockItemStockGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_StockItemTransactions_StockItemID_Warehouse_StockItems" Association="Self.FK_Warehouse_StockItemTransactions_StockItemID_Warehouse_StockItems">
+      <End Role="StockItems" EntitySet="StockItems" />
+      <End Role="StockItemTransactions" EntitySet="StockItemTransactions" />
+    </AssociationSet>
+    <FunctionImport Name="DetermineCustomerAccess" IsComposable="true" ReturnType="Collection(WideWorldImportersModel.DetermineCustomerAccess_Result)">
+      <Parameter Name="CityID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AddRoleMemberIfNonexistent">
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Configuration_ApplyAuditing" />
+    <FunctionImport Name="Configuration_ApplyColumnstoreIndexing" />
+    <FunctionImport Name="Configuration_ApplyFullTextIndexing" />
+    <FunctionImport Name="Configuration_ApplyPartitioning" />
+    <FunctionImport Name="Configuration_ApplyRowLevelSecurity" />
+    <FunctionImport Name="Configuration_ConfigureForEnterpriseEdition" />
+    <FunctionImport Name="Configuration_EnableInMemory" />
+    <FunctionImport Name="Configuration_RemoveAuditing" />
+    <FunctionImport Name="Configuration_RemoveRowLevelSecurity" />
+    <FunctionImport Name="CreateRoleIfNonexistent">
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Configuration_ApplyDataLoadSimulationProcedures" />
+    <FunctionImport Name="Configuration_RemoveDataLoadSimulationProcedures" />
+    <FunctionImport Name="DeactivateTemporalTablesBeforeDataLoad" />
+    <FunctionImport Name="PopulateDataToCurrentDate">
+      <Parameter Name="AverageNumberOfCustomerOrdersPerDay" Mode="In" Type="Int32" />
+      <Parameter Name="SaturdayPercentageOfNormalWorkDay" Mode="In" Type="Int32" />
+      <Parameter Name="SundayPercentageOfNormalWorkDay" Mode="In" Type="Int32" />
+      <Parameter Name="IsSilentMode" Mode="In" Type="Boolean" />
+      <Parameter Name="AreDatesPrinted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="ReactivateTemporalTablesAfterDataLoad" />
+    <FunctionImport Name="GetCityUpdates">
+      <Parameter Name="LastCutoff" Mode="In" Type="DateTime" />
+      <Parameter Name="NewCutoff" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomerUpdates">
+      <Parameter Name="LastCutoff" Mode="In" Type="DateTime" />
+      <Parameter Name="NewCutoff" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetEmployeeUpdates">
+      <Parameter Name="LastCutoff" Mode="In" Type="DateTime" />
+      <Parameter Name="NewCutoff" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetMovementUpdates" ReturnType="Collection(WideWorldImportersModel.GetMovementUpdates_Result)">
+      <Parameter Name="LastCutoff" Mode="In" Type="DateTime" />
+      <Parameter Name="NewCutoff" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetOrderUpdates" ReturnType="Collection(WideWorldImportersModel.GetOrderUpdates_Result)">
+      <Parameter Name="LastCutoff" Mode="In" Type="DateTime" />
+      <Parameter Name="NewCutoff" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetPaymentMethodUpdates">
+      <Parameter Name="LastCutoff" Mode="In" Type="DateTime" />
+      <Parameter Name="NewCutoff" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetPurchaseUpdates" ReturnType="Collection(WideWorldImportersModel.GetPurchaseUpdates_Result)">
+      <Parameter Name="LastCutoff" Mode="In" Type="DateTime" />
+      <Parameter Name="NewCutoff" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetSaleUpdates" ReturnType="Collection(WideWorldImportersModel.GetSaleUpdates_Result)">
+      <Parameter Name="LastCutoff" Mode="In" Type="DateTime" />
+      <Parameter Name="NewCutoff" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetStockHoldingUpdates" ReturnType="Collection(WideWorldImportersModel.GetStockHoldingUpdates_Result)" />
+    <FunctionImport Name="GetStockItemUpdates">
+      <Parameter Name="LastCutoff" Mode="In" Type="DateTime" />
+      <Parameter Name="NewCutoff" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetSupplierUpdates">
+      <Parameter Name="LastCutoff" Mode="In" Type="DateTime" />
+      <Parameter Name="NewCutoff" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetTransactionTypeUpdates">
+      <Parameter Name="LastCutoff" Mode="In" Type="DateTime" />
+      <Parameter Name="NewCutoff" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetTransactionUpdates" ReturnType="Collection(WideWorldImportersModel.GetTransactionUpdates_Result)">
+      <Parameter Name="LastCutoff" Mode="In" Type="DateTime" />
+      <Parameter Name="NewCutoff" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ReseedAllSequences" />
+    <FunctionImport Name="ReseedSequenceBeyondTableValues">
+      <Parameter Name="SequenceName" Mode="In" Type="String" />
+      <Parameter Name="SchemaName" Mode="In" Type="String" />
+      <Parameter Name="TableName" Mode="In" Type="String" />
+      <Parameter Name="ColumnName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ActivateWebsiteLogon">
+      <Parameter Name="PersonID" Mode="In" Type="Int32" />
+      <Parameter Name="LogonName" Mode="In" Type="String" />
+      <Parameter Name="InitialPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ChangePassword">
+      <Parameter Name="PersonID" Mode="In" Type="Int32" />
+      <Parameter Name="OldPassword" Mode="In" Type="String" />
+      <Parameter Name="NewPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertCustomerOrders">
+      <Parameter Name="OrdersCreatedByPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="SalespersonPersonID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InvoiceCustomerOrders">
+      <Parameter Name="PackedByPersonID" Mode="In" Type="Int32" />
+      <Parameter Name="InvoicedByPersonID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RecordColdRoomTemperatures" />
+    <FunctionImport Name="RecordVehicleTemperature">
+      <Parameter Name="FullSensorDataArray" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SearchForCustomers" ReturnType="Collection(String)">
+      <Parameter Name="SearchText" Mode="In" Type="String" />
+      <Parameter Name="MaximumRowsToReturn" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SearchForPeople" ReturnType="Collection(String)">
+      <Parameter Name="SearchText" Mode="In" Type="String" />
+      <Parameter Name="MaximumRowsToReturn" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SearchForStockItems" ReturnType="Collection(String)">
+      <Parameter Name="SearchText" Mode="In" Type="String" />
+      <Parameter Name="MaximumRowsToReturn" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SearchForStockItemsByTags" ReturnType="Collection(String)">
+      <Parameter Name="SearchText" Mode="In" Type="String" />
+      <Parameter Name="MaximumRowsToReturn" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SearchForSuppliers" ReturnType="Collection(String)">
+      <Parameter Name="SearchText" Mode="In" Type="String" />
+      <Parameter Name="MaximumRowsToReturn" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetMovementUpdates_Result">
+    <Property Type="DateTime" Name="Date_Key" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Stock_Item_Transaction_ID" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Invoice_ID" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Purchase_Order_ID" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Stock_Item_ID" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Customer_ID" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Supplier_ID" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Transaction_Type_ID" Nullable="false" />
+    <Property Type="DateTime" Name="Transaction_Occurred_When" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetOrderUpdates_Result">
+    <Property Type="DateTime" Name="Order_Date_Key" Nullable="true" />
+    <Property Type="DateTime" Name="Picked_Date_Key" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Order_ID" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Backorder_ID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Package" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="false" />
+    <Property Type="Decimal" Name="Unit_Price" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Tax_Rate" Nullable="false" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="Total_Excluding_Tax" Nullable="true" Precision="29" Scale="2" />
+    <Property Type="Decimal" Name="Tax_Amount" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="Total_Including_Tax" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Int32" Name="WWI_City_ID" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Customer_ID" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Stock_Item_ID" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Salesperson_ID" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Picker_ID" Nullable="true" />
+    <Property Type="DateTime" Name="Last_Modified_When" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetPurchaseUpdates_Result">
+    <Property Type="DateTime" Name="Date_Key" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Purchase_Order_ID" Nullable="false" />
+    <Property Type="Int32" Name="Ordered_Outers" Nullable="false" />
+    <Property Type="Int32" Name="Ordered_Quantity" Nullable="true" />
+    <Property Type="Int32" Name="Received_Outers" Nullable="false" />
+    <Property Type="String" Name="Package" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="Is_Order_Finalized" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Supplier_ID" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Stock_Item_ID" Nullable="false" />
+    <Property Type="DateTime" Name="Last_Modified_When" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetSaleUpdates_Result">
+    <Property Type="DateTime" Name="Invoice_Date_Key" Nullable="true" />
+    <Property Type="DateTime" Name="Delivery_Date_Key" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Invoice_ID" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Package" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="false" />
+    <Property Type="Decimal" Name="Unit_Price" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Tax_Rate" Nullable="false" Precision="18" Scale="3" />
+    <Property Type="Decimal" Name="Total_Excluding_Tax" Nullable="true" Precision="19" Scale="2" />
+    <Property Type="Decimal" Name="Tax_Amount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Profit" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Total_Including_Tax" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="Total_Dry_Items" Nullable="false" />
+    <Property Type="Int32" Name="Total_Chiller_Items" Nullable="false" />
+    <Property Type="Int32" Name="WWI_City_ID" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Customer_ID" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Bill_To_Customer_ID" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Stock_Item_ID" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Saleperson_ID" Nullable="false" />
+    <Property Type="DateTime" Name="Last_Modified_When" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetStockHoldingUpdates_Result">
+    <Property Type="Int32" Name="Quantity_On_Hand" Nullable="false" />
+    <Property Type="String" Name="Bin_Location" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="Last_Stocktake_Quantity" Nullable="false" />
+    <Property Type="Decimal" Name="Last_Cost_Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="Reorder_Level" Nullable="false" />
+    <Property Type="Int32" Name="Target_Stock_Level" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Stock_Item_ID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetTransactionUpdates_Result">
+    <Property Type="DateTime" Name="Date_Key" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Customer_Transaction_ID" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Supplier_Transaction_ID" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Invoice_ID" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Purchase_Order_ID" Nullable="true" />
+    <Property Type="String" Name="Supplier_Invoice_Number" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="Total_Excluding_Tax" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Tax_Amount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Total_Including_Tax" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Outstanding_Balance" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="Is_Finalized" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Customer_ID" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Bill_To_Customer_ID" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Supplier_ID" Nullable="true" />
+    <Property Type="Int32" Name="WWI_Transaction_Type_ID" Nullable="false" />
+    <Property Type="Int32" Name="WWI_Payment_Method_ID" Nullable="true" />
+    <Property Type="DateTime" Name="Last_Modified_When" Nullable="false" />
+  </ComplexType>
+</Schema>
