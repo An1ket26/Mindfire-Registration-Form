@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -13,12 +15,28 @@ namespace webForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            //Response.Cookies["Name"].Expires = DateTime.Now.AddDays(-1);
+            //DataTable table = new DataTable();
+            //table.Columns.Add("Name");
+            //table.Rows.Add("Aniket");
+            //DataList1.DataSource = table;
+            //DataList1.DataBind();
+
         }
-        public void TextBxChange(object sender, EventArgs e)
+        protected void TextBxChange(object sender, EventArgs e)
         {
-            var text = TextBox1.Text;
-            Label1.ToolTip = text;
+            LogRecord("Textbox changed");
+            LogRecord(TextBox1.Text);
+            String text=TextBox1.Text;
+            HttpCookie cookies = new HttpCookie("Name");
+            cookies.Value = text;
+            Response.Cookies.Add(cookies);
+
+            Session["Name"] = text;
+          
+
+            //Response.Cookies["Name"]["Text"] =text;
+
         }
 
         protected void Submit_Click1(object sender, EventArgs e)
@@ -87,7 +105,7 @@ namespace webForms
             if (fileInfo.Exists)
             {
                 Response.Clear();
-                Response.AddHeader("Content-Dispostion", "attachment; filename=" + fileInfo.Name);
+                Response.AddHeader("Content-Disposition", " attachment; filename=" + fileInfo.Name);
                 Response.AddHeader("Content-Length",fileInfo.Length.ToString());
                 Response.ContentType="text/plain";
                 Response.Flush();
@@ -95,5 +113,31 @@ namespace webForms
                 Response.End();
             }
         }
+        protected void Add_List_Click(object sender, EventArgs e)
+        {
+            string txt = Tb3.Text;
+            DropDownList1.Items.Add(txt);
+            Tb3.Text="";
+            
+        }
+        protected void Add_To_DataList(object sender,EventArgs e) 
+        {
+            var id = int.Parse(Tb4.Text);
+            DataTable dt = new DataTable();
+            dt.Columns.Add("UserID1");
+            dt.Columns.Add("FirstName");
+            dt.Columns.Add("LastName");
+            using(var dbContext = new TestDBEntities())
+            {
+                var items = dbContext.GetDetailsById(id);
+                foreach (var item in items)
+                {
+                    dt.Rows.Add(item.UserID.ToString(),item.FirstName,item.LastName);
+                }
+            }
+            DataList1.DataSource = dt;
+            DataList1.DataBind(); 
+        }
+       
     }
 }

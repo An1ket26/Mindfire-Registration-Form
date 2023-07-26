@@ -71,3 +71,7 @@ D:\Projects\Assignments\c#\webForms\webForms\obj\Debug\webForms.csproj.CoreCompi
 D:\Projects\Assignments\c#\webForms\webForms\obj\Debug\webForms.csproj.CopyComplete
 D:\Projects\Assignments\c#\webForms\webForms\obj\Debug\webForms.dll
 D:\Projects\Assignments\c#\webForms\webForms\obj\Debug\webForms.pdb
+D:\Projects\Assignments\c#\webForms\webForms\bin\EntityFramework.dll
+D:\Projects\Assignments\c#\webForms\webForms\bin\EntityFramework.SqlServer.dll
+D:\Projects\Assignments\c#\webForms\webForms\bin\EntityFramework.xml
+D:\Projects\Assignments\c#\webForms\webForms\bin\EntityFramework.SqlServer.xml
