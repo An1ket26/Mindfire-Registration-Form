@@ -4,7 +4,7 @@
         $.ajax({
             type: "POST",
             url: '/MyForm/WebForm2.aspx/TestMethod',
-            data: '{msg: "HII" }',
+            data: '{msg: "Hello" }',
             contentType: "application/json; charset=utf-8",
             success: function (data) {
                 console.log(data);

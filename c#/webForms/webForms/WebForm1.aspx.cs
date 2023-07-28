@@ -29,9 +29,12 @@ namespace webForms
                 Response.Write("First time");
             }
             else
-                Response.Write("PostBacks"); 
-            
-           
+                Response.Write("PostBacks");
+
+            if (Session["Name1"] != null)
+                Tb3.Text = Session["Name1"].ToString(); 
+
+
         }
         protected void Page_Start(object sender, EventArgs e)
         {
@@ -78,8 +81,8 @@ namespace webForms
             cookies.Value = text;
             Response.Cookies.Add(cookies);
 
-            Session["Name"] = text;
-          
+            Session["Name1"] = text;
+            //Response.Redirect("WebForm1.aspx");
 
             //Response.Cookies["Name"]["Text"] =text;
 
@@ -87,9 +90,10 @@ namespace webForms
 
         protected void Submit_Click1(object sender, EventArgs e)
         {
+
+            //var text=TextBox1.Text;
+            //Label1.Text = text;
             
-            var text=TextBox1.Text;
-            Label1.Text = text;
 
         }
 

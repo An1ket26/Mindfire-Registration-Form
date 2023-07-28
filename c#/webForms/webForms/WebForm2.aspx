@@ -3,8 +3,10 @@
      
     <main>
         <div>
+           
+            <br /><br/>
             <asp:Label ID="Label1" AssociatedControlID="TextBox1" runat="server">First Number</asp:Label>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
             <br />
             <asp:Label ID="Label2" AssociatedControlID="TextBox2" runat="server">Second Number</asp:Label>
             <asp:TextBox ID="TextBox2" runat="server" ></asp:TextBox>
@@ -21,7 +23,54 @@
             <asp:Button ID="Button1" runat="server" Text="save"/>
             <asp:Button ID="Button2" runat="server" Text="Submit" CausesValidation="false"/>
             <input type="button" id="CheckMethodbtn" ClientIdMode="static" runat="server"   value="CheckMethod"  />
-             <asp:CompareValidator 
+            <table class="style1">  
+            <tr>  
+                <td>  
+                    BackColor  
+                </td>  
+                <td>
+                    <asp:RadioButtonList ID="rbLBackColor" runat="server" AutoPostBack="True"   
+                        onselectedindexchanged="rbLBackColor_SelectedIndexChanged"   
+                        RepeatDirection="Horizontal">  
+                        <asp:ListItem>Red</asp:ListItem>  
+                        <asp:ListItem>Green</asp:ListItem>  
+                        <asp:ListItem>Blue</asp:ListItem>  
+                    </asp:RadioButtonList>  
+                </td>  
+            </tr>  
+            <tr>  
+                <td>  
+                    ForeColor  
+                </td>  
+                <td>  
+                       
+                    <asp:RadioButtonList ID="rbLForeColor" runat="server" AutoPostBack="True"   
+                        onselectedindexchanged="rbLForeColor_SelectedIndexChanged"   
+                        RepeatDirection="Horizontal">  
+                        <asp:ListItem>Red</asp:ListItem>  
+                        <asp:ListItem>Green</asp:ListItem>  
+                        <asp:ListItem>Blue</asp:ListItem>  
+                    </asp:RadioButtonList>  
+                </td>  
+            </tr>  
+            <tr>  
+                <td>  
+                    Name  
+                </td>  
+                <td>  
+                    <asp:TextBox ID="TextBox6" runat="server" ></asp:TextBox>  
+                </td>  
+            </tr>  
+            <tr>  
+                <td>  
+                       
+                </td>  
+                <td>  
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" EnableViewState="False"  />  
+                </td>  
+            </tr>  
+</table> 
+             <%--<asp:CompareValidator 
                  ID="compareValidator1"
                  runat="server" 
                  ControlToCompare="TextBox2" 
@@ -61,7 +110,7 @@
                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                 Display="None"
                 />  
-            <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red"/>  
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red"/>--%>  
         </div>
        
     </main>
