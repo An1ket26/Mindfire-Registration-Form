@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TestDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Ideas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Notes" Relationship="Self.FK_Notes_Ideas" FromRole="Ideas" ToRole="Notes" />
+  </EntityType>
+  <EntityType Name="Notes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="IdeaId" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Ideas" Relationship="Self.FK_Notes_Ideas" FromRole="Notes" ToRole="Ideas" />
+  </EntityType>
   <EntityType Name="UserDetails">
     <Key>
       <PropertyRef Name="UserID" />
@@ -8,6 +26,43 @@
     <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
+  <Association Name="FK_Notes_Ideas">
+    <End Role="Ideas" Type="Self.Ideas" Multiplicity="0..1" />
+    <End Role="Notes" Type="Self.Notes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ideas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notes">
+        <PropertyRef Name="IdeaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TestDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Ideas" EntityType="Self.Ideas" />
+    <EntitySet Name="Notes" EntityType="Self.Notes" />
+    <EntitySet Name="UserDetails" EntityType="Self.UserDetails" />
+    <AssociationSet Name="FK_Notes_Ideas" Association="Self.FK_Notes_Ideas">
+      <End Role="Ideas" EntitySet="Ideas" />
+      <End Role="Notes" EntitySet="Notes" />
+    </AssociationSet>
+    <EntitySet Name="GetDetails" EntityType="TestDBModel.GetDetails" />
+    <FunctionImport Name="GetData" ReturnType="Collection(TestDBModel.GetData_Result)" />
+    <FunctionImport Name="GetDetailsById" ReturnType="Collection(TestDBModel.GetDetailsById_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Company" EntityType="TestDBModel.Company" />
+    <EntitySet Name="NoteApp" EntityType="TestDBModel.NoteApp" />
+    <AssociationSet Name="FK_NoteApp_Company" Association="TestDBModel.FK_NoteApp_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="NoteApp" EntitySet="NoteApp" />
+    </AssociationSet>
+    <EntitySet Name="Users" EntityType="TestDBModel.Users" />
+    <AssociationSet Name="FK_NoteApp_Users" Association="TestDBModel.FK_NoteApp_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="NoteApp" EntitySet="NoteApp" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="GetDetails">
     <Key>
       <PropertyRef Name="UserID" />
@@ -16,14 +71,6 @@
     <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityContainer Name="TestDBEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="UserDetails" EntityType="Self.UserDetails" />
-    <EntitySet Name="GetDetails" EntityType="Self.GetDetails" />
-    <FunctionImport Name="GetData" ReturnType="Collection(TestDBModel.GetData_Result)" />
-    <FunctionImport Name="GetDetailsById" ReturnType="Collection(TestDBModel.GetDetailsById_Result)">
-      <Parameter Name="Id" Mode="In" Type="Int32" />
-    </FunctionImport>
-  </EntityContainer>
   <ComplexType Name="GetData_Result">
     <Property Type="Int32" Name="UserID" Nullable="false" />
     <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
@@ -34,4 +81,55 @@
     <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
   </ComplexType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="NoteApp" Relationship="TestDBModel.FK_NoteApp_Company" FromRole="Company" ToRole="NoteApp" />
+  </EntityType>
+  <EntityType Name="NoteApp">
+    <Key>
+      <PropertyRef Name="NoteId" />
+    </Key>
+    <Property Name="NoteId" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="ObjectId" Type="Int32" />
+    <Property Name="ObjectType" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Company" Relationship="TestDBModel.FK_NoteApp_Company" FromRole="NoteApp" ToRole="Company" />
+    <NavigationProperty Name="Users" Relationship="TestDBModel.FK_NoteApp_Users" FromRole="NoteApp" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_NoteApp_Company">
+    <End Type="TestDBModel.Company" Role="Company" Multiplicity="0..1" />
+    <End Type="TestDBModel.NoteApp" Role="NoteApp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="NoteApp">
+        <PropertyRef Name="ObjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="NoteApp" Relationship="TestDBModel.FK_NoteApp_Users" FromRole="Users" ToRole="NoteApp" />
+  </EntityType>
+  <Association Name="FK_NoteApp_Users">
+    <End Type="TestDBModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="TestDBModel.NoteApp" Role="NoteApp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="NoteApp">
+        <PropertyRef Name="ObjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

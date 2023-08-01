@@ -27,8 +27,13 @@ namespace webForms
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Ideas> Ideas { get; set; }
+        public virtual DbSet<Notes> Notes { get; set; }
         public virtual DbSet<UserDetails> UserDetails { get; set; }
         public virtual DbSet<GetDetails> GetDetails { get; set; }
+        public virtual DbSet<Company> Company { get; set; }
+        public virtual DbSet<NoteApp> NoteApp { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     
         public virtual ObjectResult<GetData_Result> GetData()
         {

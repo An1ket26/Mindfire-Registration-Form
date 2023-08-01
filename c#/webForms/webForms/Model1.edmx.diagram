@@ -4,9 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9cfff60541444ae09e0ce056cd891abe" Name="Diagram1">
-        <EntityTypeShape EntityType="TestDBModel.UserDetails" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TestDBModel.GetDetails" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="cae3303d234e4ea9a2a03bc279c90eb8" Name="Diagram1">
+        <EntityTypeShape EntityType="TestDBModel.Ideas" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestDBModel.Notes" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestDBModel.UserDetails" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="TestDBModel.FK_Notes_Ideas" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TestDBModel.GetDetails" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="TestDBModel.Company" Width="1.5" PointX="5.375" PointY="1.25" />
+        <EntityTypeShape EntityType="TestDBModel.NoteApp" Width="1.5" PointX="7.625" PointY="0.875" />
+        <AssociationConnector Association="TestDBModel.FK_NoteApp_Company" />
+        <EntityTypeShape EntityType="TestDBModel.Users" Width="1.5" PointX="0.75" PointY="6.875" />
+        <AssociationConnector Association="TestDBModel.FK_NoteApp_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

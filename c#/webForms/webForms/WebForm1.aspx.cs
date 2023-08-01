@@ -33,8 +33,6 @@ namespace webForms
 
             if (Session["Name1"] != null)
                 Tb3.Text = Session["Name1"].ToString(); 
-
-
         }
         protected void Page_Start(object sender, EventArgs e)
         {

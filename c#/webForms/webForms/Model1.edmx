@@ -4,7 +4,39 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TestDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TestDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Ideas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NoteApp">
+          <Key>
+            <PropertyRef Name="NoteId" />
+          </Key>
+          <Property Name="NoteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Notes" Type="nchar" MaxLength="50" />
+          <Property Name="ObjectId" Type="int" />
+          <Property Name="ObjectType" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Notes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdeaId" Type="int" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
         <EntityType Name="UserDetails">
           <Key>
             <PropertyRef Name="UserID" />
@@ -12,6 +44,13 @@
           <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'TestDB.dbo.GetDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -23,12 +62,53 @@ warning 6002: The table/view 'TestDB.dbo.GetDetails' does not have a primary key
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_NoteApp_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="NoteApp" Type="Self.NoteApp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="NoteApp">
+              <PropertyRef Name="ObjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteApp_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="NoteApp" Type="Self.NoteApp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="NoteApp">
+              <PropertyRef Name="ObjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notes_Ideas">
+          <End Role="Ideas" Type="Self.Ideas" Multiplicity="0..1" />
+          <End Role="Notes" Type="Self.Notes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ideas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="IdeaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="GetData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetDetailsById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="TestDBModelStoreContainer">
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ideas" EntityType="Self.Ideas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoteApp" EntityType="Self.NoteApp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notes" EntityType="Self.Notes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserDetails" EntityType="Self.UserDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GetDetails" EntityType="Self.GetDetails" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [GetDetails].[UserID] AS [UserID], 
@@ -36,12 +116,41 @@ warning 6002: The table/view 'TestDB.dbo.GetDetails' does not have a primary key
     [GetDetails].[LastName] AS [LastName]
     FROM [dbo].[GetDetails] AS [GetDetails]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_NoteApp_Company" Association="Self.FK_NoteApp_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="NoteApp" EntitySet="NoteApp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteApp_Users" Association="Self.FK_NoteApp_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="NoteApp" EntitySet="NoteApp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notes_Ideas" Association="Self.FK_Notes_Ideas">
+            <End Role="Ideas" EntitySet="Ideas" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TestDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ideas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Notes" Relationship="Self.FK_Notes_Ideas" FromRole="Ideas" ToRole="Notes" />
+        </EntityType>
+        <EntityType Name="Notes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IdeaId" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Ideas" Relationship="Self.FK_Notes_Ideas" FromRole="Notes" ToRole="Ideas" />
+        </EntityType>
         <EntityType Name="UserDetails">
           <Key>
             <PropertyRef Name="UserID" />
@@ -50,6 +159,43 @@ warning 6002: The table/view 'TestDB.dbo.GetDetails' does not have a primary key
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <Association Name="FK_Notes_Ideas">
+          <End Role="Ideas" Type="Self.Ideas" Multiplicity="0..1" />
+          <End Role="Notes" Type="Self.Notes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ideas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="IdeaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ideas" EntityType="Self.Ideas" />
+          <EntitySet Name="Notes" EntityType="Self.Notes" />
+          <EntitySet Name="UserDetails" EntityType="Self.UserDetails" />
+          <AssociationSet Name="FK_Notes_Ideas" Association="Self.FK_Notes_Ideas">
+            <End Role="Ideas" EntitySet="Ideas" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
+          <EntitySet Name="GetDetails" EntityType="TestDBModel.GetDetails" />
+          <FunctionImport Name="GetData" ReturnType="Collection(TestDBModel.GetData_Result)" />
+          <FunctionImport Name="GetDetailsById" ReturnType="Collection(TestDBModel.GetDetailsById_Result)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Company" EntityType="TestDBModel.Company" />
+          <EntitySet Name="NoteApp" EntityType="TestDBModel.NoteApp" />
+          <AssociationSet Name="FK_NoteApp_Company" Association="TestDBModel.FK_NoteApp_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="NoteApp" EntitySet="NoteApp" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="TestDBModel.Users" />
+          <AssociationSet Name="FK_NoteApp_Users" Association="TestDBModel.FK_NoteApp_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="NoteApp" EntitySet="NoteApp" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="GetDetails">
           <Key>
             <PropertyRef Name="UserID" />
@@ -58,14 +204,6 @@ warning 6002: The table/view 'TestDB.dbo.GetDetails' does not have a primary key
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="TestDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="UserDetails" EntityType="Self.UserDetails" />
-          <EntitySet Name="GetDetails" EntityType="Self.GetDetails" />
-          <FunctionImport Name="GetData" ReturnType="Collection(TestDBModel.GetData_Result)" />
-          <FunctionImport Name="GetDetailsById" ReturnType="Collection(TestDBModel.GetDetailsById_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
-          </FunctionImport>
-        </EntityContainer>
         <ComplexType Name="GetData_Result">
           <Property Type="Int32" Name="UserID" Nullable="false" />
           <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
@@ -76,12 +214,81 @@ warning 6002: The table/view 'TestDB.dbo.GetDetails' does not have a primary key
           <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="NoteApp" Relationship="TestDBModel.FK_NoteApp_Company" FromRole="Company" ToRole="NoteApp" />
+        </EntityType>
+        <EntityType Name="NoteApp">
+          <Key>
+            <PropertyRef Name="NoteId" />
+          </Key>
+          <Property Name="NoteId" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="ObjectId" Type="Int32" />
+          <Property Name="ObjectType" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Company" Relationship="TestDBModel.FK_NoteApp_Company" FromRole="NoteApp" ToRole="Company" />
+          <NavigationProperty Name="Users" Relationship="TestDBModel.FK_NoteApp_Users" FromRole="NoteApp" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_NoteApp_Company">
+          <End Type="TestDBModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="TestDBModel.NoteApp" Role="NoteApp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="NoteApp">
+              <PropertyRef Name="ObjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="NoteApp" Relationship="TestDBModel.FK_NoteApp_Users" FromRole="Users" ToRole="NoteApp" />
+        </EntityType>
+        <Association Name="FK_NoteApp_Users">
+          <End Type="TestDBModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="TestDBModel.NoteApp" Role="NoteApp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="NoteApp">
+              <PropertyRef Name="ObjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TestDBModelStoreContainer" CdmEntityContainer="TestDBEntities">
+          <EntitySetMapping Name="Ideas">
+            <EntityTypeMapping TypeName="TestDBModel.Ideas">
+              <MappingFragment StoreEntitySet="Ideas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notes">
+            <EntityTypeMapping TypeName="TestDBModel.Notes">
+              <MappingFragment StoreEntitySet="Notes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdeaId" ColumnName="IdeaId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="UserDetails">
             <EntityTypeMapping TypeName="TestDBModel.UserDetails">
               <MappingFragment StoreEntitySet="UserDetails">
@@ -94,9 +301,9 @@ warning 6002: The table/view 'TestDB.dbo.GetDetails' does not have a primary key
           <EntitySetMapping Name="GetDetails">
             <EntityTypeMapping TypeName="TestDBModel.GetDetails">
               <MappingFragment StoreEntitySet="GetDetails">
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -118,6 +325,32 @@ warning 6002: The table/view 'TestDB.dbo.GetDetails' does not have a primary key
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Company">
+            <EntityTypeMapping TypeName="TestDBModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NoteApp">
+            <EntityTypeMapping TypeName="TestDBModel.NoteApp">
+              <MappingFragment StoreEntitySet="NoteApp">
+                <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="NoteId" ColumnName="NoteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TestDBModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
