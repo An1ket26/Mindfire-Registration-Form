@@ -62,40 +62,37 @@ namespace UserRegistration
         }
 
         [System.Web.Services.WebMethod]
-        public static List<string> FetchCountry()
+        public static List<string> FetchCountry(string message)
         {
-            List<string> l = new List<string>();
+            List<string> countryList = new List<string>();
             using (var dbContext = new UserEntities())
-            {
-                
+            { 
                 var items  = dbContext.Country.Select(i=>i.CountryName);
                 foreach(var item in items)
                 {
-                    l.Add(item.ToString());
-                }
-                
+                    countryList.Add(item.ToString());
+                } 
             }
-            return l;
+            return countryList;
         }
         [System.Web.Services.WebMethod]
         public static List<string> FetchState(string country)
         {
-            List<string> l = new List<string>();
+            List<string> stateList = new List<string>();
             using(var dbContext = new UserEntities())
             {
                 int countryId = dbContext.Country.Where(i => i.CountryName == country).Select(i=>i.CountryId).Single();
                 var items =dbContext.State.Where(i=>i.CountryId==countryId).Select(i=>i.StateName);
                 foreach (var item in items)
                 {
-                    l.Add(item.ToString());
+                    stateList.Add(item.ToString());
                 }
             }
-            return l;
+            return stateList;
         }
         [System.Web.Services.WebMethod]
         public static void StoreData(UserDetailsModel user)
         {
-              
             using(var dbContext = new UserEntities())
             {
                 User obj = new User();
@@ -147,8 +144,6 @@ namespace UserRegistration
                     }
                 }
             }
-         List<Object> list = new List<Object>();
-            list.Add(new{ x="s"});
         }
         [System.Web.Services.WebMethod]
         public static Object FetchUser(string userId)

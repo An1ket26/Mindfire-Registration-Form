@@ -1,18 +1,10 @@
 ﻿$(document).ready(function () {
-    $.ajax({
-        type: "POST",
-        url: 'UserDetails.aspx/FetchCountry',
-        data: '{message: "HAI" }',
-        contentType: "application/json; charset=utf-8",
-        async: false,
-        success: function (data) {
-            LoadCountry(data.d, "#permanentCountry");
-            LoadCountry(data.d, "#presentCountry");
-        },
-        failure: function (response) {
-            alert(response.d);
-        }
-    });
+    //Initial Loading of Country 
+    ajaxCallsForStateAndCountry("FetchCountry", "message", "hi", "#permanentCountry", null);
+    ajaxCallsForStateAndCountry("FetchCountry", "message", "hi", "#presentCountry", null);
+
+
+    //Checking if it is update call or Not
     var update = false;
     var userId;
     const queryString = window.location.search;
@@ -54,9 +46,9 @@
         $("select").each(function (){
             if ($(this).attr("filldata")) {
                 var key = $(this).attr("filldata");
-                //console.log(data[key]);
+                
                 if ($(this).attr("state-load")) {
-                    //console.log($(this).attr("id"));
+                    
                     
                     fetchState($($(this).attr("parent-id")).val(), data[key], `#${$(this).attr("id")}`);
                 } else {
@@ -68,101 +60,44 @@
             UserRole = data.UserRoles.split(",");
             if (UserRole.includes($(this).val())) {
                 this.checked = true;
-            }
-            
+            }  
         })
     }
 
 
-    //api
+    //COuntry on Change Load State
     $("#permanentCountry").on("change", function () {
         
         var val = $(this).val();
-        $.ajax({
-            type: "POST",
-            url: 'UserDetails.aspx/FetchState',
-            data: JSON.stringify({country:val}),
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                LoadCountry(data.d, "#permanentState");
-            },
-            failure: function (response) {
-                alert(response.d);
-            }
-        });
+        ajaxCallsForStateAndCountry("FetchState", "country", val, "#permanentState", null);
     });
     $("#presentCountry").on("change", function () {
         var val = $(this).val();
-        console.log(val);
-        $.ajax({
-            type: "POST",
-            url: 'UserDetails.aspx/FetchState',
-            data: JSON.stringify({ country: val }),
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                LoadCountry(data.d, "#presentState");
-            },
-            failure: function (response) {
-                alert(response.d);
-            }
-        });
+        ajaxCallsForStateAndCountry("FetchState", "country", val, "#presentState", null);
     });
-    async function fetchState(val, state, stateId)
+    async function fetchState(countryVal, selectedState, stateId)
     {
-        $.ajax({
-            type: "POST",
-            url: 'UserDetails.aspx/FetchState',
-            data: JSON.stringify({ country: val }),
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                LoadState(data.d, stateId,state);
-            },
-            failure: function (response) {
-                alert(response.d);
-            }
-        });
-        
+        ajaxCallsForStateAndCountry("FetchState", "country", countryVal, stateId, selectedState);
         return true;
     }
-    
-    $.ajax({
-        type: "POST",
-        url: 'UserDetails.aspx/FetchCountry',
-        data: '{message: "HAI" }',
-        contentType: "application/json; charset=utf-8",
-        success: function (data) {
-            LoadCountry(data.d, "#permanentCountry");
-            LoadCountry(data.d, "#presentCountry");
-        },
-        failure: function (response) {
-            alert(response.d);
-        }
-    });
 
-    function LoadCountry(apiData,selectId)
+    function ajaxCallsForStateAndCountry(urlExtension,keyValue,dataValue,countryOrStateId,selectedState)
     {
-        
-        $(selectId)
-            .children()
-            .remove()
-            .end()
-            .append(
-                '<option value="none" selected disabled hidden>Select an Option</option>'
-            );
-        if (apiData.length === 0) {
-            $(selectId).append(
-                createOption(
-                    $($(selectId).attr("parent-id")).val(),
-                    $($(selectId).attr("parent-id")).val()
-                )
-            );
-        } else {
-            for (const data of apiData) {
-                $(selectId).append(createOption(data.trim(), data.trim()));
+        $.ajax({
+            type: "POST",
+            url: `UserDetails.aspx/${urlExtension}`,
+            data: `{${keyValue}:${JSON.stringify( dataValue )}}`,
+            contentType: "application/json; charset=utf-8",
+            async:false,
+            success: function (data) {
+                LoadOptionsForCountryAndState(data.d, countryOrStateId, selectedState);
+            },
+            failure: function (response) {
+                alert(response.d);
             }
-        }
+        });
     }
-    function LoadState(apiData, selectId,state) {
+    function LoadOptionsForCountryAndState(apiData, selectId,selectedState) {
 
         $(selectId)
             .children()
@@ -183,7 +118,8 @@
                 $(selectId).append(createOption(data.trim(), data.trim()));
             }
         }
-        $(selectId).val(state);
+        if (selectedState!=null)
+            $(selectId).val(selectedState);
     }
 
     $("#roleDisplay").click(function (event) {
@@ -426,7 +362,8 @@
 
     };
 
-    $("#submitBtn").click(function (event) {
+    $("#submitBtn").click(function (event)
+    {
         event.preventDefault();
         let isError = false;
         $("#container input").each(function () {
@@ -444,21 +381,19 @@
         console.log(formData);
         if (update) {
             formData.userId = userId;
-            sendToUpdate(formData)
+            sendToAddOrUpdate("UpdateData","item",formData)
         } else {
-            sendToServer(formData);
+            sendToAddOrUpdate("StoreData", "user", formData)
         }
         
         window.location.href = "userlist";
     });
-
-
-    async function sendToServer(formData)
+    async function sendToAddOrUpdate(urlExtension, keyValue, formData)
     {
         $.ajax({
             type: "POST",
-            url: 'UserDetails.aspx/StoreData',
-            data: JSON.stringify({ user: formData }),
+            url: `UserDetails.aspx/${urlExtension}`,
+            data: `{${keyValue}:${JSON.stringify(formData)}}`,
             contentType: "application/json; charset=utf-8",
             async: false,
             success: function (data) {
@@ -469,28 +404,14 @@
             }
         });
     }
-    async function sendToUpdate(formData) {
-        $.ajax({
-            type: "POST",
-            url: 'UserDetails.aspx/UpdateData',
-            data: JSON.stringify({ item: formData }),
-            contentType: "application/json; charset=utf-8",
-            async:false,
-            success: function (data) {
-                console.log(data.d);
-            },
-            failure: function (response) {
-                alert(response.d);
-            }
-        });
-    }
 
+
+    //cancel Button
     $("#cancelBtn").on("click", function (e) {
         e.preventDefault();
         window.location.href = "userlist";
     });
-
-});
+ });
 
 
 

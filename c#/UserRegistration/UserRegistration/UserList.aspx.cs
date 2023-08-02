@@ -60,7 +60,8 @@ namespace UserRegistration
                     {
                         hobby += hob.HobbyName.Trim()+",";
                     }
-                    hobby = hobby.Substring(0,hobby.Length-1).Trim();
+                    if(hobby.Length>0)
+                        hobby = hobby.Substring(0,hobby.Length-1).Trim();
                     string Roles = "";
                     var roleIds = dbContext.UserRole.Where(i=>i.UserId == item.UserId).Select(i=>i.RoleId);
                     foreach(var roleid in roleIds)
@@ -167,15 +168,13 @@ namespace UserRegistration
                 var hobbies = dbContext.Hobby.Where(i => i.UserId == deleteId);
                 foreach(var hobby in hobbies)
                 {
-                    dbContext.Hobby.Remove(hobby);
-                   
+                    dbContext.Hobby.Remove(hobby); 
                 } 
                 dbContext.SaveChanges();
                 var userRoles = dbContext.UserRole.Where(i=>i.UserId == deleteId);
                 foreach(var role in userRoles)
                 {
                     dbContext.UserRole.Remove(role);
-                    
                 }
                 dbContext.SaveChanges();
                 User obj = new User();

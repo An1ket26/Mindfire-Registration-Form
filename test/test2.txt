@@ -2,3 +2,19 @@ User
 
 Reading Books
 Playing games
+User
+
+Reading Books
+User
+
+Watching Movies
+User
+
+Reading Books
+Manager
+
+Reading Books
+Playing games
+User
+
+Watching Movies

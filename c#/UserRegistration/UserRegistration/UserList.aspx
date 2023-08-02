@@ -5,12 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>User Details</title>
+    <link rel="stylesheet" href="Content/UserList.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <h2>User Details :</h2>
+            <h1 class="heading"><u>User Details</u></h1>
             <asp:GridView 
                 ID="GridView1" 
                 runat="server"  
@@ -20,9 +21,11 @@
                 OnRowEditing="OnRowEditing"
                 OnRowCancelingEdit="OnRowCancelingEdit" 
                 OnRowDeleting="OnRowDeleting" 
-                style="margin-right: 109px; margin-top: 5px" Width="2278px">
+                CssClass="UserList-Table" 
+                HeaderStyle-CssClass="UserList-Header" RowStyle-CssClass="UserList-Rows"
+                >
                 <Columns>
-                    <asp:TemplateField HeaderText="UserId" ItemStyle-Width="150">
+                    <asp:TemplateField HeaderText="UserId" ItemStyle-CssClass="width-70" >
                         <ItemTemplate>
                             <asp:Label ID="lblId" runat="server" Text='<%# Eval("Id") %>' ></asp:Label>
                         </ItemTemplate>
@@ -30,7 +33,7 @@
                             <asp:Label ID="lblId" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
                         </EditItemTemplate>--%>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="FirstName" ItemStyle-Width="150">
+                    <asp:TemplateField HeaderText="FirstName" ItemStyle-CssClass="width-150">
                         <ItemTemplate>
                             <asp:Label ID="lblFirstname" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
                         </ItemTemplate>
@@ -38,7 +41,7 @@
                             <asp:TextBox ID="txtFirstname" runat="server" Text='<%# Eval("FirstName") %>'></asp:TextBox>
                         </EditItemTemplate>--%>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="LastName" ItemStyle-Width="150">
+                    <asp:TemplateField HeaderText="LastName" ItemStyle-CssClass="width-150">
                         <ItemTemplate>
                             <asp:Label ID="lblLastName" runat="server" Text='<%# Eval("LastName") %>'></asp:Label>
                         </ItemTemplate>
@@ -46,7 +49,7 @@
                             <asp:TextBox ID="txtLastName" runat="server" Text='<%# Eval("LastName") %>'></asp:TextBox>
                         </EditItemTemplate>--%>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Email" ItemStyle-Width="150">
+                    <asp:TemplateField HeaderText="Email" ItemStyle-CssClass="width-250">
                         <ItemTemplate>
                             <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
                         </ItemTemplate>
@@ -54,7 +57,7 @@
                             <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" Text='<%# Eval("Email") %>'></asp:TextBox>
                         </EditItemTemplate>--%>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Dob" ItemStyle-Width="150">
+                    <asp:TemplateField HeaderText="Dob" ItemStyle-CssClass="width-150">
                         <ItemTemplate>
                             <asp:Label ID="lblDob" runat="server" Text='<%# Eval("Dob") %>'></asp:Label>
                         </ItemTemplate>
@@ -62,7 +65,7 @@
                             <asp:TextBox ID="txtDob" runat="server" TextMode="Date" Text='<%# Eval("Dob") %>'></asp:TextBox>
                         </EditItemTemplate>--%>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Gender" ItemStyle-Width="150">
+                    <asp:TemplateField HeaderText="Gender" ItemStyle-CssClass="width-70">
                         <ItemTemplate>
                             <asp:Label ID="lblGender" runat="server" Text='<%# Eval("Gender") %>'></asp:Label>
                         </ItemTemplate>
@@ -192,7 +195,7 @@
                             <asp:CheckBox ID="txtIsSubscribed" runat="server" />
                         </EditItemTemplate>
                     </asp:TemplateField>--%>
-                    <asp:TemplateField HeaderText="Roles" ItemStyle-Width="250" >
+                    <asp:TemplateField HeaderText="Roles" ItemStyle-CssClass="width-250" >
                         <ItemTemplate>
                             <asp:Label ID="lblRoles" runat="server" Text='<%# Eval("Roles") %>'></asp:Label>
                         </ItemTemplate>
@@ -201,11 +204,17 @@
                             </asp:CheckBoxList>
                         </EditItemTemplate>--%>
                     </asp:TemplateField>
-                    <asp:CommandField ButtonType="Button" ShowEditButton="true" ShowDeleteButton="true" ItemStyle-Width="250"/>
+                    <%--<asp:CommandField ButtonType="Button" ShowEditButton="true" ShowDeleteButton="true" ItemStyle-CssClass="width-150" />--%>
+                    <asp:TemplateField HeaderText="Configure" ItemStyle-CssClass="width-150">
+                        <ItemTemplate>
+                            <asp:Button ID="AddUserBtn" runat="server" Text="Edit" CommandName="Edit" CssClass="EditUser-btn" />
+                            <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CssClass="DeleteUser-btn"/>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
             <br/>
-            <asp:Button ID="AddUserBtn" runat="server" Text="Add User" OnClick="AddUser" Height="37px" Width="93px"/>
+            <asp:Button ID="AddUserBtn" runat="server" Text="Add User" OnClick="AddUser" CssClass="AddUser-btn"/>
         </div>
     </form>
     
