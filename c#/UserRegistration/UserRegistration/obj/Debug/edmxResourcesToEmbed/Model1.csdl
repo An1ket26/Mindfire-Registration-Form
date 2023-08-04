@@ -68,6 +68,7 @@
     <NavigationProperty Name="State" Relationship="Self.FK_User_State" FromRole="User" ToRole="State" />
     <NavigationProperty Name="State1" Relationship="Self.FK_User_State1" FromRole="User" ToRole="State" />
     <NavigationProperty Name="UserRole" Relationship="Self.FK_UserRole_User" FromRole="User" ToRole="UserRole" />
+    <NavigationProperty Name="UserNotes" Relationship="UserRegistrationModel.FK_UserNotes_User" FromRole="User" ToRole="UserNotes" />
   </EntityType>
   <EntityType Name="UserRole">
     <Key>
@@ -214,5 +215,32 @@
       <End Role="User" EntitySet="User" />
       <End Role="UserRole" EntitySet="UserRole" />
     </AssociationSet>
+    <EntitySet Name="UserNotes" EntityType="UserRegistrationModel.UserNotes" />
+    <AssociationSet Name="FK_UserNotes_User" Association="UserRegistrationModel.FK_UserNotes_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserNotes" EntitySet="UserNotes" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="UserNotes">
+    <Key>
+      <PropertyRef Name="NoteId" />
+    </Key>
+    <Property Name="NoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Notes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectId" Type="Int32" />
+    <Property Name="ObjectType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="UserRegistrationModel.FK_UserNotes_User" FromRole="UserNotes" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_UserNotes_User">
+    <End Type="UserRegistrationModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="UserRegistrationModel.UserNotes" Role="UserNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserNotes">
+        <PropertyRef Name="ObjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

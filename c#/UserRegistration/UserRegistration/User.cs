@@ -19,6 +19,7 @@ namespace UserRegistration
         {
             this.Hobby = new HashSet<Hobby>();
             this.UserRole = new HashSet<UserRole>();
+            this.UserNotes = new HashSet<UserNotes>();
         }
     
         public int UserId { get; set; }
@@ -50,5 +51,7 @@ namespace UserRegistration
         public virtual State State1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserRole> UserRole { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserNotes> UserNotes { get; set; }
     }
 }

@@ -1,13 +1,7 @@
-﻿using Microsoft.Ajax.Utilities;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Configuration;
-using System.Web;
-using System.Web.Script.Serialization;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 namespace UserRegistration
 {
@@ -19,9 +13,9 @@ namespace UserRegistration
         public string Gender { get; set; }
         public string Email { get; set; }
         public string DateofBirth { get; set; }
-        public string PermanentAddressLine1{ get; set; }
+        public string PermanentAddressLine1 { get; set; }
         public string PermanentAddressLine2 { get; set; }
-        public string PermanentCity{ get; set; }
+        public string PermanentCity { get; set; }
         public string PermanentCountry { get; set; }
         public string PermanentState { get; set; }
         public string PermanentPostalCode { get; set; }
@@ -41,15 +35,15 @@ namespace UserRegistration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
                 RenderRoles();
         }
         protected void RenderRoles()
         {
-            using(var dbContext = new UserEntities())
+            using (var dbContext = new UserEntities())
             {
                 var items = dbContext.Role.Select(i => i.RoleName);
-                foreach (var item in items) 
+                foreach (var item in items)
                 {
 
                     RoleList.Items.Add(item.Trim());
@@ -66,12 +60,12 @@ namespace UserRegistration
         {
             List<string> countryList = new List<string>();
             using (var dbContext = new UserEntities())
-            { 
-                var items  = dbContext.Country.Select(i=>i.CountryName);
-                foreach(var item in items)
+            {
+                var items = dbContext.Country.Select(i => i.CountryName);
+                foreach (var item in items)
                 {
                     countryList.Add(item.ToString());
-                } 
+                }
             }
             return countryList;
         }
@@ -79,10 +73,10 @@ namespace UserRegistration
         public static List<string> FetchState(string country)
         {
             List<string> stateList = new List<string>();
-            using(var dbContext = new UserEntities())
+            using (var dbContext = new UserEntities())
             {
-                int countryId = dbContext.Country.Where(i => i.CountryName == country).Select(i=>i.CountryId).Single();
-                var items =dbContext.State.Where(i=>i.CountryId==countryId).Select(i=>i.StateName);
+                int countryId = dbContext.Country.Where(i => i.CountryName == country).Select(i => i.CountryId).Single();
+                var items = dbContext.State.Where(i => i.CountryId == countryId).Select(i => i.StateName);
                 foreach (var item in items)
                 {
                     stateList.Add(item.ToString());
@@ -93,18 +87,18 @@ namespace UserRegistration
         [System.Web.Services.WebMethod]
         public static void StoreData(UserDetailsModel user)
         {
-            using(var dbContext = new UserEntities())
+            using (var dbContext = new UserEntities())
             {
                 User obj = new User();
-                obj.Firstname=user.FirstName;
-                obj.LastName=user.LastName;
-                obj.Gender=user.Gender;
+                obj.Firstname = user.FirstName;
+                obj.LastName = user.LastName;
+                obj.Gender = user.Gender;
                 obj.Dob = user.DateofBirth;
                 obj.Email = user.Email;
-                obj.PresentAddressLine1=user.PresentAddressLine1;
-                obj.PresentAddressLine2=user.PresentAddressLine2;
-                obj.PresentCity=user.PresentCity;
-                obj.PresentCountryId =dbContext.Country.Where(i=>i.CountryName==user.PresentCountry).Select(i=>i.CountryId).Single();
+                obj.PresentAddressLine1 = user.PresentAddressLine1;
+                obj.PresentAddressLine2 = user.PresentAddressLine2;
+                obj.PresentCity = user.PresentCity;
+                obj.PresentCountryId = dbContext.Country.Where(i => i.CountryName == user.PresentCountry).Select(i => i.CountryId).Single();
                 obj.PresentStateId = dbContext.State.Where(i => i.StateName == user.PresentState).Select(i => i.StateId).Single();
                 obj.PresentPostalCode = user.PresentPostalCode;
                 obj.PermanentAddressLine1 = user.PermanentAddressLine1;
@@ -131,7 +125,7 @@ namespace UserRegistration
                         dbContext.SaveChanges();
                     }
                 }
-                foreach(string item in user.Hobby.Split(','))
+                foreach (string item in user.Hobby.Split(','))
                 {
                     LogRecord(item);
                     if (item != "")
@@ -148,26 +142,26 @@ namespace UserRegistration
         [System.Web.Services.WebMethod]
         public static Object FetchUser(string userId)
         {
-            int id=int.Parse(userId);
-            
+            int id = int.Parse(userId);
+
             UserDetailsModel userData = new UserDetailsModel();
             var obj = new { };
-            
+
             using (var dbContext = new UserEntities())
             {
                 var item = dbContext.User.Where(i => i.UserId == id).FirstOrDefault();
-                userData.FirstName = item.Firstname.Trim() ;
-                userData.LastName = item.LastName.Trim() ;
-                userData.Email = item.Email.Trim() ;
-                userData.DateofBirth = item.Dob.Trim() ;
-                userData.Gender = item.Gender.Trim() ;
-                userData.PresentAddressLine1 = item.PresentAddressLine1.Trim() ;
-                userData.PresentAddressLine2 = item.PresentAddressLine2.Trim() ;
-                userData.PresentPostalCode = item.PresentPostalCode.Trim() ;
-                userData.PermanentAddressLine1 = item.PermanentAddressLine1.Trim() ;
-                userData.PermanentAddressLine2 = item.PermanentAddressLine2.Trim() ;
-                userData.PermanentPostalCode = item.PermanentPostalCode.Trim() ;
-                userData.PresentCity = item.PresentCity.Trim() ;
+                userData.FirstName = item.Firstname.Trim();
+                userData.LastName = item.LastName.Trim();
+                userData.Email = item.Email.Trim();
+                userData.DateofBirth = item.Dob.Trim();
+                userData.Gender = item.Gender.Trim();
+                userData.PresentAddressLine1 = item.PresentAddressLine1.Trim();
+                userData.PresentAddressLine2 = item.PresentAddressLine2.Trim();
+                userData.PresentPostalCode = item.PresentPostalCode.Trim();
+                userData.PermanentAddressLine1 = item.PermanentAddressLine1.Trim();
+                userData.PermanentAddressLine2 = item.PermanentAddressLine2.Trim();
+                userData.PermanentPostalCode = item.PermanentPostalCode.Trim();
+                userData.PresentCity = item.PresentCity.Trim();
                 userData.PermanentCity = item.PermanentCity.Trim();
                 string presentCountryName = dbContext.Country.Where(i => i.CountryId == item.PresentCountryId).Select(i => i.CountryName).Single().ToString();
                 string permanentCountryName = dbContext.Country.Where(i => i.CountryId == item.PermanentCountryId).Select(i => i.CountryName).Single().ToString();
@@ -187,11 +181,11 @@ namespace UserRegistration
                     Roles += dbContext.Role.Where(i => i.RoleId == roleid).Select(i => i.RoleName).Single().ToString().Trim() + ",";
                 }
                 Roles = Roles.Substring(0, Roles.Length - 1).Trim();
-                userData.PresentCountry = presentCountryName.Trim() ;
-                userData.PermanentCountry = permanentCountryName.Trim() ;
-                userData.PresentState = presentStateName.Trim() ;
-                userData.PermanentState = permanentStateName.Trim() ;
-                userData.Hobby = hobby.Trim() ;
+                userData.PresentCountry = presentCountryName.Trim();
+                userData.PermanentCountry = permanentCountryName.Trim();
+                userData.PresentState = presentStateName.Trim();
+                userData.PermanentState = permanentStateName.Trim();
+                userData.Hobby = hobby.Trim();
                 userData.UserRoles = Roles.Trim();
                 userData.IsSubscribed = item.IsSubscribed.Trim();
             }
@@ -202,7 +196,7 @@ namespace UserRegistration
         [System.Web.Services.WebMethod]
         public static void UpdateData(UserDetailsModel item)
         {
-            using(var dbContext = new UserEntities())
+            using (var dbContext = new UserEntities())
             {
                 User obj = dbContext.User.Where(i => i.UserId == item.userId).Single();
                 obj.Firstname = item.FirstName;
@@ -240,9 +234,9 @@ namespace UserRegistration
                         dbContext.SaveChanges();
                     }
                 }
-                List<int>listRoleId= new List<int>();
-                var ListAllId = dbContext.Role.Select(i=>i.RoleId).ToList();
-                foreach(string roles in item.UserRoles.Split(','))
+                List<int> listRoleId = new List<int>();
+                var ListAllId = dbContext.Role.Select(i => i.RoleId).ToList();
+                foreach (string roles in item.UserRoles.Split(','))
                 {
                     if (roles != "")
                     {

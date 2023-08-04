@@ -31,5 +31,6 @@ namespace UserRegistration
         public virtual DbSet<State> State { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
+        public virtual DbSet<UserNotes> UserNotes { get; set; }
     }
 }

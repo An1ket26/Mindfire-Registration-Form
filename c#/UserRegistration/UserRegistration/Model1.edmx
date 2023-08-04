@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="UserRegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="UserRegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="CountryId" />
@@ -59,6 +59,15 @@
           <Property Name="PermanentCity" Type="nchar" MaxLength="50" />
           <Property Name="IsSubscribed" Type="nchar" MaxLength="10" />
           <Property Name="Imagesrc" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="UserNotes">
+          <Key>
+            <PropertyRef Name="NoteId" />
+          </Key>
+          <Property Name="NoteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="100" />
+          <Property Name="ObjectId" Type="int" />
+          <Property Name="ObjectType" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -140,6 +149,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserNotes_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserNotes" Type="Self.UserNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserNotes">
+              <PropertyRef Name="ObjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserRole_Role1">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
@@ -170,6 +191,7 @@
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserNotes" EntityType="Self.UserNotes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Hobby_User" Association="Self.FK_Hobby_User">
             <End Role="User" EntitySet="User" />
@@ -195,6 +217,10 @@
             <End Role="State" EntitySet="State" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <AssociationSet Name="FK_UserNotes_User" Association="Self.FK_UserNotes_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserNotes" EntitySet="UserNotes" />
+          </AssociationSet>
           <AssociationSet Name="FK_UserRole_Role1" Association="Self.FK_UserRole_Role1">
             <End Role="Role" EntitySet="Role" />
             <End Role="UserRole" EntitySet="UserRole" />
@@ -204,8 +230,7 @@
             <End Role="UserRole" EntitySet="UserRole" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UserRegistrationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -277,6 +302,7 @@
           <NavigationProperty Name="State" Relationship="Self.FK_User_State" FromRole="User" ToRole="State" />
           <NavigationProperty Name="State1" Relationship="Self.FK_User_State1" FromRole="User" ToRole="State" />
           <NavigationProperty Name="UserRole" Relationship="Self.FK_UserRole_User" FromRole="User" ToRole="UserRole" />
+          <NavigationProperty Name="UserNotes" Relationship="UserRegistrationModel.FK_UserNotes_User" FromRole="User" ToRole="UserNotes" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -423,7 +449,34 @@
             <End Role="User" EntitySet="User" />
             <End Role="UserRole" EntitySet="UserRole" />
           </AssociationSet>
+          <EntitySet Name="UserNotes" EntityType="UserRegistrationModel.UserNotes" />
+          <AssociationSet Name="FK_UserNotes_User" Association="UserRegistrationModel.FK_UserNotes_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserNotes" EntitySet="UserNotes" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="UserNotes">
+          <Key>
+            <PropertyRef Name="NoteId" />
+          </Key>
+          <Property Name="NoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Notes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ObjectId" Type="Int32" />
+          <Property Name="ObjectType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="UserRegistrationModel.FK_UserNotes_User" FromRole="UserNotes" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_UserNotes_User">
+          <End Type="UserRegistrationModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="UserRegistrationModel.UserNotes" Role="UserNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserNotes">
+              <PropertyRef Name="ObjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -495,6 +548,16 @@
                 <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserNotes">
+            <EntityTypeMapping TypeName="UserRegistrationModel.UserNotes">
+              <MappingFragment StoreEntitySet="UserNotes">
+                <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="NoteId" ColumnName="NoteId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

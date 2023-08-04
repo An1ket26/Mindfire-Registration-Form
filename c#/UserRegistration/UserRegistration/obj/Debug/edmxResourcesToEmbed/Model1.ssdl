@@ -55,6 +55,15 @@
     <Property Name="IsSubscribed" Type="nchar" MaxLength="10" />
     <Property Name="Imagesrc" Type="nvarchar" MaxLength="1000" />
   </EntityType>
+  <EntityType Name="UserNotes">
+    <Key>
+      <PropertyRef Name="NoteId" />
+    </Key>
+    <Property Name="NoteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="100" />
+    <Property Name="ObjectId" Type="int" />
+    <Property Name="ObjectType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="UserRole">
     <Key>
       <PropertyRef Name="UserRoleID" />
@@ -135,6 +144,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_UserNotes_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="UserNotes" Type="Self.UserNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserNotes">
+        <PropertyRef Name="ObjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UserRole_Role1">
     <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
@@ -165,6 +186,7 @@
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserNotes" EntityType="Self.UserNotes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Hobby_User" Association="Self.FK_Hobby_User">
       <End Role="User" EntitySet="User" />
@@ -189,6 +211,10 @@
     <AssociationSet Name="FK_User_State1" Association="Self.FK_User_State1">
       <End Role="State" EntitySet="State" />
       <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserNotes_User" Association="Self.FK_UserNotes_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserNotes" EntitySet="UserNotes" />
     </AssociationSet>
     <AssociationSet Name="FK_UserRole_Role1" Association="Self.FK_UserRole_Role1">
       <End Role="Role" EntitySet="Role" />

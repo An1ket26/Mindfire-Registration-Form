@@ -28,6 +28,7 @@
             }
         });
         $("#submitBtn").val("Update");
+        $("#NotesDiv").removeClass("hide-notes");
     }
     
     function populateData(data)

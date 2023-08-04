@@ -138,7 +138,7 @@ input[type="file"] {
 
 }
 
-form span {
+.form-body span {
     color: red;
     display: none;
 }
@@ -149,6 +149,55 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
+
+
+.Notes-Table {
+    border: 2px solid black;
+    color: black;
+    border-radius: 10px;
+    border-style: hidden;
+    box-shadow: 0 0 0 2px #666;
+    overflow:hidden
+}
+.Notes-Table td {
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom: 1px solid black;
+}
+    .Notes-Table tr:last-child td {
+        border-bottom:0px;
+    }
+    .UserNotes-Header {
+        background-color: #646464;
+        font-family: Arial;
+        color: White;
+        border: none 0px transparent;
+        height: 25px;
+        text-align: center;
+        font-size: 16px;
+    }
+.UserNotes-Rows td:last-child {
+    
+    display: flex;
+    justify-content: space-evenly;
+    padding:5px;
+}
+
+.UserNotes-Rows td span{
+    margin-left:35%;
+}
+
+.width-70 {
+    width: 60px;
+}
+.width-150 {
+    width: 200px;
+}
+
+.width-250 {
+    width: 400px;
+}
 .result-div {
     display: none;
     width: 850px;
@@ -160,6 +209,65 @@ input::-webkit-inner-spin-button {
     color: #707070;
     margin-top: 10%;
     margin-bottom: 10%;
+}
+#NotesDiv {
+    padding-left:10px;
+}
+    
+.AddNote-btn {
+    background: green;
+    border: 1px solid black;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 12px 14px;
+    text-align: center;
+    vertical-align: middle;
+    width:70px;
+}
+#txtAddnote{
+    height:40px;
+    width:300px;
+}
+
+.EditNote-btn {
+    background: blue;
+    border: 1px solid black;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    width: 70px;
+}
+
+.DeleteNote-btn {
+    background: red;
+    border: 1px solid black;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    width:70px;
 }
 
 .result-header {
@@ -195,6 +303,13 @@ input::-webkit-inner-spin-button {
 .result-div span {
     display: inline;
     color: black;
+}
+
+.show-notes{
+    display:block;
+}
+.hide-notes{
+    display:none;
 }
 
 @media (max-width: 486px) {

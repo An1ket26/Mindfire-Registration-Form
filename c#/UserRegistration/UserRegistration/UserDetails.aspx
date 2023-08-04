@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserDetails.aspx.cs" Inherits="UserRegistration.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserDetails.aspx.cs" Inherits="UserRegistration.WebForm1" EnableEventValidation="true" MaintainScrollPositionOnPostback="true" %>
 
 <!DOCTYPE html>
-
+<%@ Register Src="~/UserNotesControl.ascx"  TagPrefix="uc" TagName="Notes"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="UTF-8" />
@@ -403,6 +403,9 @@
                 <label for="subscribeCheckbox">Subscribe to Newsletter</label><br />
                 <br />
             </div>
+            <br/>
+            <uc:Notes runat="server" ObjectType="User"/>
+            <br/>
             <div class="form-footer">
                 <input
                     type="submit"
@@ -416,11 +419,12 @@
                     id="cancelBtn" 
                     />
             </div>
+            
         </form>
 
 
-
-
+        
+        
 
         <div id="resultDiv" class="result-div">
             <div class="result-header">

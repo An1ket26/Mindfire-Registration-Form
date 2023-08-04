@@ -177,6 +177,12 @@ namespace UserRegistration
                     dbContext.UserRole.Remove(role);
                 }
                 dbContext.SaveChanges();
+                var notes = dbContext.UserNotes.Where(i=>i.ObjectId==deleteId && i.ObjectType=="User");
+                foreach(var note in notes)
+                {
+                    dbContext.UserNotes.Remove(note); 
+                }
+                dbContext.SaveChanges();
                 User obj = new User();
                 obj=dbContext.User.Where(i=>i.UserId== deleteId).FirstOrDefault();
                 dbContext.User.Remove(obj);

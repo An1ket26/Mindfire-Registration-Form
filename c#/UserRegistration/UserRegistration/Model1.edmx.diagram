@@ -19,6 +19,8 @@
         <AssociationConnector Association="UserRegistrationModel.FK_User_State" ManuallyRouted="false" />
         <AssociationConnector Association="UserRegistrationModel.FK_User_State1" ManuallyRouted="false" />
         <AssociationConnector Association="UserRegistrationModel.FK_UserRole_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="UserRegistrationModel.UserNotes" Width="1.5" PointX="7.5" PointY="8.875" />
+        <AssociationConnector Association="UserRegistrationModel.FK_UserNotes_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
