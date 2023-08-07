@@ -30,7 +30,9 @@
     background-color:grey;
     color:black;
 }
-
+.nav-links:hover{
+    cursor:grabbing;
+}
 
 
 .container {

@@ -11,19 +11,12 @@ using System.Web.UI.WebControls;
 
 namespace UserRegistration
 {
-    public partial class UserDetails : System.Web.UI.Page
+    public partial class UserDetails : Auth
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Cookies["UserId"]!=null && Request.Cookies["IsAdmin"].Value=="true")
-            {
-                //Response.Write(Session["IsAdmin"].ToString());
-            }
-            else
-            {
-                Response.Redirect("LoginPage");
-            }
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 BindGrid();
             }
@@ -85,12 +78,14 @@ namespace UserRegistration
                             Where(i => i.RoleId == roleid).
                             Select(i => i.RoleName).Single().ToString().Trim()+",";
                     }
-                    Roles = Roles.Substring(0, Roles.Length - 1).Trim();
+                    if(Roles.Length>0)
+                        Roles = Roles.Substring(0, Roles.Length - 1).Trim();
                     datatable.Rows.Add(item.UserId, item.Firstname.Trim(), item.LastName.Trim(), item.Email.Trim(),
                         item.Dob, item.Gender, item.PresentAddressLine1.Trim(), item.PresentAddressLine2.Trim(),
-                        item.PresentPostalCode.Trim(), presentCountryName, presentStateName, item.PresentCity.Trim(),
-                        item.PermanentAddressLine1.Trim(), item.PermanentAddressLine2.Trim(), item.PermanentPostalCode.Trim(),
-                        permanentCountryName, permanentStateName, item.PermanentCity.Trim(), hobby,item.IsSubscribed.Trim(), Roles);
+                        item.PresentPostalCode.Trim(), presentCountryName, presentStateName,
+                        item.PresentCity.Trim(),item.PermanentAddressLine1.Trim(), item.PermanentAddressLine2.Trim(),
+                        item.PermanentPostalCode.Trim(),permanentCountryName, permanentStateName,
+                        item.PermanentCity.Trim(), hobby,item.IsSubscribed.Trim(), Roles);
                 }
                 GridView1.DataSource = datatable;
                 GridView1.DataBind();
@@ -104,35 +99,6 @@ namespace UserRegistration
             BindGrid();
         }
 
-        protected void LoadStateByCountry(string country,string stateId)
-        {
-            using (var dbContext = new UserEntities())
-            {
-                int countryId = dbContext.Country.
-                    Where(i => i.CountryName == country).
-                    Select(i => i.CountryId).Single();
-                var items = dbContext.State.
-                    Where(i => i.CountryId == countryId).
-                    Select(i => i.StateName);
-                (GridView1.Rows[GridView1.EditIndex].FindControl(stateId) as DropDownList).Items.Clear();
-                foreach (var item in items)
-                {
-                    (GridView1.Rows[GridView1.EditIndex].FindControl(stateId) as DropDownList).Items.Add(item.ToString());
-                }
-            }
-        }
-
-        protected void LoadState(object sender,EventArgs e)
-        {
-            string country = (GridView1.Rows[GridView1.EditIndex].FindControl("txtPresentCountry") as DropDownList).SelectedItem.Text;
-            LoadStateByCountry(country,"txtPresentState");
-        }
-        protected void LoadState2(object sender, EventArgs e)
-        {
-            string country = (GridView1.Rows[GridView1.EditIndex].FindControl("txtPermanentCountry") as DropDownList).SelectedItem.Text;
-            LoadStateByCountry(country, "txtPermanentState");
-
-        }
         protected void OnRowCancelingEdit(object sender,EventArgs e)
         {
             GridView1.EditIndex = -1;
@@ -161,6 +127,11 @@ namespace UserRegistration
                     dbContext.UserNotes.Remove(note); 
                 }
                 dbContext.SaveChanges();
+                var files = dbContext.UserFiles.Where(i => i.userId == deleteId);
+                foreach(var file in files)
+                {
+                    dbContext.UserFiles.Remove(file);
+                }
                 User obj = new User();
                 obj=dbContext.User.Where(i=>i.UserId== deleteId).FirstOrDefault();
                 dbContext.User.Remove(obj);
@@ -168,7 +139,20 @@ namespace UserRegistration
             }
             this.BindGrid();
         }
-
+        protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string item = e.Row.Cells[0].Text;
+                foreach (Button button in e.Row.Cells[7].Controls.OfType<Button>())
+                {
+                    if (button.CommandName == "Delete")
+                    {
+                        button.Attributes["onclick"] = "if(!confirm('Do you want to delete " + item + "?')){ return false; };";
+                    }
+                }
+            }
+        }
         protected void OnRowUpdating(object sender,GridViewUpdateEventArgs e)
         {
             int updateId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);

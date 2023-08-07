@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <h1><ins>Registration Form </ins></h1>
+    <form>
+      <label for="fname">Enter Your First Name : </label>
+      <input type="text" name="fname" id="fname" autofocus /><br /><br />
+      <label for="lname">Enter Your Last Name : </label>
+      <input type="text" name="fname" id="lname" /><br /><br />
+      <label for="email">Enter Your email : </label>
+      <input type="email" name="dob" id="email" size="30" /><br /><br />
+      <label for="dob">DOB : </label>
+      <input type="date" name="gender" id="dob" /><br /><br />
+      <label for="gender">Select your Gender</label>
+      <select id="gender" name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="other">Other</option></select
+      ><br /><br />
+      <label for="profilePic">Profile Picture :</label>
+      <input
+        type="file"
+        name="profilePic"
+        id="profilePic"
+        accept=".jpg, .png, .jpeg, .gif"
+      /><br /><br />
+      <fieldset>
+        <legend>Permanent Address :</legend>
+        <label for="address1">Address line 1 : </label>
+        <input id="address1" type="text" size="50" /><br /><br />
+        <label for="address2">Address line 2 : </label>
+        <input id="address2" type="text" size="50" /><br /><br />
+        <label for="city">City : </label>
+        <input id="city" type="text" /><br /><br />
+        <label for="state">State : </label>
+        <input id="state" type="text" /><br /><br />
+        <label for="country">Country : </label>
+        <input id="country" type="text" /><br /><br />
+        <label for="pcode">Postal Code : </label>
+        <input id="pcode" type="number" /><br /><br />
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>Present Address :</legend>
+        <label for="paddress1">Address line 1 : </label>
+        <input id="paddress1" type="text" size="50" /><br /><br />
+        <label for="paddress2">Address line 2 : </label>
+        <input id="paddress2" type="text" size="50" /><br /><br />
+        <label for="pcity">City : </label>
+        <input id="pcity" type="text" /><br /><br />
+        <label for="pstate">State : </label>
+        <input id="pstate" type="text" /><br /><br />
+        <label for="pcountry">Country : </label>
+        <input id="pcountry" type="text" /><br /><br />
+        <label for="ppcode">Postal Code : </label>
+        <input id="ppcode" type="number" /><br /><br />
+      </fieldset>
+      <br />
+      <label for="hobby">Enter your Hobbies</label>
+      <input id="hobby" type="text" size="50" /><br /><br />
+      <input type="checkbox" name="subscribe" id="subscribe" />
+      <label for="subscribe">Subscribe to Newsletter</label><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

@@ -6,16 +6,12 @@
     function ToAddClass(id, className) {
         $(id).addClass(className);
     }
-    var isAdmin = document.cookie.split(';')[1].split('=')[1];
-    //console.log(document.cookie.split(';')[1].split('=')[1]);
+    
     var update = false;
     var userId;
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     if (urlParams.get('tab') !== null) {
-        if (isAdmin == "true") {
-            $("#logout").text("Back");
-        }
         var tab = urlParams.get('tab');
         if (tab === "detailsLink") {
             ToRemoveClass("#container", "div-hide");
@@ -47,47 +43,41 @@
 
     $("#detailsLink").on('click', function (e) {
         e.preventDefault();
-        window.location = `?UserId=${userId}&tab=detailsLink`;
-        //$("#container").removeClass("div-hide");
-        //$("#notesDiv").addClass("div-hide");
-        //$("#documentDiv").addClass("div-hide");
+        window.history.pushState("userdetails", 'Title', window.location.href.split('?')[0] + `?UserId=${userId}&tab=detailsLink`);
+        populateDataAjaxCall(userId);
+        ToRemoveClass("#container", "div-hide");
+        ToAddClass("#documentDiv", "div-hide");
+        ToAddClass("#notesDiv", "div-hide");
+        $("#detailsLink").css("background-color", "Green");
+        $("#NotesLink").css("background-color", "Blue");
+        $("#documentLink").css("background-color", "Blue");
+        document.title = "User Details";
     });
     $("#NotesLink").on('click', function (e) {
         e.preventDefault();
-        window.location = `?UserId=${userId}&tab=NotesLink`;
-        //$("#notesDiv").removeClass("div-hide");
-        //$("#documentDiv").addClass("div-hide");
-        //$("#container").addClass("div-hide");
+        window.history.pushState("userdetails", 'Title', window.location.href.split('?')[0] + `?UserId=${userId}&tab=NotesLink`);
+        populateDataAjaxCall(userId);
+        ToAddClass("#container", "div-hide");
+        ToAddClass("#documentDiv", "div-hide");
+        ToRemoveClass("#notesDiv", "div-hide");
+        $("#detailsLink").css("background-color", "Blue");
+        $("#NotesLink").css("background-color", "Green");
+        $("#documentLink").css("background-color", "Blue");
+        document.title = "Notes"
         
     })
     $("#documentLink").on('click', function (e) {
         e.preventDefault();
-        window.location = `?UserId=${userId}&tab=documentLink`;
-        //$("#notesDiv").addClass("div-hide");
-        //$("#documentDiv").removeClass("div-hide");
-        //$("#container").addClass("div-hide");
+        window.history.pushState("userdetails", 'Title', window.location.href.split('?')[0] + `?UserId=${userId}&tab=documentLink`);
+        populateDataAjaxCall(userId);
+        ToAddClass("#container", "div-hide");
+        ToRemoveClass("#documentDiv", "div-hide");
+        ToAddClass("#notesDiv", "div-hide");
+        $("#detailsLink").css("background-color", "Blue");
+        $("#NotesLink").css("background-color", "Blue");
+        $("#documentLink").css("background-color", "Green");
+        document.title = "Documents"
     })
-    $("#logout").on('click', function (e) {
-        e.preventDefault();
-        if (isAdmin == "true") {
-            window.location.href = "userlist";
-        }
-        else { 
-        deleteAllCookie();
-        window.location.href = "loginpage";
-        }
-
-        
-       
-    });
-
-    function deleteAllCookie() {
-        var Cookies = document.cookie.split(';');
-        for (var i = 0; i < Cookies.length; i++) {
-            document.cookie = Cookies[i] + "=; expires=" + new Date(0).toUTCString();
-        }
-    }
-
 
 
 
@@ -104,6 +94,11 @@
         update = true;
         
         userId = urlParams.get('UserId');
+        populateDataAjaxCall(userId);
+        $("#submitBtn").val("Update"); 
+    }
+
+    function populateDataAjaxCall(userId) {
         $.ajax({
             type: "POST",
             url: 'UserDetails.aspx/FetchUser',
@@ -112,12 +107,12 @@
             success: function (data) {
                 console.log(data.d);
                 populateData(data.d);
+                $("#RegistrationFormHeading").text("Basic Details");
             },
             failure: function (response) {
                 alert(response.d);
             }
         });
-        $("#submitBtn").val("Update"); 
     }
     
     function populateData(data)
@@ -481,16 +476,18 @@
         const formData = {};
         displayResultDiv(formData);
         var files = $("#profileImageInput").get(0).files;
-        formData.ImageSrc = files[0].name;
+        if (files.length>0) {
+            formData.ImageSrc = files[0].name;
+        }
         console.log(formData);
         if (update) {
             formData.userId = userId;
-            sendToAddOrUpdate("UpdateData","item",formData)
+            sendToAddOrUpdate("UpdateData", "item", formData)
+            location.reload();
         } else {
             sendToAddOrUpdate("StoreData", "user", formData)
+            window.location.href = "loginpage";
         }
-        
-        window.location.href = "userlist";
     });
     async function sendToAddOrUpdate(urlExtension, keyValue, formData)
     {
@@ -509,6 +506,9 @@
         });
 
         var files = $("#profileImageInput").get(0).files;
+        if (files.length == 0) {
+            return;
+        }
         var fileData = new FormData();
         fileData.append("Email", formData.Email);
         fileData.append(files[0].name, files[0]);
@@ -526,11 +526,7 @@
                 alert(err.statusText)
             }
         })
-        
     }
-
-
-
  });
 
 

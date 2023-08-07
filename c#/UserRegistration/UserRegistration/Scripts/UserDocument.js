@@ -54,15 +54,17 @@
             <div class="width-250p border-left">${name}</div>
             <div class="width-150p border-left">
             <button filename="${userId}-${name}"">
-            <a href="FileDownloadHandler.ashx?filename=${userId}-${name}">Download</a></button></div>
+            <a href="FileDownloadHandler.ashx?filename=${userId}-${name}&UserId=${userId}">Download</a></button></div>
             
         </div>`;
+
         return template;
     }
-    //<div id="deleteBtnDiv" class="width-150p border-left" ><button id="deleteBtn" class="delete-btn">Delete</button></div>
     function displayAllFiles(data) {
+        var sno = 1;
         for (var name of data) {
-            $("#DisplayAllFilesDiv").append(createTemplate(1,name));
+            $("#DisplayAllFilesDiv").append(createTemplate(sno, name));
+            sno++;
         }
         $("#deleteBtnDiv button").on('click', function () {
 

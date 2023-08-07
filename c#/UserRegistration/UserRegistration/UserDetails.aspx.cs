@@ -33,35 +33,30 @@ namespace UserRegistration
         public String UserRoles { get; set; }
     }
 
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class WebForm1 : Auth
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["UserId"] == null)
-            {
-                //do something
-
-            }
-            else if(Request.Cookies["UserId"]==null)
-            {
-                Response.Redirect("loginpage");
-            }
-            else if (Request.Cookies["UserId"].Value != Request.QueryString["UserId"] && Request.Cookies["IsAdmin"].Value=="false")
-            {   
-                Response.Redirect("Userdetails?UserId="+ Request.Cookies["UserId"].Value+ "&tab=detailsLink");
-            }
-            if (Request.Cookies["IsAdmin"]!=null && Request.Cookies["IsAdmin"].Value.ToString()=="true")
+            
+            
+            if (CheckIsAdmin()==true)
             {
                 cancelBtn.Text = "Cancel";
+                logout.Text = "Back";
             }
-            else if(Request.Cookies["IsAdmin"] != null && Request.Cookies["IsAdmin"].Value.ToString() == "false")
+            else if(GetUserId()!=0 && CheckIsAdmin() == false)
             {
                 cancelBtn.CssClass = cancelBtn.CssClass.Replace("btn-cancel", "btn-cancel-hide");
             }
-            if(Request.QueryString["UserId"] != null)
+            if(CheckIsAdmin()&&GetUserId()!=0)
             {
                 FetchImage(Request.QueryString["UserId"]);
             }
+            else if(GetUserId()!=0)
+            {
+                FetchImage(GetUserId().ToString());
+            }
+            
             if (!IsPostBack)
                 RenderRoles();
 
@@ -248,6 +243,7 @@ namespace UserRegistration
                 obj.PermanentStateId = dbContext.State.Where(i => i.StateName == item.PermanentState).Select(i => i.StateId).Single(); ;
                 obj.PermanentPostalCode = item.PermanentPostalCode;
                 obj.IsSubscribed = item.IsSubscribed;
+                obj.Imagesrc = item.ImageSrc;
                 dbContext.SaveChanges();
 
                 foreach (string hobbies in item.Hobby.Split(','))
@@ -305,12 +301,6 @@ namespace UserRegistration
             
         }
 
-        public void UploadImage()
-        {
-            string fileName = Path.GetFileName(profileImageInput.PostedFile.FileName);
-            profileImageInput.PostedFile.SaveAs("D:\\Projects\\Assignments\\c#\\UserRegistration\\Images\\"+fileName);
-            
-        }
 
         [System.Web.Services.WebMethod]
         public static List<string> GetFileName(string id)
@@ -345,17 +335,32 @@ namespace UserRegistration
             string fileName = null;
             string email = "";
             using(var dbContext = new UserEntities())
-            {
-                fileName = dbContext.User.Where(i => i.UserId == id).Select(i => i.Imagesrc).Single().ToString();
-                email = dbContext.User.Where(i => i.UserId == id).Select(i => i.Email).Single().ToString();
+            {if (dbContext.User.Where(i => i.UserId == id && i.Imagesrc != null).Any())
+                {
+                    fileName = dbContext.User.Where(i => i.UserId == id && i.Imagesrc != null).Select(i => i.Imagesrc).Single().ToString();
+                    email = dbContext.User.Where(i => i.UserId == id).Select(i => i.Email).Single().ToString();
+                }
                 
             }
             
             if (fileName != null)
             {
-                profileImageDisplay.ImageUrl = "ImageDownloadHandler.ashx?ImageName=" +email.Trim()+fileName;
+                profileImageDisplay.ImageUrl = "ImageDownloadHandler.ashx?ImageName=" +email.Trim()+fileName+"&UserId="+id;
             }
         }
+
+
+        protected void Logout(object sender, EventArgs e)
+        {
+            if(CheckIsAdmin())
+            {
+                Response.Redirect("userlist");
+            }
+            ClearSession();
+            Response.Redirect("loginpage");
+        }
+
+
         public static void LogRecord(string message)
         {
             Console.WriteLine(message);

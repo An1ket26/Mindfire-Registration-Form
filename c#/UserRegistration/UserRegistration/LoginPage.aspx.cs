@@ -15,22 +15,7 @@ namespace UserRegistration
         {
 
         }
-        protected bool CheckIsAdmin(int userId)
-        {
-            bool isAdmin = false;
-            using (var dbContext = new UserEntities())
-            {
-                var rolesId = dbContext.UserRole.Where(i => i.UserId == userId).Select(i => i.RoleId);
-                foreach (var roleId in rolesId)
-                {
-                    if (dbContext.Role.Where(i => i.RoleId == roleId).Select(i => i.RoleName).Single().Trim() == "Admin")
-                    {
-                        isAdmin = true;
-                    }
-                }
-            }
-            return isAdmin;
-        }
+        
         protected void LoginClick(object sender, EventArgs e)
         {
             var email = EmailInput.Text;
@@ -39,27 +24,16 @@ namespace UserRegistration
             {
                 if(dbContext.User.Where(i=>i.Email == email && i.Password==password).Count() == 1)
                 { 
-                    var userId = dbContext.User.Where(i => i.Email == email && i.Password == password).Select(i=>i.UserId).FirstOrDefault();
-                    HttpCookie cookie = new HttpCookie("UserId");
-                    HttpCookie cookie2 = new HttpCookie("IsAdmin");
-                    cookie.Expires=DateTime.Now.AddDays(1);
-                    cookie2.Expires=DateTime.Now.AddDays(1);
-                    cookie.Value = userId.ToString();
-                    Response.Cookies.Add(cookie);
-                    Session["UserId"] = userId;
-                    if (CheckIsAdmin(userId))
+                    int userId = dbContext.User.Where(i => i.Email == email && i.Password == password).Select(i=>i.UserId).FirstOrDefault();
+                    Auth.StoreUserIdInSession(userId);
+                    if (Auth.CheckIsAdmin())
                     {
-                        cookie2.Value = "true";
-                        Response.Cookies.Add(cookie2);
-                        Session["IsAdmin"] = "true";
                         Response.Redirect("userlist");
                     }
                     else
                     {
-                        cookie2.Value = "false";
-                        Response.Cookies.Add(cookie2);
-                        Session["IsAdmin"] = "false";
-                        Response.Redirect("UserDetails?UserId=" + userId);
+                        
+                        Response.Redirect("UserDetails?UserId=" + userId + "&tab=detailsLink");
                     }
                 }
                 else
@@ -75,4 +49,5 @@ namespace UserRegistration
             Response.Redirect("userdetails");
         }
     }
+    
 }

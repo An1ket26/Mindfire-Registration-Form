@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserDetails.aspx.cs" Inherits="UserRegistration.WebForm1" EnableEventValidation="true" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserDetails.aspx.cs" Inherits="UserRegistration.WebForm1" EnableEventValidation="true" MaintainScrollPositionOnPostback="true" EnableSessionState="True" %>
 
 <!DOCTYPE html>
 <%@ Register Src="~/UserNotesControl.ascx"  TagPrefix="uc" TagName="Notes"%>
@@ -25,12 +25,13 @@
                 <button  id="detailsLink" class="nav-links" >Basic Details</button>
                 <button  id="NotesLink" class="nav-links"  >Notes</button>
                 <button  id="documentLink" class="nav-links"  >Documents</button>
-                <button  id="logout" class="nav-links"  >Logout</button>
+                <%--<button  id="logout" class="nav-links"  >Logout</button>--%>
+                <asp:Button runat="server" ID="logout" CssClass="nav-links" Text="Logout" ClientIDMode="Static"  OnClick="Logout"/>
             </div>
             <div class="container" id="container" >
                 <div class="form-main" id="formMain">
                     <div class="form-header">
-                        <h1><ins>Registration Form </ins></h1>
+                        <h1><ins id="RegistrationFormHeading">Registration Form </ins></h1>
                         <asp:Image runat="server" 
                             AlternateText="Profile photo"
                             CssClass="profile-image-display"

@@ -10,7 +10,7 @@
                 EmptyDataText="No notes has been added."
                 OnRowEditing="OnRowEditing" 
                 OnRowCancelingEdit="OnRowCancelingEdit" 
-                OnRowDeleting="OnRowDeleting"  OnRowUpdating="OnRowUpdating"
+                OnRowDeleting="OnRowDeleting"  OnRowUpdating="OnRowUpdating" OnRowDataBound="OnRowDataBound"
                 CssClass="Notes-Table" HeaderStyle-CssClass="UserNotes-Header" RowStyle-CssClass="UserNotes-Rows"
     >
               

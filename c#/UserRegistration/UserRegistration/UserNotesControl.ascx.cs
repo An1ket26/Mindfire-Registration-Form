@@ -11,13 +11,14 @@ namespace UserRegistration
 {
     public partial class WebUserControl1 : System.Web.UI.UserControl
     {
+        
         public int ObjectID { get; set; }
         public string ObjectType { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //check cookie for private note
-            if (Request.Cookies["IsAdmin"]!=null && Request.Cookies["IsAdmin"].Value.ToString()=="true")
+            
+            if (Auth.CheckIsAdmin())
             {
                 isPrivateDiv.Attributes.Add("style", "display:inline");
             }
@@ -40,7 +41,7 @@ namespace UserRegistration
             dataTable.Columns.Add("Notes");
             dataTable.Columns.Add("IsPrivate");
             string isAdmin = "NO";
-            if (Request.Cookies["IsAdmin"].Value.ToString() == "true")
+            if (Auth.CheckIsAdmin())
             {
                 isAdmin = "YES";
             }
@@ -79,6 +80,20 @@ namespace UserRegistration
         {
             GridView2.EditIndex = -1;
             this.GridBind();
+        }
+        protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string item = e.Row.Cells[0].Text;
+                foreach (Button button in e.Row.Cells[3].Controls.OfType<Button>())
+                {
+                    if (button.CommandName == "Delete")
+                    {
+                        button.Attributes["onclick"] = "if(!confirm('Do you want to delete " + item + "?')){ return false; };";
+                    }
+                }
+            }
         }
         protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -127,7 +142,5 @@ namespace UserRegistration
             this.GridBind();
             txtAddnote.Text="";
         }
-        
-
     }
 }

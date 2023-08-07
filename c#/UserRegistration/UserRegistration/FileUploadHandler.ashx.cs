@@ -15,7 +15,31 @@ namespace UserRegistration
 
         public void ProcessRequest(HttpContext context)
         {
+            
             int UserId = int.Parse(context.Request.Form.Get("UserId"));
+            int sessionUserId = int.Parse(context.Session["UserId"].ToString());
+            bool isAdmin = false;
+            using (var dbContext = new UserEntities())
+            {
+                var rolesId = dbContext.UserRole.Where(i => i.UserId == sessionUserId).Select(i => i.RoleId);
+                foreach (var roleId in rolesId)
+                {
+                    if (dbContext.Role.Where(i => i.RoleId == roleId).Select(i => i.RoleName).Single().Trim() == "Admin")
+                    {
+                        isAdmin = true;
+                    }
+                }
+            }
+            if (isAdmin == false)
+            {
+                if (UserId != sessionUserId)
+                {
+                    context.Response.ContentType = "text/plain";
+                    context.Response.Write("You Do not have authorization!");
+                }
+            }
+
+
             List<string>FileNames=new List<string>();
             if (context.Request.Files.Count > 0)
             {
