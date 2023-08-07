@@ -117,3 +117,7 @@ a{
     padding: 12px 14px;
     text-align: center;
 }
+
+#fileUploadError{
+    display:none;
+}

@@ -12,6 +12,7 @@
         </div>
     </div>
     <br/>
+    <span id="fileUploadError">*Please Select a file</span>
     <div class="upload-div">
         <input type="file" id="fileUploadInput" />
         <button id="uploadBtn">Upload</button>

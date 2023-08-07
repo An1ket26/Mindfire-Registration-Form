@@ -343,14 +343,17 @@ namespace UserRegistration
         {
             int id = int.Parse(userId);
             string fileName = null;
+            string email = "";
             using(var dbContext = new UserEntities())
             {
                 fileName = dbContext.User.Where(i => i.UserId == id).Select(i => i.Imagesrc).Single().ToString();
+                email = dbContext.User.Where(i => i.UserId == id).Select(i => i.Email).Single().ToString();
+                
             }
             
             if (fileName != null)
             {
-                profileImageDisplay.ImageUrl = "ImageDownloadHandler.ashx?ImageName=" + fileName;
+                profileImageDisplay.ImageUrl = "ImageDownloadHandler.ashx?ImageName=" +email.Trim()+fileName;
             }
         }
         public static void LogRecord(string message)

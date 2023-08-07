@@ -12,7 +12,6 @@ namespace UserRegistration
     /// </summary>
     public class ImageDownloadHandler : IHttpHandler
     {
-
         public void ProcessRequest(HttpContext context)
         {
             if (!string.IsNullOrEmpty(context.Request.QueryString["ImageName"]))

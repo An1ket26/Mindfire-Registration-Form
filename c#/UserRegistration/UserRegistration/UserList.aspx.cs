@@ -58,10 +58,15 @@ namespace UserRegistration
                 var items = dbContext.User;
                 foreach(var item in items)
                 {
-                    string presentCountryName =dbContext.Country.Where(i=>i.CountryId==item.PresentCountryId).Select(i=>i.CountryName).Single().ToString();
-                    string permanentCountryName = dbContext.Country.Where(i => i.CountryId == item.PermanentCountryId).Select(i => i.CountryName).Single().ToString();
-                    string presentStateName = dbContext.State.Where(i => i.StateId == item.PresentStateId).Select(i => i.StateName).Single().ToString();
-                    string permanentStateName = dbContext.State.Where(i => i.StateId == item.PermanentStateId).Select(i => i.StateName).Single().ToString();
+                    string presentCountryName =dbContext.Country.
+                        Where(i=>i.CountryId==item.PresentCountryId).
+                        Select(i=>i.CountryName).Single().ToString();
+                    string permanentCountryName = dbContext.Country.Where(i => i.CountryId == item.PermanentCountryId).
+                        Select(i => i.CountryName).Single().ToString();
+                    string presentStateName = dbContext.State.Where(i => i.StateId == item.PresentStateId).
+                        Select(i => i.StateName).Single().ToString();
+                    string permanentStateName = dbContext.State.Where(i => i.StateId == item.PermanentStateId).
+                        Select(i => i.StateName).Single().ToString();
                     var hobbies = dbContext.Hobby.Where(i => i.UserId == item.UserId);
                     string hobby = "";
                     foreach(var hob in hobbies)
@@ -71,10 +76,14 @@ namespace UserRegistration
                     if(hobby.Length>0)
                         hobby = hobby.Substring(0,hobby.Length-1).Trim();
                     string Roles = "";
-                    var roleIds = dbContext.UserRole.Where(i=>i.UserId == item.UserId).Select(i=>i.RoleId);
+                    var roleIds = dbContext.UserRole.
+                        Where(i=>i.UserId == item.UserId).
+                        Select(i=>i.RoleId);
                     foreach(var roleid in roleIds)
                     {
-                        Roles+=dbContext.Role.Where(i => i.RoleId == roleid).Select(i => i.RoleName).Single().ToString().Trim()+",";
+                        Roles+=dbContext.Role.
+                            Where(i => i.RoleId == roleid).
+                            Select(i => i.RoleName).Single().ToString().Trim()+",";
                     }
                     Roles = Roles.Substring(0, Roles.Length - 1).Trim();
                     datatable.Rows.Add(item.UserId, item.Firstname.Trim(), item.LastName.Trim(), item.Email.Trim(),
@@ -91,59 +100,20 @@ namespace UserRegistration
         {
             GridView1.EditIndex = e.NewEditIndex;
             int userId = Convert.ToInt32(GridView1.DataKeys[GridView1.EditIndex].Values[0]);
-            Response.Redirect("UserDetails?UserId="+userId);
-            //var presentCountry = (GridView1.Rows[GridView1.EditIndex].FindControl("lblPresentCountry") as Label).Text;
-            //var permanentCountry = (GridView1.Rows[GridView1.EditIndex].FindControl("lblPermanentCountry") as Label).Text;
-            //var presentState = (GridView1.Rows[GridView1.EditIndex].FindControl("lblPresentState") as Label).Text;
-            //var permanentState = (GridView1.Rows[GridView1.EditIndex].FindControl("lblPermanentState") as Label).Text;
-            //var isSub = (GridView1.Rows[GridView1.EditIndex].FindControl("lblIsSubscribed") as Label).Text;
+            Response.Redirect("UserDetails?UserId="+userId+"&tab=detailsLink");
             BindGrid();
-            //using (var dbContext = new UserEntities())
-            //{
-
-                //var items = dbContext.Country.Select(i => i.CountryName);
-                //foreach (var item in items)
-                //{
-                //    (GridView1.Rows[GridView1.EditIndex].FindControl("txtPresentCountry") as DropDownList).Items.Add(item.ToString());
-                //    (GridView1.Rows[GridView1.EditIndex].FindControl("txtPermanentCountry") as DropDownList).Items.Add(item.ToString());
-                //}
-                //(GridView1.Rows[GridView1.EditIndex].FindControl("txtPresentCountry") as DropDownList).SelectedValue = presentCountry;
-                //LoadStateByCountry(presentCountry, "txtPresentState");
-                //(GridView1.Rows[GridView1.EditIndex].FindControl("txtPresentState") as DropDownList).SelectedValue = presentState;
-                //(GridView1.Rows[GridView1.EditIndex].FindControl("txtPermanentCountry") as DropDownList).SelectedValue = permanentCountry;
-                //LoadStateByCountry(permanentCountry, "txtPermanentState");
-                //(GridView1.Rows[GridView1.EditIndex].FindControl("txtPermanentState") as DropDownList).SelectedValue = permanentState;
-                //var RoleNames = dbContext.Role.Select(i => i.RoleName);
-                //foreach(var roleName in  RoleNames)
-                //{
-                //    (GridView1.Rows[GridView1.EditIndex].FindControl("txtRoles") as CheckBoxList).Items.Add(roleName.Trim());
-                //}
-                //var roleIds = dbContext.UserRole.Where(i => i.UserId == userId).Select(i => i.RoleId);
-                //foreach (var roleid in roleIds)
-                //{
-                //    string roleName = dbContext.Role.Where(i => i.RoleId == roleid).Select(i => i.RoleName).Single().ToString().Trim();
-                //    foreach(ListItem item in (GridView1.Rows[GridView1.EditIndex].FindControl("txtRoles") as CheckBoxList).Items)
-                //    {
-                //        if(item.Text.Trim()==roleName)
-                //        {
-                //            item.Selected = true;
-                //        }
-                //    }
-                //}
-                
-                //if(isSub.Trim()=="YES")
-                //{
-                //    (GridView1.Rows[GridView1.EditIndex].FindControl("txtIsSubscribed") as CheckBox).Checked=true;
-                //}
-            //}
         }
 
         protected void LoadStateByCountry(string country,string stateId)
         {
             using (var dbContext = new UserEntities())
             {
-                int countryId = dbContext.Country.Where(i => i.CountryName == country).Select(i => i.CountryId).Single();
-                var items = dbContext.State.Where(i => i.CountryId == countryId).Select(i => i.StateName);
+                int countryId = dbContext.Country.
+                    Where(i => i.CountryName == country).
+                    Select(i => i.CountryId).Single();
+                var items = dbContext.State.
+                    Where(i => i.CountryId == countryId).
+                    Select(i => i.StateName);
                 (GridView1.Rows[GridView1.EditIndex].FindControl(stateId) as DropDownList).Items.Clear();
                 foreach (var item in items)
                 {
@@ -210,48 +180,11 @@ namespace UserRegistration
                 obj.Email = (GridView1.Rows[e.RowIndex].FindControl("txtEmail") as TextBox).Text;
                 obj.Dob= (GridView1.Rows[e.RowIndex].FindControl("txtDob") as TextBox).Text;
                 obj.Gender= (GridView1.Rows[e.RowIndex].FindControl("txtGender") as DropDownList).SelectedValue;
-                //obj.PresentAddressLine1 = (GridView1.Rows[e.RowIndex].FindControl("txtPresentAddrL1") as TextBox).Text;
-                //obj.PresentAddressLine2 = (GridView1.Rows[e.RowIndex].FindControl("txtPresentAddrL2") as TextBox).Text;
-                //obj.PresentPostalCode = (GridView1.Rows[e.RowIndex].FindControl("txtPresentPcode") as TextBox).Text;
-                //obj.PresentCity = (GridView1.Rows[e.RowIndex].FindControl("txtPresentCity") as TextBox).Text;
-
-                //string presentCountry = (GridView1.Rows[GridView1.EditIndex].FindControl("txtPresentCountry") as DropDownList).SelectedValue;
-                //obj.PresentCountryId = dbContext.Country.Where(i => i.CountryName == presentCountry).Select(i => i.CountryId).Single();
-                //string presentState = (GridView1.Rows[GridView1.EditIndex].FindControl("txtPresentState") as DropDownList).SelectedValue;
-                //obj.PresentStateId = dbContext.State.Where(i => i.StateName == presentState).Select(i => i.StateId).Single();
-
-
-                //obj.PermanentAddressLine1 = (GridView1.Rows[e.RowIndex].FindControl("txtPermanentAddrL1") as TextBox).Text;
-                //obj.PermanentAddressLine2 = (GridView1.Rows[e.RowIndex].FindControl("txtPermanentAddrL2") as TextBox).Text;
-                //obj.PermanentPostalCode = (GridView1.Rows[e.RowIndex].FindControl("txtPermanentPcode") as TextBox).Text;
-                //obj.PermanentCity = (GridView1.Rows[e.RowIndex].FindControl("txtPermanentCity") as TextBox).Text;
-
-                //string permanentCountry = (GridView1.Rows[GridView1.EditIndex].FindControl("txtPermanentCountry") as DropDownList).SelectedValue;
-                //obj.PermanentCountryId = dbContext.Country.Where(i => i.CountryName == permanentCountry).Select(i => i.CountryId).Single();
-                //string permanentState = (GridView1.Rows[GridView1.EditIndex].FindControl("txtPermanentState") as DropDownList).SelectedValue;
-                //obj.PermanentStateId = dbContext.State.Where(i => i.StateName == permanentState).Select(i => i.StateId).Single();
-
-                //obj.IsSubscribed = (GridView1.Rows[GridView1.EditIndex].FindControl("txtIsSubscribed") as CheckBox).Checked ? "YES" : "NO";
+                
                 dbContext.SaveChanges();
                 int userId = obj.UserId;
 
-                //string Hobby = (GridView1.Rows[e.RowIndex].FindControl("txtHobby") as TextBox).Text;
-
-                //foreach (string item in Hobby.Split(','))
-                //{
-                //    if (item != "")
-                //    {
-                //        if(dbContext.Hobby.Where(i=>i.UserId==userId && i.HobbyName==item).Any())
-                //        {
-                //            continue;
-                //        }
-                //        Hobby hobby = new Hobby();
-                //        hobby.UserId = userId;
-                //        hobby.HobbyName = item;
-                //        dbContext.Hobby.Add(hobby);
-                //        dbContext.SaveChanges();
-                //    }
-                //}
+               
 
                 foreach (ListItem item in (GridView1.Rows[GridView1.EditIndex].FindControl("txtRoles") as CheckBoxList).Items)
                 {

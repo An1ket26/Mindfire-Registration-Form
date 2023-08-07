@@ -8,7 +8,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="Content/style.css" />
+        <link rel="stylesheet" href="Content/UserDetails.css" />
         <link rel="stylesheet" href="Content/UserDocument.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
@@ -31,12 +31,6 @@
                 <div class="form-main" id="formMain">
                     <div class="form-header">
                         <h1><ins>Registration Form </ins></h1>
-                        <%--<img
-                            src="D:\Projects\Assignments\c#\UserRegistration\Images\abc.png"
-                            runat="server"
-                            alt="profile photo"
-                            class="profile-image-display"
-                            id="profileImageDisplay" />--%>
                         <asp:Image runat="server" 
                             AlternateText="Profile photo"
                             CssClass="profile-image-display"
@@ -150,17 +144,8 @@
                             <label for="profileImageInput">Profile Picture :</label>
                         </div>
                         <div class="div-col-30">
-                            <%--<input
-                                type="file"
-                                name="profileImageInput"
-                                id="profileImageInput"
-                                accept=".jpg, .png, .jpeg, .gif" />--%>
-                            <asp:FileUpload runat="server" ID="profileImageInput" ClientIDMode="Static"/>
-                    
+                            <asp:FileUpload runat="server" ID="profileImageInput" ClientIDMode="Static" accept=".jpg, .png, .jpeg, .gif"/>
                         </div>
-                         <%--password--%>
-
-
                         <div class="div-col-20">
                             <label for="passwordInput">
                                 Password :
@@ -202,7 +187,7 @@
                                 size="30"
                                 placeholder="Confirm Password"
                                 displayid="enteredCnfPassword"
-                                validation-data="notEmpty"
+                                validation-data="matchPassword"
                                 error-id="#cnfPasswordError"
                                 filldata="Password"/>
                         </div>
@@ -637,7 +622,7 @@
                 <uc:Document runat="server" class="div-hide"></uc:Document>
             </div>
         </form>
-       <script src="Scripts/form.js"></script>
+       <script src="Scripts/UserDetails.js"></script>
     </body>
 </html>
 

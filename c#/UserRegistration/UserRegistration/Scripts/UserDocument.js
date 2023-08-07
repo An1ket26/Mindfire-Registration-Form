@@ -9,7 +9,7 @@
             data: JSON.stringify({ id: userId }),
             contentType: "application/json; charset=utf-8",
             success: function (response) {
-                console.log(response.d);
+                //console.log(response.d);
                 displayAllFiles(response.d);
             },
             error: function (err) {
@@ -22,6 +22,7 @@
         e.preventDefault();
         var files = $("#fileUploadInput").get(0).files;
         if (files.length == 0) {
+            alert("Please select a file");  
             return false;
         }
         var fileData = new FormData();
@@ -37,7 +38,8 @@
             contentType: false,
             processData: false,
             success: function (response) {
-                console.log(response);
+
+                location.reload();
             },
             error: function (err) {
                 alert(err.statusText)
@@ -51,7 +53,7 @@
             <div class="width-10p border-left">${sno}</div>
             <div class="width-250p border-left">${name}</div>
             <div class="width-150p border-left">
-            <button id="downloadBtn" filename="${userId}-${name}"">
+            <button filename="${userId}-${name}"">
             <a href="FileDownloadHandler.ashx?filename=${userId}-${name}">Download</a></button></div>
             
         </div>`;
@@ -67,32 +69,4 @@
         });
     }
 
-    //function downloadButton() {
-    //    $("div #downloadBtn").each(function(){
-    //        $(this).on('click', function (e) {
-    //            e.preventDefault();
-    //            var filename = $(this).attr("filename");
-    //            console.log(filename);
-    //            downloadFileAjaxCall(filename);
-                
-    //        })
-    //    })
-    //}
-
-    //function downloadFileAjaxCall(filename) {
-    //    $.ajax({
-    //        type: "POST",
-    //        url: `FileDownloadHandler.ashx?filename=${filename}`,
-    //        contentType: false,
-    //        processData: false,
-    //        success: function (response) {
-    //            console.log(response);
-    //        },
-    //        error: function (err) {
-    //            alert(err.statusText)
-    //        }
-    //    })
-    //}
-
-    //FileDownloadHandler?filename=3-test2.txt
 })

@@ -7,7 +7,7 @@
                 runat="server"  
                 DataKeyNames="Id" 
                 AutoGenerateColumns="false" 
-                EmptyDataText="No records has been added."
+                EmptyDataText="No notes has been added."
                 OnRowEditing="OnRowEditing" 
                 OnRowCancelingEdit="OnRowCancelingEdit" 
                 OnRowDeleting="OnRowDeleting"  OnRowUpdating="OnRowUpdating"
@@ -49,14 +49,20 @@
                             <asp:Button runat="server" CommandName="Cancel" Text="Cancel" CssClass="DeleteNote-btn"/>
                         </EditItemTemplate>
                     </asp:TemplateField>
-                    <%--<asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" ItemStyle-CssClass="width-150"/>--%>
                 </Columns>
             </asp:GridView>
     <br/><br />
     <div id="AddNotesDiv">
         <h2>Add Notes :</h2>
         <br/>
-        <asp:TextBox ID="txtAddnote" runat="server" placeholder="Enter your Notes" TextMode="MultiLine" ClientIDMode="Static" />
+        <asp:Label runat="server" ID="noteErrorSpan" ClientIDMode="Static" 
+            CssClass="note-error-hide">*Please Enter A Note</asp:Label>
+        <br/><br/>
+        <asp:TextBox ID="txtAddnote" 
+            runat="server" 
+            placeholder="Enter your Notes" 
+            TextMode="MultiLine" 
+            ClientIDMode="Static"/>
        <br /><br />
         <div id="isPrivateDiv" runat="server">
             

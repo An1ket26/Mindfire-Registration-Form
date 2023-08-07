@@ -6,29 +6,37 @@
     function ToAddClass(id, className) {
         $(id).addClass(className);
     }
+    var isAdmin = document.cookie.split(';')[1].split('=')[1];
+    //console.log(document.cookie.split(';')[1].split('=')[1]);
     var update = false;
     var userId;
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     if (urlParams.get('tab') !== null) {
+        if (isAdmin == "true") {
+            $("#logout").text("Back");
+        }
         var tab = urlParams.get('tab');
         if (tab === "detailsLink") {
             ToRemoveClass("#container", "div-hide");
             ToAddClass("#documentDiv", "div-hide");
             ToAddClass("#notesDiv", "div-hide");
             $("#detailsLink").css("background-color", "Green");
+            document.title = "User Details";
 
         } else if (tab === "NotesLink") {
             ToAddClass("#container", "div-hide");
             ToAddClass("#documentDiv", "div-hide");
             ToRemoveClass("#notesDiv", "div-hide");
             $("#NotesLink").css("background-color", "Green");
+            document.title = "Notes"
         }
         else if (tab === "documentLink") {
             ToAddClass("#container", "div-hide");
             ToRemoveClass("#documentDiv", "div-hide");
             ToAddClass("#notesDiv", "div-hide");
             $("#documentLink").css("background-color", "Green");
+            document.title = "Documents"
         }
     } else {
         ToRemoveClass("#container", "div-hide");
@@ -61,8 +69,16 @@
     })
     $("#logout").on('click', function (e) {
         e.preventDefault();
+        if (isAdmin == "true") {
+            window.location.href = "userlist";
+        }
+        else { 
         deleteAllCookie();
         window.location.href = "loginpage";
+        }
+
+        
+       
     });
 
     function deleteAllCookie() {
@@ -268,6 +284,16 @@
                 fl = checkDob(inputTag.val() === "" ? new Date() : inputTag.val());
                 $(inputTag.attr("error-id"))
                     .text("*must be 18 years old")
+                    .css("display", fl ? "none" : "block");
+                if (!fl) {
+                    isError = true;
+                    break;
+                }
+            }
+            if (type == "matchPassword") {
+                fl = inputTag.val().trim() === $("#passwordInput").val().trim();
+                $(inputTag.attr("error-id"))
+                    .text("*Password does not match")
                     .css("display", fl ? "none" : "block");
                 if (!fl) {
                     isError = true;
@@ -484,9 +510,9 @@
 
         var files = $("#profileImageInput").get(0).files;
         var fileData = new FormData();
-        for (var i = 0; i < files.length; i++) {
-            fileData.append(files[0].name, files[0]);
-        }
+        fileData.append("Email", formData.Email);
+        fileData.append(files[0].name, files[0]);
+        
         $.ajax({
             type: "POST",
             url: 'ImageUploadHandler.ashx',

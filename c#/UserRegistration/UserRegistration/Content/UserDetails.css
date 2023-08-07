@@ -224,9 +224,16 @@ input::-webkit-inner-spin-button {
     margin-left:35%;
 }
 
-.width-70 {
-    width: 60px;
+.note-error-hide{
+    display:none;
 }
+.note-error-show{
+    color:red;
+}
+
+    .width-70 {
+        width: 60px;
+    }
 .width-150 {
     width: 200px;
 }
@@ -236,7 +243,7 @@ input::-webkit-inner-spin-button {
 }
 
 .Notes-div-control {
-    margin-left:20%;
+    margin-left:15%;
 }
 
 .width-70pp {
@@ -397,6 +404,12 @@ input::-webkit-inner-spin-button {
         width: 100%;
         height: 1190px;
     }
+    .Notes-Table{
+        width:90%;
+    }
+    .Notes-div-control {
+        margin-left: 5%;
+    }
 
     .div-col-50 {
         width: 100%;
@@ -441,6 +454,12 @@ input::-webkit-inner-spin-button {
     .result-div {
         width: 100%;
         height: 990px;
+    }
+    .Notes-Table {
+        width: 90%;
+    }
+    .Notes-div-control{
+        margin-left:5%;
     }
 
     .permanent-address-header {

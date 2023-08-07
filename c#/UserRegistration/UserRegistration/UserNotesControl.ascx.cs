@@ -107,6 +107,12 @@ namespace UserRegistration
 
         protected void AddNote(object sender, EventArgs e)
         {
+            if(txtAddnote.Text.Length==0)
+            {
+                noteErrorSpan.CssClass = noteErrorSpan.CssClass.Replace("note-error-hide", "note-error-show");
+                return;
+            }
+            noteErrorSpan.CssClass = noteErrorSpan.CssClass.Replace("note-error-show", "note-error-hide");
             var isPrivate = isPrivateChkbox.Checked ? "YES" : "NO";
             using (var dbContext = new UserEntities())
             {

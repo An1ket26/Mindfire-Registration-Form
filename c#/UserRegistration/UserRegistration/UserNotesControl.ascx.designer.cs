@@ -24,6 +24,15 @@ namespace UserRegistration
         protected global::System.Web.UI.WebControls.GridView GridView2;
 
         /// <summary>
+        /// noteErrorSpan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label noteErrorSpan;
+
+        /// <summary>
         /// txtAddnote control.
         /// </summary>
         /// <remarks>
