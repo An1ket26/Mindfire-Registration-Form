@@ -24,6 +24,7 @@
     </div>
     <br/>
     <input type="button" id="addUser" class="AddUser-btn" value="Add user"></input>
+    <%--<asp:Image ID="Image1" runat="server" Visible="false"/>--%>
     <script src="Scripts/UserList2.js"></script>
 </body>
 </html>

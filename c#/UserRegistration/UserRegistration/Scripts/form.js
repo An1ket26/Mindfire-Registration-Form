@@ -1,16 +1,90 @@
 ﻿$(document).ready(function () {
+
+    function ToRemoveClass(id,className) {
+        $(id).removeClass(className);
+    }
+    function ToAddClass(id, className) {
+        $(id).addClass(className);
+    }
+    var update = false;
+    var userId;
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams.get('tab') !== null) {
+        var tab = urlParams.get('tab');
+        if (tab === "detailsLink") {
+            ToRemoveClass("#container", "div-hide");
+            ToAddClass("#documentDiv", "div-hide");
+            ToAddClass("#notesDiv", "div-hide");
+            $("#detailsLink").css("background-color", "Green");
+
+        } else if (tab === "NotesLink") {
+            ToAddClass("#container", "div-hide");
+            ToAddClass("#documentDiv", "div-hide");
+            ToRemoveClass("#notesDiv", "div-hide");
+            $("#NotesLink").css("background-color", "Green");
+        }
+        else if (tab === "documentLink") {
+            ToAddClass("#container", "div-hide");
+            ToRemoveClass("#documentDiv", "div-hide");
+            ToAddClass("#notesDiv", "div-hide");
+            $("#documentLink").css("background-color", "Green");
+        }
+    } else {
+        ToRemoveClass("#container", "div-hide");
+        ToAddClass("#documentDiv", "div-hide");
+        ToAddClass("#notesDiv", "div-hide");
+    }
+
+
+    $("#detailsLink").on('click', function (e) {
+        e.preventDefault();
+        window.location = `?UserId=${userId}&tab=detailsLink`;
+        //$("#container").removeClass("div-hide");
+        //$("#notesDiv").addClass("div-hide");
+        //$("#documentDiv").addClass("div-hide");
+    });
+    $("#NotesLink").on('click', function (e) {
+        e.preventDefault();
+        window.location = `?UserId=${userId}&tab=NotesLink`;
+        //$("#notesDiv").removeClass("div-hide");
+        //$("#documentDiv").addClass("div-hide");
+        //$("#container").addClass("div-hide");
+        
+    })
+    $("#documentLink").on('click', function (e) {
+        e.preventDefault();
+        window.location = `?UserId=${userId}&tab=documentLink`;
+        //$("#notesDiv").addClass("div-hide");
+        //$("#documentDiv").removeClass("div-hide");
+        //$("#container").addClass("div-hide");
+    })
+    $("#logout").on('click', function (e) {
+        e.preventDefault();
+        deleteAllCookie();
+        window.location.href = "loginpage";
+    });
+
+    function deleteAllCookie() {
+        var Cookies = document.cookie.split(';');
+        for (var i = 0; i < Cookies.length; i++) {
+            document.cookie = Cookies[i] + "=; expires=" + new Date(0).toUTCString();
+        }
+    }
+
+
+
+
     //Initial Loading of Country 
     ajaxCallsForStateAndCountry("FetchCountry", "message", "hi", "#permanentCountry", null);
     ajaxCallsForStateAndCountry("FetchCountry", "message", "hi", "#presentCountry", null);
 
 
     //Checking if it is update call or Not
-    var update = false;
-    var userId;
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
     if (urlParams.get('UserId') !== null)
     {
+        $("#navbar").removeClass("div-hide");
+        $("#navbar").addClass("navbar");
         update = true;
         
         userId = urlParams.get('UserId');
@@ -27,8 +101,7 @@
                 alert(response.d);
             }
         });
-        $("#submitBtn").val("Update");
-        $("#NotesDiv").removeClass("hide-notes");
+        $("#submitBtn").val("Update"); 
     }
     
     function populateData(data)
@@ -63,6 +136,8 @@
                 this.checked = true;
             }  
         })
+
+        
     }
 
 
@@ -326,6 +401,7 @@
     $("#profileImageInput").change(function (e) {
         const imgSrc = URL.createObjectURL(e.target.files[0]);
         $("#profileImageDisplay").attr("src", imgSrc);
+        
     })
 
     //submit action
@@ -378,7 +454,8 @@
         }
         const formData = {};
         displayResultDiv(formData);
-        //formData.imageSrc = $("#profileImageDisplay").attr("src");
+        var files = $("#profileImageInput").get(0).files;
+        formData.ImageSrc = files[0].name;
         console.log(formData);
         if (update) {
             formData.userId = userId;
@@ -404,14 +481,30 @@
                 alert(response.d);
             }
         });
+
+        var files = $("#profileImageInput").get(0).files;
+        var fileData = new FormData();
+        for (var i = 0; i < files.length; i++) {
+            fileData.append(files[0].name, files[0]);
+        }
+        $.ajax({
+            type: "POST",
+            url: 'ImageUploadHandler.ashx',
+            data: fileData,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                console.log(response);
+            },
+            error: function (err) {
+                alert(err.statusText)
+            }
+        })
+        
     }
 
 
-    //cancel Button
-    $("#cancelBtn").on("click", function (e) {
-        e.preventDefault();
-        window.location.href = "userlist";
-    });
+
  });
 
 

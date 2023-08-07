@@ -37,7 +37,9 @@ namespace UserRegistration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Image1.Visible = true;
+           
+            //Image1.ImageUrl = "Handler1.ashx?FileName=avatar.jfif";
         }
         [System.Web.Services.WebMethod]
         public static List<UserDataModel> GetUserDetails()

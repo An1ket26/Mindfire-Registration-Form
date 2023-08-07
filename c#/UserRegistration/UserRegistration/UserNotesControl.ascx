@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserNotesControl.ascx.cs" Inherits="UserRegistration.WebUserControl1" %>
-<div id="NotesDiv" class="hide-notes">
-    <h2 class="Notes-Heading">Notes :</h2>
+<div id="NotesDivControl" class="Notes-div-control">
+    <h2 class="Notes-Heading">Notes</h2>
     <br/>
 <asp:GridView 
                 ID="GridView2" 
@@ -15,7 +15,7 @@
     >
               
                 <Columns>
-                    <asp:TemplateField HeaderText="NoteId" ItemStyle-CssClass="width-70">
+                    <asp:TemplateField HeaderText="NoteId" ItemStyle-CssClass="width-70pp">
                         <ItemTemplate>
                             <asp:Label ID="lblNoteId" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
                         </ItemTemplate>
@@ -23,7 +23,7 @@
                             <asp:Label ID="lblNoteId" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
                         </EditItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Note" ItemStyle-CssClass="width-250">
+                    <asp:TemplateField HeaderText="Note" ItemStyle-CssClass="width-250pp">
                         <ItemTemplate>
                             <asp:Label ID="lblNote" runat="server" Text='<%# Eval("Notes") %>'></asp:Label>
                         </ItemTemplate>
@@ -31,7 +31,15 @@
                             <asp:TextBox ID="txtNote" runat="server" Text='<%# Eval("Notes") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Configure" ItemStyle-CssClass="width-150">
+                    <asp:TemplateField HeaderText="IsPrivate" ItemStyle-CssClass="width-70pp">
+                        <ItemTemplate>
+                            <asp:Label ID="lblIsPrivate" runat="server" Text='<%# Eval("IsPrivate") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:Label ID="lblIsPrivate" runat="server" Text='<%# Eval("IsPrivate") %>'></asp:Label>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Configure" ItemStyle-CssClass="width-150pp">
                         <ItemTemplate>
                             <asp:Button runat="server" CommandName="Edit" Text="Edit" CssClass="EditNote-btn"/>
                             <asp:Button runat="server" CommandName="Delete" Text="Delete" CssClass="DeleteNote-btn"/>
@@ -44,19 +52,21 @@
                     <%--<asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" ItemStyle-CssClass="width-150"/>--%>
                 </Columns>
             </asp:GridView>
-            <br/>
-            <h2>Add Notes :</h2>
-    <br/>
-            <table cellpadding="1" cellspacing="1" style="border-collapse: collapse;padding:10px">
-            <tr>
-                <td class="width-250">
-                    <asp:TextBox ID="txtAddnote" runat="server" placeholder="Enter your Notes" ClientIDMode="Static" />
-                </td>
-                
-                <td>
-                    <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="AddNote" CssClass="AddNote-btn"/>
-                </td>
-            </tr>
-            </table>
-    <br/>
+    <br/><br />
+    <div id="AddNotesDiv">
+        <h2>Add Notes :</h2>
+        <br/>
+        <asp:TextBox ID="txtAddnote" runat="server" placeholder="Enter your Notes" TextMode="MultiLine" ClientIDMode="Static" />
+       <br /><br />
+        <div id="isPrivateDiv" runat="server">
+            
+            <asp:CheckBox runat="server" ID="isPrivateChkbox"/>
+            <asp:Label runat="server" ID="isPrivateLbl" 
+                AssociatedControlID="isPrivateChkbox">
+                Set as Private
+            </asp:Label>
+         </div><br /><br/>
+        <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="AddNote" CssClass="AddNote-btn"/>
+        <br/>
+    </div>
 </div>

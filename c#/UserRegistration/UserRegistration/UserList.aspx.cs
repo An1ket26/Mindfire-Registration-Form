@@ -15,6 +15,14 @@ namespace UserRegistration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.Cookies["UserId"]!=null && Request.Cookies["IsAdmin"].Value=="true")
+            {
+                //Response.Write(Session["IsAdmin"].ToString());
+            }
+            else
+            {
+                Response.Redirect("LoginPage");
+            }
             if(!IsPostBack)
             {
                 BindGrid();
@@ -284,6 +292,12 @@ namespace UserRegistration
         protected void AddUser(object sender,EventArgs e)
         {
             Response.Redirect("userdetails");
+        }
+        protected void Logout(object sender,EventArgs e)
+        {
+            Response.Cookies["UserId"].Expires=DateTime.Now.AddDays(-30);
+            Response.Cookies["IsAdmin"].Expires=DateTime.Now.AddDays(-30);
+            Response.Redirect("loginpage");
         }
     }
 }

@@ -37,6 +37,7 @@
     <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="UserRegistrationModel.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Firstname" ColumnName="Firstname" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -72,10 +73,20 @@
     <EntitySetMapping Name="UserNotes">
       <EntityTypeMapping TypeName="UserRegistrationModel.UserNotes">
         <MappingFragment StoreEntitySet="UserNotes">
+          <ScalarProperty Name="IsPrivate" ColumnName="IsPrivate" />
           <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
           <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
           <ScalarProperty Name="Notes" ColumnName="Notes" />
           <ScalarProperty Name="NoteId" ColumnName="NoteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserFiles">
+      <EntityTypeMapping TypeName="UserRegistrationModel.UserFiles">
+        <MappingFragment StoreEntitySet="UserFiles">
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

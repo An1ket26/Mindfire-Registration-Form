@@ -1,0 +1,98 @@
+﻿$(document).ready(function () {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams.get('UserId') !== null) {
+        userId = urlParams.get('UserId');
+        $.ajax({
+            type: "POST",
+            url: "UserDetails.aspx/GetFileName",
+            data: JSON.stringify({ id: userId }),
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                console.log(response.d);
+                displayAllFiles(response.d);
+            },
+            error: function (err) {
+                alert(err.statusText)
+            }
+        })
+    }
+
+    $("#uploadBtn").on('click', function (e) {
+        e.preventDefault();
+        var files = $("#fileUploadInput").get(0).files;
+        if (files.length == 0) {
+            return false;
+        }
+        var fileData = new FormData();
+        fileData.append("UserId", urlParams.get('UserId'));
+        for (var i = 0; i < files.length; i++) {
+            fileData.append(files[0].name, files[0]);
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "FileUploadHandler.ashx",
+            data: fileData,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                console.log(response);
+            },
+            error: function (err) {
+                alert(err.statusText)
+            }
+        })
+
+    })
+    function createTemplate(sno, name) {
+        userId = urlParams.get('UserId');
+        var template = `<div class="file-container">
+            <div class="width-10p border-left">${sno}</div>
+            <div class="width-250p border-left">${name}</div>
+            <div class="width-150p border-left">
+            <button id="downloadBtn" filename="${userId}-${name}"">
+            <a href="FileDownloadHandler.ashx?filename=${userId}-${name}">Download</a></button></div>
+            
+        </div>`;
+        return template;
+    }
+    //<div id="deleteBtnDiv" class="width-150p border-left" ><button id="deleteBtn" class="delete-btn">Delete</button></div>
+    function displayAllFiles(data) {
+        for (var name of data) {
+            $("#DisplayAllFilesDiv").append(createTemplate(1,name));
+        }
+        $("#deleteBtnDiv button").on('click', function () {
+
+        });
+    }
+
+    //function downloadButton() {
+    //    $("div #downloadBtn").each(function(){
+    //        $(this).on('click', function (e) {
+    //            e.preventDefault();
+    //            var filename = $(this).attr("filename");
+    //            console.log(filename);
+    //            downloadFileAjaxCall(filename);
+                
+    //        })
+    //    })
+    //}
+
+    //function downloadFileAjaxCall(filename) {
+    //    $.ajax({
+    //        type: "POST",
+    //        url: `FileDownloadHandler.ashx?filename=${filename}`,
+    //        contentType: false,
+    //        processData: false,
+    //        success: function (response) {
+    //            console.log(response);
+    //        },
+    //        error: function (err) {
+    //            alert(err.statusText)
+    //        }
+    //    })
+    //}
+
+    //FileDownloadHandler?filename=3-test2.txt
+})

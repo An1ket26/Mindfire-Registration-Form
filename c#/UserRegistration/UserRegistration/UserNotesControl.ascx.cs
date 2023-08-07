@@ -16,6 +16,15 @@ namespace UserRegistration
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //check cookie for private note
+            if (Request.Cookies["IsAdmin"]!=null && Request.Cookies["IsAdmin"].Value.ToString()=="true")
+            {
+                isPrivateDiv.Attributes.Add("style", "display:inline");
+            }
+            else
+            {
+                isPrivateDiv.Attributes.Add("style", "display:none");
+            }
 
             if (Request.QueryString["UserId"] != null)
             {
@@ -29,15 +38,35 @@ namespace UserRegistration
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("Id");
             dataTable.Columns.Add("Notes");
-
-            using(var dbContext = new UserEntities())
+            dataTable.Columns.Add("IsPrivate");
+            string isAdmin = "NO";
+            if (Request.Cookies["IsAdmin"].Value.ToString() == "true")
             {
-                var items = dbContext.UserNotes.Where(i => i.ObjectId == ObjectID).Where(i => i.ObjectType == ObjectType);
-                foreach(var item in items)
+                isAdmin = "YES";
+            }
+            if(isAdmin == "NO")
+            {
+                using(var dbContext = new UserEntities())
                 {
-                    dataTable.Rows.Add(item.NoteId, item.Notes.Trim());
+                    var items = dbContext.UserNotes.Where(i => i.ObjectId == ObjectID).Where(i => i.ObjectType == ObjectType && i.IsPrivate==isAdmin);
+                    foreach(var item in items)
+                    {
+                        dataTable.Rows.Add(item.NoteId, item.Notes.Trim(),item.IsPrivate.Trim());
+                    }
                 }
             }
+            else
+            {
+                using (var dbContext = new UserEntities())
+                {
+                    var items = dbContext.UserNotes.Where(i => i.ObjectId == ObjectID).Where(i => i.ObjectType == ObjectType);
+                    foreach (var item in items)
+                    {
+                        dataTable.Rows.Add(item.NoteId, item.Notes.Trim(), item.IsPrivate.Trim());
+                    }
+                }
+            }
+            
             GridView2.DataSource = dataTable;
             GridView2.DataBind();
         }
@@ -77,13 +106,15 @@ namespace UserRegistration
         }
 
         protected void AddNote(object sender, EventArgs e)
-        {            
-            using(var dbContext = new UserEntities())
+        {
+            var isPrivate = isPrivateChkbox.Checked ? "YES" : "NO";
+            using (var dbContext = new UserEntities())
             {
                 UserNotes obj = new UserNotes();
                 obj.Notes = txtAddnote.Text;
                 obj.ObjectId = ObjectID;
                 obj.ObjectType = ObjectType;
+                obj.IsPrivate = isPrivate;
                 dbContext.UserNotes.Add(obj);
                 dbContext.SaveChanges();
             }

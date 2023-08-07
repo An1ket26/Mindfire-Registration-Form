@@ -54,6 +54,15 @@
     <Property Name="PermanentCity" Type="nchar" MaxLength="50" />
     <Property Name="IsSubscribed" Type="nchar" MaxLength="10" />
     <Property Name="Imagesrc" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="UserFiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="int" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="1000" />
   </EntityType>
   <EntityType Name="UserNotes">
     <Key>
@@ -63,6 +72,7 @@
     <Property Name="Notes" Type="nvarchar" MaxLength="100" />
     <Property Name="ObjectId" Type="int" />
     <Property Name="ObjectType" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsPrivate" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="UserRole">
     <Key>
@@ -144,6 +154,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_UserFiles_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="UserFiles" Type="Self.UserFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserFiles">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UserNotes_User">
     <End Role="User" Type="Self.User" Multiplicity="0..1" />
     <End Role="UserNotes" Type="Self.UserNotes" Multiplicity="*" />
@@ -186,6 +208,7 @@
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserFiles" EntityType="Self.UserFiles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserNotes" EntityType="Self.UserNotes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Hobby_User" Association="Self.FK_Hobby_User">
@@ -211,6 +234,10 @@
     <AssociationSet Name="FK_User_State1" Association="Self.FK_User_State1">
       <End Role="State" EntitySet="State" />
       <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserFiles_User" Association="Self.FK_UserFiles_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserFiles" EntitySet="UserFiles" />
     </AssociationSet>
     <AssociationSet Name="FK_UserNotes_User" Association="Self.FK_UserNotes_User">
       <End Role="User" EntitySet="User" />

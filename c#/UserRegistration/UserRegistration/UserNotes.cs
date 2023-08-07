@@ -18,6 +18,7 @@ namespace UserRegistration
         public string Notes { get; set; }
         public Nullable<int> ObjectId { get; set; }
         public string ObjectType { get; set; }
+        public string IsPrivate { get; set; }
     
         public virtual User User { get; set; }
     }

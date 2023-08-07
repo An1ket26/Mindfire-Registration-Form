@@ -20,6 +20,7 @@ namespace UserRegistration
             this.Hobby = new HashSet<Hobby>();
             this.UserRole = new HashSet<UserRole>();
             this.UserNotes = new HashSet<UserNotes>();
+            this.UserFiles = new HashSet<UserFiles>();
         }
     
         public int UserId { get; set; }
@@ -42,6 +43,7 @@ namespace UserRegistration
         public string PermanentCity { get; set; }
         public string IsSubscribed { get; set; }
         public string Imagesrc { get; set; }
+        public string Password { get; set; }
     
         public virtual Country Country { get; set; }
         public virtual Country Country1 { get; set; }
@@ -53,5 +55,7 @@ namespace UserRegistration
         public virtual ICollection<UserRole> UserRole { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserNotes> UserNotes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserFiles> UserFiles { get; set; }
     }
 }

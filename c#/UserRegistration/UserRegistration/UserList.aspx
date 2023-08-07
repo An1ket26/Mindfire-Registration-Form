@@ -8,9 +8,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
+   
+    <form id="form1" runat="server"> 
+        <asp:Button runat="server" Text="LogOut" ID="LogutBtn" OnClick="Logout" CssClass="logout-btn"/>
         <div>
-            <h1 class="heading"><u>User Details</u></h1>
+            <h1 class="heading"><u>User List</u></h1>
             <asp:GridView 
                 ID="GridView1" 
                 runat="server"  

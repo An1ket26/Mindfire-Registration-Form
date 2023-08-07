@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Web;
 using System.Web.UI.WebControls;
 namespace UserRegistration
 {
@@ -12,6 +13,7 @@ namespace UserRegistration
         public string LastName { get; set; }
         public string Gender { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
         public string DateofBirth { get; set; }
         public string PermanentAddressLine1 { get; set; }
         public string PermanentAddressLine2 { get; set; }
@@ -27,7 +29,7 @@ namespace UserRegistration
         public string PresentPostalCode { get; set; }
         public string IsSubscribed { get; set; }
         public string Hobby { get; set; }
-        public string imageSrc { get; set; }
+        public string ImageSrc { get; set; }
         public String UserRoles { get; set; }
     }
 
@@ -35,8 +37,34 @@ namespace UserRegistration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["UserId"] == null)
+            {
+                //do something
+
+            }
+            else if(Request.Cookies["UserId"]==null)
+            {
+                Response.Redirect("loginpage");
+            }
+            else if (Request.Cookies["UserId"].Value != Request.QueryString["UserId"] && Request.Cookies["IsAdmin"].Value=="false")
+            {   
+                Response.Redirect("Userdetails?UserId="+ Request.Cookies["UserId"].Value+ "&tab=detailsLink");
+            }
+            if (Request.Cookies["IsAdmin"]!=null && Request.Cookies["IsAdmin"].Value.ToString()=="true")
+            {
+                cancelBtn.Text = "Cancel";
+            }
+            else if(Request.Cookies["IsAdmin"] != null && Request.Cookies["IsAdmin"].Value.ToString() == "false")
+            {
+                cancelBtn.CssClass = cancelBtn.CssClass.Replace("btn-cancel", "btn-cancel-hide");
+            }
+            if(Request.QueryString["UserId"] != null)
+            {
+                FetchImage(Request.QueryString["UserId"]);
+            }
             if (!IsPostBack)
                 RenderRoles();
+
         }
         protected void RenderRoles()
         {
@@ -108,7 +136,8 @@ namespace UserRegistration
                 obj.PermanentStateId = dbContext.State.Where(i => i.StateName == user.PermanentState).Select(i => i.StateId).Single(); ;
                 obj.PermanentPostalCode = user.PermanentPostalCode;
                 obj.IsSubscribed = user.IsSubscribed;
-                obj.Imagesrc = user.imageSrc;
+                obj.Imagesrc = user.ImageSrc;
+                obj.Password = user.Password;
                 dbContext.User.Add(obj);
                 dbContext.SaveChanges();
                 int userId = obj.UserId;
@@ -138,6 +167,7 @@ namespace UserRegistration
                     }
                 }
             }
+            
         }
         [System.Web.Services.WebMethod]
         public static Object FetchUser(string userId)
@@ -153,6 +183,7 @@ namespace UserRegistration
                 userData.FirstName = item.Firstname.Trim();
                 userData.LastName = item.LastName.Trim();
                 userData.Email = item.Email.Trim();
+                userData.Password = item.Password.Trim();
                 userData.DateofBirth = item.Dob.Trim();
                 userData.Gender = item.Gender.Trim();
                 userData.PresentAddressLine1 = item.PresentAddressLine1.Trim();
@@ -270,7 +301,57 @@ namespace UserRegistration
                 }
 
             }
+            
+            
+        }
 
+        public void UploadImage()
+        {
+            string fileName = Path.GetFileName(profileImageInput.PostedFile.FileName);
+            profileImageInput.PostedFile.SaveAs("D:\\Projects\\Assignments\\c#\\UserRegistration\\Images\\"+fileName);
+            
+        }
+
+        [System.Web.Services.WebMethod]
+        public static List<string> GetFileName(string id)
+        {
+            int userId = int.Parse(id);
+            List<string> fileNames = new List<string>();
+            using (var dbContext = new UserEntities())
+            {
+                var items = dbContext.UserFiles.Where(i => i.userId == userId).Select(i => i.FileName);
+                foreach (var item in items)
+                {
+                    fileNames.Add(item.ToString());
+                }
+            }
+            return fileNames;
+        }
+
+        protected void CancelLogoutBtn(object sender, EventArgs e)
+        {
+            if(cancelBtn.Text=="Login")
+            {
+                Response.Redirect("loginpage");
+            }
+            else
+            {
+                Response.Redirect("userlist");
+            }
+        }
+        protected void FetchImage(string userId)
+        {
+            int id = int.Parse(userId);
+            string fileName = null;
+            using(var dbContext = new UserEntities())
+            {
+                fileName = dbContext.User.Where(i => i.UserId == id).Select(i => i.Imagesrc).Single().ToString();
+            }
+            
+            if (fileName != null)
+            {
+                profileImageDisplay.ImageUrl = "ImageDownloadHandler.ashx?ImageName=" + fileName;
+            }
         }
         public static void LogRecord(string message)
         {

@@ -69,6 +69,8 @@
     <NavigationProperty Name="State1" Relationship="Self.FK_User_State1" FromRole="User" ToRole="State" />
     <NavigationProperty Name="UserRole" Relationship="Self.FK_UserRole_User" FromRole="User" ToRole="UserRole" />
     <NavigationProperty Name="UserNotes" Relationship="UserRegistrationModel.FK_UserNotes_User" FromRole="User" ToRole="UserNotes" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserFiles" Relationship="UserRegistrationModel.FK_UserFiles_User" FromRole="User" ToRole="UserFiles" />
   </EntityType>
   <EntityType Name="UserRole">
     <Key>
@@ -220,6 +222,11 @@
       <End Role="User" EntitySet="User" />
       <End Role="UserNotes" EntitySet="UserNotes" />
     </AssociationSet>
+    <EntitySet Name="UserFiles" EntityType="UserRegistrationModel.UserFiles" />
+    <AssociationSet Name="FK_UserFiles_User" Association="UserRegistrationModel.FK_UserFiles_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserFiles" EntitySet="UserFiles" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="UserNotes">
     <Key>
@@ -230,6 +237,7 @@
     <Property Name="ObjectId" Type="Int32" />
     <Property Name="ObjectType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="User" Relationship="UserRegistrationModel.FK_UserNotes_User" FromRole="UserNotes" ToRole="User" />
+    <Property Name="IsPrivate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_UserNotes_User">
     <End Type="UserRegistrationModel.User" Role="User" Multiplicity="0..1" />
@@ -240,6 +248,27 @@
       </Principal>
       <Dependent Role="UserNotes">
         <PropertyRef Name="ObjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserFiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" />
+    <Property Name="FileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="UserRegistrationModel.FK_UserFiles_User" FromRole="UserFiles" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_UserFiles_User">
+    <End Type="UserRegistrationModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="UserRegistrationModel.UserFiles" Role="UserFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserFiles">
+        <PropertyRef Name="userId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
