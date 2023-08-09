@@ -43,7 +43,8 @@
 
     $("#detailsLink").on('click', function (e) {
         e.preventDefault();
-        window.history.pushState("userdetails", 'Title', window.location.href.split('?')[0] + `?UserId=${userId}&tab=detailsLink`);
+        history.pushState("userdetails", 'Title',
+            location.href.split('?')[0] + `?UserId=${userId}&tab=detailsLink`);
         populateDataAjaxCall(userId);
         ToRemoveClass("#container", "div-hide");
         ToAddClass("#documentDiv", "div-hide");
@@ -55,7 +56,8 @@
     });
     $("#NotesLink").on('click', function (e) {
         e.preventDefault();
-        window.history.pushState("userdetails", 'Title', window.location.href.split('?')[0] + `?UserId=${userId}&tab=NotesLink`);
+        history.pushState("userdetails", 'Title',
+            location.href.split('?')[0] + `?UserId=${userId}&tab=NotesLink`);
         populateDataAjaxCall(userId);
         ToAddClass("#container", "div-hide");
         ToAddClass("#documentDiv", "div-hide");
@@ -68,7 +70,8 @@
     })
     $("#documentLink").on('click', function (e) {
         e.preventDefault();
-        window.history.pushState("userdetails", 'Title', window.location.href.split('?')[0] + `?UserId=${userId}&tab=documentLink`);
+        history.pushState("userdetails", 'Title',
+            location.href.split('?')[0] + `?UserId=${userId}&tab=documentLink`);
         populateDataAjaxCall(userId);
         ToAddClass("#container", "div-hide");
         ToRemoveClass("#documentDiv", "div-hide");
@@ -105,9 +108,22 @@
             data: JSON.stringify({ userId: userId }),
             contentType: "application/json; charset=utf-8",
             success: function (data) {
-                console.log(data.d);
+                /*console.log(data.d);*/
                 populateData(data.d);
                 $("#RegistrationFormHeading").text("Basic Details");
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: 'UserDetails.aspx/GetUserNote',
+            data: JSON.stringify({ userId: userId }),
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                console.log(data.d);
+                populateNotesTable(data.d);
             },
             failure: function (response) {
                 alert(response.d);
@@ -527,6 +543,125 @@
             }
         })
     }
+
+    $("#btnNotesAdd").on('click', function (e) {
+        e.preventDefault();
+        formData = {};
+        formData.Notes = $("#txtAddnote").val();
+        formData.IsPrivate = $("#PrivateChkbox").checked ? "YES" : "NO";
+        formData.UserId = userId;
+        $.ajax({
+            type: "POST",
+            url: 'UserDetails.aspx/AddUserNotes',
+            data: `{note:${JSON.stringify(formData)}}`,
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                location.reload();
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
+    });
+
+    function afterNotePopulate() {
+        $("#NoteBody td .DeleteNote-btn").each(function () {
+            $(this).on('click', function (e) {
+                e.preventDefault();
+                console.log($(this).attr("noteId"))
+                var id = $(this).attr("noteId");
+                $.ajax({
+                    type: "POST",
+                    url: 'UserDetails.aspx/DeleteUserNote',
+                    data: JSON.stringify({ noteId: id }),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        location.reload();
+                    },
+                    failure: function (response) {
+                        alert(response.d);
+                    }
+                });
+            })
+        })
+
+
+        $("#NoteBody td .EditNote-btn").each(function () {
+            
+                $(this).on('click', function (e) {
+                    e.preventDefault();
+                    
+                    if ($(this).val() === "Edit") {
+                        editBtnClick($(this).attr("id"));
+                    }
+                })
+            
+        })
+    }
+
+    function editBtnClick(id) {
+        $(`#${id}`).val("Update");
+        $(`#${id}`).css('background-color', 'green');
+        $($(`#${id}`).attr("tdId")).html(`<input type="text" id="noteInput${$(`#${id}`).attr("noteId")}" value="${$(`#${id}`).attr("notes")}">`);
+
+        $(`#${id}`).on('click', function (e) {
+            e.preventDefault();
+            var inputId = `noteInput${$(this).attr("noteId")}`;
+            
+            formData = {};
+            formData.Notes = $(`#${inputId}`).val();
+            formData.NoteId =$(this).attr("noteId");
+            console.log(formData);
+            $.ajax({
+                type: "POST",
+                url: 'UserDetails.aspx/EditUserNotes',
+                data: `{note:${JSON.stringify(formData)}}`,
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    location.reload();
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
+        })
+    }
+
+    function CreateNoteTemplate(note) {
+        var template =`<tr class="UserNotes-Rows">
+            <td class="width-250pp" id="td${note.NoteId}">
+                <span>${note.Notes}</span>
+            </td>
+            <td class="width-70pp">
+                <span>${note.IsPrivate}</span>
+            </td>
+            <td class="width-70pp">
+                <span>${note.IsPrivate}</span>
+            </td>
+            <td class="width-150pp">
+                <input type="submit"  value="Edit" id="editbtn${note.NoteId}"" class="EditNote-btn" 
+                tdId="#td${note.NoteId}" noteId=${note.NoteId} notes="${note.Notes}">
+                <input type="submit" value="Delete" class="DeleteNote-btn" noteId=${note.NoteId}>
+            </td>
+             <tr>`
+        return template;
+    }
+
+
+    function populateNotesTable(data)
+    {
+        $("#NoteBody").html("");
+        for (var note of data) {
+            $("#NoteBody").append(CreateNoteTemplate(note));
+        }
+        afterNotePopulate();
+    }
+
+
+
+
+
+
  });
 
 

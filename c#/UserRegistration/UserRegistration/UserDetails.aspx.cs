@@ -6,6 +6,14 @@ using System.Web;
 using System.Web.UI.WebControls;
 namespace UserRegistration
 {
+    public class NotesModel
+    {
+        public string NoteId { get; set; }
+        public string Notes { get; set; }
+        public string IsPrivate { get; set; }
+        public int UserId { get; set; }
+
+    }
     public class UserDetailsModel
     {
         public int userId { get; set; }
@@ -350,6 +358,77 @@ namespace UserRegistration
         }
 
 
+
+        [System.Web.Services.WebMethod]
+        public static List<NotesModel> GetUserNote(string userId)
+        {
+            int id = int.Parse(userId);
+            List<NotesModel> notes = new List<NotesModel>();
+            using (var dbContext = new UserEntities())
+            {
+                var items = dbContext.UserNotes.Where(i => i.ObjectId ==id  && i.ObjectType == "User");
+                foreach (var item in items)
+                {
+                    NotesModel obj = new NotesModel();
+                    obj.Notes = item.Notes;
+                    obj.NoteId = item.NoteId.ToString();
+                    obj.IsPrivate = item.IsPrivate;
+                    notes.Add(obj);
+                }
+            }
+            return notes;
+        }
+        [System.Web.Services.WebMethod]
+        public static void DeleteUserNote(string noteId)
+        {
+            int id = int.Parse(noteId);
+            using(var dbContext=new UserEntities())
+            {
+                UserNotes obj =  dbContext.UserNotes.Where(i=>i.NoteId== id).Single();
+                dbContext.UserNotes.Remove(obj);
+                dbContext.SaveChanges();
+            }
+
+        }
+        [System.Web.Services.WebMethod]
+        public static void EditUserNotes(NotesModel note)
+        {
+            int id = int.Parse(note.NoteId);
+            using (var dbContext = new UserEntities())
+            {
+                UserNotes obj = dbContext.UserNotes.Where(i => i.NoteId == id).Single();
+                obj.Notes = note.Notes;
+                dbContext.SaveChanges();
+            }
+        }
+
+        [System.Web.Services.WebMethod]
+        public static void AddUserNotes(NotesModel note)
+        {
+            using (var dbContext = new UserEntities())
+            {
+                UserNotes obj = new UserNotes();
+                obj.Notes = note.Notes;
+                obj.IsPrivate = note.IsPrivate;
+                obj.ObjectId = note.UserId;
+                obj.ObjectType = "User";
+                dbContext.UserNotes.Add(obj);
+                dbContext.SaveChanges();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
         protected void Logout(object sender, EventArgs e)
         {
             if(CheckIsAdmin())
@@ -359,6 +438,10 @@ namespace UserRegistration
             ClearSession();
             Response.Redirect("loginpage");
         }
+
+
+
+
 
 
         public static void LogRecord(string message)

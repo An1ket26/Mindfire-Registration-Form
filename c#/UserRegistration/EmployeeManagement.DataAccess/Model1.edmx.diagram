@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e8751b05120f47f681cf4a087bda9d1c" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="UserRegistrationModel.Country" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UserRegistrationModel.Hobby" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UserRegistrationModel.Role" Width="1.5" PointX="10.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UserRegistrationModel.State" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UserRegistrationModel.User" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UserRegistrationModel.UserFiles" Width="1.5" PointX="7.5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UserRegistrationModel.UserNotes" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UserRegistrationModel.UserRole" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="UserRegistrationModel.FK_State_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="UserRegistrationModel.FK_User_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="UserRegistrationModel.FK_User_Country1" ManuallyRouted="false" />
+        <AssociationConnector Association="UserRegistrationModel.FK_Hobby_User" ManuallyRouted="false" />
+        <AssociationConnector Association="UserRegistrationModel.FK_UserRole_Role1" ManuallyRouted="false" />
+        <AssociationConnector Association="UserRegistrationModel.FK_User_State" ManuallyRouted="false" />
+        <AssociationConnector Association="UserRegistrationModel.FK_User_State1" ManuallyRouted="false" />
+        <AssociationConnector Association="UserRegistrationModel.FK_UserFiles_User" ManuallyRouted="false" />
+        <AssociationConnector Association="UserRegistrationModel.FK_UserNotes_User" ManuallyRouted="false" />
+        <AssociationConnector Association="UserRegistrationModel.FK_UserNotes_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="UserRegistrationModel.FK_UserRole_User" ManuallyRouted="false" />
+        <AssociationConnector Association="UserRegistrationModel.FK_UserFiles_User1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

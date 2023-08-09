@@ -1,0 +1,14 @@
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\obj\Debug\EmployeeManagement.DataAccess.csproj.AssemblyReference.cache
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\obj\Debug\EmployeeManagement.DataAccess.csproj.CoreCompileInputs.cache
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\bin\Debug\EmployeeManagement.DataAccess.dll.config
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\bin\Debug\EmployeeManagement.DataAccess.dll
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\bin\Debug\EmployeeManagement.DataAccess.pdb
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\bin\Debug\EmployeMangement.Utils.dll
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\bin\Debug\EntityFramework.dll
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\bin\Debug\EmployeMangement.Utils.pdb
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\bin\Debug\EntityFramework.xml
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\obj\Debug\EmployeeManagement.DataAccess.csproj.CopyComplete
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\obj\Debug\EmployeeManagement.DataAccess.dll
+D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\obj\Debug\EmployeeManagement.DataAccess.pdb

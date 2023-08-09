@@ -179,6 +179,7 @@
     <Content Include="Scripts\UserDetails.js" />
     <Content Include="Scripts\UserDocument.js" />
     <Content Include="Scripts\UserList2.js" />
+    <Content Include="Scripts\UserNotes.js" />
     <Content Include="UserDocumentControl.ascx" />
     <Content Include="UserList.aspx" />
     <Content Include="UserDetails.aspx" />

@@ -1,0 +1,6 @@
+D:\Projects\Assignments\c#\UserRegistration\EmployeMangement.Utils\bin\Debug\EmployeMangement.Utils.dll
+D:\Projects\Assignments\c#\UserRegistration\EmployeMangement.Utils\bin\Debug\EmployeMangement.Utils.pdb
+D:\Projects\Assignments\c#\UserRegistration\EmployeMangement.Utils\obj\Debug\EmployeMangement.Utils.csproj.AssemblyReference.cache
+D:\Projects\Assignments\c#\UserRegistration\EmployeMangement.Utils\obj\Debug\EmployeMangement.Utils.csproj.CoreCompileInputs.cache
+D:\Projects\Assignments\c#\UserRegistration\EmployeMangement.Utils\obj\Debug\EmployeMangement.Utils.dll
+D:\Projects\Assignments\c#\UserRegistration\EmployeMangement.Utils\obj\Debug\EmployeMangement.Utils.pdb

@@ -1,37 +1,20 @@
-User
+08-08-2023 16:20:10
+==============================================================
+http://www.empmanage.com/userdetails?UserId=13&tab=detailsLink
+==============================================================
+08-08-2023 16:20:31
+==============================================================
+http://www.empmanage.com/userlist
+==============================================================08-08-2023 19:00:27
+==============================================================
+Thread was being aborted.
 
-Reading Books
-Playing games
-User
+==============================================================09-08-2023 07:24:43
+==============================================================
+Thread was being aborted.
 
-Reading Books
-User
+==============================================================09-08-2023 08:21:14
+==============================================================
+Thread was being aborted.
 
-Watching Movies
-User
-
-Reading Books
-Manager
-
-Reading Books
-Playing games
-User
-
-Watching Movies
-Admin
-
-Chess
-Admin
-
-Chess
-Playing games
-User
-
-Chess
-Manager
-
-Chess
-Gardening
-Watching Movies
-Reading Books
-
+==============================================================

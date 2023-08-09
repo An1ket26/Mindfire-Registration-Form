@@ -1,0 +1,14 @@
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\bin\Debug\EmployeeMangement.Business.dll
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\bin\Debug\EmployeeMangement.Business.pdb
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\bin\Debug\EmployeeManagement.DataAccess.dll
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\bin\Debug\EntityFramework.dll
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\bin\Debug\EmployeeManagement.DataAccess.pdb
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\bin\Debug\EmployeeManagement.DataAccess.dll.config
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\bin\Debug\EntityFramework.xml
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\obj\Debug\EmployeeMangement.Business.csproj.AssemblyReference.cache
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\obj\Debug\EmployeeMangement.Business.csproj.CoreCompileInputs.cache
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\obj\Debug\EmployeeMangement.Business.csproj.CopyComplete
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\obj\Debug\EmployeeMangement.Business.dll
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\obj\Debug\EmployeeMangement.Business.pdb
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\bin\Debug\EmployeMangement.Utils.dll
+D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\bin\Debug\EmployeMangement.Utils.pdb

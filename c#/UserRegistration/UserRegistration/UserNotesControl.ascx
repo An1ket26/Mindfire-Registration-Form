@@ -2,55 +2,20 @@
 <div id="NotesDivControl" class="Notes-div-control">
     <h2 class="Notes-Heading">Notes</h2>
     <br/>
-<asp:GridView 
-                ID="GridView2" 
-                runat="server"  
-                DataKeyNames="Id" 
-                AutoGenerateColumns="false" 
-                EmptyDataText="No notes has been added."
-                OnRowEditing="OnRowEditing" 
-                OnRowCancelingEdit="OnRowCancelingEdit" 
-                OnRowDeleting="OnRowDeleting"  OnRowUpdating="OnRowUpdating" OnRowDataBound="OnRowDataBound"
-                CssClass="Notes-Table" HeaderStyle-CssClass="UserNotes-Header" RowStyle-CssClass="UserNotes-Rows"
-    >
-              
-                <Columns>
-                    <asp:TemplateField HeaderText="NoteId" ItemStyle-CssClass="width-70pp">
-                        <ItemTemplate>
-                            <asp:Label ID="lblNoteId" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:Label ID="lblNoteId" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
-                        </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Note" ItemStyle-CssClass="width-250pp">
-                        <ItemTemplate>
-                            <asp:Label ID="lblNote" runat="server" Text='<%# Eval("Notes") %>'></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtNote" runat="server" Text='<%# Eval("Notes") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="IsPrivate" ItemStyle-CssClass="width-70pp">
-                        <ItemTemplate>
-                            <asp:Label ID="lblIsPrivate" runat="server" Text='<%# Eval("IsPrivate") %>'></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:Label ID="lblIsPrivate" runat="server" Text='<%# Eval("IsPrivate") %>'></asp:Label>
-                        </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Configure" ItemStyle-CssClass="width-150pp">
-                        <ItemTemplate>
-                            <asp:Button runat="server" CommandName="Edit" Text="Edit" CssClass="EditNote-btn"/>
-                            <asp:Button runat="server" CommandName="Delete" Text="Delete" CssClass="DeleteNote-btn"/>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:Button runat="server" CommandName="Update" Text="Update" CssClass="EditNote-btn"/>
-                            <asp:Button runat="server" CommandName="Cancel" Text="Cancel" CssClass="DeleteNote-btn"/>
-                        </EditItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
+    <div>
+	<table class="Notes-Table" rules="all" border="1" id="GridView2">
+		<thead>
+            <tr class="UserNotes-Header">
+                <th scope="col">Note</th>
+                <th scope="col">Created By</th>
+                <th scope="col">IsPrivate</th>
+                <th scope="col">Configure</th>
+		    </tr>
+        </thead>
+        <tbody id="NoteBody">   
+	    </tbody>
+	</table>
+</div>
     <br/><br />
     <div id="AddNotesDiv">
         <h2>Add Notes :</h2>
@@ -58,21 +23,21 @@
         <asp:Label runat="server" ID="noteErrorSpan" ClientIDMode="Static" 
             CssClass="note-error-hide">*Please Enter A Note</asp:Label>
         <br/><br/>
-        <asp:TextBox ID="txtAddnote" 
-            runat="server" 
-            placeholder="Enter your Notes" 
-            TextMode="MultiLine" 
-            ClientIDMode="Static"/>
+        <textarea name="ctl11$txtAddnote" rows="2" cols="20" id="txtAddnote" placeholder="Enter your Notes"></textarea>
        <br /><br />
-        <div id="isPrivateDiv" runat="server">
+        <div id="isPrivateDiv" style="display:inline" runat="server">
             
-            <asp:CheckBox runat="server" ID="isPrivateChkbox"/>
-            <asp:Label runat="server" ID="isPrivateLbl" 
-                AssociatedControlID="isPrivateChkbox">
+            <input id="PrivateChkbox" type="checkbox" name="ctl11$isPrivateChkbox">
+            <label for="ctl11_isPrivateChkbox" id="ctl11_isPrivateLbl">
                 Set as Private
-            </asp:Label>
+            </label>
          </div><br /><br/>
-        <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="AddNote" CssClass="AddNote-btn"/>
+        <button id="btnNotesAdd" class="AddNote-btn">Add</button>
         <br/>
     </div>
 </div>
+
+
+
+
+
