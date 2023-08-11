@@ -4,14 +4,6 @@
     <h1 class="file-heading">Documents</h1>
     <br/>
     <div id="DisplayAllFilesDiv">
-        <%--<div class="file-container file-Header">
-            <div class="width-10p">S.No</div>
-            <div class="width-250p">File Name</div>
-            <div class="width-150p">Created BY</div>
-            <div class="width-150p">Created Time</div>
-            <div class="width-150p">Download</div>
-            <div class="width-150p">Delete</div>
-        </div>--%>
     </div>
     <br/>
     <span id="fileUploadError">*Please Select a file</span>
@@ -20,4 +12,3 @@
         <button id="uploadBtn">Upload</button>
     </div>
 </div>
-<script src="Scripts/UserDocument.js"></script>

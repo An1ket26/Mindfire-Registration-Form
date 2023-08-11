@@ -39,6 +39,7 @@
             ToAddClass("#documentDiv", "div-hide");
             ToRemoveClass("#notesDiv", "div-hide");
             $("#NotesLink").css("background-color", "Green");
+            populateNoteAjaxCall();
             document.title = "Notes"
         }
         else if (tab === "documentLink") {
@@ -46,6 +47,7 @@
             ToRemoveClass("#documentDiv", "div-hide");
             ToAddClass("#notesDiv", "div-hide");
             $("#documentLink").css("background-color", "Green");
+            populateDocumnetAjaxCall()
             document.title = "Documents"
         }
     } else {
@@ -72,7 +74,7 @@
         e.preventDefault();
         history.pushState("userdetails", 'Title',
             location.href.split('?')[0] + `?UserId=${userId}&tab=NotesLink`);
-        populateDataAjaxCall(userId);
+        populateNoteAjaxCall(userId);
         ToAddClass("#container", "div-hide");
         ToAddClass("#documentDiv", "div-hide");
         ToRemoveClass("#notesDiv", "div-hide");
@@ -86,7 +88,8 @@
         e.preventDefault();
         history.pushState("userdetails", 'Title',
             location.href.split('?')[0] + `?UserId=${userId}&tab=documentLink`);
-        populateDataAjaxCall(userId);
+        populateDocumnetAjaxCall();
+        displayAllDocumentsAjaxCall(userId)
         ToAddClass("#container", "div-hide");
         ToRemoveClass("#documentDiv", "div-hide");
         ToAddClass("#notesDiv", "div-hide");
@@ -133,8 +136,14 @@
             },
             failure: function (response) {
                 alert(response.d);
+                $("#loading-div").css('display', "none");
             }
         });
+        
+
+    }
+
+    function populateNoteAjaxCall(userId) {
         $("#loading-div").css('display', "block");
         $.ajax({
             type: "POST",
@@ -153,7 +162,6 @@
                 alert(response.d);
             }
         });
-        
     }
 
     function populateData(data) {
@@ -225,6 +233,7 @@
             },
             failure: function (response) {
                 alert(response.d);
+                $("#loading-div").css('display', "none");
             }
         });
         
@@ -256,7 +265,11 @@
 
     $("#roleDisplay").click(function (event) {
         event.preventDefault();
-        ; $("#RoleListdiv").show();
+        var dim = $('#RoleListdiv').is(":visible");
+        if(dim==false)
+            $("#RoleListdiv").show();
+        else
+            $("#RoleListdiv").hide();
     })
 
 
@@ -554,6 +567,7 @@
             },
             failure: function (response) {
                 alert(response.d);
+                $("#loading-div").css('display', "none");
             }
         });
 
@@ -581,6 +595,7 @@
             },
             error: function (err) {
                 alert(err.statusText)
+                $("#loading-div").css('display', "none");
             }
         })
     }
@@ -610,7 +625,7 @@
                         showErrorModal("Please Try Again");
                         return;
                     }
-                    populateDataAjaxCall(userId);
+                    populateNoteAjaxCall(userId)
                     $("#loading-div").css('display', "none");
                 },
                 failure: function (response) {
@@ -643,11 +658,12 @@
                                 showErrorModal("Please Try Again");
                                 return;
                             }
-                            populateDataAjaxCall(userId);
+                            populateNoteAjaxCall(userId)
                             $("#loading-div").css('display', "none");
                         },
                         failure: function (response) {
                             alert(response.d);
+                            $("#loading-div").css('display', "none");
                         }
                     });}
                 })
@@ -680,7 +696,11 @@
         $(`#${id}`).on('click', function (e) {
             e.preventDefault();
             var inputId = `noteInput${$(this).attr("noteId")}`;
-            console.log(inputId);
+            if ($(`#${inputId}`).val().length == 0) {
+                alert("Cannot be empty");
+                return;
+            }
+            
             formData = {};
             formData.Notes = $(`#${inputId}`).val();
             formData.NoteId =$(this).attr("noteId");
@@ -696,11 +716,12 @@
                         showErrorModal("Please Try Again");
                         return;
                     }
-                    populateDataAjaxCall(userId);
+                    populateNoteAjaxCall(userId)
                     $("#loading-div").css('display', "none");
                 },
                 failure: function (response) {
                     alert(response.d);
+                    $("#loading-div").css('display', "none");
                 }
             });
         })
@@ -713,9 +734,9 @@
                             <p class="created">Created By <b>${note.CreatedBy}</b></p>
                             <p class="created"> On <b><i>${note.CreatedOn}</b></i></p>
                             <div id="Notes-Configure-Div" class="NotesButtonDiv">
-                             <img src="../Images/edit.png" bt="edit" id="editbtn${note.NoteId}"" class="EditNote-btn" 
+                             <img src="../Images/edit.png" bt="edit" id="editbtn${note.NoteId}"" class="EditNote-btn" title="update" 
                                 pId="#p${note.NoteId}" noteId=${note.NoteId} notes="${note.Notes}" delId="#del${note.NoteId}"/>
-                             <img src="../Images/delete.png" class="DeleteNote-btn" noteId=${note.NoteId} id="del${note.NoteId}"/>
+                             <img src="../Images/delete.png" class="DeleteNote-btn" title="delete" noteId=${note.NoteId} id="del${note.NoteId}"/>
                             </div>
                         </div> 
                         
@@ -732,10 +753,113 @@
         }
         afterNotePopulate();
     }
+
+
+
+    //documents
+
+    function displayAllDocumentsAjaxCall(userId) {
+        $.ajax({
+            type: "POST",
+            url: "UserDetails.aspx/GetFileName",
+            data: JSON.stringify({ id: userId }),
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                if (response.d === null) {
+
+                    showErrorModal("Something went Wrong Please try again!!!")
+                    return;
+                }
+                displayAllFiles(response.d);
+                $("#loading-div").css('display', "none");
+            },
+            error: function (err) {
+                alert(err.statusText);
+                $("#loading-div").css('display', "none");
+            }
+        })
+    }
+
+    function populateDocumnetAjaxCall() {
+        if (urlParams.get('UserId') !== null) {
+            userId = urlParams.get('UserId')
+            $("#loading-div").css('display', "block");
+            displayAllDocumentsAjaxCall(userId);
+        }
+    }
+    $("#uploadBtn").on('click', function (e) {
+        e.preventDefault();
+        var files = $("#fileUploadInput").get(0).files;
+        if (files.length == 0) {
+            alert("Please select a file");
+            return false;
+        }
+        var fileData = new FormData();
+        fileData.append("UserId", urlParams.get('UserId'));
+        for (var i = 0; i < files.length; i++) {
+            fileData.append(files[0].name, files[0]);
+        }
+        $("#loading-div").css('display', "block");
+        $.ajax({
+            type: "POST",
+            url: "FileUploadHandler.ashx",
+            data: fileData,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                if (response.d === null) {
+                    showErrorModal("Something went Wrong Please try again!!!")
+                    return;
+                }
+                $("#loading-div").css('display', "none");
+                location.reload();
+            },
+            error: function (err) {
+                alert(err.statusText)
+                $("#loading-div").css('display', "none");
+            }
+        })
+    })
+    function createTemplate(file) {
+        var pdf = "../Images/pdf.png";
+        var doc = "../Images/doc.png"
+        var img = "../Images/img.png"
+        var unknown = "../Images/unknown.png"
+        var extension = file.FileName.split('.')[1];
+        if (extension == "pdf") {
+            ext = pdf;
+        }
+        else if (extension == "txt" || extension == "doc" || extension == "word") {
+            ext = doc;
+        } else if (extension == "png" || extension == "jpg" || extension == "jpeg" || extension == "jfif" || extension == "gif") {
+            ext = img;
+        } else {
+            ext = unknown;
+        }
+        var template = `<div class="single-li-file-div">
+                            <div class="text-file">
+                                <p>
+                                    <img class="extension-img" src="${ext}" alt="extension image">
+                                    <span class="filename">${file.FileName}<span>
+                                 </p>
+                                <span class="download-link">
+                                    <a href="FileDownloadHandler.ashx?fileId=${file.Id}&UserId=${file.userId}">
+                                        <img class="download-img" src="../Images/download.gif" title="Download">
+                                    </a>
+                                 </span>
+                            </div>
+                                <div class="author-div">
+                                    Created By <b>${file.CreatedBy}</b> On <b><i>${file.CreatedTime}</i></b>
+                                </div>
+                        </div>
+            <hr/>`;
+
+        return template;
+    }
+    function displayAllFiles(data) {
+        $("#DisplayAllFilesDiv").html("");
+        for (var file of data) {
+            $("#DisplayAllFilesDiv").append(createTemplate(file));
+        }
+    }
 });
-
-
-
-
-
-

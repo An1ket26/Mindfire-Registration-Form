@@ -285,12 +285,10 @@ namespace EmployeeManagements.Web
                 ShowErrorModal();
             }
         }
-
-
         protected void ShowErrorModal()
         {
             string message = "Something Went Wrong,Please Try Again!!";
-            string script2 = $@"<script type=text/javascript>document.addEventListener(""DOMContentLoaded"", function(event) {{displayModal(`{message}`);}})</script>";
+            string script2 = $@"<script type=text/javascript>document.addEventListener(""DOMContentLoaded"", function(event) {{showErrorModal(`{message}`);}})</script>";
             ClientScript.RegisterClientScriptBlock(this.GetType(), Guid.NewGuid().ToString(), script2);
             
         }

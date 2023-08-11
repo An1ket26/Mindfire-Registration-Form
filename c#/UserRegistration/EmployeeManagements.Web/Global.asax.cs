@@ -16,6 +16,7 @@ namespace EmployeeManagements.Web
         {
             Exception ex = Server.GetLastError();
             LogRecords.LogRecord(ex);
+            Response.Redirect("loginpage");
         }
         void Application_Start(object sender, EventArgs e)
         {

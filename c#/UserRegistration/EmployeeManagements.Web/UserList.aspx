@@ -66,8 +66,8 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Configure" ItemStyle-CssClass="width-150">
                         <ItemTemplate>
-                            <asp:ImageButton ImageUrl="Images/edit.png" CommandName="Edit" runat="server" CssClass="EditUser-btnImage" />
-                            <asp:ImageButton ImageUrl="Images/delete.png" CommandName="Delete" runat="server" CssClass="DeleteUser-btnImage" />
+                            <asp:ImageButton ImageUrl="Images/edit.png" CommandName="Edit" runat="server" CssClass="EditUser-btnImage" ToolTip="Edit" />
+                            <asp:ImageButton ImageUrl="Images/delete.png" CommandName="Delete" runat="server" CssClass="DeleteUser-btnImage" ToolTip="Delete"/>
                            <%-- <asp:Button ID="AddUserBtn" runat="server" Text="Edit" CommandName="Edit" CssClass="EditUser-btn" />
                             <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CssClass="DeleteUser-btn"/>--%>
                         </ItemTemplate>

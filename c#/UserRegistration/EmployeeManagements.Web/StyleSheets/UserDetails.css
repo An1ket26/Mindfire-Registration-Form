@@ -172,10 +172,15 @@ legend {
     cursor: grab;
 }
 
-/*input:focus {
-    background-color: #f8f8ff;
-}*/
-
+#roleDisplay {
+    border: none;
+    font-size: medium;
+    background-color: #eff0f1;
+}
+#roleDisplay:hover{
+    cursor:pointer;
+}
+    
 input[type="file"] {
     border: 0px;
 }
@@ -268,12 +273,10 @@ input::-webkit-inner-spin-button {
     color: black;
 }
 
-
-
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     padding-top: 100px;
     left: 0;
     top: 0;

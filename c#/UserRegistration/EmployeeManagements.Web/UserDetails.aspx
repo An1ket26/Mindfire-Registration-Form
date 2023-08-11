@@ -635,7 +635,7 @@
                 <h3 id="errorMessage">Invalid Email or Password</h3>
             </div>
             <div class="modal-close">
-                <button id="CloseModal">Close</button>
+                <button id="CloseModal">OK</button>
             </div>
         </div>
         <div id="loading-div" class="loading-icon">
@@ -643,7 +643,6 @@
         </div>
 
        <script src="Scripts/UserDetails.js"></script>
-       <script src="Scripts/testings.js"></script>
     </body>
 </html>
 

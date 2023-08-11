@@ -9,9 +9,9 @@
         <EntityTypeShape EntityType="UserRegistrationModel.Hobby" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="UserRegistrationModel.Role" Width="1.5" PointX="10.5" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="UserRegistrationModel.State" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="UserRegistrationModel.User" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UserRegistrationModel.User" Width="1.5" PointX="5" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="UserRegistrationModel.UserFiles" Width="1.5" PointX="7.5" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="UserRegistrationModel.UserNotes" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UserRegistrationModel.UserNotes" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="UserRegistrationModel.UserRole" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
         <AssociationConnector Association="UserRegistrationModel.FK_State_Country" ManuallyRouted="false" />
         <AssociationConnector Association="UserRegistrationModel.FK_User_Country" ManuallyRouted="false" />

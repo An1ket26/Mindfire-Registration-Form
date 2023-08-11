@@ -282,21 +282,20 @@ namespace EmployeeManagement.DataAccess
         public static string GetImageNameForDownload(int userId)
         {
             string fileName = null;
-            string email = "";
+           
             using(var dbContext = new UserRegistrationEntities())
             {
                 if (dbContext.User.Where(i => i.UserId == userId && i.Imagesrc != null).Any())
                 {
                     fileName = dbContext.User.Where(i => i.UserId == userId && i.Imagesrc != null).
                         Select(i => i.Imagesrc).Single().ToString();
-                    email = dbContext.User.Where(i => i.UserId == userId).Select(i => i.Email).Single().ToString();
                 }
             }
             if(fileName!=null)
             {
-                return email.Trim() + fileName;
+                return fileName;
             }
-            return null;
+            return "";
         }
 
         public static void DeleteUser(int deleteId)
