@@ -16,13 +16,13 @@ namespace EmployeeManagements.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
             if (CheckIsAdmin() == true)
             {
                 cancelBtn.Text = "Cancel";
                 logout.Text = "Back";
             }
-            else if (GetUserId() != 0 && CheckIsAdmin() == false)
+            else if (CommonAuth.GetCurrentUserId() != 0 && CheckIsAdmin() == false)
             {
                 cancelBtn.CssClass = cancelBtn.CssClass.Replace("btn-cancel", "btn-cancel-hide");
             }
@@ -30,9 +30,9 @@ namespace EmployeeManagements.Web
             {
                 FetchImage(Request.QueryString["UserId"]);
             }
-            else if (GetUserId() != 0)
+            else if (CommonAuth.GetCurrentUserId() != 0)
             {
-                FetchImage(GetUserId().ToString());
+                FetchImage(CommonAuth.GetCurrentUserId().ToString());
             }
 
             if (!IsPostBack)
@@ -52,7 +52,9 @@ namespace EmployeeManagements.Web
             }catch (Exception ex)
             {
                 LogRecords.LogRecord(ex);
-                
+                ShowErrorModal();
+
+
             }
             
         }
@@ -97,16 +99,18 @@ namespace EmployeeManagements.Web
             }
         }
         [System.Web.Services.WebMethod]
-        public static void StoreData(UserModel user)
+        public static string StoreData(UserModel user)
         {
             try
             {
                 UserBusiness.AddUserToDb(user);
+                var returnValue = Auth.CheckIsAdmin()?"loginpage":"userlist";
+                return returnValue;
             }
             catch (Exception ex)
             {
                 LogRecords.LogRecord(ex);
-
+                return null;
             }
         }
         [System.Web.Services.WebMethod]
@@ -119,6 +123,7 @@ namespace EmployeeManagements.Web
             }catch (Exception ex)
             {
                 LogRecords.LogRecord(ex);
+                
                 return null;
             }
 
@@ -126,16 +131,17 @@ namespace EmployeeManagements.Web
 
 
         [System.Web.Services.WebMethod]
-        public static void UpdateData(UserModel item)
+        public static string UpdateData(UserModel item)
         {
             try
             {
                 UserBusiness.UpdateUserDetails(item);
+                return "Success";
             }
             catch (Exception ex)
             {
                 LogRecords.LogRecord(ex);
-                
+                return null;
             }
         }
 
@@ -151,6 +157,7 @@ namespace EmployeeManagements.Web
             catch (Exception ex)
             {
                 LogRecords.LogRecord(ex);
+                
                 return null;
             }
 
@@ -173,7 +180,7 @@ namespace EmployeeManagements.Web
             catch (Exception ex)
             {
                 LogRecords.LogRecord(ex);
-                
+                ShowErrorModal();
             }
         }
         protected void FetchImage(string userId)
@@ -182,7 +189,6 @@ namespace EmployeeManagements.Web
             {
                 int id = int.Parse(userId);
                 string fileName = UserBusiness.GetImageNameForDownload(id);
-
                 if (fileName != null)
                 {
                     profileImageDisplay.ImageUrl = "ImageDownloadHandler.ashx?ImageName=" + fileName + "&UserId=" + id;
@@ -190,6 +196,7 @@ namespace EmployeeManagements.Web
             }
             catch (Exception ex)
             {
+                ShowErrorModal();
                 LogRecords.LogRecord(ex);
                 
             }
@@ -209,50 +216,55 @@ namespace EmployeeManagements.Web
             catch (Exception ex)
             {
                 LogRecords.LogRecord(ex);
+                
                 return null;
             }
         }
 
 
         [System.Web.Services.WebMethod]
-        public static void DeleteUserNote(string noteId)
+        public static string DeleteUserNote(string noteId)
         {
             try
             {
                 int id = int.Parse(noteId);
                 NotesBusiness.DeleteNotes(id);
+                return "success";
             }
             catch (Exception ex)
             {
                 LogRecords.LogRecord(ex);
+                return null;
             }
         }
 
         [System.Web.Services.WebMethod]
-        public static void EditUserNotes(NotesModel note)
+        public static string EditUserNotes(NotesModel note)
         {
             try {
                 NotesBusiness.EditNotes(note);
+                return "success";
             }
             catch (Exception ex)
             {
                 LogRecords.LogRecord(ex);
-                
+                return null;
             }
         }
 
         [System.Web.Services.WebMethod]
-        public static void AddUserNotes(NotesModel note)
+        public static string AddUserNotes(NotesModel note)
         {
             try
             {
-                note.CreatedId = Auth.GetUserId();
+                note.CreatedId = CommonAuth.GetCurrentUserId();
                 NotesBusiness.AddNotes(note);
+                return "success";
             }
             catch (Exception ex)
             {
                 LogRecords.LogRecord(ex);
-                
+                return null;
             }
         }
 
@@ -270,8 +282,17 @@ namespace EmployeeManagements.Web
             catch (Exception ex)
             {
                 LogRecords.LogRecord(ex);
-               
+                ShowErrorModal();
             }
+        }
+
+
+        protected void ShowErrorModal()
+        {
+            string message = "Something Went Wrong,Please Try Again!!";
+            string script2 = $@"<script type=text/javascript>document.addEventListener(""DOMContentLoaded"", function(event) {{displayModal(`{message}`);}})</script>";
+            ClientScript.RegisterClientScriptBlock(this.GetType(), Guid.NewGuid().ToString(), script2);
+            
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeMangement.Utils;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,15 +16,21 @@ namespace UserRegistration
 
         public void ProcessRequest(HttpContext context)
         {
-            string email=context.Request.Form.Get("Email");
-            if (context.Request.Files.Count > 0)
+            try
             {
-                HttpFileCollection files = context.Request.Files;
-                HttpPostedFile file = files[0];
-                string fname = WebConfigurationManager.AppSettings["ImageUrl"] +email +file.FileName;
-                file.SaveAs(fname);
-                context.Response.ContentType = "text/plain";
-                context.Response.Write("File Uploaded Successfully!");
+                string email = context.Request.Form.Get("Email");
+                if (context.Request.Files.Count > 0)
+                {
+                    HttpFileCollection files = context.Request.Files;
+                    HttpPostedFile file = files[0];
+                    string fname = WebConfigurationManager.AppSettings["ImageUrl"] + email + file.FileName;
+                    file.SaveAs(fname);
+                    context.Response.ContentType = "text/plain";
+                    context.Response.Write("File Uploaded Successfully!");
+                }
+            }catch(Exception ex)
+            {
+                LogRecords.LogRecord(ex);
             }
         }
 

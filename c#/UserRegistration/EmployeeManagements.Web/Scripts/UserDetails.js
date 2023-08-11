@@ -1,12 +1,26 @@
 ﻿$(document).ready(function () {
+    function showErrorModal(message) {
+        var modal = document.getElementById("myModal");
+        var p = document.getElementById("errorMessage");
+        var btn = document.getElementById("CloseModal");
+       
+            console.log(message);
+            modal.style.display = "block";
+            p.innerHTML = message;
+        
+        btn.onclick = function () {
+            modal.style.display = "none";
+        }
+    }
 
-    function ToRemoveClass(id,className) {
+
+    function ToRemoveClass(id, className) {
         $(id).removeClass(className);
     }
     function ToAddClass(id, className) {
         $(id).addClass(className);
     }
-    
+
     var update = false;
     var userId;
     const queryString = window.location.search;
@@ -66,7 +80,7 @@
         $("#NotesLink").css("background-color", "Green");
         $("#documentLink").css("background-color", "Blue");
         document.title = "Notes"
-        
+
     })
     $("#documentLink").on('click', function (e) {
         e.preventDefault();
@@ -90,49 +104,59 @@
 
 
     //Checking if it is update call or Not
-    if (urlParams.get('UserId') !== null)
-    {
+    if (urlParams.get('UserId') !== null) {
         $("#navbar").removeClass("div-hide");
         $("#navbar").addClass("navbar");
         update = true;
-        
+
         userId = urlParams.get('UserId');
         populateDataAjaxCall(userId);
-        $("#submitBtn").val("Update"); 
+        $("#submitBtn").val("Update");
     }
 
     function populateDataAjaxCall(userId) {
+        $("#loading-div").css('display', "block");
         $.ajax({
             type: "POST",
             url: 'UserDetails.aspx/FetchUser',
             data: JSON.stringify({ userId: userId }),
             contentType: "application/json; charset=utf-8",
             success: function (data) {
-                /*console.log(data.d);*/
+                //check
+                if (data.d == null) {
+                    showErrorModal("Please try Again");
+                    return;
+                }
                 populateData(data.d);
                 $("#RegistrationFormHeading").text("Basic Details");
+                $("#loading-div").css('display', "none");
             },
             failure: function (response) {
                 alert(response.d);
             }
         });
+        $("#loading-div").css('display', "block");
         $.ajax({
             type: "POST",
             url: 'UserDetails.aspx/GetUserNote',
             data: JSON.stringify({ userId: userId }),
             contentType: "application/json; charset=utf-8",
             success: function (data) {
-                console.log(data.d);
+                if (data.d == null) {
+                    showErrorModal();
+                    return;
+                }
                 populateNotesTable(data.d);
+                $("#loading-div").css('display', "none");
             },
             failure: function (response) {
                 alert(response.d);
             }
         });
+        
     }
-    
-    function populateData(data)
-    {
+
+    function populateData(data) {
         $("input").each(function () {
             if ($(this).attr("filldata")) {
                 var key = $(this).attr("filldata")
@@ -144,13 +168,13 @@
                 }
             }
         })
-        $("select").each(function (){
+        $("select").each(function () {
             if ($(this).attr("filldata")) {
                 var key = $(this).attr("filldata");
-                
+
                 if ($(this).attr("state-load")) {
-                    
-                    
+
+
                     fetchState($($(this).attr("parent-id")).val(), data[key], `#${$(this).attr("id")}`);
                 } else {
                     $(this).val(data[key]);
@@ -161,16 +185,16 @@
             UserRole = data.UserRoles.split(",");
             if (UserRole.includes($(this).val())) {
                 this.checked = true;
-            }  
+            }
         })
 
-        
+
     }
 
 
     //COuntry on Change Load State
     $("#permanentCountry").on("change", function () {
-        
+
         var val = $(this).val();
         ajaxCallsForStateAndCountry("FetchState", "country", val, "#permanentState", null);
     });
@@ -178,29 +202,34 @@
         var val = $(this).val();
         ajaxCallsForStateAndCountry("FetchState", "country", val, "#presentState", null);
     });
-    async function fetchState(countryVal, selectedState, stateId)
-    {
+    async function fetchState(countryVal, selectedState, stateId) {
         ajaxCallsForStateAndCountry("FetchState", "country", countryVal, stateId, selectedState);
         return true;
     }
 
-    function ajaxCallsForStateAndCountry(urlExtension,keyValue,dataValue,countryOrStateId,selectedState)
-    {
+    function ajaxCallsForStateAndCountry(urlExtension, keyValue, dataValue, countryOrStateId, selectedState) {
+        $("#loading-div").css('display', "block");
         $.ajax({
             type: "POST",
             url: `UserDetails.aspx/${urlExtension}`,
-            data: `{${keyValue}:${JSON.stringify( dataValue )}}`,
+            data: `{${keyValue}:${JSON.stringify(dataValue)}}`,
             contentType: "application/json; charset=utf-8",
-            async:false,
+            async: false,
             success: function (data) {
+                if (data.d == null && urlParams.get('tab') ==="detailsLink") {
+                    showErrorModal("Could Not Load State Please Try Again");
+                    return;
+                }
                 LoadOptionsForCountryAndState(data.d, countryOrStateId, selectedState);
+                $("#loading-div").css('display', "none");
             },
             failure: function (response) {
                 alert(response.d);
             }
         });
+        
     }
-    function LoadOptionsForCountryAndState(apiData, selectId,selectedState) {
+    function LoadOptionsForCountryAndState(apiData, selectId, selectedState) {
 
         $(selectId)
             .children()
@@ -209,7 +238,7 @@
             .append(
                 '<option value="none" selected disabled hidden>Select an Option</option>'
             );
-        if (apiData.length === 0) {
+        if (apiData==null || apiData.length === 0) {
             $(selectId).append(
                 createOption(
                     $($(selectId).attr("parent-id")).val(),
@@ -221,13 +250,13 @@
                 $(selectId).append(createOption(data.trim(), data.trim()));
             }
         }
-        if (selectedState!=null)
+        if (selectedState != null)
             $(selectId).val(selectedState);
     }
 
     $("#roleDisplay").click(function (event) {
         event.preventDefault();
-;        $("#RoleListdiv").show();
+        ; $("#RoleListdiv").show();
     })
 
 
@@ -378,8 +407,8 @@
             $("#permanentAddress select").each(async function () {
                 if ($(this).attr("load-state-first")) {
                     const res = await fetchState($("#permanentCountry").val(), $($(this).attr("copy-val-id")).val(), `#${$(this).attr("id")}`);
-                  
-                }  else {
+
+                } else {
                     if ($(this).attr("copy-val-id")) {
                         $(this).val($($(this).attr("copy-val-id")).val());
                         selectValidate($(this));
@@ -438,7 +467,7 @@
     $("#profileImageInput").change(function (e) {
         const imgSrc = URL.createObjectURL(e.target.files[0]);
         $("#profileImageDisplay").attr("src", imgSrc);
-        
+
     })
 
     //submit action
@@ -446,9 +475,9 @@
     const displayResultDiv = (formData) => {
         $("#container input").each(function () {
             if ($(this).attr("displayid")) {
-                
+
                 if (this.id === "subscribeCheckbox") {
-                    var x =$("#" + $(this).attr("displayid")).attr("objectName")
+                    var x = $("#" + $(this).attr("displayid")).attr("objectName")
                     formData[x] = $(
                         "#subscribeCheckbox"
                     ).is(":checked")
@@ -456,7 +485,7 @@
                         : "NO";
                 } else {
                     var x = $("#" + $(this).attr("displayid")).attr("objectName");
-                    formData[x] = $(this).val() === "" ? "NA" : $(this).val();
+                    formData[x] = $(this).val() === "" || $(this).val()==null ? "NA" : $(this).val();
                 }
             }
         });
@@ -469,15 +498,14 @@
         Roles = "";
         $("#RoleListdiv input").each(function () {
             if (this.checked) {
-                Roles+=this.value+","; 
+                Roles += this.value + ",";
             }
         })
         formData.UserRoles = Roles;
 
     };
 
-    $("#submitBtn").click(function (event)
-    {
+    $("#submitBtn").click(function (event) {
         event.preventDefault();
         let isError = false;
         $("#container input").each(function () {
@@ -492,21 +520,24 @@
         const formData = {};
         displayResultDiv(formData);
         var files = $("#profileImageInput").get(0).files;
-        if (files.length>0) {
+        if (files.length > 0) {
             formData.ImageSrc = files[0].name;
+        }
+        else {
+            formData.ImageSrc = "NA";
         }
         console.log(formData);
         if (update) {
             formData.userId = userId;
             sendToAddOrUpdate("UpdateData", "item", formData)
-            location.reload();
+            populateDataAjaxCall(userId);
         } else {
             sendToAddOrUpdate("StoreData", "user", formData)
-            window.location.href = "loginpage";
+            window.location.href = "userlist";
         }
     });
-    async function sendToAddOrUpdate(urlExtension, keyValue, formData)
-    {
+    async function sendToAddOrUpdate(urlExtension, keyValue, formData) {
+        $("#loading-div").css('display', "block");
         $.ajax({
             type: "POST",
             url: `UserDetails.aspx/${urlExtension}`,
@@ -514,6 +545,11 @@
             contentType: "application/json; charset=utf-8",
             async: false,
             success: function (data) {
+                if (data.d === null) {
+                    showErrorModal("Something Went Wrong,Please try again!!!");
+                    return;
+                }
+                $("#loading-div").css('display', "none");
                 console.log(data.d);
             },
             failure: function (response) {
@@ -528,7 +564,7 @@
         var fileData = new FormData();
         fileData.append("Email", formData.Email);
         fileData.append(files[0].name, files[0]);
-        
+        $("#loading-div").css('display', "block");
         $.ajax({
             type: "POST",
             url: 'ImageUploadHandler.ashx',
@@ -536,6 +572,11 @@
             contentType: false,
             processData: false,
             success: function (response) {
+                if (data.d === null) {
+                    showErrorModal("Something Went Wrong,Please try again!!!");
+                    return;
+                }
+                $("#loading-div").css('display', "none");
                 console.log(response);
             },
             error: function (err) {
@@ -544,54 +585,82 @@
         })
     }
 
+
+    //Notes.js
+
     $("#btnNotesAdd").on('click', function (e) {
         e.preventDefault();
-        formData = {};
-        formData.Notes = $("#txtAddnote").val();
-        formData.IsPrivate = $("#PrivateChkbox").get(0).checked ? "YES" : "NO";
-        formData.ObjectId = userId;
-        $.ajax({
-            type: "POST",
-            url: 'UserDetails.aspx/AddUserNotes',
-            data: `{note:${JSON.stringify(formData)}}`,
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-               location.reload();
-            },
-            failure: function (response) {
-                alert(response.d);
-            }
-        });
+        if ($("#txtAddnote").val().length == 0) {
+            $("#noteErrorSpan").removeClass("note-error-hide");
+            
+        } else {
+            $("#noteErrorSpan").addClass("note-error-hide");
+            formData = {};
+            formData.Notes = $("#txtAddnote").val();
+            formData.IsPrivate = $("#PrivateChkbox").get(0).checked ? "YES" : "NO";
+            formData.ObjectId = userId;
+            $("#loading-div").css('display', "block");
+            $.ajax({
+                type: "POST",
+                url: 'UserDetails.aspx/AddUserNotes',
+                data: `{note:${JSON.stringify(formData)}}`,
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.d == null) {
+                        showErrorModal("Please Try Again");
+                        return;
+                    }
+                    populateDataAjaxCall(userId);
+                    $("#loading-div").css('display', "none");
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
+        }
     });
 
     function afterNotePopulate() {
-        $("#NoteBody td .DeleteNote-btn").each(function () {
+
+        $("#Notes-Configure-Div .DeleteNote-btn").each(function () {
+            
             $(this).on('click', function (e) {
-                e.preventDefault();
-                console.log($(this).attr("noteId"))
-                var id = $(this).attr("noteId");
-                $.ajax({
-                    type: "POST",
-                    url: 'UserDetails.aspx/DeleteUserNote',
-                    data: JSON.stringify({ noteId: id }),
-                    contentType: "application/json; charset=utf-8",
-                    success: function (data) {
-                        location.reload();
-                    },
-                    failure: function (response) {
-                        alert(response.d);
-                    }
-                });
-            })
+                if ($(this).attr("src") == "../Images/cancel.png") {
+                    //location.reload();
+                    populateDataAjaxCall(userId);
+                } else {
+                    e.preventDefault();
+                    console.log($(this).attr("noteId"))
+                    var id = $(this).attr("noteId");
+                    $("#loading-div").css('display', "block");
+                    $.ajax({
+                        type: "POST",
+                        url: 'UserDetails.aspx/DeleteUserNote',
+                        data: JSON.stringify({ noteId: id }),
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            if (data.d === null) {
+                                showErrorModal("Please Try Again");
+                                return;
+                            }
+                            populateDataAjaxCall(userId);
+                            $("#loading-div").css('display', "none");
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });}
+                })
+            
         })
 
 
-        $("#NoteBody td .EditNote-btn").each(function () {
+        $("#Notes-Configure-Div .EditNote-btn").each(function () {
             
-                $(this).on('click', function (e) {
-                    e.preventDefault();
-                    
-                    if ($(this).val() === "Edit") {
+            $(this).on('click', function (e) {
+                e.preventDefault();
+                var x = $(this).attr("bt");
+                    if (x === "edit") {
                         editBtnClick($(this).attr("id"));
                     }
                 })
@@ -600,25 +669,35 @@
     }
 
     function editBtnClick(id) {
-        $(`#${id}`).val("Update");
-        $(`#${id}`).css('background-color', 'green');
-        $($(`#${id}`).attr("tdId")).html(`<input type="text" id="noteInput${$(`#${id}`).attr("noteId")}" value="${$(`#${id}`).attr("notes")}">`);
+        $(`#${id}`).attr("bt", "update");
+        $(`#${id}`).attr("src", "../Images/update.gif");
+        var delId = $(`#${id}`).attr("delId");
+        $(delId).attr("src", "../Images/cancel.png");
+        
+        
+        $($(`#${id}`).attr("pId")).html(`<input type="text" id="noteInput${$(`#${id}`).attr("noteId")}" value="${$(`#${id}`).attr("notes")}">`);
 
         $(`#${id}`).on('click', function (e) {
             e.preventDefault();
             var inputId = `noteInput${$(this).attr("noteId")}`;
-            
+            console.log(inputId);
             formData = {};
             formData.Notes = $(`#${inputId}`).val();
             formData.NoteId =$(this).attr("noteId");
             console.log(formData);
+            $("#loading-div").css('display', "block");
             $.ajax({
                 type: "POST",
                 url: 'UserDetails.aspx/EditUserNotes',
                 data: `{note:${JSON.stringify(formData)}}`,
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
-                    location.reload();
+                    if (data.d === null) {
+                        showErrorModal("Please Try Again");
+                        return;
+                    }
+                    populateDataAjaxCall(userId);
+                    $("#loading-div").css('display', "none");
                 },
                 failure: function (response) {
                     alert(response.d);
@@ -628,36 +707,34 @@
     }
 
     function CreateNoteTemplate(note) {
-        var template =`<tr class="UserNotes-Rows">
-            <td class="width-250pp" id="td${note.NoteId}">
-                <span>${note.Notes}</span>
-            </td>
-            <td class="width-70pp">
-                <span>${note.CreatedBy}</span>
-            </td>
-            <td class="width-70pp">
-                <span>${note.CreatedOn}</span>
-            </td>
-            <td class="width-150pp">
-                <input type="submit"  value="Edit" id="editbtn${note.NoteId}"" class="EditNote-btn" 
-                tdId="#td${note.NoteId}" noteId=${note.NoteId} notes="${note.Notes}">
-                <input type="submit" value="Delete" class="DeleteNote-btn" noteId=${note.NoteId}>
-            </td>
-             <tr>`
+        
+        var template = `<div class="single-note-div">
+                            <p id="p${note.NoteId}" class="note"><img class="note-image" src="../Images/note.png">${ note.Notes}</p>
+                            <p class="created">Created By <b>${note.CreatedBy}</b></p>
+                            <p class="created"> On <b><i>${note.CreatedOn}</b></i></p>
+                            <div id="Notes-Configure-Div" class="NotesButtonDiv">
+                             <img src="../Images/edit.png" bt="edit" id="editbtn${note.NoteId}"" class="EditNote-btn" 
+                                pId="#p${note.NoteId}" noteId=${note.NoteId} notes="${note.Notes}" delId="#del${note.NoteId}"/>
+                             <img src="../Images/delete.png" class="DeleteNote-btn" noteId=${note.NoteId} id="del${note.NoteId}"/>
+                            </div>
+                        </div> 
+                        
+        `;
         return template;
     }
 
 
     function populateNotesTable(data)
     {
-        $("#NoteBody").html("");
+        $("#MainNoteDiv").html("");
         for (var note of data) {
-            $("#NoteBody").append(CreateNoteTemplate(note));
+            $("#MainNoteDiv").append(CreateNoteTemplate(note));
         }
         afterNotePopulate();
     }
+});
 
- });
+
 
 
 

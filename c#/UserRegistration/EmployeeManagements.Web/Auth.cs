@@ -14,54 +14,47 @@ namespace UserRegistration
 
         protected void Page_Init(object sender, EventArgs e)
         {
-
-            if (Session["UserId"] == null && Request.QueryString["UserId"] != null)
+            try
             {
-                Response.Redirect("loginpage");
-            }
-            else if (Request.QueryString["UserId"] != null &&
-                Session["UserId"].ToString() != Request.QueryString["UserId"] &&
-                CheckIsAdmin() == false)
+                
+                if (CommonAuth.GetCurrentUserId() == 0 && Request.QueryString["UserId"] != null)
+                {
+                    Response.Redirect("loginpage");
+                }
+                else if (Request.QueryString["UserId"] != null &&
+                    CommonAuth.GetCurrentUserId().ToString() != Request.QueryString["UserId"] &&
+                    CheckIsAdmin() == false)
+                {
+                    Response.Redirect("Userdetails?UserId=" + CommonAuth.GetCurrentUserId().ToString() + "&tab=detailsLink");
+                }
+                if (Request.Url.ToString().Split('/')[3].ToLower() == "userlist" && CheckIsAdmin() == false && CommonAuth.GetCurrentUserId() > 0)
+                {
+                    Response.Redirect("Userdetails?UserId=" + Session["UserId"].ToString() + "&tab=detailsLink");
+                }
+                else if (Request.Url.ToString().Split('/')[3].ToLower() == "userlist" && CheckIsAdmin() == false && CommonAuth.GetCurrentUserId() == 0)
+                {
+                    Response.Redirect("loginpage");
+                }
+                
+            }catch(Exception ex)
             {
-                Response.Redirect("Userdetails?UserId=" + Session["UserId"].ToString() + "&tab=detailsLink");
+                LogRecords.LogRecord(ex);
             }
-            if (Request.Url.ToString().Split('/')[3].ToLower() == "userlist" && CheckIsAdmin() == false && Session["UserId"] != null)
-            {
-                Response.Redirect("Userdetails?UserId=" + Session["UserId"].ToString() + "&tab=detailsLink");
-            }
-            else if (Request.Url.ToString().Split('/')[3].ToLower() == "userlist" && CheckIsAdmin() == false && Session["UserId"] == null)
-            {
-                Response.Redirect("loginpage");
-            }
-            //LogRecords.LogRecord(Request.Url.ToString());
+           
+            
         }
         
-        public static void StoreUserIdInSession(int userId)
-        {
-            HttpContext.Current.Session["UserId"] = userId;
-            HttpContext.Current.Session.Timeout = 60;
-        }
-
 
         public static bool CheckIsAdmin()
         {
 
-            if (HttpContext.Current.Session["UserId"] == null)
+            if (CommonAuth.GetCurrentUserId()==0)
             {
                 return false;
             }
-            int userId = int.Parse(HttpContext.Current.Session["UserId"].ToString());
+            int userId = CommonAuth.GetCurrentUserId();
             bool isAdmin = UserBusiness.CheckIsAdmin(userId);
             return isAdmin;
-        }
-
-        public static int GetUserId()
-        {
-            if (HttpContext.Current.Session["UserId"] == null)
-            {
-                return 0;
-            }
-            return int.Parse(HttpContext.Current.Session["UserId"].ToString());
         }
 
         public void ClearSession()

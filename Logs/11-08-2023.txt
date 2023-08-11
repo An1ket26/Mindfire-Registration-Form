@@ -1,0 +1,667 @@
+11-08-2023 09:56:23
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 40
+
+==============================================================
+
+==============================================================
+11-08-2023 09:56:23
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 38
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 09:56:25
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+11-08-2023 09:56:25
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.comNA'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.comNA'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.comNA'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 38
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 09:56:45
+Current UserId = 12
+Thread was being aborted.
+
+ine 277
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 277
+==============================================================
+
+==============================================================
+11-08-2023 09:56:47
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 38
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 09:57:02
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 38
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 09:57:55
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 38
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 09:58:33
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 38
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 10:20:32
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 38
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 10:21:44
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 40
+==============================================================
+
+==============================================================
+11-08-2023 10:21:46
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 10:21:50
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+11-08-2023 10:32:19
+Current UserId = 12
+Thread was being aborted.
+
+ine 277
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 277
+==============================================================
+
+==============================================================
+11-08-2023 10:32:21
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\dummy_profile_2.png'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 10:32:36
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+11-08-2023 10:32:43
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+11-08-2023 10:45:57
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+11-08-2023 11:11:46
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.com                                                      aniket@gmail.comavatar.jfif'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.com                                                      aniket@gmail.comavatar.jfif'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.com                                                      aniket@gmail.comavatar.jfif'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:11:51
+Current UserId = 12
+Thread was being aborted.
+
+ine 277
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 277
+==============================================================
+
+==============================================================
+11-08-2023 11:11:52
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.com                                                      avatar.jfif'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.com                                                      avatar.jfif'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.com                                                      avatar.jfif'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:11:52
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\t1@gmil.com                                                           avatar.jfif'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\t1@gmil.com                                                           avatar.jfif'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\t1@gmil.com                                                           avatar.jfif'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:11:52
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.com                                                          dummy_profile_2.png'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.com                                                          dummy_profile_2.png'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.com                                                          dummy_profile_2.png'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:11:53
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\raj@gmail.com                                                         avatar.jfif'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\raj@gmail.com                                                         avatar.jfif'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\raj@gmail.com                                                         avatar.jfif'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:11:53
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sd@sds.cc                                                             avatar.jfif'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sd@sds.cc                                                             avatar.jfif'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\sd@sds.cc                                                             avatar.jfif'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:11:54
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\test@test.com                                                         abc.png'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\test@test.com                                                         abc.png'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\test@test.com                                                         abc.png'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:11:54
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\abc@gmail.com                                                         photo.jpeg'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\abc@gmail.com                                                         photo.jpeg'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\abc@gmail.com                                                         photo.jpeg'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:12:12
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.com                                                      avatar.jfif'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.com                                                      avatar.jfif'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.com                                                      avatar.jfif'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:12:12
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\t1@gmil.com                                                           avatar.jfif'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\t1@gmil.com                                                           avatar.jfif'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\t1@gmil.com                                                           avatar.jfif'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:12:13
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.com                                                          dummy_profile_2.png'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.com                                                          dummy_profile_2.png'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.com                                                          dummy_profile_2.png'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:12:13
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\abc@gmail.com                                                         photo.jpeg'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\abc@gmail.com                                                         photo.jpeg'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\abc@gmail.com                                                         photo.jpeg'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:12:14
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\test@test.com                                                         abc.png'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\test@test.com                                                         abc.png'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\test@test.com                                                         abc.png'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:12:14
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\raj@gmail.com                                                         avatar.jfif'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\raj@gmail.com                                                         avatar.jfif'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\raj@gmail.com                                                         avatar.jfif'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:12:15
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sd@sds.cc                                                             avatar.jfif'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sd@sds.cc                                                             avatar.jfif'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\sd@sds.cc                                                             avatar.jfif'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:13:24
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.com                                                      avatar.jfif'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.com                                                      avatar.jfif'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.com                                                      avatar.jfif'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:13:24
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.com                                                          dummy_profile_2.png'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.com                                                          dummy_profile_2.png'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.com                                                          dummy_profile_2.png'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:13:25
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\t1@gmil.com                                                           avatar.jfif'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\t1@gmil.com                                                           avatar.jfif'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\t1@gmil.com                                                           avatar.jfif'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:13:25
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\abc@gmail.com                                                         photo.jpeg'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\abc@gmail.com                                                         photo.jpeg'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\abc@gmail.com                                                         photo.jpeg'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:13:25
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sd@sds.cc                                                             avatar.jfif'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sd@sds.cc                                                             avatar.jfif'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\sd@sds.cc                                                             avatar.jfif'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:13:26
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\raj@gmail.com                                                         avatar.jfif'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\raj@gmail.com                                                         avatar.jfif'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\raj@gmail.com                                                         avatar.jfif'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+11-08-2023 11:13:26
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\test@test.com                                                         abc.png'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\test@test.com                                                         abc.png'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\test@test.com                                                         abc.png'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 39
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+

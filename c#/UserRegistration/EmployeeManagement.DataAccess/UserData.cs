@@ -44,14 +44,16 @@ namespace EmployeeManagement.DataAccess
                     {
                         hobby += hob.HobbyName.Trim() + ",";
                     }
-                    hobby = hobby.Substring(0, hobby.Length - 1).Trim();
+                    if(hobby.Length>0)
+                        hobby = hobby.Substring(0, hobby.Length - 1).Trim();
                     string Roles = "";
                     var roleIds = dbContext.UserRole.Where(i => i.UserId == item.UserId).Select(i => i.RoleId);
                     foreach (var roleid in roleIds)
                     {
                         Roles += dbContext.Role.Where(i => i.RoleId == roleid).Select(i => i.RoleName).Single().ToString().Trim() + ",";
                     }
-                    Roles = Roles.Substring(0, Roles.Length - 1).Trim();
+                    if(Roles.Length>0)
+                        Roles = Roles.Substring(0, Roles.Length - 1).Trim();
                     userData.PresentCountry = presentCountryName.Trim();
                     userData.PermanentCountry = permanentCountryName.Trim();
                     userData.PresentState = presentStateName.Trim();
@@ -59,6 +61,13 @@ namespace EmployeeManagement.DataAccess
                     userData.Hobby = hobby.Trim();
                     userData.UserRoles = Roles.Trim();
                     userData.IsSubscribed = item.IsSubscribed.Trim();
+                    if (item.Imagesrc == null)
+                    {
+                        userData.Imagesrc = "NA";
+                    }
+                    else {
+                        userData.Imagesrc = item.Imagesrc.Trim(); 
+                    }
 
                     UserModellList.Add(userData);
                 }
@@ -90,7 +99,14 @@ namespace EmployeeManagement.DataAccess
                 obj.PermanentStateId = dbContext.State.Where(i => i.StateName == newUser.PermanentState).Select(i => i.StateId).Single(); ;
                 obj.PermanentPostalCode = newUser.PermanentPostalCode;
                 obj.IsSubscribed = newUser.IsSubscribed;
-                obj.Imagesrc = newUser.Imagesrc;
+                if (newUser.Imagesrc == null || newUser.Imagesrc == "NA")
+                {
+                    obj.Imagesrc = "NA";
+                }
+                else
+                {
+                    obj.Imagesrc = newUser.Imagesrc;
+                }
                 obj.Password = newUser.Password;
                 dbContext.User.Add(obj);
                 dbContext.SaveChanges();
@@ -154,14 +170,16 @@ namespace EmployeeManagement.DataAccess
                 {
                     hobby += hob.HobbyName.Trim() + ",";
                 }
-                hobby = hobby.Substring(0, hobby.Length - 1).Trim();
+                if(hobby.Length>0)
+                    hobby = hobby.Substring(0, hobby.Length - 1).Trim();
                 string Roles = "";
                 var roleIds = dbContext.UserRole.Where(i => i.UserId == item.UserId).Select(i => i.RoleId);
                 foreach (var roleid in roleIds)
                 {
                     Roles += dbContext.Role.Where(i => i.RoleId == roleid).Select(i => i.RoleName).Single().ToString().Trim() + ",";
                 }
-                Roles = Roles.Substring(0, Roles.Length - 1).Trim();
+                if(Roles.Length>0)
+                    Roles = Roles.Substring(0, Roles.Length - 1).Trim();
                 userData.PresentCountry = presentCountryName.Trim();
                 userData.PermanentCountry = permanentCountryName.Trim();
                 userData.PresentState = presentStateName.Trim();
@@ -197,7 +215,15 @@ namespace EmployeeManagement.DataAccess
                 obj.PermanentStateId = dbContext.State.Where(i => i.StateName == user.PermanentState).Select(i => i.StateId).Single(); ;
                 obj.PermanentPostalCode = user.PermanentPostalCode;
                 obj.IsSubscribed = user.IsSubscribed;
-                obj.Imagesrc = user.Imagesrc;
+                if (user.Imagesrc == null || user.Imagesrc == "NA")
+                {
+                    obj.Imagesrc = obj.Imagesrc;
+                }
+                else
+                {
+                    obj.Imagesrc = user.Imagesrc;
+                }
+                    
                 dbContext.SaveChanges();
 
                 foreach (string hobbies in user.Hobby.Split(','))
@@ -261,7 +287,8 @@ namespace EmployeeManagement.DataAccess
             {
                 if (dbContext.User.Where(i => i.UserId == userId && i.Imagesrc != null).Any())
                 {
-                    fileName = dbContext.User.Where(i => i.UserId == userId && i.Imagesrc != null).Select(i => i.Imagesrc).Single().ToString();
+                    fileName = dbContext.User.Where(i => i.UserId == userId && i.Imagesrc != null).
+                        Select(i => i.Imagesrc).Single().ToString();
                     email = dbContext.User.Where(i => i.UserId == userId).Select(i => i.Email).Single().ToString();
                 }
             }
@@ -345,6 +372,17 @@ namespace EmployeeManagement.DataAccess
                 }
             }
             return isAdmin;
+        }
+
+        public static string GetUserEmail(int userId)
+        {
+            var userEmail = "";
+            using (var dbContext = new UserRegistrationEntities())
+            {
+                userEmail = dbContext.User.Where(i=>i.UserId==userId).Select(i=>i.Email).SingleOrDefault();
+            }
+
+            return userEmail;
         }
     }
 }

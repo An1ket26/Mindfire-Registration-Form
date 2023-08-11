@@ -29,9 +29,9 @@
                 OnRowDataBound="OnRowDataBound"
                 >
                 <Columns>
-                    <asp:TemplateField HeaderText="UserId" ItemStyle-CssClass="width-70" >
+                    <asp:TemplateField HeaderText="Image" ItemStyle-CssClass="width-70" >
                         <ItemTemplate>
-                            <asp:Label ID="lblId" runat="server" Text='<%# Eval("Id") %>' ></asp:Label>
+                            <asp:Image ImageUrl='<%# Eval("ImageUrl") %>' runat="server" ID="UserImageId" ClientIDMode="Static"/>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="FirstName" ItemStyle-CssClass="width-150">
@@ -66,8 +66,10 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Configure" ItemStyle-CssClass="width-150">
                         <ItemTemplate>
-                            <asp:Button ID="AddUserBtn" runat="server" Text="Edit" CommandName="Edit" CssClass="EditUser-btn" />
-                            <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CssClass="DeleteUser-btn"/>
+                            <asp:ImageButton ImageUrl="Images/edit.png" CommandName="Edit" runat="server" CssClass="EditUser-btnImage" />
+                            <asp:ImageButton ImageUrl="Images/delete.png" CommandName="Delete" runat="server" CssClass="DeleteUser-btnImage" />
+                           <%-- <asp:Button ID="AddUserBtn" runat="server" Text="Edit" CommandName="Edit" CssClass="EditUser-btn" />
+                            <asp:Button ID="Button1" runat="server" Text="Delete" CommandName="Delete" CssClass="DeleteUser-btn"/>--%>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -76,7 +78,19 @@
             <asp:Button ID="AddUserBtn" runat="server" Text="Add User" OnClick="AddUser" CssClass="AddUser-btn"/>
         </div>
     </form>
-    
+    <div id="myModal" class="modal">
+            <div class="modal-Image">
+                <img src="Images/cancel.png" />
+            </div>
+       
+            <div class="modal-content">
+                <h3 id="errorMessage">Invalid Email or Password</h3>
+            </div>
+            <div class="modal-close">
+                <button id="CloseModal">Close</button>
+            </div>
+        </div>
+    <script src="Scripts/UserList.js"></script>
 </body>
 </html>
 

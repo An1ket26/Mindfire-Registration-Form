@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,21 +12,34 @@ namespace EmployeMangement.Utils
     {
         public static void LogRecord(Exception ex)
         {
-            string message = ex.Message+ Environment.NewLine;
-            while(ex.InnerException != null)
+            try
             {
-                message += ex.InnerException.Message+ Environment.NewLine;
+                string errorPath = ex.ToString();
+                string message = ex.Message.ToString() + Environment.NewLine;
+                while (ex.InnerException != null)
+                {
+                    message += ex.InnerException.Message.ToString() + Environment.NewLine;
+                    ex= ex.InnerException;
+                }
+                string ErrorlineNo = ex.StackTrace.Substring(ex.StackTrace.Length - 7, 7).ToString();
+                string date = DateTime.Now.ToString();
+                string UserDetail = CommonAuth.GetCurrentUserId().ToString();
+                string design = "==============================================================";
+                string pathName = Path.Combine(ConfigurationManager.AppSettings["LogUrl"] + DateTime.Now.ToString("dd-MM-yyyy")+".txt");
+                if (File.Exists(pathName))
+                {
+                    File.AppendAllText(pathName, design + Environment.NewLine+date + Environment.NewLine  + "Current UserId = " + UserDetail
+                        + Environment.NewLine + message + Environment.NewLine+ ErrorlineNo + Environment.NewLine +errorPath+Environment.NewLine+ design + Environment.NewLine + Environment.NewLine);
+                }
+                else
+                {
+                    File.WriteAllText(pathName, date + Environment.NewLine + design + Environment.NewLine + "Current UserId = " + UserDetail
+                        + Environment.NewLine + message + Environment.NewLine + ErrorlineNo+errorPath + Environment.NewLine + Environment.NewLine + design + Environment.NewLine + Environment.NewLine);
+                }
             }
-            string date = DateTime.Now.ToString();
-            string design = "==============================================================";
-            string pathName = Path.Combine("D:\\Projects\\Assignments\\test\\test2.txt");
-            if (File.Exists(pathName))
+            catch(Exception e)
             {
-                File.AppendAllText(pathName,date + Environment.NewLine+design + Environment.NewLine + message + Environment.NewLine+design);
-            }
-            else
-            {
-                File.WriteAllText(pathName, message + Environment.NewLine);
+
             }
         }
     }

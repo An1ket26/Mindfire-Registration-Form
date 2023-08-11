@@ -1,34 +1,44 @@
-﻿.heading{
+﻿body {
+    /*background-color: #efefef*/
+}
+.heading{
     margin-left:44%;
 }
+table{
+    border:none;
+}
+
 
 .UserList-Table {
-    border: 2px solid black;
-    margin-left: 6%;
+    /*border: 2px solid black;*/
+    margin-left: 5%;
 }
 
 .UserList-Header {
-    background-color: #646464;
+    background-color: #060606;
     font-family: Arial;
-    color: White;
-    border: none 0px transparent;
-    height: 25px;
+    color: #e1e1e1;
+    height: 40px;
     text-align: center;
     font-size: 16px;
 }
 
-/*.UserList-Rows:hover {
-    background-color: #ff8000;
-    color: #fff;
-}*/
-
-.UserList-Rows td:last-child{
-    display:flex;
-    justify-content:space-evenly
+tr th:last-child{
+    display:none;
+    border:none;
 }
 
-.width-70{
-    width:70px;
+.UserList-Rows td:last-child{
+    display:none;
+}
+
+.UserList-Rows:hover td:last-child {
+    display: flex;
+    border:none;
+}
+
+.width-70 {
+    width: 70px;
 }
 
 .width-150{
@@ -38,6 +48,7 @@
 .width-250{
     width:200px;
 }
+
 .AddUser-btn{
     margin-left:45%;
     background: green;
@@ -56,7 +67,8 @@
     text-align: center;
     vertical-align: middle;
 }
-.EditUser-btn {
+
+/*.EditUser-btn {
     background: blue;
     border: 1px solid black;
     border-radius: 6px;
@@ -70,8 +82,18 @@
     padding: 10px;
     text-align: center;
     vertical-align: middle;
+}*/
+
+.EditUser-btnImage{
+    height:40px;
+    width:40px;
 }
-.DeleteUser-btn {
+
+.DeleteUser-btnImage{
+    height:50px;
+    width:50px;
+}
+/*.DeleteUser-btn {
     background: red;
     border: 1px solid black;
     border-radius: 6px;
@@ -82,10 +104,10 @@
     display: inline-block;
     font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
     font-size: 14px;
-    padding:10px;
+    padding: 10px;
     text-align: center;
     vertical-align: middle;
-}
+}*/
 
 .AddUser-btn:hover,
 .AddUser-btn:active {
@@ -107,5 +129,77 @@
     padding: 10px;
     text-align: center;
     vertical-align: middle;
-    margin-left:90%;
+    margin-left: 90%;
+    position: absolute;
+}
+
+td{
+    padding:5px;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-Image {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-bottom: none;
+    width: 30%;
+    height: 90px;
+}
+
+.modal-Image img {
+    height: 80px;
+    margin-left: 40%;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    border-top: none;
+    border-bottom: none;
+}
+
+.modal-content h3 {
+    margin-left: 15%;
+}
+
+.modal-close {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    border-top: none;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.modal-close button {
+    margin-left: 45%;
+}
+
+#UserImageId{
+    height:50px;
+    width:70px;
+    border-radius:50%;
 }

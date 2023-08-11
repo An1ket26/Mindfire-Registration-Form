@@ -1,0 +1,2448 @@
+10-08-2023 11:49:39
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 11:49:43
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 11:49:43
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 11:51:53
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 11:51:57
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 11:51:58
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:06:48
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:06:53
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:07:15
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:07:16
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:14:44
+==============================================================
+Current UserId = 0
+http://www.empmanage.com/
+
+==============================================================
+
+10-08-2023 12:16:34
+==============================================================
+Current UserId = 0
+loginpage
+
+==============================================================
+
+10-08-2023 12:18:20
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:18:25
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:18:27
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:18:36
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:19:42
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:20:44
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:25:50
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:29:32
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:31:15
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:31:28
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:31:28
+==============================================================
+Current UserId = 12
+Object reference not set to an instance of an object.
+
+==============================================================
+
+10-08-2023 12:32:14
+==============================================================
+Current UserId = 12
+Object reference not set to an instance of an object.
+
+==============================================================
+
+10-08-2023 12:33:01
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:33:14
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+==============================================================
+
+10-08-2023 12:33:15
+==============================================================
+Current UserId = 12
+Object reference not set to an instance of an object.
+
+==============================================================
+
+10-08-2023 12:36:58
+==============================================================
+Current UserId = 12
+Object reference not set to an instance of an object.
+
+==============================================================
+
+10-08-2023 12:37:24
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 36
+==============================================================
+
+10-08-2023 12:39:20
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+==============================================================
+
+10-08-2023 12:39:21
+==============================================================
+Current UserId = 12
+Object reference not set to an instance of an object.
+
+line 38
+==============================================================
+
+10-08-2023 12:42:12
+==============================================================
+Current UserId = 12
+Object reference not set to an instance of an object.
+
+line 38
+==============================================================
+
+10-08-2023 12:42:29
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 36
+==============================================================
+
+10-08-2023 12:44:19
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+==============================================================
+
+10-08-2023 12:45:50
+==============================================================
+Current UserId = 12
+Object reference not set to an instance of an object.
+
+line 38
+==============================================================
+
+10-08-2023 12:45:51
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 21
+==============================================================
+
+10-08-2023 12:45:51
+==============================================================
+Current UserId = 12
+Object reference not set to an instance of an object.
+
+line 38
+==============================================================
+
+10-08-2023 12:50:00
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 36
+==============================================================
+
+10-08-2023 12:50:14
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+==============================================================
+
+10-08-2023 12:50:15
+==============================================================
+Current UserId = 12
+DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'FirstName'.
+
+line 44
+==============================================================
+
+10-08-2023 12:51:38
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 36
+==============================================================
+
+10-08-2023 12:51:50
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+==============================================================
+
+10-08-2023 12:51:52
+==============================================================
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'.
+
+nously)
+==============================================================
+
+10-08-2023 12:51:52
+==============================================================
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'.
+
+nously)
+==============================================================
+
+10-08-2023 12:52:15
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 60
+==============================================================
+
+10-08-2023 12:52:25
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 12:52:26
+==============================================================
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'.
+
+nously)
+==============================================================
+
+10-08-2023 12:53:40
+==============================================================
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'.
+
+nously)
+==============================================================
+
+10-08-2023 12:53:46
+==============================================================
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'.
+
+nously)
+==============================================================
+
+10-08-2023 12:53:57
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 60
+==============================================================
+
+10-08-2023 12:54:25
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 13:02:55
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 36
+==============================================================
+
+10-08-2023 13:04:17
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+==============================================================
+
+10-08-2023 13:04:19
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 60
+==============================================================
+
+10-08-2023 13:04:24
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 13:04:24
+==============================================================
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'.
+
+nously)
+==============================================================
+
+10-08-2023 13:04:28
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 60
+==============================================================
+
+10-08-2023 13:04:37
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 177
+==============================================================
+
+10-08-2023 13:04:53
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 60
+==============================================================
+
+10-08-2023 13:04:58
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 13:05:26
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 60
+==============================================================
+
+10-08-2023 13:08:25
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 13:08:26
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 60
+==============================================================
+
+10-08-2023 13:08:41
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 13:08:41
+==============================================================
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'.
+
+nously)
+==============================================================
+
+10-08-2023 13:08:48
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 60
+==============================================================
+
+10-08-2023 13:08:48
+==============================================================
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.comNA'.
+
+nously)
+==============================================================
+
+10-08-2023 13:10:50
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 22
+==============================================================
+
+10-08-2023 13:11:04
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+==============================================================
+
+10-08-2023 13:11:05
+==============================================================
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'.
+
+nously)
+==============================================================
+
+10-08-2023 13:11:07
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 60
+==============================================================
+
+10-08-2023 13:11:07
+==============================================================
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\aniket@gmail.comNA'.nously)
+==============================================================
+
+10-08-2023 13:11:25
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 13:11:27
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 60
+==============================================================
+
+10-08-2023 13:11:31
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 13:13:08
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 36
+==============================================================
+
+10-08-2023 13:13:26
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+==============================================================
+
+10-08-2023 13:13:26
+==============================================================
+Current UserId = 12
+Something went wrong
+
+line 45
+==============================================================
+
+10-08-2023 13:15:11
+==============================================================
+Current UserId = 12
+Something went wrong
+
+line 45
+==============================================================
+
+10-08-2023 13:15:18
+==============================================================
+Current UserId = 12
+Something went wrong
+
+line 45
+==============================================================
+
+10-08-2023 13:15:35
+==============================================================
+Current UserId = 12
+Something went wrong
+
+line 45
+==============================================================
+
+10-08-2023 13:15:39
+==============================================================
+Current UserId = 12
+Something went wrong
+
+line 45
+==============================================================
+
+10-08-2023 13:16:22
+==============================================================
+Current UserId = 12
+Something went wrong
+
+line 45
+==============================================================
+
+10-08-2023 13:16:25
+==============================================================
+Current UserId = 12
+Something went wrong
+
+line 45
+==============================================================
+
+10-08-2023 13:18:02
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 36
+==============================================================
+
+10-08-2023 13:18:35
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+==============================================================
+
+10-08-2023 13:20:50
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 36
+==============================================================
+
+10-08-2023 13:21:03
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+==============================================================
+
+10-08-2023 13:21:06
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+==============================================================
+
+10-08-2023 13:21:09
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 13:21:20
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+==============================================================
+
+10-08-2023 13:24:49
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 22
+==============================================================
+
+10-08-2023 13:25:18
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+==============================================================
+
+10-08-2023 13:25:26
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+==============================================================
+
+10-08-2023 13:25:35
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 13:25:36
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+ine 148
+==============================================================
+
+10-08-2023 13:25:36
+==============================================================
+Current UserId = 0
+Object reference not set to an instance of an object.
+
+nously)
+==============================================================
+
+10-08-2023 13:25:37
+==============================================================
+Current UserId = 0
+Object reference not set to an instance of an object.
+
+nously)
+==============================================================
+
+10-08-2023 14:00:25
+==============================================================
+Current UserId = 13
+Thread was being aborted.
+
+line 44
+==============================================================
+
+10-08-2023 14:01:28
+==============================================================
+Current UserId = 13
+Thread was being aborted.
+
+line 47
+==============================================================
+
+10-08-2023 14:12:46
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+ine 281
+==============================================================
+
+10-08-2023 14:12:48
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 65
+==============================================================
+
+10-08-2023 14:13:06
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+ine 173
+==============================================================
+
+10-08-2023 14:18:29
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+==============================================================
+
+10-08-2023 14:35:05
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+ine 148
+==============================================================
+
+10-08-2023 14:35:08
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 65
+==============================================================
+
+10-08-2023 14:35:39
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+ine 173
+==============================================================
+
+10-08-2023 14:35:46
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+==============================================================
+
+10-08-2023 14:35:50
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+==============================================================
+
+10-08-2023 14:35:51
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 14:45:59
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+==============================================================
+
+10-08-2023 14:46:05
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 15:00:17
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+==============================================================
+
+10-08-2023 15:03:58
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 15:10:44
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+==============================================================
+
+10-08-2023 15:10:46
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 278
+==============================================================
+
+10-08-2023 15:11:51
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 36
+==============================================================
+
+10-08-2023 15:12:01
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+==============================================================
+
+10-08-2023 15:15:32
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+==============================================================
+
+10-08-2023 15:15:43
+==============================================================
+Current UserId = 12
+Object reference not set to an instance of an object.
+
+ine 121
+==============================================================
+
+10-08-2023 15:15:49
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 277
+==============================================================
+
+10-08-2023 15:15:53
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+==============================================================
+
+10-08-2023 15:15:59
+==============================================================
+Current UserId = 12
+Object reference not set to an instance of an object.
+
+ine 121
+==============================================================
+
+10-08-2023 15:16:10
+==============================================================
+Current UserId = 12
+Thread was being aborted.
+
+ine 277
+==============================================================
+
+10-08-2023 15:16:19
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+ine 148
+==============================================================
+
+10-08-2023 15:16:27
+==============================================================
+Current UserId = 13
+Thread was being aborted.
+
+line 44
+==============================================================
+
+10-08-2023 15:16:31
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+ine 280
+==============================================================
+
+10-08-2023 15:16:34
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 22
+==============================================================
+
+10-08-2023 15:16:43
+==============================================================
+Current UserId = 13
+Thread was being aborted.
+
+line 44
+==============================================================
+
+10-08-2023 15:16:47
+==============================================================
+Current UserId = 13
+Thread was being aborted.
+
+line 28
+==============================================================
+
+10-08-2023 15:16:56
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+ine 280
+==============================================================
+
+10-08-2023 15:17:03
+==============================================================
+Current UserId = 13
+Thread was being aborted.
+
+line 44
+==============================================================
+
+10-08-2023 15:17:19
+==============================================================
+Current UserId = 13
+Thread was being aborted.
+
+line 28
+==============================================================
+
+10-08-2023 15:18:01
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+ine 280
+==============================================================
+
+10-08-2023 15:18:03
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+line 65
+==============================================================
+
+10-08-2023 15:18:07
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+ine 172
+==============================================================
+
+10-08-2023 15:18:16
+==============================================================
+Current UserId = 13
+Thread was being aborted.
+
+line 44
+==============================================================
+
+10-08-2023 15:26:12
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+ine 280
+==============================================================
+
+10-08-2023 15:26:24
+==============================================================
+Current UserId = 13
+Thread was being aborted.
+
+line 44
+==============================================================
+
+10-08-2023 15:26:36
+==============================================================
+Current UserId = 13
+Thread was being aborted.
+
+line 65
+==============================================================
+
+10-08-2023 15:26:55
+==============================================================
+Current UserId = 13
+Thread was being aborted.
+
+line 44
+==============================================================
+
+10-08-2023 15:27:00
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+ine 280
+==============================================================
+
+10-08-2023 15:27:11
+==============================================================
+Current UserId = 13
+Thread was being aborted.
+
+line 44
+==============================================================
+
+10-08-2023 15:37:55
+==============================================================
+Current UserId = 0
+Thread was being aborted.
+
+ine 280
+==============================================================
+
+10-08-2023 15:38:43
+==============================================================
+Current UserId = 0
+login error
+line 23
+==============================================================
+
+10-08-2023 15:41:11
+==============================================================
+Current UserId = 0
+login error
+
+line 23
+==============================================================
+
+10-08-2023 15:42:03
+==============================================================
+Current UserId = 0
+login error
+
+line 23
+==============================================================
+
+10-08-2023 15:44:06
+==============================================================
+System.Exception: login error
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 23Current UserId = 0
+login error
+
+line 23
+==============================================================
+
+10-08-2023 15:47:09
+==============================================================
+Current UserId = 0
+login error
+line 23
+System.Exception: login error
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 23
+==============================================================
+
+==============================================================
+10-08-2023 15:48:17
+Current UserId = 0
+login error
+
+line 23
+System.Exception: login error
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 23
+==============================================================
+
+==============================================================
+10-08-2023 15:58:15
+Current UserId = 0
+login error
+
+line 23
+System.Exception: login error
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 23
+==============================================================
+
+==============================================================
+10-08-2023 16:02:24
+Current UserId = 0
+login error
+
+line 23
+System.Exception: login error
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 23
+==============================================================
+
+==============================================================
+10-08-2023 16:02:24
+Current UserId = 0
+Thread was being aborted.
+
+line 67
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.RegisterClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 67
+==============================================================
+
+==============================================================
+10-08-2023 16:02:37
+Current UserId = 0
+Thread was being aborted.
+
+line 22
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at UserRegistration.Auth.Page_Init(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\Auth.cs:line 22
+==============================================================
+
+==============================================================
+10-08-2023 16:02:37
+Current UserId = 0
+login error
+
+line 23
+System.Exception: login error
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 23
+==============================================================
+
+==============================================================
+10-08-2023 16:03:07
+Current UserId = 0
+Thread was being aborted.
+
+line 67
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.RegisterClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 67
+==============================================================
+
+==============================================================
+10-08-2023 16:03:30
+Current UserId = 0
+Thread was being aborted.
+
+line 22
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at UserRegistration.Auth.Page_Init(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\Auth.cs:line 22
+==============================================================
+
+==============================================================
+10-08-2023 16:03:54
+Current UserId = 0
+Thread was being aborted.
+
+line 67
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.RegisterClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 67
+==============================================================
+
+==============================================================
+10-08-2023 16:04:04
+Current UserId = 0
+Thread was being aborted.
+
+line 22
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at UserRegistration.Auth.Page_Init(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\Auth.cs:line 22
+==============================================================
+
+==============================================================
+10-08-2023 16:09:15
+Current UserId = 12
+Thread was being aborted.
+
+line 42
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 42
+==============================================================
+
+==============================================================
+10-08-2023 16:09:19
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+10-08-2023 16:09:23
+Current UserId = 12
+Thread was being aborted.
+
+ine 276
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 276
+==============================================================
+
+==============================================================
+10-08-2023 16:09:25
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+10-08-2023 16:09:34
+Current UserId = 12
+Thread was being aborted.
+
+ine 276
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 276
+==============================================================
+
+==============================================================
+10-08-2023 16:09:37
+Current UserId = 0
+Thread was being aborted.
+
+ine 143
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 143
+==============================================================
+
+==============================================================
+10-08-2023 16:09:46
+Current UserId = 13
+Thread was being aborted.
+
+line 46
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 46
+==============================================================
+
+==============================================================
+10-08-2023 16:10:16
+Current UserId = 0
+Thread was being aborted.
+
+line 22
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at UserRegistration.Auth.Page_Init(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\Auth.cs:line 22
+==============================================================
+
+==============================================================
+10-08-2023 16:10:26
+Current UserId = 13
+Thread was being aborted.
+
+line 46
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 46
+==============================================================
+
+==============================================================
+10-08-2023 16:15:35
+Current UserId = 0
+Thread was being aborted.
+
+ine 279
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 279
+==============================================================
+
+==============================================================
+10-08-2023 16:27:24
+Current UserId = 12
+Thread was being aborted.
+
+line 42
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 42
+==============================================================
+
+==============================================================
+10-08-2023 16:27:34
+Current UserId = 12
+Thread was being aborted.
+
+line 21
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 21
+==============================================================
+
+==============================================================
+10-08-2023 16:27:40
+Current UserId = 12
+Thread was being aborted.
+
+line 21
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 21
+==============================================================
+
+==============================================================
+10-08-2023 16:27:44
+Current UserId = 0
+Thread was being aborted.
+
+ine 143
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 143
+==============================================================
+
+==============================================================
+10-08-2023 16:28:04
+Current UserId = 12
+Thread was being aborted.
+
+line 42
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 42
+==============================================================
+
+==============================================================
+10-08-2023 16:28:41
+Current UserId = 12
+Thread was being aborted.
+
+line 21
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 21
+==============================================================
+
+==============================================================
+10-08-2023 16:28:46
+Current UserId = 12
+Thread was being aborted.
+
+line 21
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 21
+==============================================================
+
+==============================================================
+10-08-2023 16:28:58
+Current UserId = 12
+Thread was being aborted.
+
+line 21
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 21
+==============================================================
+
+==============================================================
+10-08-2023 16:39:42
+Current UserId = 0
+Thread was being aborted.
+
+ine 143
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 143
+==============================================================
+
+==============================================================
+10-08-2023 16:43:02
+Current UserId = 12
+Thread was being aborted.
+
+line 42
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 42
+==============================================================
+
+==============================================================
+10-08-2023 16:43:08
+Current UserId = 12
+Thread was being aborted.
+
+line 21
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 21
+==============================================================
+
+==============================================================
+10-08-2023 16:43:19
+Current UserId = 12
+Thread was being aborted.
+
+line 21
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 21
+==============================================================
+
+==============================================================
+10-08-2023 16:43:20
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+10-08-2023 16:43:41
+Current UserId = 12
+Thread was being aborted.
+
+line 21
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.Page_Load(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 21
+==============================================================
+
+==============================================================
+10-08-2023 16:43:43
+Current UserId = 0
+Thread was being aborted.
+
+ine 143
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 143
+==============================================================
+
+==============================================================
+10-08-2023 16:43:50
+Current UserId = 13
+Thread was being aborted.
+
+line 46
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 46
+==============================================================
+
+==============================================================
+10-08-2023 16:44:04
+Current UserId = 13
+Thread was being aborted.
+
+line 67
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.RegisterClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 67
+==============================================================
+
+==============================================================
+10-08-2023 16:47:55
+Current UserId = 13
+Thread was being aborted.
+
+line 67
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.RegisterClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 67
+==============================================================
+
+==============================================================
+10-08-2023 16:49:24
+Current UserId = 13
+Thread was being aborted.
+
+line 28
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at UserRegistration.Auth.Page_Init(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\Auth.cs:line 28
+==============================================================
+
+==============================================================
+10-08-2023 16:49:36
+Current UserId = 0
+Thread was being aborted.
+
+ine 280
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 280
+==============================================================
+
+==============================================================
+10-08-2023 16:49:39
+Current UserId = 0
+Thread was being aborted.
+
+line 67
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.RegisterClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 67
+==============================================================
+
+==============================================================
+10-08-2023 16:49:46
+Current UserId = 0
+Thread was being aborted.
+
+ine 173
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.CancelLogoutBtn(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 173
+==============================================================
+
+==============================================================
+10-08-2023 16:49:49
+Current UserId = 0
+Thread was being aborted.
+
+line 67
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.RegisterClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 67
+==============================================================
+
+==============================================================
+10-08-2023 16:50:57
+Current UserId = 12
+Thread was being aborted.
+
+line 42
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 42
+==============================================================
+
+==============================================================
+10-08-2023 16:50:57
+Current UserId = 12
+Length cannot be less than zero.
+Parameter name: length
+
+line 45
+System.ArgumentOutOfRangeException: Length cannot be less than zero.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at EmployeeManagement.DataAccess.UserData.GetAllUserData() in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\UserData.cs:line 54
+   at EmployeeMangement.Business.UserBusiness.GetAllUser() in D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\UserBusiness.cs:line 17
+   at EmployeeManagements.Web.UserList.BindGrid() in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 45
+==============================================================
+
+==============================================================
+10-08-2023 16:51:01
+Current UserId = 0
+Thread was being aborted.
+
+ine 143
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 143
+==============================================================
+
+==============================================================
+10-08-2023 16:51:09
+Current UserId = 12
+Thread was being aborted.
+
+line 42
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 42
+==============================================================
+
+==============================================================
+10-08-2023 16:51:09
+Current UserId = 12
+Length cannot be less than zero.
+Parameter name: length
+
+line 45
+System.ArgumentOutOfRangeException: Length cannot be less than zero.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at EmployeeManagement.DataAccess.UserData.GetAllUserData() in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\UserData.cs:line 54
+   at EmployeeMangement.Business.UserBusiness.GetAllUser() in D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\UserBusiness.cs:line 17
+   at EmployeeManagements.Web.UserList.BindGrid() in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 45
+==============================================================
+
+==============================================================
+10-08-2023 16:52:31
+Current UserId = 0
+Thread was being aborted.
+
+ine 143
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 143
+==============================================================
+
+==============================================================
+10-08-2023 16:54:06
+Current UserId = 12
+Thread was being aborted.
+
+line 42
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 42
+==============================================================
+
+==============================================================
+10-08-2023 16:54:54
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+10-08-2023 16:54:54
+Current UserId = 12
+Length cannot be less than zero.
+Parameter name: length
+
+ine 122
+System.ArgumentOutOfRangeException: Length cannot be less than zero.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at EmployeeManagement.DataAccess.UserData.GetUserDetailsById(Int32 id) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\UserData.cs:line 180
+   at EmployeeMangement.Business.UserBusiness.GetUserById(Int32 id) in D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\UserBusiness.cs:line 28
+   at EmployeeManagements.Web.UserDetails.FetchUser(String userId) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 122
+==============================================================
+
+==============================================================
+10-08-2023 16:54:58
+Current UserId = 12
+Thread was being aborted.
+
+ine 277
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 277
+==============================================================
+
+==============================================================
+10-08-2023 16:54:59
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+10-08-2023 16:55:01
+Current UserId = 12
+Thread was being aborted.
+
+ine 277
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 277
+==============================================================
+
+==============================================================
+10-08-2023 16:55:03
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+10-08-2023 16:55:04
+Current UserId = 12
+Length cannot be less than zero.
+Parameter name: length
+
+line 122
+System.ArgumentOutOfRangeException: Length cannot be less than zero.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at EmployeeManagement.DataAccess.UserData.GetUserDetailsById(Int32 id) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagement.DataAccess\UserData.cs:line 180
+   at EmployeeMangement.Business.UserBusiness.GetUserById(Int32 id) in D:\Projects\Assignments\c#\UserRegistration\EmployeeMangement.Business\UserBusiness.cs:line 28
+   at EmployeeManagements.Web.UserDetails.FetchUser(String userId) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 122
+==============================================================
+
+==============================================================
+10-08-2023 16:56:40
+Current UserId = 12
+Thread was being aborted.
+
+ine 277
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 277
+==============================================================
+
+==============================================================
+10-08-2023 16:56:45
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+10-08-2023 16:56:52
+Current UserId = 12
+Thread was being aborted.
+
+ine 277
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 277
+==============================================================
+
+==============================================================
+10-08-2023 16:56:53
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+10-08-2023 16:56:58
+Current UserId = 12
+Thread was being aborted.
+
+ine 277
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 277
+==============================================================
+
+==============================================================
+10-08-2023 16:57:08
+Current UserId = 12
+Thread was being aborted.
+
+ine 131
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.AddUser(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 131
+==============================================================
+
+==============================================================
+10-08-2023 16:57:13
+Current UserId = 12
+Thread was being aborted.
+
+ine 177
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.CancelLogoutBtn(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 177
+==============================================================
+
+==============================================================
+10-08-2023 16:57:15
+Current UserId = 0
+Thread was being aborted.
+
+ine 143
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 143
+==============================================================
+
+==============================================================
+10-08-2023 16:57:16
+Current UserId = 0
+Thread was being aborted.
+
+line 67
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.RegisterClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 67
+==============================================================
+
+==============================================================
+10-08-2023 16:57:47
+Current UserId = 0
+Thread was being aborted.
+
+line 67
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.RegisterClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 67
+==============================================================
+
+==============================================================
+10-08-2023 16:59:05
+Current UserId = 12
+Thread was being aborted.
+
+line 42
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 42
+==============================================================
+
+==============================================================
+10-08-2023 16:59:36
+Current UserId = 12
+Thread was being aborted.
+
+ine 131
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.AddUser(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 131
+==============================================================
+
+==============================================================
+10-08-2023 16:59:41
+Current UserId = 12
+Thread was being aborted.
+
+ine 177
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.CancelLogoutBtn(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 177
+==============================================================
+
+==============================================================
+10-08-2023 17:00:13
+Current UserId = 0
+Thread was being aborted.
+
+ine 143
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 143
+==============================================================
+
+==============================================================
+10-08-2023 17:00:23
+Current UserId = 12
+Thread was being aborted.
+
+line 44
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 44
+==============================================================
+
+==============================================================
+10-08-2023 17:00:41
+Current UserId = 12
+Thread was being aborted.
+
+line 44
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 44
+==============================================================
+
+==============================================================
+10-08-2023 17:02:10
+Current UserId = 0
+Thread was being aborted.
+
+ine 143
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 143
+==============================================================
+
+==============================================================
+10-08-2023 17:02:27
+Current UserId = 13
+Thread was being aborted.
+
+line 44
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 44
+==============================================================
+
+==============================================================
+10-08-2023 17:02:35
+Current UserId = 0
+Thread was being aborted.
+
+line 65
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.RegisterClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 65
+==============================================================
+
+==============================================================
+10-08-2023 17:02:36
+Current UserId = 0
+Thread was being aborted.
+
+ine 173
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.CancelLogoutBtn(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 173
+==============================================================
+
+==============================================================
+10-08-2023 17:02:54
+Current UserId = 13
+Thread was being aborted.
+
+line 44
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 44
+==============================================================
+
+==============================================================
+10-08-2023 17:03:34
+Current UserId = 0
+Thread was being aborted.
+
+ine 280
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 280
+==============================================================
+
+==============================================================
+10-08-2023 17:07:47
+Current UserId = 13
+Thread was being aborted.
+
+line 44
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 44
+==============================================================
+
+==============================================================
+10-08-2023 21:27:58
+Current UserId = 0
+Thread was being aborted.
+
+line 22
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at UserRegistration.Auth.Page_Init(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\Auth.cs:line 22
+==============================================================
+
+==============================================================
+10-08-2023 21:28:29
+Current UserId = 12
+Thread was being aborted.
+
+line 40
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 40
+==============================================================
+
+==============================================================
+10-08-2023 21:28:40
+Current UserId = 12
+Thread was being aborted.
+
+line 66
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.OnRowEditing(Object sender, GridViewEditEventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 66
+==============================================================
+
+==============================================================
+10-08-2023 21:30:08
+Current UserId = 12
+Thread was being aborted.
+
+ine 277
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 277
+==============================================================
+
+==============================================================
+10-08-2023 21:30:13
+Current UserId = 12
+Thread was being aborted.
+
+ine 131
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.AddUser(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 131
+==============================================================
+
+==============================================================
+10-08-2023 21:32:54
+Current UserId = 12
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\NA'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 38
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+10-08-2023 21:33:10
+Current UserId = 0
+Thread was being aborted.
+
+ine 143
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserList.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserList.aspx.cs:line 143
+==============================================================
+
+==============================================================
+10-08-2023 21:33:25
+Current UserId = 22
+Thread was being aborted.
+
+line 44
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.LoginPage.LoginClick(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\LoginPage.aspx.cs:line 44
+==============================================================
+
+==============================================================
+10-08-2023 21:33:25
+Current UserId = 22
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.comNA'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.comNA'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.comNA'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 38
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+10-08-2023 21:34:12
+Current UserId = 22
+Thread was being aborted.
+
+line 28
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at UserRegistration.Auth.Page_Init(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\Auth.cs:line 28
+==============================================================
+
+==============================================================
+10-08-2023 21:34:12
+Current UserId = 22
+Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.comNA'.
+
+nously)
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.comNA'.
+File name: 'D:\Projects\Assignments\c#\UserRegistration\Images\sr@gmail.comNA'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at UserRegistration.ImageDownloadHandler.ProcessRequest(HttpContext context) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\ImageDownloadHandler.ashx.cs:line 38
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+==============================================================
+
+==============================================================
+10-08-2023 21:34:18
+Current UserId = 0
+Thread was being aborted.
+
+ine 280
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at EmployeeManagements.Web.UserDetails.Logout(Object sender, EventArgs e) in D:\Projects\Assignments\c#\UserRegistration\EmployeeManagements.Web\UserDetails.aspx.cs:line 280
+==============================================================
+

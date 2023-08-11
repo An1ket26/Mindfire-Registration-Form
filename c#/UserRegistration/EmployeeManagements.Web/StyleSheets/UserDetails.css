@@ -4,8 +4,26 @@
     font-family: "Tinos", serif;
 }
 
-.div-hide{
-    display:none;
+.loading-icon {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+.loading-icon img{
+    margin-left:50%;
+    margin-top:10%;
+}
+
+.div-hide {
+    display: none;
 }
 
 .navbar {
@@ -31,7 +49,7 @@
     color:black;
 }
 .nav-links:hover{
-    cursor:grabbing;
+    cursor:pointer;
 }
 
 
@@ -186,52 +204,6 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-.Notes-Heading{
-    /*margin-left:48%;*/
-}
-
-.Notes-Table {
-    border: 2px solid black;
-    color: black;
-    border-radius: 10px;
-    border-style: hidden;
-    box-shadow: 0 0 0 2px #666;
-    overflow: hidden;
-    width:800px;
-}
-.Notes-Table td {
-    border-top: 0px;
-    border-right: 0px;
-    border-left: 0px;
-    border-bottom: 1px solid black;
-}
-.Notes-Table tr:last-child td {
-    border-bottom:0px;
-}
-.UserNotes-Header {
-    background-color: #646464;
-    font-family: Arial;
-    color: White;
-    border: none 0px transparent;
-    height: 25px;
-    text-align: center;
-    font-size: 16px;
-}
-.UserNotes-Rows td:last-child {
-    
-    padding:5px;
-}
-
-.UserNotes-Rows td span{
-    margin-left:35%;
-}
-
-.note-error-hide{
-    display:none;
-}
-.note-error-show{
-    color:red;
-}
 
 .width-70 {
     width: 60px;
@@ -244,21 +216,7 @@ input::-webkit-inner-spin-button {
     width: 400px;
 }
 
-.Notes-div-control {
-    margin-left:15%;
-}
 
-.width-70pp {
-    width: 15%;
-}
-
-.width-150pp {
-    width: 20%;
-}
-
-.width-250pp {
-    width: 50%;
-}
 
 
 .result-div {
@@ -273,65 +231,7 @@ input::-webkit-inner-spin-button {
     margin-top: 10%;
     margin-bottom: 10%;
 }
-#NotesDiv {
-    padding-left:10px;
-}
-    
-.AddNote-btn {
-    background: green;
-    border: 1px solid black;
-    border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
-    font-size: 16px;
-    line-height: 16px;
-    padding: 12px 14px;
-    text-align: center;
-    vertical-align: middle;
-    width:70px;
-}
-#txtAddnote{
-    height:40px;
-    width:300px;
-}
 
-.EditNote-btn {
-    background: blue;
-    border: 1px solid black;
-    border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
-    font-size: 14px;
-    padding: 10px;
-    text-align: center;
-    vertical-align: middle;
-    width: 70px;
-}
-
-.DeleteNote-btn {
-    background: red;
-    border: 1px solid black;
-    border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
-    font-size: 14px;
-    padding: 10px;
-    text-align: center;
-    vertical-align: middle;
-    width:70px;
-}
 
 .result-header {
     background-color: #eff0f1;
@@ -368,12 +268,67 @@ input::-webkit-inner-spin-button {
     color: black;
 }
 
-.show-notes{
-    display:block;
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
-.hide-notes{
-    display:none;
+
+.modal-Image {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-bottom: none;
+    width: 30%;
+    height: 90px;
 }
+
+    .modal-Image img {
+        height: 80px;
+        margin-left: 40%;
+    }
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    border-top: none;
+    border-bottom: none;
+}
+
+    .modal-content h3 {
+        margin-left: 15%;
+    }
+
+.modal-close {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    border-top: none;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+    .modal-close button {
+        margin-left: 45%;
+    }
 
 @media (max-width: 486px) {
     * {

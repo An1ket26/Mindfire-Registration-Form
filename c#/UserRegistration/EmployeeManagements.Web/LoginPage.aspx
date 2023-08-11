@@ -36,6 +36,19 @@
             </div>
         </form>
     </div>
+    <div id="myModal" class="modal">
+        <div class="modal-Image">
+            <img src="Images/cancel.png" />
+        </div>
+       
+        <div class="modal-content">
+            <h3 id="errorMessage">Invalid Email or Password</h3>
+        </div>
+        <div class="modal-close">
+            <button id="CloseModal">Close</button>
+        </div>
+    </div>
+    <script src="Scripts/LoginPage.js"></script>
 </body>
 </html>
 

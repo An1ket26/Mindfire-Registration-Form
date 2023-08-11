@@ -1,0 +1,31 @@
+hi hello worldFile Coming
+File Coming
+File Coming
+File Coming
+System.Web.HttpPostedFile
+photo.jpeg
+File Coming
+System.Web.HttpPostedFile
+photo.jpeg
+File Coming
+System.Web.HttpPostedFile
+photo.jpeg
+avatar.jfif
+Textbox changed
+Aniket
+Textbox changed
+Cookie
+Textbox changed
+Cookies
+Textbox changed
+Cookies Changed
+Textbox changed
+Cookie
+Textbox changed
+Cookie Added
+Textbox changed
+Cookies
+Textbox changed
+Session
+Textbox changed
+Session

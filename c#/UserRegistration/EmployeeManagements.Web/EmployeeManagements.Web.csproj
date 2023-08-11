@@ -162,7 +162,9 @@
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\LoginPage.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\testings.js" />
     <Content Include="Scripts\UserDetails.js" />
     <Content Include="Scripts\UserDocument.js" />
     <Content Include="Scripts\UserNotes.js" />
@@ -184,6 +186,7 @@
     <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
     <Content Include="Scripts\WebForms\SmartNav.js" />
     <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\UserList.js" />
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
@@ -192,6 +195,7 @@
     <Content Include="StyleSheets\UserDetails.css" />
     <Content Include="StyleSheets\UserDocument.css" />
     <Content Include="StyleSheets\UserList.css" />
+    <Content Include="StyleSheets\UserNotes.css" />
     <Content Include="UserDetails.aspx" />
     <Content Include="UserDocumentControl.ascx" />
     <Content Include="UserList.aspx" />

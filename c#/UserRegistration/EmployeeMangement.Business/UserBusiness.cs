@@ -54,5 +54,10 @@ namespace EmployeeMangement.Business
         {
             return UserData.CheckIsAdmin(userId);
         }
+
+        public static string GetUserEmail(int userId)
+        {
+            return UserData.GetUserEmail(userId);
+        }
     }
 }

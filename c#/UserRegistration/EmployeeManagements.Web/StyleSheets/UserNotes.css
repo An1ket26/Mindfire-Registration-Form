@@ -1,0 +1,87 @@
+﻿.Notes-Heading{
+margin-left:45%;
+}
+
+#MainNoteDiv {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-inline: 40px;
+}
+
+.single-note-div {
+    padding: 20px;
+    height: 150px;
+    /*width: 20%;*/
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: #f7e783;
+    color: #211d1d;
+    margin: 10px;
+}
+.single-note-div .note{
+    font-size:20px;
+    font-weight:800;
+}
+
+.created{
+    padding-top:10px;
+}
+
+.AddNote-btn {
+    background: green;
+    border: 1px solid black;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 12px 14px;
+    text-align: center;
+    vertical-align: middle;
+    width: 70px;
+    margin-bottom:20px;
+}
+
+
+#AddNotesDiv{
+    padding-inline:4%;
+}
+
+.EditNote-btn{
+    width:20px;
+}
+.DeleteNote-btn {
+    width:20px;
+}
+.show-notes {
+    display: block;
+}
+#noteErrorSpan {
+    color: red;
+}
+.note-error-hide {
+    display: none;
+}
+.NotesButtonDiv{
+    padding-top:10px;
+    display:none;
+}
+
+.single-note-div:hover .NotesButtonDiv {
+    padding-top: 10px;
+    display: block;
+}
+.NotesButtonDiv:hover {
+    padding-top: 10px;
+    cursor: pointer
+}
+.note-image{
+    float:left;
+    height:25px;
+    width:25px;
+}

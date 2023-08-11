@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="StyleSheets/UserDetails.css" />
         <link rel="stylesheet" href="StyleSheets/UserDocument.css" />
+        <link rel="stylesheet" href="StyleSheets/UserNotes.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
         <link
@@ -623,7 +624,26 @@
                 <uc:Document runat="server" class="div-hide"></uc:Document>
             </div>
         </form>
+
+
+         <div id="myModal" class="modal">
+            <div class="modal-Image">
+                <img src="Images/cancel.png" />
+            </div>
+       
+            <div class="modal-content">
+                <h3 id="errorMessage">Invalid Email or Password</h3>
+            </div>
+            <div class="modal-close">
+                <button id="CloseModal">Close</button>
+            </div>
+        </div>
+        <div id="loading-div" class="loading-icon">
+            <img src="Images/loading.gif" alt="loading bar"/>
+        </div>
+
        <script src="Scripts/UserDetails.js"></script>
+       <script src="Scripts/testings.js"></script>
     </body>
 </html>
 
